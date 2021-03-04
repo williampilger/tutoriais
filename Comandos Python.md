@@ -2,7 +2,7 @@
 Funcionamento básico do comando **print**
 
 ## Print simples
-Para realizar um print simples, com as variaveis separadas por espaços use:
+Para realizar um print simples, com as variaveis separadas por espaços use
 	> nome = "William"
 	> idade = 23
 	> print("Eu sou", nome, "e tenho", idade, "anos")
@@ -44,19 +44,18 @@ Repare que apenas foi inserido um caractere a mais (um espaço a mais). Caso que
 	O resultado será: **Nasci no dia 02/12/1997**
 
 Para formatar valores float utilize o **:f**, como mostrado abaixo
-> salario = 1256.36
-> print("Meu salário é de {:f} reais")
+	> salario = 1256.36
+	> print("Meu salário é de {:f} reais")
 	> O resultado será: **Meu salário é de 1256,36000 reais**
 
-Para remover os zeros, use **.2** no formatador:
-> salario = 1256.36
-> print("Meu salário é de {:.2f} reais")
+Para remover os zeros, use **.2** no formatador
+	> salario = 1256.36> print("Meu salário é de {:.2f} reais")
 	> O resultado será: **Meu salário é de 1256,36 reais**
 
 	
 Para definir o número TOTAL de digitos (contando junto os após a vírgula), informe a quantidade antes do ponto:
-> salario = 1256.36
-> print("Meu salário é de {:7.2f} reais")
+	> salario = 1256.36
+	> print("Meu salário é de {:7.2f} reais")
 	> O resultado será: **Meu salário é de  1256,36 reais**
 	> Observe o espaço a mais que ficou, pois o número tem apenas 6 dígitos.
 
