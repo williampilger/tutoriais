@@ -4,8 +4,8 @@ Funcionamento básico do comando **print**
 ## Print simples
 Para realizar um print simples, com as variaveis separadas por espaços use
 > nome = "William"
-> idade = 23
-> print("Eu sou", nome, "e tenho", idade, "anos")
+	> idade = 23
+	> print("Eu sou", nome, "e tenho", idade, "anos")
 A resposta será: **Eu sou William e tenho 23 anos**
 
 ## Alterando separador padrão do Print
