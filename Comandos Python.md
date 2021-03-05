@@ -1,5 +1,6 @@
 # print
 Funcionamento básico do comando **print**
+Você pode encontrar a documentação completa (aqui)[https://docs.python.org/3/library/string.html#formatexamples].
 
 ## Print simples
 Para realizar um print simples, com as variaveis separadas por espaços use
