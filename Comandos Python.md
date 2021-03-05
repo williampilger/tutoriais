@@ -67,7 +67,7 @@ Para definir o número TOTAL de digitos (contando junto os após a vírgula), in
 
 	salario = 1256.36
 	print("Meu salário é de {:7.2f} reais")
-	O resultado será: **Meu salário é de  1256,36 reais**
+O resultado será: **Meu salário é de  1256,36 reais**
 Observe o espaço a mais que ficou, pois o número tem apenas 6 dígitos.
 
 Para substituir os espaços em branco por zeros, basta fazer isto:
