@@ -100,6 +100,7 @@ A função **round()** arredonda um float para um valor inteiro.
 
 ## str.lower()
 Retorna a string toda em letras minúscolas, ex:
+
 	>>>palavra = "BaNana"
 	>>>novapalavra = palavra.lower()
 	>>>novapalavra
@@ -107,6 +108,7 @@ Retorna a string toda em letras minúscolas, ex:
 
 ## str.upper()
 Retorna a string toda em letras maiúsculas, ex:
+
 	>>>palavra = "BaNana"
 	>>>novapalavra = palavra.upper()
 	>>>novapalavra
@@ -114,7 +116,9 @@ Retorna a string toda em letras maiúsculas, ex:
 
 ## str.strip()
 Retorna a string sem espaços antes e depois, ex:
+
 	>>>palavra = "   BaNana     "
 	>>>novapalavra = palavra.strip()
 	>>>novapalavra
 	'BaNana'
+
