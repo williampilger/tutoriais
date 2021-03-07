@@ -130,4 +130,17 @@ Retorna a string sem espaços antes e depois, ex:
 	>>>novapalavra
 	'Banana'
 
+# Manipulação/formatação de listas
+Material completo [aqui](https://docs.python.org/pt-br/3/tutorial/datastructures.html).
+Para declarar uma lista use, por exemplo:
+
+	lista = [] #lista vazia
+	lista2 = [20, 5, "string"] #Lista já com componentes. OBS: podemos misturar os tipos de dados.
+
+## len()
+Retorna o tamanho da lista em questão
+	
+	>>> lista = [25,30,90]
+	>>> len(lista)
+	3
 
