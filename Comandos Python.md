@@ -84,6 +84,10 @@ A função **random** faz parte da biblioteca random. Logo, para chama-la você 
     numero_aleatorio = random.random()
 A função **random** sempre retorna um número entre 0.0 e 1.0
 
+# int()
+A função **int()** retorna a parte inteira de um número.
 
+# round()
+A função **round()** arredonda um float para um valor inteiro.
 
 
