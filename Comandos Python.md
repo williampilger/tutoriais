@@ -122,3 +122,12 @@ Retorna a string sem espaços antes e depois, ex:
 	>>>novapalavra
 	'BaNana'
 
+## str.capitalize()
+Retorna a string sem espaços antes e depois, ex:
+
+	>>>palavra = "   banana     "
+	>>>novapalavra = palavra.capitalize()
+	>>>novapalavra
+	'Banana'
+
+
