@@ -96,4 +96,25 @@ A função **int()** retorna a parte inteira de um número.
 # round()
 A função **round()** arredonda um float para um valor inteiro.
 
+# Formatadores/Funções de string
 
+## str.lower()
+Retorna a string toda em letras minúscolas, ex:
+	>>>palavra = "BaNana"
+	>>>novapalavra = palavra.lower()
+	>>>novapalavra
+	'banana'
+
+## str.upper()
+Retorna a string toda em letras maiúsculas, ex:
+	>>>palavra = "BaNana"
+	>>>novapalavra = palavra.upper()
+	>>>novapalavra
+	'BANANA'
+
+## str.strip()
+Retorna a string sem espaços antes e depois, ex:
+	>>>palavra = "   BaNana     "
+	>>>novapalavra = palavra.strip()
+	>>>novapalavra
+	'BaNana'
