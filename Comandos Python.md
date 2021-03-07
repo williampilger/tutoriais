@@ -77,12 +77,18 @@ Para substituir os espaços em branco por zeros, basta fazer isto:
 	print("Meu salário é de {:07.2f} reais")
 O resultado será: **Meu salário é de  01256,36 reais**
 
-# random()
+
+# random.random()
 A função **random** faz parte da biblioteca random. Logo, para chama-la você precisa incluir ela. Vela a utilização abaixo:
 
     import random
     numero_aleatorio = random.random()
 A função **random** sempre retorna um número entre 0.0 e 1.0
+
+
+# random.randrange()
+A função **randrange(de, ate)** serve para gerar números aleatórios inteiros em um intervalo específico.
+
 
 # int()
 A função **int()** retorna a parte inteira de um número.
