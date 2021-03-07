@@ -96,6 +96,7 @@ A função **int()** retorna a parte inteira de um número.
 A função **round()** arredonda um float para um valor inteiro.
 
 # Formatadores/Funções de string
+Documentação completa [aqui](https://docs.python.org/pt-br/3/library/stdtypes.html#text-sequence-type-str)
 
 ## str.lower()
 Retorna a string toda em letras minúscolas, ex:
