@@ -96,7 +96,7 @@ A função **int()** retorna a parte inteira de um número.
 A função **round()** arredonda um float para um valor inteiro.
 
 # Formatadores/Funções de string
-Documentação completa [aqui](https://docs.python.org/pt-br/3/library/stdtypes.html#text-sequence-type-str)
+Documentação completa [aqui](https://docs.python.org/pt-br/3/library/stdtypes.html#text-sequence-type-str), e [aqui](https://docs.python.org/3.6/library/stdtypes.html#sequence-types-list-tuple-range).
 
 ## str.lower()
 Retorna a string toda em letras minúscolas, ex:
@@ -131,7 +131,7 @@ Retorna a string sem espaços antes e depois, ex:
 	'Banana'
 
 # Manipulação/formatação de listas
-Material completo [aqui](https://docs.python.org/pt-br/3/tutorial/datastructures.html).
+Material completo [aqui](https://docs.python.org/pt-br/3/tutorial/datastructures.html), e [aqui](https://docs.python.org/3.6/library/stdtypes.html#sequence-types-list-tuple-range).
 Para declarar uma lista use, por exemplo:
 
 	lista = [] #lista vazia
@@ -144,3 +144,16 @@ Retorna o tamanho da lista em questão
 	>>> len(lista)
 	3
 
+## list.count()
+Retorna o número de ocorrencias de um valor dentro de uma lista, veja:
+
+	>>> lista_teste = [0, 0, 5, 6, 0, 7, 9]
+	>>> print(lista_teste.count(0))
+	3
+
+## list.index()
+Retorna o índice do primeiro valor igual encontrado na lista, ex.:
+
+	>>> frutas = ['Banana', 'Morango', 'Maçã', 'Uva', 'Maçã', 'Uva']
+	>>> print(frutas.index('Uva'))
+	3
