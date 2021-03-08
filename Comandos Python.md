@@ -163,7 +163,9 @@ Veremos abaixo como dar entradas de teclado, tanto para Windows, MAC e Linux.
 Utilizaremos a biblioteca [pyautogui](https://github.com/asweigart/pyautogui), que pode ser instalada utilizando o pip:
 
 	pip install pyautogui
+Para utilizar, alguns exemplos:
 
 	>>> press('a')
 	>>> typewrite('quick brown fox')
 	>>> hotkey('ctrl', 'w')
+Mais sobre o assunto [aqui](https://qastack.com.br/programming/13564851/how-to-generate-keyboard-events-in-python#:~:text=Apenas%20Windows%3A%20voc%C3%AA%20pode%20usar,simular%20um%20pressionamento%20de%20tecla.)
