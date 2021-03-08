@@ -157,3 +157,13 @@ Retorna o índice do primeiro valor igual encontrado na lista, ex.:
 	>>> frutas = ['Banana', 'Morango', 'Maçã', 'Uva', 'Maçã', 'Uva']
 	>>> print(frutas.index('Uva'))
 	3
+
+# Simulando pressionamento de teclas
+Veremos abaixo como dar entradas de teclado, tanto para Windows, MAC e Linux.
+Utilizaremos a biblioteca [pyautogui](https://github.com/asweigart/pyautogui), que pode ser instalada utilizando o pip:
+
+	pip install pyautogui
+
+	>>> press('a')
+	>>> typewrite('quick brown fox')
+	>>> hotkey('ctrl', 'w')
