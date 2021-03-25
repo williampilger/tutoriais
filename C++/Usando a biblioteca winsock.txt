@@ -1,0 +1,1631 @@
+ANTES DE COMEÇAR
+
+Se você precisa usar algum recurso da biblioteca Winsock2, tal como as funções de manipulação de endereços internet getnameinfo(), tem que compilar o programa com suporte a Windows Xp ou superior.
+
+Pra fazer isso no Dev-C++, você tem que definir a macro "_WIN32_WINNT" para 0x0501, antes de carregar qualquer header"win*.h" (windows.h, winsock2.h, etc). Senão o código seta essa macro para "0x0400", que é "WinNT".
+
+<<<A menos, claro, que eu esteja engolindo uma barriga enorme, e tenha outro jeito melhor de fazer isso.>>>
+
+
+
+
+
+
+
+
+
+Tutorial Bísico de Sockets - Parte 1
+by Dark_Side
+
+Atendendo aos pedidos de alguns usuírios, estou escrevendo este pequeno tutorial de sockets em C, para Windows.
+Abordarei nesta etapa apenas o uso do protocolo TCP, jí que é o mais comum. No próximo módulo, demonstrarei o uso do UDP, e outras funções legais :).
+
+
+Conteúdos que serão abordados:
+
+1) Introdução.
+2) Preparando e criando Sockets.
+3) Sockets - Criando um programa Servidor.
+4) Sockets - Criando um programa Cliente.
+5) Enviando dados e Recebendo dados.
+6) Finalizando uso do socket.
+7) Código de exemplo - simples chat.
+8) Considerações finais.
+
+Introdução
+Um dos resursos mais atrativos na programação em C, é o uso de Sockets. O uso de sockets permite o desenvolvimento de vírias aplicações. Exploits, flooders e programas cliente/servidor são poucos exemplos de aplicativos que podemos desenvolver.
+
+
+Preparando e criando Sockets.
+Para utilizarmos sockets em C, precisamos incluir todos os headers e bibliotecas necessírios.
+Observe o código:
+
+
+#include <stdio>
+#include <winsock>
+#include <conio>
+WSADATA data;
+SOCKET winsock;
+SOCKADDR_IN sock;
+int main(){
+if(WSAStartup(MAKEWORD(1,1),&data)==SOCKET_ERROR){
+printf("Erro ao inicializar o winsock");
+return 0;
+}
+if((winsock = socket(AF_INET,SOCK_STREAM,0))==SOCKET_ERROR){
+printf("Erro ao criar socket");
+return 0;
+}
+printf("Socket iniciado!");
+getch();
+closesocket(winsock);
+WSACleanup();
+return 0;
+}
+
+Explicando o código:
+
+#include <winsock>
+Inclui o header do winsock.
+
+WSADATA data;
+SOCKET winsock;
+Variíveis que recebem o valor da inicialização e criação do socket.
+
+SOCKADDR_IN sock;
+Struct -> contém a configuração do socket a ser usado o ip, a porta e a famàlia do socket.
+
+
+if(WSAStartup(MAKEWORD(1,1),&data)==SOCKET_ERROR){
+printf("Erro ao inicializar o winsock");
+return 0;
+}
+
+WSAStartup - Inicializa o uso do winsock.
+A sintaxe é : WSAStartup(VERSAO_DO_WINSOCK,ENDEREÇO DA VARIÁVEL)
+
+A função retorna o valor 0 (zero) quando é finalizada com sucesso ou -1, quando um erro ocorre.
+
+if((winsock = socket(AF_INET,SOCK_STREAM,0))==SOCKET_ERROR){
+printf("Erro ao criar socket");
+return 0;
+}
+
+socket - Inicializa o socket.
+A sintaxe é: socket(FAMILIA,TIPO_DE_PROTOCOLO,0)
+
+Para FAMILIA, temos diversos tipos, utilizaremos o AF_INET, para nosso tutorial.
+
+Tipo de protocolo:
+
+SOCK_STREAM -> protocolo TCP
+SOCK_DGRAM -> protocolo UDP
+SOCK_RAW -> protocolo para RAW SOCKETS.
+
+Utilizaremos o SOCK_STREAM.
+
+Assim como a função WSAStartup, a esta retorna os valores:
+0 (Socket inicializado) ou 1 (não inicializado).
+
+Sockets - Criando um programa Servidor.
+Observe o código:
+
+
+
+
+#include <stdio>
+#include <conio>
+#include <winsock>
+#include <windows> //Repara que utilzaremos este header para utilizarmos a função Sleep();
+WSADATA data;
+SOCKET winsock;
+SOCKADDR_IN sock;
+int main(){
+if(WSAStartup(MAKEWORD(1,1),&data)==SOCKET_ERROR){
+printf("Erro ao inicializar o winsock");
+return 0;
+}
+if((winsock = socket(AF_INET,SOCK_STREAM,0))==SOCKET_ERROR){
+printf("Erro ao criar socket");
+return 0;
+}
+sock.sin_family=AF_INET;
+sock.sin_port=htons(1234);
+if(bind(winsock,(SOCKADDR*)&sock,sizeof(sock))==SOCKET_ERROR){
+printf("Erro colocar utilizar a funcao BIND");
+return 0;
+}
+listen(winsock,1);
+while((winsock = accept(winsock,0,0))==SOCKET_ERROR)
+{
+Sleep(1);
+}
+printf("Cliente conectado!");
+getch();
+closesocket(winsock);
+WSACleanup();
+return 0;
+}
+
+O que vemos de novidade no código?
+
+
+if(bind(winsock,(SOCKADDR*)&sock,sizeof(sock))==SOCKET_ERROR){
+printf("Erro colocar utilizar a funcao BIND");
+return 0;
+}
+listen(winsock,1);
+while((winsock = accept(winsock,0,0))==SOCKET_ERROR)
+{
+Sleep(1);
+}
+printf("Cliente conectado!");
+getch();
+closesocket(winsock);
+WSACleanup();
+return 0;
+}
+
+Assim como a função WSAStartup e socket, a função BIND também retorna um valor, que por sinal, são os mesmos.Esta função é responsível por colocar o socket no modo BIND(configurí-lo na porta local).
+
+listen(winsock,1) -> Coloca o socket em modo de espera, aceitando 1 conexão.
+
+
+while((winsock = accept(winsock,0,0))==SOCKET_ERROR)
+{
+Sleep(1);
+}
+printf("Cliente conectado!");
+getch();
+closesocket(winsock);
+WSACleanup();
+return 0;
+}
+
+
+Criamos um loop para verificarmos se houve um pedido de conexão, como a função ACCEPT retorna -1 quando não hí pedidos, o loop serí feito até que o retorno seja diferente de -1, que indica um pedido de conexão.
+Ao sair do loop, é mostrada na tela uma mensagem dizendo que houve uma conexão e em seguida o programa encerra.
+
+
+Sockets - Criando um programa Cliente.
+Observe o código:
+
+
+#include <stdio>
+#include <winsock>
+#include <conio>
+WSADATA data;
+SOCKET winsock;
+SOCKADDR_IN sock;
+int main(){
+if(WSAStartup(MAKEWORD(1,1),&data)==SOCKET_ERROR){
+printf("Erro ao inicializar o winsock");
+return 0;
+}
+if((winsock = socket(AF_INET,SOCK_STREAM,0))==SOCKET_ERROR){
+printf("Erro ao criar socket");
+return 0;
+}
+sock.sin_family=AF_INET;
+sock.sin_port=htons(1234);
+sock.sin_addr.s_addr=inet_addr("127.0.0.1");
+if(connect(winsock,(SOCKADDR*)&sock,sizeof(sock))==SOCKET_ERROR){
+printf("Erro ao se conectar");
+return 0;
+}
+printf("Conectado!");
+getch();
+closesocket(winsock);
+WSACleanup();
+return 0;
+}
+
+Analisando:
+
+
+sock.sin_addr.s_addr=inet_addr("127.0.0.1") => Indica o IP o qual queremos conectar.
+connect(winsock,(SOCKADDR*)&sock,sizeof(sock)) => Conecta o socket.
+Como não poderia ser diferente, temos os valores 0(sucesso) ou -1(falha) como retorno da função connect().
+
+Esta função é uma das mais utilizadas na programação em SOCKET's. :)
+
+Enviando dados e Recebendo dados.
+Chegamos à melhor parte....
+O envio e recebimento de dados.
+Temos duas funções que se encarregam disso: send e recv.
+
+Lembrando que estaremos aptos a utilizí-las, apenas após uma conexão estiver sido estabelecida.
+
+Enviando dados:
+
+
+#include <string>
+char buffer[1024];
+send(winsock,buffer,strlen(buffer),0)
+
+
+Analisando a funcão temos:
+send(SOCKET,BUFFER,TAMANHO,0);
+
+SOCKET -> nosso socket que foi criado;
+BUFFER -> dados a enviar;
+TAMANHO -> tamanho dos dados;
+
+Recebendo dados:
+
+
+
+#include <string>
+char buffer[1024];
+int byes;
+while(1){
+memset(buffer,0,1024);
+bytes = recv(winsock,buffer,strlen(buffer),0)
+if(bytes==-1)
+return 0;
+}
+
+Analisando a funcão temos:
+memset(buffer,0,1024)
+Determinamos um espaço para receber os dados.
+recv(SOCKET,BUFFER,TAMANHO,0);
+
+SOCKET -> nosso socket que foi criado;
+BUFFER -> variível que armazenarí os dados;
+TAMANHO -> tamanho da variível;
+
+Note que se o número de bytes for igual a 0, o programa termina.
+
+Finalizando o uso do socket.
+Quando queremos fechar um socket, utilizamos:
+closesocket(NOME_DO_SOCKET);
+No nosso exemplo:
+closesocket(winsock);
+Fechamos o nosso socket, mas ainda não finalizamos o uso do winsock, isto é, enquanto o programa estiver rodando, estaremos aptos a criar novos sockets. Ao finalizar um programa que utiliza sockets, utilizamos sempre WSACleanup() para encerrar o uso do winsock.
+
+Esquema:
+
+
+HEADERS
+[...]
+int main(){
+[...]
+desenvolvimento do programa
+[...]
+closesocket(winsock);
+WSACleanup()
+return 0;
+}
+
+Código de exemplo - simples chat
+CLIENTE.C
+
+
+#include <stdio>
+#include <winsock>
+#include <conio>
+#include <windows>
+#include <string>
+WSADATA data;
+SOCKET winsock;
+SOCKADDR_IN sock;
+char buffer[1024];
+char buffer2[1024];
+int bytes;
+int main(){
+if(WSAStartup(MAKEWORD(1,1),&data)==SOCKET_ERROR){
+printf("Erro ao inicializar o winsock");
+return 0;
+}
+if((winsock = socket(AF_INET,SOCK_STREAM,0))==SOCKET_ERROR){
+printf("Erro ao criar socket");
+return 0;
+}
+sock.sin_family=AF_INET;
+sock.sin_port=htons(1234);
+sock.sin_addr.s_addr=inet_addr("127.0.0.1");
+if(connect(winsock,(SOCKADDR*)&sock,sizeof(sock))==SOCKET_ERROR){
+printf("Erro ao se conectar");
+return 0;
+}
+printf("Conectado!\n");
+while(1)
+{
+Sleep(1);
+printf("Digite uma mensagem:\n");
+gets(buffer);
+strcat(buffer,"\r\n");
+send(winsock,buffer,strlen(buffer),0);
+memset(buffer2,0,1024);
+bytes=recv(winsock,buffer2,1024,0);
+if(bytes==-1){
+printf("Conexão perdida");
+getch();
+return 0;
+}
+printf(buffer2);
+
+}
+getch();
+closesocket(winsock);
+WSACleanup();
+return 0;
+}
+
+
+SERVIDOR.C
+
+
+#include <stdio>
+#include <conio>
+#include <winsock>
+#include <windows> //Repara que utilzaremos este header para utilizarmos a função Sleep();
+WSADATA data;
+SOCKET winsock;
+SOCKADDR_IN sock;
+char buffer[1024];
+char buffer2[1024];
+int bytes;
+int main(){
+if(WSAStartup(MAKEWORD(1,1),&data)==SOCKET_ERROR){
+printf("Erro ao inicializar o winsock");
+return 0;
+}
+if((winsock = socket(AF_INET,SOCK_STREAM,0))==SOCKET_ERROR){
+printf("Erro ao criar socket");
+return 0;
+}
+sock.sin_family=AF_INET;
+sock.sin_port=htons(1234);
+if(bind(winsock,(SOCKADDR*)&sock,sizeof(sock))==SOCKET_ERROR){
+printf("Erro colocar utilizar a funcao BIND");
+return 0;
+}
+listen(winsock,1);
+while((winsock = accept(winsock,0,0))==SOCKET_ERROR)
+{
+Sleep(1);
+}
+printf("Cliente conectado!");
+while(1)
+{
+Sleep(1);
+memset(buffer2,0,1024);
+bytes=recv(winsock,buffer2,1024,0);
+if(bytes==-1){
+printf("Conexão perdida");
+getch();
+return 0;
+}
+printf(buffer2);
+printf("Digite uma mensagem:\n");
+gets(buffer);
+strcat(buffer,"\r\n");
+send(winsock,buffer,strlen(buffer),0);
+
+}
+getch();
+closesocket(winsock);
+WSACleanup();
+return 0;
+}
+
+Considerações finais
+
+Bem, chegamos ao fim da primeira parte de um simples tutorial de sockets, gostaria que ficasse bem claro que o material apresentado aqui é bem bísico, dedicado aos iniciantes. Aguardem ao próximo tópico, onde mostrarei como utilizar funções interessantes como por exemplo: gethostbyname() - que resolve o nome do host e seu IP, inet_ntoa() - obtém o IP de um host, dentre outras.
+
+Obs:: O tutorial acima, utiliza o socket no modo blocking, isto é, enquanto uma ação não é executada, as demais não serão também ao decorrer do tempo.
+Mostrarei também como utilizar sockets no modo non-blocking, e se possàvel abordarei sockets em programação WIN32, onde os função são monitoras via LOOP de MSGS (socket assincrono).
+Bye.
+Fermc
+02 Jul 2006, 13:45
+Muito legal!!!!
+
+Ainda não li, mas pareçe estar muito bom!!! QUando eu tiver tempo eu leio!!!
+Calkines
+03 Jul 2006, 08:16
+muito bom velho..
+que livro tu indica para c/c++
+que tenha sockts. gui, bem... um livro completo?
+abçs vlw
+kayo
+03 Jul 2006, 17:59
+essa não é a primeira vez que tento me aventurar no c/c++ e ocorre o problema de eu nao ter os .h necessarios, uso o dev-c++ e fui compilar seu codigo e deu erro, primeiro dizendo que as includes não existiam. depois, colocando .h no final delas ocorre um erro assim:
+
+[Link error] undefinied reference to '-------'
+
+entre os ------ apareceu:
+
+WSAStartup@8
+socket@12
+....
+
+o que poderia ser?
+
+grato.
+03 Jul 2006, 20:12
+Veio brigadão aew inclusive eu tinha le passado um mp para pedir algo sobre isso.
+Vow ler.
+Vlw mesmo. :D
+03 Jul 2006, 20:28
+Veio vc não sabe onde consigo atividades sobre socket não de preferencia usando somente o conhecimento adiquirido nessa breve tutorial que você fez?
+:D
+dark_side
+03 Jul 2006, 20:35
+essa não é a primeira vez que tento me aventurar no c/c++ e ocorre o problema de eu nao ter os .h necessarios, uso o dev-c++ e fui compilar seu codigo e deu erro, primeiro dizendo que as includes não existiam. depois, colocando .h no final delas ocorre um erro assim:
+
+[Link error] undefinied reference to '-------'
+
+entre os ------ apareceu:
+
+WSAStartup@8
+socket@12
+....
+
+o que poderia ser?
+
+grato.
+Hi,
+você deve incluir a Lib do winsock "wsock32.lib". Utilizando o DEV C++, o processo pode ser feito da seguinte maneira:
+
+1) Ferramentas->Opções do compilador
+2) Adicione a seguinte linha nas opções do LINKER: -l wsock32
+3) Compile o código novamente.
+Bye.
+kayo
+03 Jul 2006, 20:41
+gracias hermano :) vo la no win pra testar.
+dark_side
+03 Jul 2006, 21:46
+muito bom velho..
+que livro tu indica para c/c++
+que tenha sockts. gui, bem... um livro completo?
+abçs vlw
+Hi, livros sobre programação em C/C++, eu não conheço. Mas existem ótimas matérias e tutorias espalhados pela internet.
+Bye.
+dark_side
+03 Jul 2006, 21:51
+Veio vc não sabe onde consigo atividades sobre socket não de preferencia usando somente o conhecimento adiquirido nessa breve tutorial que você fez?
+:D
+Você pode tentar obter algo em:
+http://olinux.uol.com.br/secoes/section.phl?id_dir=5
+Bye.
+dark_side
+08 Jul 2006, 01:35
+Hi,
+continuando...
+
+1) Retomando
+2) Trabalhando com IP's e Hosts.
+3) Trabalhando com Portas e Serviços.
+4) Sockets Non-Blocking.
+5) Sockets UDP.
+6) Códigos de exemplo
+7) Considereções finais.
+
+Retomando
+****************************************
+
+Bem, no módulo anterior, demonstrei o bísico sobre SOCKETS em C, explicando e exemplificando as funções comuns.
+Neste módulo, serão apresentadas, algumas funções interessantes e não menos importantes para incrementar o seu conhecimento em SOCKETS.
+
+Trabalhando com IP's e Hosts.
+****************************************
+
+Veja:
+
+
+SOCKADDR_IN sock;
+sock.sin_addr.s_addr = inet_addr("127.0.0.1");
+
+
+Percebemos que no fragmento de código acima, temos a declaração de um sock, e é estabelecido o IP remoto ao qual este irí integarir.
+Percebemos ainda, que temos a função inet_addr. Essa função é responsível por "transformar" um IP especificado em string (char*), para o tipo adequado ao sock(in_addr).
+
+Ainda falando sobre IP, imagine a seguinte situação: Temos o host: http://www.servidor.com;
+Desconheçemos seu endereço ip;
+Desejamos nos conectar ao host.
+
+E agora? se tentarmos utilizar a função inet_addr(), não teràamos êxito uma vez que essa função é restrita ao manipulamento de IP's e não hostname's.
+
+
+
+sock.sin_addr.s_addr = inet_addr("www.servidor.com");
+Errado!
+
+Para essas e outras situações temos a função gethostbyname().
+Observe:
+
+
+HOSTENT *host;
+host = gethostbyname("www.servidor.com");
+
+host = declaramos um novo tipo de variível (struct HOSTENT), responsível por obter o retorno da função.
+gethostbyname("www.servidor.com") = utilizamos a função para resolver o host: http://www.servidor.com
+
+Como toda função, podemos ter êxito ou não em sua execução. Na nossa função, ou o host é resolvido com sucesso, ou este é desconhecido. Veja:
+
+
+HOSTENT *host;
+host = gethostbyname("www.servidor.com");
+if(host!=0){
+//Host resolvido com sucesso
+}
+else{
+//Host desconhecido.
+}
+
+Vimos que a variível host, retorna 0 quando o host não pôde ser resolvido e um valor diferente de 0, caso contrírio.
+
+Observe:
+
+
+SOCKADDR_IN sock;
+HOSTENT *host;
+host = gethostbyname("www.servidor.com");
+if(host!=0){
+memcpy(&sock.sin_addr.s_addr,host->h_addr,host->h_length);
+}
+else{
+return 0;
+}
+
+Explicando:
+Tentamos resolver o HOST: http://www.servidor.com;
+Caso tenhamos sucesso, utilizamos a função memcpy para "copiar" o endereço IP do host, para o nosso sock.
+
+A função memcpy, localizada no header <string.h> possui a seguinte sintaxe:
+
+memcpy(destino,conteúdo,tamanho);
+destino -> variível que receberí o conteúdo;
+conteúdo -> dados a serem copiados.
+tamanho -> tamanho do conteúdo.
+
+Abaixo a estrutura bísica do HOSTENT:
+
+h_addr = endereço IP do host.
+addrtype = tipo de protocolo (1 - TCP, 2 - UDP).
+h_length = tamanho do buffer.
+h_name = nome do host.
+
+Veja agora:
+
+
+SOCKADDR_IN sock;
+HOSTENT *host;
+host = gethostbyname("www.servidor.com");
+if(host!=0){
+printf("Nome do Host: %s\n",inet_ntoa(*(in_addr*)host->h_addr));
+}
+else{
+return 0;
+}
+
+No exemplo acima, se o host é resolvido, é mostrado seu nome e seu IP.
+A função host->h_name: retorna seu nome, como jí vimos.
+
+A função inet_ntoa funciona de maneira contríria a função inet_addr. Esta é responsível por obter um ip no formato in_addr e transformí-lo em char*.
+
+inet_ntoa(*(in_addr*)host->h_addr)
+
+O trecho acima, converte o valor host->h_addr, para in_addr, e em seguida, a função inet_ntoa transforma o valor in_addr em char*.
+
+Trabalhando com Portas e Serviços.
+****************************************
+Você sabe que nos conectamos a um host por uma porta. Deve saber também que algumas portas, como a 21 por exemplo, rodam serviços especàficos.
+
+Exemplo:
+21 - FTP
+23 - TELNET
+25 - SMTP
+80 - HTTP
+
+Muitos scanners de portas, até mesmo o NetCat, quando em operação mostram o nome do serviço referente à porta.
+Isso pode ser feito através da função getservbyport().
+
+Sua sintaxe:
+
+SERVENT *serv;
+serv = getservbyport(porta,protocolo);
+
+Você se lembra de como definimos a porta de um socket? htons(porta). Nesta função devemos fazer a mesma coisa, pois as portas devem estar em network byte. Para mais informações sobre network byte, consulte: http://www.vijaymukhi.com/vmis/ip.htm
+
+O protocolo, é um parâmetro opicional.
+
+Exemplo:
+
+
+SERVENT *serv;
+serv= getservbyport(htons(21),"tcp");
+if(serv!=0)
+printf("Servico: %s",serv->s_name);
+
+
+Sockets Non-Blocking.
+****************************************
+Não sei se você reparou, mas no exemplo do chat (encontrado no módulo anterior), quando é enviada uma mensagem, é necessírio esperar a resposta do servidor.
+Isso ocorre devido à uma propriedade do socket - o BLOCKING MODE.
+
+Às vezes, trabalhar com sockets em modo BLOCKING não traz problemas, mas se por exemplo fossemos desenvolver um chat multi-cliente? Se trabalharmos com este socket, teràamos problemas ao enviar e receber dados.
+Para solucionar este problema, passamos o socket para um outro modo - o NON-BLOCKING MODE - que permite vírias funções serem executados simultaneamente.
+
+Veja:
+
+u_long modo=1;
+SOCKET winsock;
+winsock = socket(AF_INET,SOCK_STREAM,0);
+ioctlsocket(winsock,FIOBION,&modo);
+
+u_long modo=1 -> Cria variível indicando o valor NON-BLOCKING (1) ou BLOCKING (0).
+
+ioctlsocket(winsock,FIOBION,&modo); -> Seta a ENTRADA/SAÍDA do socket para o modo especificado.
+
+
+Sockets UDP.
+****************************************
+Abordei no tutorial anterior, como trabalhar com sockets utilizando o protocolo TCP. Existem diversos protocolos, como o UDP e o RAW(suportado apenas no Win XP sem SP).
+Veremos agora como utilizar o protocolo UDP em nossas aplicações.
+
+O protocolo UDP, é o "irmão" do protocolo TCP. Este último, é orientado à conexão, isto é, só podemos enviar e receber dados, após o estabelecimento de uma conexão.O protocolo UDP permite que você envie e receba dados mesmo sem uma conexão. Embora apresentar algumas diferenças entre TCP/UDP não seja o foco do tutorial, demonstrarei algumas caracteràsticas principais de cada protocolo, para um maior entendimento:
+
+
+TCP
+Protocolo orientado à conexão, através do HandShake:
+
+Cliente -----------------> Servidor (1)
+Cliente <----------------- Servidor (2)
+Cliente -----------------> Servidor (3)
+Cliente <----------------> Servidor (4)
+
+1) O cliente envia um pedido de conexão (flag SYN)
+2) O servidor envia uma resposta de confirmação (SYN+ACK)
+3) O cliente envia a confirmação (ACK)
+4) Conexão estabelecimento (envio/recibo de dados -> BIDIRECIONAL)
+
+Através deste mesmo processo, ocorre o envio e recibo de dados. Ao enviar um dado, o cliente aguarda a resposta do servidor de que recebeu o tal dado, em seguida, o cliente envia o restante dos dados, se houverem. Caso o cliente não receba a confirmação, este retrasmite o dado, porém em uma velocidade mais baixa. Esta é a razão da tranferência baixa na internet.
+
+UDP
+Protocolo NàO-orientado à conexão.
+
+Como não hí o processo de handshake, o cliente envia dados ao servidor e não aguarda resposta para enviar os dados restantes. Como conseqüência, o envio de dados é mais rípido e não hí garantia da entrega dos pacotes enviados.
+
+Muito bem, dada as caracteràsticas, vamos colocar em prítica.
+
+Criando um socket UDP.
+
+O processo de criação de um socket TCP e UDP é o mesmo. Observe:
+
+SOCKET winsock;
+winsock = socket(AF_INET,SOCK_DGRAM,0);
+
+Repare que ao invés de SOCK_STREAM, utilizamos SOCK_DGRAM (Constante determinada para o uso do UDP).
+
+Enviando e recebendo dados com o protocolo UDP.
+
+Utilizamos as funções: send() e recv(), respectivamente, para enviar e receber dados, no protocolo TCP.No protocolo UDP, temos duas variações: sendto() e recvfrom().
+
+Enviando dados:
+
+
+SOCKET winsock;
+SOCKADDR_IN sock;
+char buffer[10]="DADOS!";
+
+winsock=socket(AF_INET,SOCK_DGRAM,0);
+sock.sin_family=AF_INET;
+sock.sin_addr.s_addr=inet_addr("127.0.0.1");
+sock.sin_port=htons(999);
+
+sendto(winsock,buffer,strlen(buffer),(SOCKADDR*)&sock,sizeof(sock));
+
+Acima, criamos um socket UDP, criamos um buffer contendo os dados a serem enviados (DADOS!). Estabelecemos a famàlia, ip e porta do socket.
+
+sendto(winsock,buffer,strlen(buffer),0,(SOCKADDR*)&sock,sizeof(sock));
+
+winsock -> SOCKET criado;
+buffer -> dados a enviar;
+strlen(buffer) -> strlen (contida em string.h), obtém o tamanho do buffer;
+(SOCKADDR*)&sock -> converte nosso socket para ser usado.
+sizeof(sock) -> tamanho do socket.
+
+Recebendo dados:
+
+
+SOCKET winsock;
+SOCKADDR_IN sock;
+int size=sizeof(sock);
+char buffer[1024];
+
+winsock=socket(AF_INET,SOCK_DGRAM,IPPROTO_UDP);
+sock.sin_family=AF_INET;
+sock.sin_port=htons(9999);
+sock.sin_addr.s_addr = inet_addr("127.0.0.1");
+bind(winsock,(SOCKADDR*)&sock,sizeof(sock));
+while(1)
+{
+Sleep(1);
+memset(buffer,0,1024);
+recvfrom(winsock,buffer,1024,0,(SOCKADDR*)&sock,&size);
+printf(buffer);
+}
+
+
+Algumas observações:
+
+int size=sizeof(sock) -> Obtém o tamanho do socket, para ser utilizado.
+
+memset(buffer,0,1024) -> Aloca espaço para o buffer.
+
+recvfrom(winsock,buffer,1024,0,(SOCKADDR*)&sock,&size);
+Repare o último argumento: &size. Este NàO é opicional, como em outras funções.
+
+
+Código de exemplo
+****************************************
+Colocando o que aprendemos em prítica, faremos um port scanner.
+
+
+//Header
+#include <stdio.h>
+#include <conio.h>
+#include <winsock.h>
+//Variíveis
+WSADATA data;
+SOCKET winsock;
+SOCKADDR_IN sock;
+int inicial,final,x,total=0;
+HOSTENT *host;
+SERVENT *serv;
+char serv_name[15];
+int main(int argn,char** arg){
+if(argn!=4){ //Verifica o número de argumentos, caso seja diferente de 4 (programa,host,inicial,final), imprime o modo de uso.
+puts("Modo de uso:\nportscan <HOST> <PORTA INICIAL> <PORTA FINAL>");
+getch(); //Aguarda tecla
+return 0; //Encerra
+}
+
+WSAStartup(MAKEWORD(1,1),&data); //Inicializa data.
+host = gethostbyname(arg[1]); //Obtém o host digitado e tenta resolvê-lo
+if(host==0){ //Caso seja desconhecido encerra.
+puts("Host desconhecido!");
+return 0;}
+
+inicial = atoi(arg[2]); //Obtém porta inicial digitada.
+final = atoi(arg[3]); //Obtém a porta final digitada.
+printf("Escaneando %s (%s)...\n",host->h_name,inet_ntoa(*(in_addr*)host->h_addr)); //Exibe informações sobre o host.
+for(x=inicial;x<=final;x++){ //Loop da porta inicial à final.
+serv = getservbyport(htons(x),"tcp"); //Obtém serviço
+if(serv==0) //Se o serviço for desconhecido.
+sprintf(serv_name,"Desconhecido");
+else
+sprintf(serv_name,serv->s_name); //Se for conhecido
+
+winsock = socket(AF_INET,SOCK_STREAM,0); //Cria socket
+sock.sin_family=AF_INET;//Ajusta a famàlia do socket.
+sock.sin_port=htons(x); //Ajusta a porta.
+memcpy(&sock.sin_addr,host->h_addr,host->h_length); //Ajusta o IP
+if(connect(winsock,(SOCKADDR*)&sock,sizeof(sock))!=SOCKET_ERROR){ //Tenta se conectar
+printf("Porta: %d (%s) Servico: %s\n",x,"PORTA ABERTA!",serv_name); //Se conectado = porta aberta
+total++; //Incrementa número de portas abertas.
+}
+else{//Erro ao conectar = porta fechada
+printf("Porta: %d (%s) Servico: %s\n",x,"Fechada",serv_name);}
+}
+closesocket(winsock); //Fecha o socket, após o loop.
+WSACleanup(); //Finaliza o uso do winsock.
+printf("Escaneamento concluido. %d porta(s) aberta(s)",total); //Imprime resultados.
+getch(); //Aguarda tecla.
+return 0; //Encerra.
+}
+
+Segue agora, um UDPFLOODER.
+
+
+//Headers
+#include <winsock.h>
+#include <stdio.h>
+#include <conio.h>
+#include <string.h>
+#include <stdlib.h>
+
+//Variíveis
+WSADATA data;
+SOCKET winsock;
+SOCKADDR_IN sock;
+HOSTENT *host;
+int pacotes,porta,x,total;
+char hostname[64];
+
+int main(int argn,char** arg)
+{
+if(argn!=5){ //Verifica o número de argumentos, caso seja diferente de 5(programa,host,porta,pacotes,data), encerra.
+puts("Modo de uso:"); //Imprime o modo de uso.
+puts("udpflood <HOST> <PORTA> <PACOTES> <DATA>");
+getch(); //Aguarda tecla
+return 0; //Encerra
+}
+strncpy(hostname,arg[1],64); //Copia até 64 caracteres do host digitado.
+porta = atoi(arg[2]); //Obtém a porta digitada.
+pacotes = atoi(arg[3]); //Obtém o número de pacotes.
+
+WSAStartup(MAKEWORD(1,1),&data); //Inicializa data.
+winsock = socket(AF_INET,SOCK_DGRAM,0); //Cria socket UDP.
+host = gethostbyname(arg[1]); //Resolve o host digitado.
+if(host==0) //Verifica por erro, caso ocorra, imprime uma mensagem e encerra.
+{
+puts("Host desconhecido!");
+getch();
+return 0;
+}
+memcpy(&sock.sin_addr,host->h_addr,host->h_length); //Copia o IP do host para o socket.
+sock.sin_family=AF_INET; //Ajusta a famàlia do socket.
+sock.sin_port=htons(porta); //Ajusta a porta
+for(x=1;x<=pacotes;x++){ //Loop de 1 até o número de pacotes digitados.
+system("cls"); //Limpa a tela.
+sendto(winsock,arg[4],strlen(arg[4]),0,(SOCKADDR*)&sock,sizeof(sock)); //Envia os dados digitados (arg[4] = argumento <DATA>
+total = (x *100 / pacotes); //Calcula progresso.
+printf("%d%% Concluido. (Pacote: %d de %d)",total,x,pacotes); //Imprime o progresso.
+}
+getch(); //Ao terminar, aguarda uma tecla.
+closesocket(winsock); //Fecha socket.
+WSACleanup();//Finaliza o uso do winsock.
+return 0; //Encerra.
+}
+
+Considerações finais
+****************************************
+
+
+Algo que deve ficar claro:
+Sempre precisamos inicializar o uso do winsock, pela função WSAStartup.
+
+
+Terminamos aqui mais uma parte do nosso tutorial, espero que tenham aprendido algo. Na terceira e última parte do tutorial, abordarei a programação de sockets em WIN32.Adianto que para compreender a futura parte do tutorial, é necessírio um conhecimento mànimo da API do Windows, principalmente do LOOP de Mensagens. É um requisito também um conhecimento bísico sobre sockets, apresentado aqui.
+dark_side
+06 Aug 2006, 02:54
+Tutorial de sockets para iniciantes - Parte 3
+by Dark_Side.
+
+Hi,
+gogo...
+
+Índice:
+1) Sockets em modo Assàcrono
+2) Introdução à programação em Windows.
+3) Loop de Mensagens.
+4) Iniciando.
+5) Eventos e Mensagens.
+6) Enviando e recebendo dados.
+7) Código de exemplo.
+8) Considereções finais.
+
+Sockets em modo Assàcrono
+**********************************
+Trabalhamos até agora com sockets no modo Blocking e Non-Blocking. Iremos trabalhar agora com sockets no modo asynchronous ou assàcrono.
+Muito bem, começaremos dando uma visão geral sobre esse modo de trabalhar com sockets.
+Se jí trabalhou com sockets em outras linguagens como Visual Basic ou Delphi, por exemplo,
+jí deve ter percebido que existem eventos que controlam o seu comportamento, é o caso do OnSend, em Delphi, e o OnSendComplete em Visual Basic.
+Quando o socket é controlado por eventos, dizemos que este estí no modo assàcrono.
+Embora os dois métodos sejam semelhantes por permitir que vírias vírias sejam executados ao mesmo tempo, Assàcrono não é Non-Blocking. Se diferem quanto à forma em que as instruções são finalizadas. Enquanto no primeiro você tem uma certa precisão quando uma tarefa é finalizada, no segundo é preciso fazer uma checagem.
+
+Introdução à programação em Windows
+**********************************
+A estrutura de um programa para Windows, seria basicamente a seguinte:
+
+»[CRIAÇàO DE UMA CLASSE PARA JANELA]
+»»[REGISTRO DA CLASSE]
+»»»[CRIAÇàO DA JANELA]
+»»»»[EXIBIÇàO DA JANELA]
+»»»»»[LOOP DE MENSAGENS]
+»»»»»»[FUNÇàO QUE CONTROLA "EVENTOS"]
+
+É importante que você saiba o bísico dessa estrutura, alguns conceitos e exemplos de como um programa feito para Windows funciona. Caso tenha interesse, acompanhe o tutorial:
+http://www.invasao.com.br/forum/viewtopic.php?t=8521224
+
+Loop de Mensagens
+**********************************
+O loop de mensagens de um aplicativo Windows, consiste em uma rotina que funciona da seguinte maneira: enquanto houverem mensagens sendo processadas, o programa continua em execução.
+Sua função principal, é obter a mensagem recebebida, "traduzà-la", e em seguida, envií-la à função que trata de "eventos".
+A utilização de sockets nessas condições, pode ser também, controlada por mensagens,eventos,etc.
+Veremos a seguir, como realizar tal procedimento.
+
+Iniciando
+**********************************
+Se você acompanhou os tutoriais passados, não terí muita dificuldade em trabalhar com sockets no modo Assàcrono.
+
+Sabemos que para criar um socket:
+
+1) Declaramos uma variível para a função WSADATA;
+2) Declaramos o nosso socket.
+3) Declaramos uma variível para o Struct SOCKADDR_IN.
+
+Faràamos isso da seguinte maneira:
+
+
+WSADATA data;
+SOCKET winsock;
+SOCKADDR_IN sock;
+
+Vejamos agora:
+
+winsock = socket(AF_INET,SOCK_STREAM,0);
+Acima, inicializamos o nosso socket.
+
+Nota importante: Se você percebeu, até agora utilizamos a versão 1.1 do Winsock. Neste módulo, iremos utilizar a versão 2.2, pois algumas funções que abordaremos a seguir, são restritas a essa.
+
+Veja:
+
+
+#include <winsock2.h>
+
+Observamos que ao invés de utilizarmos winsock.h, desta vez, utilizamos winsock2.h.
+Outra coisa que deve ser levado em considereção, é que a LIB necessíria para este novo header, não é mais wsock32.lib, e sim ws2_32.lib.
+
+Observe:
+
+
+#include <winsock2.h>
+#include <windows.h>
+WSADATA data;
+SOCKET winsock;
+[...]
+if(WSAStartup(MAKEWORD(2,2),&data)==SOCKET_ERROR){
+MessageBox(0,"Ocorreu um erro.","Erro",MB_OK|MB_ICONERROR);
+ExitProcess(0);
+}
+
+winsock = socket(AF_INET,SOCK_STREAM,0);
+if(winsock!=SOCKET_ERROR)
+{
+// Inicialização com sucesso
+// Comandos
+}
+else
+{
+// Erro na inicialização
+// Outros comandos
+}
+[...]
+
+Analisando:
+
+#include <winsock2.h>
+Incluàmos o header do winsock.
+
+if(WSAStartup(MAKEWORD(2,2),&data)==SOCKET_ERROR){
+puts("Ocorreu um erro.");
+return 0;
+}
+
+Inicializamos o winsock com a versão 2.2. Ainda na mesma linha, verificamos se o valor retornado é igual a -1, o que representa erro, e encerra caso afirmativo.
+
+winsock = socket(AF_INET,SOCK_STREAM,0);
+Criamos um socket.
+
+if(winsock!=SOCKET_ERROR)
+Jí sabenos que a função retorna os valores -1 (SOCKET_ERROR) quando ocorre algum erro ou o valor 0, quando a inicialização é feita com sucesso.
+
+Revimos acima, como inicializamos e criamos um socket, veremos agora, algumas funções bísicas e também algumas funções e alguns conceitos daqui em diante.
+Observe atentamente o código:
+
+1) Servidor - Aguardando e aceitando conexões
+**********************************************
+
+
+#include <winsock2.h>
+#define WM_SOCKET 5000
+WSADATA data;
+SOCKET sock;
+SOCKADDR_IN sin;
+
+LRESULT CALLBACK WinProc(HWND window,UINT msg,WPARAM wParam,LPARAM lParam);
+
+int WINAPI WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nShowCmd)
+{
+HWND hwnd;
+WNDCLASSEX win;
+MSG message;
+
+win.cbClsExtra=0;
+win.cbSize=sizeof(win);
+win.cbWndExtra=0;
+win.hbrBackground=CreateSolidBrush(0);
+win.hCursor=LoadCursor(NULL,IDC_ARROW);
+win.hIcon=LoadIcon(NULL,IDI_APPLICATION);
+win.hIconSm=LoadIcon(NULL,IDI_APPLICATION);
+win.hInstance=hInstance;
+win.lpfnWndProc=WinProc;
+win.lpszClassName="Janela";
+win.lpszMenuName=NULL;
+win.style=0;
+if(!RegisterClassEx(&win))
+{
+MessageBox(0,"Erro ao registrar janela","Erro",16);
+return 0;
+}
+hwnd = CreateWindowEx(0,"Janela","Minha janelinha",WS_OVERLAPPED|WS_SYSMENU,300,100,400,400,NULL,NUL L,hInstance,NULL);
+if(hwnd == NULL)
+{ MessageBox(0,"Erro ao criar janela","Erro",16);
+return 0;
+}
+ShowWindow(hwnd,SW_SHOW);
+UpdateWindow(hwnd);
+
+while(GetMessage(&message,0,0,0))
+{
+TranslateMessage(&message);
+DispatchMessage(&message);
+}
+return message.wParam;
+
+}
+LRESULT CALLBACK WinProc(HWND window,UINT msg,WPARAM wParam,LPARAM lParam)
+{
+switch(msg)
+{
+case WM_CREATE:
+if(WSAStartup(MAKEWORD(2,2),&data)==SOCKET_ERROR){
+MessageBox(0,"Ocorreu um erro","Erro",MB_OK|MB_ICONERROR);
+ExitProcess(0);
+}
+sock = socket(AF_INET,SOCK_STREAM,0);
+if(sock==SOCKET_ERROR)
+{
+MessageBox(0,"Ocorreu um erro","Erro",MB_OK|MB_ICONERROR);
+ExitProcess(0);
+}
+
+sin.sin_family=AF_INET;
+sin.sin_port=htons(2222);
+if(bind(sock,(SOCKADDR*)&sin,sizeof(sin))==SOCKET_ERROR){
+MessageBox(0,"Ocorreu um erro","Erro",MB_OK|MB_ICONERROR);
+ExitProcess(0);
+}
+WSAAsyncSelect(sock,window,WM_SOCKET,FD_ACCEPT);
+listen(sock,1);
+break;
+case WM_SOCKET:
+MessageBox(window,"PEDIDO DE CONEXàO FEITO!","Conexão",MB_OK|MB_ICONINFORMATION);
+sock = accept(sock,0,0);
+break;
+case WM_CLOSE:
+PostQuitMessage(0);
+break;
+default:
+return DefWindowProc(window,msg,wParam,lParam);
+}
+return 0;
+}
+
+
+Muito bem, não abordarei sobre funções bísicas da API do Windows neste tutorial.
+Vamos analisar os fragmentos importantes:
+
+
+#include <winsock2.h>
+#define WM_SOCKET 5000
+WSADATA data;
+SOCKET sock;
+SOCKADDR_IN sin;
+
+Acima, temos o header do winsock, uma constante e algumas varàaveis. Como havia dito, são utilizadas constantes para identificar o que estí ocorrendo no programa, assim ocorre com os sockets. Definimos a constante WM_SOCKET com um valor especàfico, para identificar um evento quando essa constante for recebida em forma de mensagem. O valor definido foi 5000, porém, uma vez em que o valor especificado jí não esteja definido, podemos utilizar qualquer outro.
+
+
+
+case WM_CREATE:
+
+Sabemos que a mensagem WM_CREATE, é enviada quando a criação da janela é feita com sucesso.
+
+
+
+if(WSAStartup(MAKEWORD(2,2),&data)==SOCKET_ERROR){
+MessageBox(0,"Ocorreu um erro","Erro",MB_OK|MB_ICONERROR);
+ExitProcess(0);
+}
+
+Inicializa o socket, exibe uma mensagem de erro e encerra, caso ocorram problemas.
+
+
+sock = socket(AF_INET,SOCK_STREAM,0);
+if(sock==SOCKET_ERROR)
+{
+MessageBox(0,"Ocorreu um erro","Erro",MB_OK|MB_ICONERROR);
+ExitProcess(0);
+}
+
+O mesmo processo de validação, porém quando criamos o socket.
+
+
+sin.sin_family=AF_INET;
+sin.sin_port=htons(2222);
+if(bind(sock,(SOCKADDR*)&sin,sizeof(sin))==SOCKET_ERROR){
+MessageBox(0,"Ocorreu um erro","Erro",MB_OK|MB_ICONERROR);
+ExitProcess(0);
+}
+
+O trecho acima não é novidade, apenas configuramos o nosso socket, em seguida, chamamos pela função bind().
+
+
+WSAAsyncSelect(sock,window,WM_SOCKET,FD_ACCEPT);
+
+
+Temos aqui, uma função essencial para o uso de sockets no modo assàcrono. Esta função é responsível por definir os eventos ocorridos com o nosso socket.
+Sua sintaxe:
+
+WSAAsyncSelect(SOCKET,HWND,MENSAGEM,EVENTOS)
+
+Onde:
+SOCKET => nome do nosso socket criado.
+HWND => Handle da função CallBack que trata as mensagens.
+MENSAGEM => Nossa mensagem definida que serí enviada quando um evento especificado ocorrer.
+FD_ACCEPT => Constante que define o evento, no caso, quando um pedido de conexão é feito. Além de FD_ACCEPT, temos outros principais: FD_CLOSE, FD_CONNECT, FD_READ e FD_WRITE, que representam, respectivamente: Fechamento do socket, tentativa de conexão, recebimento de dados e envio de dados.
+
+Obs: Só podemos utilizar a função WSAAsyncSelect uma vez para cada socket, portanto, caso queira utilizar o mesmo socket para diversas ações, comm manipular o envio e recebimento de dados, devemos especificí-los em conjunto.
+
+Exemplo:
+
+
+
+WSAAsyncSelect(sock,window,WM_SOCKET,FD_ACCEPT|FD_ CLOSE|FD_WRITE|FD_READ);
+
+Acima, o programa retornaria a mensagem WM_SOCKET sempre quando um pedido de conexão for feito, a conexão for fechada ou quando houver envio ou recebimento de dados.
+Explicarei como trabalhar com eventos em conjuto mais adiante.
+
+
+listen(sock,1);
+Configura o socket para aguardar uma conexão.
+
+
+case WM_SOCKET:
+MessageBox(window,"PEDIDO DE CONEXàO FEITO!","Conexão",MB_OK|MB_ICONINFORMATION);
+sock = accept(sock,0,0);
+break;
+
+Acima, se o programa receber a nossa mensagem definida, mostramos uma confirmação, e aceitamos a conexão com a função accept.
+
+2) Cliente - Conectando
+**********************************************
+
+
+
+#include <winsock2.h>
+#include <windows.h>
+
+#define WM_SOCKET 5000
+WSADATA data;
+SOCKET sock;
+SOCKADDR_IN sin;
+
+LRESULT CALLBACK WinProc(HWND window,UINT msg,WPARAM wParam,LPARAM lParam);
+
+int WINAPI WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nShowCmd)
+{
+HWND hwnd;
+WNDCLASSEX win;
+MSG message;
+
+win.cbClsExtra=0;
+win.cbSize=sizeof(win);
+win.cbWndExtra=0;
+win.hbrBackground=CreateSolidBrush(0);
+win.hCursor=LoadCursor(NULL,IDC_ARROW);
+win.hIcon=LoadIcon(NULL,IDI_APPLICATION);
+win.hIconSm=LoadIcon(NULL,IDI_APPLICATION);
+win.hInstance=hInstance;
+win.lpfnWndProc=WinProc;
+win.lpszClassName="Janela";
+win.lpszMenuName=NULL;
+win.style=0;
+if(!RegisterClassEx(&win))
+{
+MessageBox(0,"Erro ao registrar janela","Erro",16);
+return 0;
+}
+hwnd = CreateWindowEx(0,"Janela","Minha janelinha",WS_OVERLAPPED|WS_SYSMENU,300,100,400,400,NULL,NUL L,hInstance,NULL);
+if(hwnd == NULL)
+{ MessageBox(0,"Erro ao criar janela","Erro",16);
+return 0;
+}
+ShowWindow(hwnd,SW_SHOW);
+UpdateWindow(hwnd);
+
+while(GetMessage(&message,0,0,0))
+{
+TranslateMessage(&message);
+DispatchMessage(&message);
+}
+return message.wParam;
+
+}
+LRESULT CALLBACK WinProc(HWND window,UINT msg,WPARAM wParam,LPARAM lParam)
+{
+switch(msg)
+{
+case WM_CREATE:
+if(WSAStartup(MAKEWORD(2,2),&data)==SOCKET_ERROR){
+MessageBox(0,"Ocorreu um erro","Erro",MB_OK|MB_ICONERROR);
+ExitProcess(0);
+}
+sock = socket(AF_INET,SOCK_STREAM,0);
+if(sock==SOCKET_ERROR)
+{
+MessageBox(0,"Ocorreu um erro","Erro",MB_OK|MB_ICONERROR);
+ExitProcess(0);
+}
+
+sin.sin_family=AF_INET;
+sin.sin_port=htons(2222);
+sin.sin_addr.s_addr = inet_addr("127.0.0.1");
+
+WSAAsyncSelect(sock,window,WM_SOCKET,FD_CONNECT);
+connect(sock,(SOCKADDR*)&sin,sizeof(sin),0);
+break;
+case WM_SOCKET:
+if(HIWORD(lParam) == 0){
+MessageBox(window,"Conectado!","Conexão",MB_OK|MB_ICONINFORMATION);}
+else{
+MessageBox(window,"Erro!","Conexão",MB_OK|MB_ICONERROR);
+closesocket(sock);
+WSACleanup();
+ExitProcess(0);
+}
+
+break;
+case WM_CLOSE:
+PostQuitMessage(0);
+break;
+default:
+return DefWindowProc(window,msg,wParam,lParam);
+}
+return 0;
+}
+
+Observe:
+
+
+
+sin.sin_family=AF_INET;
+sin.sin_port=htons(2222);
+sin.sin_addr.s_addr = inet_addr("127.0.0.1");
+
+Acima configuramos o nosso socket para conectar-se.
+
+
+WSAAsyncSelect(sock,window,WM_SOCKET,FD_CONNECT);
+Associamos ao evento FD_CONNECT a mensagem WM_SOCKET.
+
+
+connect(sock,(SOCKADDR*)&sin,sizeof(sin),0);
+Instruimos o socket a conectar.
+
+
+case WM_SOCKET:
+if(HIWORD(lParam) == 0){
+MessageBox(window,"Conectado!","Conexão",MB_OK|MB_ICONINFORMATION);}
+else{
+MessageBox(window,"Erro!","Conexão",MB_OK|MB_ICONERROR);
+closesocket(sock);
+WSACleanup();
+ExitProcess(0);
+}
+
+Quando recebemos a mensagem definida, além de notificar que o evento ocorreu, traz consigo informações sobre ele, em seus parâmetros.
+
+Veja:
+if(HIWORD(lParam) == 0){
+A função HIWORD, retorna o valor mais alto do parâmetro lParam. Este valor retornado, pode conter zero - quando erro nenhum ocorreu- ou um valor diferente, especificando o número do erro ocorrido. A rotina de comparação, verifica pelos dois casos e executa diferentes ações para cada caso.
+
+
+Eventos e Mensagens
+**********************************
+Vimos que os eventos ocorridos com o nosso socket são definidos por mensagens. Como a função WSAAsyncSelect(), só pode ser utilizada uma única vez para cada socket, e se tivermos que tratar de outros eventos em um socket especàfico, teràamos problemas. Para essa situação, devemos especificar um conjunto de eventos para o nosso socket.
+
+Veja:
+
+
+#define WM_SOCKET 5000
+Acima, definimos nossa constante WM_SOCKET com o valor 5000, lembrando que este pode ser um de sua preferência.
+
+
+WSAAsyncSelect(sock, window, WM_SOCKET FD_CONNECT|FD_CLOSE);
+Associamos ao sock, os eventos FD_CONNECT e FD_CLOSE, que serão notificados na no handle window pela mensagem WM_SOCKET.
+
+Bem, se temos dois eventos e apenas uma mensagem, como faremos para saber qual evento ocorreu?
+Inicialmente, disse que a mensagem traz informações sobre o evento ocorrido, certo?
+Então, podemos que fazê-lo da seguinte maneira:
+
+
+
+case WM_SOCKET:
+WORD evento,erro;
+evento = LOWORD(lParam);
+erro = HIWORD(lParam);
+switch(evento){
+case FD_CONNECT: //Tentativa de conexão
+if(erro != 0){ // Verifica por erros
+//Erros
+}
+else{
+// Sem erros
+}
+break;
+case FD_CLOSE: //Socket fechado
+//Comandos
+break;
+}
+
+Vamos analisar:
+
+
+
+case WM_SOCKET:
+WORD evento,erro;
+evento = LOWORD(lParam);
+erro = HIWORD(lParam);
+
+Declaramos duas varàaveis com o tipo WORD: evento e erro. Essas são obviamente responsíveis por obter o evento ocorrido e o número do erro, lembrando que na ausência de erros, o valor retornado é zero.
+O parâmetro wParam, possui o ID do socket e o parâmetro lParam, contém o evento ocorrido no valor mais baixo (LOW WORD) e o valor do erro ocorrido no valor mais alto (HIGH WORD).
+
+
+switch(evento){
+case FD_CONNECT: //Tentativa de conexão
+if(erro != 0){ // Verifica por erros
+//Erros
+}
+else{
+// Sem erros
+}
+break;
+case FD_CLOSE: //Socket fechado
+//Comandos
+break;
+}
+
+
+Uma vez obtidos o evento e o valor de erro ocorrido, podemos verificar qual evento ocorreu e seu respectivo código de erro.
+
+
+
+if(erro != 0)
+
+Quando não hí erros, o valor retornado é zero, caso contrírio, é retornado o valor do erro.
+
+Enviando e recebendo dados.
+**********************************
+Utilizando a API do Winsock, temos as seguintes funções: WSASend e WSARecv, para enviar e receber dados, respectivamente. No entanto, abordarei-as no próximo módulo do tutorial, pois o processo envolve abordar também outras funções como WSASocket, WSAAccept, WSAListen, dentre outras.
+Nessas circunstâncias, podemos utilizar as funções: Send e Recv.
+Relembrando:
+
+Enviando dados:
+
+
+char buffer[1024];
+send(sock,buffer,sizeof(buffer),0)
+
+Analisando a funcão temos:
+
+
+send(SOCKET,BUFFER,TAMANHO,0);
+
+SOCKET -> nosso socket que foi criado;
+BUFFER -> dados a enviar;
+TAMANHO -> tamanho dos dados;
+
+Recebendo dados:
+
+
+
+while(recv!=0){
+char buffer[1024];
+memset(buffer,0,1024);
+recv(sock,buffer,sizeof(buffer),0)
+}
+
+
+Analisando a funcão temos:
+memset(buffer,0,1024)
+Determinamos um espaço para receber os dados.
+recv(SOCKET,BUFFER,TAMANHO,0);
+
+SOCKET -> nosso socket que foi criado;
+BUFFER -> variível que armazenarí os dados;
+TAMANHO -> tamanho da variível.
+
+Lembrando que para utilizarmos a função memset, devemos incluir o header stdio.h.
+
+Código de exemplo.
+**********************************
+Segue agora um simples terminal.
+
+MAIN.CPP
+
+
+
+#include <winsock2.h> // Header do winsock.
+#include <windows.h> //Heahder do Windows.
+#include <string.h>
+#include "recurso.h" //Header de recursos
+
+#define WM_SOCKET 5000 //Consantante do socket.
+//Variíveis
+WSADATA data;
+SOCKET sock;
+SOCKADDR_IN sin;
+
+char buffer[0x100]; //Buffer para mensagem enviada e recebida
+char buffer2[0x20000]; //Buffer para o TextBox
+
+//Função CALLBACK
+LRESULT CALLBACK dlgproc(HWND window,UINT msg,WPARAM wParam, LPARAM lParam);
+
+int WINAPI WinMain(HINSTANCE hInstance,HINSTANCE hPrevHinstance,LPSTR lpCmdLine,int nShowCmd)
+{
+DialogBox(hInstance,MAKEINTRESOURCE(IDD_DLG1),NULL ,(DLGPROC)dlgproc); //Chama pelo DialogBox
+return 0;
+}
+LRESULT CALLBACK dlgproc(HWND window,UINT msg,WPARAM wParam, LPARAM lParam)
+{
+switch(msg) //Verifica mensagens
+{
+case WM_INITDIALOG: //Ao iniciar
+if(WSAStartup(MAKEWORD(2,2),&data)==SOCKET_ERROR){ //Inicializa e valida o socket
+MessageBox(0,"Erro ao inicializar socket.","Erro",MB_OK|MB_ICONERROR);
+ExitProcess(0);
+}
+sock = socket(AF_INET,SOCK_STREAM,0); //Cria e valida o socket
+if(sock==SOCKET_ERROR)
+{
+MessageBox(0,"Erro ao criar socket.","Erro",MB_OK|MB_ICONERROR);
+ExitProcess(0);
+}
+break;
+
+case WM_COMMAND: // Cliques
+switch(wParam) //Verifica nome do objeto
+{
+case GO: //Caso seja o botão GO
+sin.sin_family=AF_INET; //Define famàlia do socket
+
+GetWindowText(GetDlgItem(window,HOST),buffer,256); //Obtém IP digitado
+sin.sin_addr.s_addr = inet_addr(buffer); //Converte de string para in_addr
+
+GetWindowText(GetDlgItem(window,PORTA),buffer,256) ; //Obtém porta digitada
+sin.sin_port=htons(atoi(buffer)); //Converte de string para inteiro, e em seguida, network byte.
+
+//Disabilita campos
+EnableWindow(GetDlgItem(window,HOST),false);
+EnableWindow(GetDlgItem(window,PORTA),false);
+EnableWindow(GetDlgItem(window,GO),false);
+
+WSAAsyncSelect(sock,window,WM_SOCKET,FD_CONNECT|FD _CLOSE|FD_READ); //Define eventos
+connect(sock,(SOCKADDR*)&sin,sizeof(sin)); //Tenta se conectar
+break;
+
+case envia: //Se o botão envia:
+//Limpa buffers
+ZeroMemory(buffer,0x100);
+ZeroMemory(buffer2,0x20000);
+//Obtém mensagem digitada
+GetWindowText(GetDlgItem(window,mensagem),buffer,2 56);
+strcat(buffer,"\r\n"); //Adiciona quebra de linha
+send(sock,buffer,strlen(buffer),0); //Envia
+
+GetWindowText(GetDlgItem(window,terminal),buffer2, sizeof(buffer2)); //Obtém o texto do campo terminal
+if(strcmp(buffer2,"")!=0)
+strcat(buffer2,">> "); // Não vazio
+else
+strcat(buffer2,">> "); //Vazio
+
+strcat(buffer2,buffer); //Adiciona ao buffer a mensagem enviada
+
+SetWindowText(GetDlgItem(window,terminal),buffer2) ; //Adiciona ao TextBox
+SetWindowText(GetDlgItem(window,mensagem),""); //Limap textbox da mensagem
+SetFocus(GetDlgItem(window,mensagem)); //Retorna focus
+SendMessage(GetDlgItem(window,terminal),0x115,0x7, 0); //Rolagem vertical para o fim do textbox
+
+break;
+
+}
+break;
+case WM_SOCKET: //Menssagem do socket
+switch(LOWORD(lParam)){ //Verificamos o evento
+case FD_CONNECT: //Tentativa de conexão
+if(HIWORD(lParam) == 0){ // Caso não haja erro
+//Confirma e configura os campos
+MessageBox(window,"Conectado!","Conexão",MB_OK|MB_ICONINFORMATION);
+EnableWindow(GetDlgItem(window,mensagem),true);
+EnableWindow(GetDlgItem(window,terminal),true);
+EnableWindow(GetDlgItem(window,envia),true);
+
+
+}
+else{ //Em caso de erro
+//Confirma e finaliza
+MessageBox(window,"Erro ao se conectar","Conexão",MB_OK|MB_ICONERROR);
+closesocket(sock);
+WSACleanup();
+ExitProcess(0);
+}
+break;
+
+case FD_READ: // Recebimentos de dados
+//Limpamos o buffer
+ZeroMemory(buffer,0x100);
+ZeroMemory(buffer2,0x2000);
+//Recebemos os dados
+recv(sock,buffer,0x100,0);
+//Obtém o texto do terminal
+GetWindowText(GetDlgItem(window,terminal),buffer2, sizeof(buffer2));
+strcat(buffer2,"<< "); //Adicionamos "<<"
+strcat(buffer2,buffer); //Concatenamos com a mensagem recebida
+
+//Adicionamaos ao textbox
+SetWindowText(GetDlgItem(window,terminal),buffer2) ;
+SendMessage(GetDlgItem(window,terminal),0x115,0x7, 0); //Rolagem vertical para o fim do textbox
+
+break;
+
+case FD_CLOSE: //Socket fechado
+//Finaliza
+MessageBox(window,"A conexão foi fechada!","ERRO!",16);
+closesocket(sock);
+WSACleanup();
+ExitProcess(0);
+}
+break;
+
+case WM_CLOSE:
+PostQuitMessage(0);
+break;
+}
+
+return 0;
+}
+
+
+RECURSO.H
+
+
+//Constantes que definem o nome dos nossos objetos
+
+#define IDD_DLG1 1000
+#define label1 1001
+#define label2 1002
+#define mensagem 1003
+#define terminal 1004
+#define GO 1005
+#define HOST 1006
+#define PORTA 1007
+#define grup1 1008
+#define grup2 1009
+#define envia 1010
+
+
+RECURSO.RC
+
+
+#include "recurso.h"
+#include "afxres.h"
+IDD_DLG1 DIALOGEX 6,5,231,203
+CAPTION "Exemplo: Terminal"
+FONT 8,"MS Sans Serif",0,0
+STYLE 0x10CC0000
+BEGIN
+CONTROL "Conectar...",grup1,"Button",0x50000007,8,5,216,54
+CONTROL "Host:",label1,"Static",0x50020000,10,16,21,10
+CONTROL "Porta:",label2,"Static",0x50020000,10,29,21,9
+CONTROL "Comandos",grup2,"Button",0x50000007,8,63,216,116
+CONTROL "",mensagem,"Edit",0x58810000,8,184,184,12,0x00000200
+CONTROL "",terminal,"Edit",0x586100C4,20,77,192,94,0x00000200
+CONTROL "",HOST,"Edit",0x50010000,36,16,180,12,0x00000200
+CONTROL "",PORTA,"Edit",0x50010000,36,29,180,12,0x00000200
+CONTROL "ENVIA",envia,"Button",0x58010001,194,184,34,12
+CONTROL "GO",GO,"Button",0x50010000,169,44,48,11
+END
+
+Considerações Finais
+**********************************
+Termino aqui, a terceira parte do tutorial. Como mencionei, abordarei brevemente outras funções e conceitos.
+
+
+Bye.
