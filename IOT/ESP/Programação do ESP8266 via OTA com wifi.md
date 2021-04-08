@@ -16,7 +16,8 @@ Para preparar a Arduino IDE para reconhecer e programar o ESP, caso ele não já
 Abra  o Arduino IDE, e utilize o sketch padrão que acompanha o plugin do ESP8266 (se você realizou as etapas descritas no tutorial mencionado acima, ele já estará disponível para você) cujo nome é **ArduinoOTA -> Basic OTA**. Lembre-se também de configurar a placa correta.
 O código abaixo foi alterado pelo FelipeFlop, mas tem como base o modelo acima:
 
-"""C++
+'''C++
+
 #include <ESP8266WiFi.h>
 #include <ESP8266mDNS.h>
 #include <WiFiUdp.h>
@@ -71,7 +72,8 @@ void setup() {
 void loop() {
   ArduinoOTA.handle();
 }
-"""
+
+'''
 
 Após gravar este código no seu ESP (via cabo), ele já estará disponível na sua Wi-fi e aparecerá nas portas seriais via rede na Arduino IDE.
 
