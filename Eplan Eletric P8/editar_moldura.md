@@ -6,8 +6,9 @@ Geralmente os projetos utilizam mais de uma única moldura, pois para cada tipo 
 Neste tópico veremos:
  1. [Abrindo e editando uma moldura?](#editarmoldura)
  2. [Inserindo e editando textos dinâmicos](#textosdinamicos)
- 3. [Tools for Markdown](#tools)
- 4. [Markdown Syntax](#syntax)
+ 3. [Alterando o tamanho e quantidade de linhas e colunas da página](#caminhos)
+ 4. [Configurando o tipo de numeração dos caminhos](#numeracaocaminhos)
+ 5. [Configurando tamanho e formado da página](#formatopagina)
 
 *******
 
@@ -40,6 +41,9 @@ Para **Editar** as caixas de texto basta dar dois cliques sobre elas. Ao editar 
  - **Posicionamento**: Escolha a propriedade do projeto, página, linha ou coluna que deseja que seja exibida.
  - **Formato**: Personalizar a exibição do texto em sí. Funciona da mesma forma como as propriedades de um texto simples, onde você altera a centralização, espaçamento, quebras de linha, cor e tamanho.
 
+
+<div id='caminhos'/> 
+
 ## Alterando o tamanho e quantidade de linhas e colunas da página
 
 Primeiramente, para que possa ver onde estão os atuais caminhos da página, ative a exibição dos caminhos em `Visualização -> Caminhos`.
@@ -51,5 +55,20 @@ Importante notar que ao preencher as medidas das primeiras e últimas linhas e c
 Para saber se a configuração está correta, basta ativar a visibilidade dos caminhos e ver se estão coincidindo com as marcações da moldura.
 
 
+<div id='numeracaocaminhos'/> 
 
+## Configurando o tipo de numeração dos caminhos
+
+Nas pripriedades da moldura, encontre as propriedades:
+- **Formato de numeração das colunas** e **Formato de numeração das linhas**, elas definem se a numeração deve ser numérica ou alfanumérica.
+- **Numeração de colunas invertiva** e **Numeração de linhas invertida**, quando marcadas, invertem a numeração em questão.
+- **quantidade de caracteres por coluna / linha** define quantos caracteres irão compor as numerações.
+
+<div id='formatopagina'/> 
+
+## Configurando tamanho e formado da página
+
+Encontre as propriedades da moldura:
+- **Alinhamento da página / Formato do papel**: Define formato retrato ou paisagem da exibição. (A impressão será baseada nisso)
+- **Grid**: Por padrão, em *1mm*, e aconselho que permaneça assim.
 
