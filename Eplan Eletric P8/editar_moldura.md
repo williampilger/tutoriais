@@ -32,5 +32,13 @@ Caso precise editar propriedades e dados específicos, veja os tópicos abaixo.
 
 ## Inserindo e editando textos dinâmicos
 
-Ao abrir uma moldura, verá que ela contém campos de texto especiais, e dinâminos. Ou seja, textos que vão mudar de página para página.
+Ao abrir uma moldura, verá que ela contém campos de texto especiais, e dinâminos. Ou seja, textos que vão mudar de página para página, como por exemplo, o contador de páginas, a descrição, os números e letras das linhas e colunas, e muito mais.
+
+Para **Inserir** uma nova propriedade ou texto dinâmido à moldura navegue até `Inserir -> Texto Especial` e escolha o tipo de texto que deseja inserir.
+
+Para **Editar** as caixas de texto basta dar dois cliques sobre elas. Ao editar as propriedades dos textos especiais, poderá navegar por duas guias:
+ - **Posicionamento**: Escolha a propriedade do projeto, página, linha ou coluna que deseja que seja exibida.
+ - **Formato**: Personalizar a exibição do texto em sí. Funciona da mesma forma como as propriedades de um texto simples, onde você altera a centralização, espaçamento, quebras de linha, cor e tamanho.
+
+## 
 
