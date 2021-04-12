@@ -40,5 +40,16 @@ Para **Editar** as caixas de texto basta dar dois cliques sobre elas. Ao editar 
  - **Posicionamento**: Escolha a propriedade do projeto, página, linha ou coluna que deseja que seja exibida.
  - **Formato**: Personalizar a exibição do texto em sí. Funciona da mesma forma como as propriedades de um texto simples, onde você altera a centralização, espaçamento, quebras de linha, cor e tamanho.
 
-## 
+## Alterando o tamanho e quantidade de linhas e colunas da página
+
+Primeiramente, para que possa ver onde estão os atuais caminhos da página, ative a exibição dos caminhos em `Visualização -> Caminhos`.
+Se a moldura contiver as mascações e numerações de linhas e colunas na lateral, neste momento as marcações precisam estar coincidindo. Caso isso não esteja acontecendo, algo está errado.
+
+o **Número de linhas e colunas, e suas medidas** devem ser preenchidas nas propriedades da moldura. Para edita-las, clique com o botão direito do mouse sobre a moldura, no navegador de páginas, e escolha **Propriedades**. As propriedades **Quantidade de linhas** e **Quantidade de colunas** devem estar visíveis e preenchidas, mas caso contrário, clique no botão **Novo** e busque pelas pripriedades. O mesmo vale para as propriedades de **Altura de linhas[X]** e **Altura de colunas[X]**.
+
+Importante notar que ao preencher as medidas das primeiras e últimas linhas e colunas, deve-se levar em consideração o tamanho da márgem que foi deixada no desenho da moldura.
+Para saber se a configuração está correta, basta ativar a visibilidade dos caminhos e ver se estão coincidindo com as marcações da moldura.
+
+
+
 
