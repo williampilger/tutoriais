@@ -3,7 +3,7 @@
 As layers servem para diferenciar graficamente linhas, formas e símbolos.
 Podemos configurar as layers de todos os gráficos no eplan, dentre elas, as formas, simbolos, textos, conexões, caixas de dispositivos e pontos de conexão.
 
-Neste momento, estou utilizando a versão `$**2.9 SP1 Update 5**` do Eplan, estas configurações podem variar para outras versões.
+Neste momento, estou utilizando a versão `2.9 SP1 Update 5` do Eplan, estas configurações podem variar para outras versões.
 
 *******
 Neste tópico veremos:
