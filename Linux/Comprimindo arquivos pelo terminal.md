@@ -79,3 +79,7 @@ Usage: 7z <command> [<switches>...] <archive_name> [<file_names>...]
   -x[r[-|0]]{@listfile|!wildcard} : eXclude filenames
   -y : assume Yes on all queries
 ```
+
+Então, para comprimir uma pasta, por exemplo, e separá-la em volumes de 1GB, pode utilizar:
+> 7z a -v 1g NomeDoArquivoComprimido.7z ArquivosParaComprimir
+
