@@ -25,3 +25,5 @@ Para restaurar as configurações padrão, clique em **Restaurar tudo**.
 Inicialmente pode parecer difícil encontrar os comandos em meio a lista enorme de funções disponíveis, mas existe uma lógica nessa ordenação.
 
 Basta que você saiba onde o comando se localiza nos menus de contexto do editor, e seguir a sequência de identação.
+
+Veja mais sobre o [EPLAN Eletric P8](https://github.com/williampilger/tutoriais/tree/master/Eplan%20Eletric%20P8).
