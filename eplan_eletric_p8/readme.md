@@ -6,9 +6,9 @@ Aqui veremos alguns tutoriais referentes ao EPLAN Eletric P8, software eCAD para
 
 *******
 
- 1. [Atualizar Visão Geral de Dispositivos](https://github.com/williampilger/tutoriais/blob/master/Eplan%20Eletric%20P8/Atualizar%20descri%C3%A7%C3%A3o%20de%20IOs%20da%20vis%C3%A3o%20geral%20de%20CLP.md)
- 2. [Criar, Excluir e Alterar Atalhos de Teclado](https://github.com/williampilger/tutoriais/blob/master/Eplan%20Eletric%20P8/Criar%20Excluir%20e%20Alterar%20atalhos%20de%20teclado.md)
- 3. [Editando Molduras](https://github.com/williampilger/tutoriais/blob/master/Eplan%20Eletric%20P8/Editar%20Moldura.md)
- 4. [Manipulando layers](https://github.com/williampilger/tutoriais/blob/master/Eplan%20Eletric%20P8/Manipular%20Layers.md)
+ 1. [Atualizar Visão Geral de Dispositivos](https://github.com/williampilger/tutoriais/blob/master/eplan_eletric_p8/atualizar_descricao_de_IOs_da_visao_geral_de_CLP.md)
+ 2. [Criar, Excluir e Alterar Atalhos de Teclado](https://github.com/williampilger/tutoriais/blob/master/eplan_eletric_p8/criar_excluir_e_alterar_atalhos_de_teclado.md)
+ 3. [Editando Molduras](https://github.com/williampilger/tutoriais/blob/master/eplan_eletric_p8/editar_moldura.md)
+ 4. [Manipulando layers](https://github.com/williampilger/tutoriais/blob/master/eplan_eletric_p8/manipular_layers.md)
 
 *******
