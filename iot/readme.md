@@ -15,7 +15,7 @@ Nesta seção, você encontrará tutoriais a respeito de microcontroladores, sof
 
 **Tutoriais**
 
--[Instalando e configurando o OS na Raspberry Pi](https://github.com/williampilger/iot/blob/main/raspberrypi/instalando_e_configurando_os_raspberrypi.md)
+- [Instalando e configurando o OS na Raspberry Pi](https://github.com/williampilger/iot/blob/main/raspberrypi/instalando_e_configurando_os_raspberrypi.md)
 
 **Scripts**
 
