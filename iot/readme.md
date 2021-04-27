@@ -6,7 +6,7 @@ Nesta seção, você encontrará tutoriais a respeito de microcontroladores, sof
 
 - [Programando ESP32 com Arduino IDE](https://github.com/williampilger/tutoriais/blob/master/iot/esp/programando_ESP32_com_Arduino_IDE.md)
 - [Programando ESP8266 com Arduino IDE](https://github.com/williampilger/tutoriais/blob/master/iot/esp/programando_ESP8266_com_Arduino_IDE.md)
-- [Programação do ESP8266 via OTA com wifi](Programação do ESP8266 via OTA com wifi)
+- [Programação do ESP8266 via OTA com wifi](https://github.com/williampilger/tutoriais/blob/master/iot/esp/programa%C3%A7%C3%A3o_do_ESP8266_via_OTA.md)
 - [Usando ESP com Sinric Pro para controle com Google Assistente ou Alexa](https://github.com/williampilger/tutoriais/blob/master/iot/esp/eps_com_sinric.md)
 
 
