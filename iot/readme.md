@@ -1,18 +1,27 @@
 # Tutoriais e anotações - IOT
 
 Nesta seção, você encontrará tutoriais a respeito de microcontroladores, softwares para automação e Internet das Coisas.
+
 ## ESP
+
 - [Programando ESP32 com Arduino IDE](https://github.com/williampilger/tutoriais/blob/master/iot/esp/programando_ESP32_com_Arduino_IDE.md)
 - [Programando ESP8266 com Arduino IDE](https://github.com/williampilger/tutoriais/blob/master/iot/esp/programando_ESP8266_com_Arduino_IDE.md)
 - [Programação do ESP8266 via OTA com wifi](Programação do ESP8266 via OTA com wifi)
 - [Usando ESP com Sinric Pro para controle com Google Assistente ou Alexa](https://github.com/williampilger/tutoriais/blob/master/iot/esp/eps_com_sinric.md)
 
+
+
 ## Raspberry Pi
+
 **Tutoriais**
-  -[Instalando e configurando o OS na Raspberry Pi](https://github.com/williampilger/iot/blob/main/raspberrypi/instalando_e_configurando_os_raspberrypi.md)
+
+-[Instalando e configurando o OS na Raspberry Pi](https://github.com/williampilger/iot/blob/main/raspberrypi/instalando_e_configurando_os_raspberrypi.md)
 
 **Scripts**
-  - [Instalar TeamVIewer Desktop](https://github.com/williampilger/iot/raw/main/raspberrypi/scripts/install_teamviewer.sh)
+
+- [Instalar TeamVIewer Desktop](https://github.com/williampilger/iot/raw/main/raspberrypi/scripts/install_teamviewer.sh)
+
+
 
 ## Tutoriais Externos
 
