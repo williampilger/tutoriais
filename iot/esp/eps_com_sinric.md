@@ -17,3 +17,5 @@ Navegue até **Dispositivos** e clique em **Adicionar dispositivos**, e siga o p
 
 
 ## Programando o ESP
+
+Siga o passo a passo [da página do SinricPro](https://github.com/sinricpro/esp8266-esp32-sdk)
