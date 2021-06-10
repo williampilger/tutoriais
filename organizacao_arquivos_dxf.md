@@ -37,6 +37,7 @@ Outra observação interessante, é criar lógicas para ignorar códicos de grup
 
 Esta é a seção mais importante do arquivo, pois apenas com ela já é possível desenhar a figura completamente.
 os codigos mais utilizados são:
+
 | **Código** | **Função** |
 | ---------- | ---------- |
 | 0 | Tipo de entidade (LINE, ARC, CIRCLE, etc.)|
@@ -45,11 +46,32 @@ os codigos mais utilizados são:
 | 10, 20 e 30 | Coordenadas X, Y e Z do primeiro ponto, respectivamente (Valor Float) |
 | 11, 21 e 31 | Coordenadas X, Y e Z do segundo ponto, respectivamente (Valor Float) |
 | 12, 22 e 32 | Coordenadas X, Y e Z do terceiro ponto, respectivamente (Valor Float) |
-| 60 | Visibilidade da entidade: 0 - Visível / 1 - Invisível|
+| 39 | Espessura da linha (opcional): Padrão = 0 |
+| 60 | Visibilidade da entidade: 0 - Visível / 1 - Invisível |
 | 62 | Cor da linha: 0 indica ByBlock / 256 indica ByLayer / Negativo indica layer inativa |
 | 67 | Espaço da entidade (opcional): Ausente ou zero indica em *Model* / 1 indica *In paper* |
 
 O fim de uma entidade é marcado pelo início da próxima. Estes dados todos podem aparecer em ordem aleatória.
+
+## Tipo de entidade LINHA (LINE)
+
+Uma das entidades mais usadas é, sem dúvida, a **linha**, e para representar uma linha que vai do ponto A(2,3) ao ponto B(14.65,36.54) usamos a seguinte lógica:
+```
+0
+LINE
+8
+Layer 1
+10
+2.00
+20
+3.00
+11
+14.65
+21
+36.54
+```
+É bem fácil perceber como funciona a lógica de *Código de grupo / valor*. Temos o código de grupo, seguido da informação na linha seguinte.
+
 
 
 ## Outras referências
