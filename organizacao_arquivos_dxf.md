@@ -110,6 +110,19 @@ os codigos mais utilizados são:
 | 10, 20 e 30 | Coordenadas X, Y e Z do ponto de início da linha, respectivamente (float) |
 | 11, 21 e 31 | Coordenadas X, Y e Z do ponto de fim da linha, respectivamente (float) |
 
+**LWPOLYLINE** - Polilinha
+
+| **Código** | **Função** |
+| ---------- | ---------- |
+| 100 | Marcador de subclasse (AcDbPolyline) |
+| 90 | Número de vértices |
+| 70 | (bit-coded) flag de polilinha. Padrão = 0 / 1 = Fechado / 128 = Plinegen |
+| 43 | Comprimento constante. Padrão = 0. Não usado quando as distâncias não são iguais, ou seja, quando os codigos 40 e/ou 41 foram setados |
+| 38 | Elevação (opcional). Padrão = 0 |
+| 39 | Espessura de linha (opcional). Padrão = 0 |
+| 10 e 20 | Coordenadas X e Y, respectivamente, de todos os pontos, separados por `;` |
+| 91 | Identificador de vértice |
+
 
 
 O fim de uma entidade é marcado pelo início da próxima. Estes dados todos podem aparecer em ordem aleatória.
