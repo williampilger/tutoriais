@@ -11,11 +11,11 @@ Esta formatação de arquivo foi criada pela AutoDesk, com o intuito de salvar o
 
 A estrutura dos dados é bastante simples: Uma linha sempre contem um código de identificação para o conteúdo da linha seguinte. E o arquivo é separado em seções, sendo elas:
 
-- **HEADER** : Informações gerais sobre o desenho;
-- **CLASSES** : Informações sobre a formação das classes BLOCKS, ENTITIES, e OBJECTS;
+- **HEADER** : Informações gerais sobre o desenho
+- **CLASSES** : Informações sobre a formação das classes BLOCKS, ENTITIES, e OBJECTS
 - **TABLES** : Definições sobre itens nomeados, como por exemplo:
   - Application ID (APPID)
-  - Registro de blocos/grupos (BLOCK_RECORD)
+  - Configurações do registro de blocos/grupos (BLOCK_RECORD)
   - Estilos de cotas (DIMSTYLE)
   - Layers (LAYER)
   - Tipos de linha (LTYPE)
@@ -23,10 +23,15 @@ A estrutura dos dados é bastante simples: Uma linha sempre contem um código de
   - Sistema de coordenadas do usuário (UCS)
   - Visualização (VIEW)
   - Confirguação de Viewports (VPORT)
-- **BLOCKS**
-- **ENTITIES**
-- **OBJECTS**
-- **THUMBNAILIMAGE**
+- **BLOCKS** : Contém o registro dos blocos, agrupamentos de entidades
+- **ENTITIES** : Esta seção armazena os dados de todas as entidades (linhas, retangulos, circulos...)
+- **OBJECTS** : Usado por aplicativos AutoLISP e ObjectARX, contendo dados de objetos não-gráficos
+- **THUMBNAILIMAGE** : Contém uma prévia do arquivo DXF
+- **END OF FILE** : Marcação do final do arquivo (opcional)
+
+Os dados podem ser escritos em ordem completamente aleatória, então aconselho os desenvolvedores de ferramentas a não se basearem na sequência especificada pelo manual, pois ela pode (e vai) variar de acordo com os softwares utilizados na exportação.
+
+Outra observação interessante, é criar lógicas para ignorar códicos de grupo desconhecidos até o momento, pois a cada lançamento da Autodesk são acrescentados novos códigos, para novas funções da aplicação em questão, mas a base, será sempre a mesma, e os dados dos codigos de grupo já existentes não irão mudar (ao menos de acordo com o política atual).
 
 
 
