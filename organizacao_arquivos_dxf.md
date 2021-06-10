@@ -38,18 +38,32 @@ Outra observação interessante, é criar lógicas para ignorar códicos de grup
 Esta é a seção mais importante do arquivo, pois apenas com ela já é possível desenhar a figura completamente.
 os codigos mais utilizados são:
 
+**GERAIS**
+
 | **Código** | **Função** |
 | ---------- | ---------- |
 | 0 | Tipo de entidade (LINE, ARC, CIRCLE, etc.)|
-| 6 | Nome do tipo da linha (presente somente se não for ByLayer |
+| 6 | Nome do tipo da linha (presente somente se não for *ByLayer*) |
 | 8 | Nome da Layer |
 | 10, 20 e 30 | Coordenadas X, Y e Z do primeiro ponto, respectivamente (Valor Float) |
 | 11, 21 e 31 | Coordenadas X, Y e Z do segundo ponto, respectivamente (Valor Float) |
 | 12, 22 e 32 | Coordenadas X, Y e Z do terceiro ponto, respectivamente (Valor Float) |
-| 39 | Espessura da linha (opcional): Padrão = 0 |
 | 60 | Visibilidade da entidade: 0 - Visível / 1 - Invisível |
 | 62 | Cor da linha: 0 indica ByBlock / 256 indica ByLayer / Negativo indica layer inativa |
 | 67 | Espaço da entidade (opcional): Ausente ou zero indica em *Model* / 1 indica *In paper* |
+
+**ARC** e **CIRCLE**
+
+| **Código** | **Função** |
+| ---------- | ---------- |
+| 39 | Espessura da linha (opcional): Padrão = 0 |
+| 100 | Marcador de subclasse (AcDbCircle) |
+| 10, 20 e 30 | Coordenadas X, Y e Z do ponto central, respectivamente (Valor Float) |
+| 40 | Raio do arco (Valor Float) |
+| 100 | Marcador de subclasse (AcDbArc) - **Usado somente no ARCO**|
+| 50 | Ângulo inicial (Float) |
+| 51 | Ângulo final (Float) |
+
 
 O fim de uma entidade é marcado pelo início da próxima. Estes dados todos podem aparecer em ordem aleatória.
 
