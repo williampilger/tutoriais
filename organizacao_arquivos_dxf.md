@@ -46,9 +46,9 @@ os codigos mais utilizados são:
 | 11, 21 e 22 | Coordenadas X, Y e Z do segundo ponto, respectivamente (Valor Float) |
 | 60 | Visibilidade da entidade: 0 - Visível / 1 - Invisível|
 | 62 | Cor da linha: 0 indica ByBlock / 256 indica ByLayer / Negativo indica layer inativa |
-| 67 | Espaço da entidade: Ausente ou zero indica em *Model*, 1 indica *In paper* |
+| 67 | Espaço da entidade (opcional): Ausente ou zero indica em *Model* / 1 indica *In paper* |
 
-
+O fim de uma entidade é marcado pelo início da próxima. Estes dados todos podem aparecer em ordem aleatória.
 
 
 ## Outras referências
