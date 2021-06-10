@@ -52,7 +52,7 @@ os codigos mais utilizados são:
 | 62 | Cor da linha: 0 indica ByBlock / 256 indica ByLayer / Negativo indica layer inativa |
 | 67 | Espaço da entidade (opcional): Ausente ou zero indica em *Model* / 1 indica *In paper* |
 
-**ARC** e **CIRCLE**
+**ARC** e **CIRCLE** - Arcos e Circulos
 
 | **Código** | **Função** |
 | ---------- | ---------- |
@@ -64,7 +64,7 @@ os codigos mais utilizados são:
 | 50 | Ângulo inicial (Float) |
 | 51 | Ângulo final (Float) |
 
-**ELLIPSE**
+**ELLIPSE** - Elipse
 
 | **Código** | **Função** |
 | ---------- | ---------- |
@@ -74,6 +74,21 @@ os codigos mais utilizados são:
 | 40 | Raio menor ângulo do arco (float) |
 | 41 | Parâmetro inicial (0 para uma elipse completa) |
 | 42 | Parâmetro final (2pi para uma elipse completa) |
+
+**HATCH** - Hachurras
+
+| **Código** | **Função** |
+| ---------- | ---------- |
+| 100 | Marcador de subclasse (AcDbHatch) |
+| 2 | Nome do padrão de Hachurra |
+| 10, 20 e 30 | Coordenadas X, Y e Z do ponto de elevação, respectivamente (float) |
+| 70 | Flag de preenchimento sólido: 1 - Preenchimento sólido / 0 - Preencher com padrão / ou Versão do polígono para preenchimento MPolygon |
+| 63 | Para *MPolygon*, cor do preenchimento no padrão ACI |
+| 71 | Flag de associatividade: 1 - associável / 2 - não-associável). Para *MPolygon* equivale a flag de preenchimento sólido |
+| 91 | Número de caminhos de limite (loops aplicados sobre os parâmetros abaixo) |
+| 75 | Estilo de hachurra: 0 - Normal / 1 - Hachurra apenas area externa / 2 - Hachurra área completa |
+| 76 | Tipo de padrão de hachurra: 0 - Definido pelo usuário / 1 - Predefinido / 2 - Customizado |
+| 52 | 
 
 
 
