@@ -40,8 +40,10 @@ os codigos mais utilizados são:
 | **Código** | **Função** |
 | ---------- | ---------- |
 | 0 | Tipo de entidade |
-| 10, 20 e 30 | Coordenadas X, Y e Z do primeiro ponto, respectivamente |
-| 11, 21 e 22 | Coordenadas X, Y e Z do segundo ponto, respectivamente |
+| 10, 20 e 30 | Coordenadas X, Y e Z do primeiro ponto, respectivamente (Valor Float) |
+| 11, 21 e 22 | Coordenadas X, Y e Z do segundo ponto, respectivamente (Valor Float) |
+| 60 | Visibilidade da entidade: 0 - Visível / 1 - Invisível|
+| 62 | Cor da linha: 0 indica ByBlock / 256 indica ByLayer / Negativo indica layer inativa |
 
 
 
