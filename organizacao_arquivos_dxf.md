@@ -132,6 +132,7 @@ O fim de uma entidade é marcado pelo início da próxima. Estes dados todos pod
 
 Neste exemplo vou criar uma entidade de linha, ou seja, tipo *LINE*, pertencente a *Layer 1* que vai do ponto A(2,3) ao ponto B(14.65,36.54) usamos a seguinte lógica:
 ```
+ENTITIES
 0
 LINE
 100
