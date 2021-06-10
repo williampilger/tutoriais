@@ -37,5 +37,6 @@ Outra observação interessante, é criar lógicas para ignorar códicos de grup
 
 
 ## Outras referências
+- [AutoCAD 2012 DXF Reference.pdf](https://images.autodesk.com/adsk/files/autocad_2012_pdf_dxf-reference_enu.pdf)
 - [Wikipedia - AutoCAD DXF](https://en.wikipedia.org/wiki/AutoCAD_DXF)
 - 
