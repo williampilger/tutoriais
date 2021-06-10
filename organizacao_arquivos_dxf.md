@@ -101,6 +101,14 @@ os codigos mais utilizados são:
 | 462 | Valor de matiz de cor usado pelo código de diálogo (padrão = 0, 0; o intervalo é de 0,0 a 1,0) |
 | 470 | String (padrão = LINEAR) |
 
+**LINE** - Linhas
+
+| **Código** | **Função** |
+| ---------- | ---------- |
+| 100 | Marcador de subclasse (AcDbLine) |
+| 39 | Espessura da linha, opcional. Padrão = 0 |
+| 10, 20 e 30 | Coordenadas X, Y e Z do ponto de início da linha, respectivamente (float) |
+| 11, 21 e 31 | Coordenadas X, Y e Z do ponto de fim da linha, respectivamente (float) |
 
 
 
