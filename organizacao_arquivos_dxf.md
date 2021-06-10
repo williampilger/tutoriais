@@ -11,9 +11,11 @@ Esta formatação de arquivo foi criada pela AutoDesk, com o intuito de salvar o
 
 A estrutura dos dados é bastante simples: Uma linha sempre contem um código de identificação para o conteúdo da linha seguinte. E o arquivo é separado em seções, sendo elas:
 
-- **HEADER**: Informações gerais sobre o desenho;
-- **CLASSES**: 
-- **TABLES**
+- **HEADER** : Informações gerais sobre o desenho;
+- **CLASSES** : Informações sobre a formação das classes BLOCKS, ENTITIES, e OBJECTS;
+- **TABLES** : Definições sobre itens nomeados, como por exemplo:
+-   Application ID (APPID) table;
+-   
 - **BLOCKS**
 - **ENTITIES**
 - **OBJECTS**
