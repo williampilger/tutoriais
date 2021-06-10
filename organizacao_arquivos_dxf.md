@@ -33,6 +33,11 @@ Os dados podem ser escritos em ordem completamente aleatória, então aconselho 
 
 Outra observação interessante, é criar lógicas para ignorar códicos de grupo desconhecidos até o momento, pois a cada lançamento da Autodesk são acrescentados novos códigos, para novas funções da aplicação em questão, mas a base, será sempre a mesma, e os dados dos codigos de grupo já existentes não irão mudar (ao menos de acordo com o política atual).
 
+# Seção ENTITIES
+
+Esta é a seção mais importante do arquivo, pois apenas com ela já é possível desenhar a figura completamente.
+os codigos mais utilizados são:
+
 
 
 
