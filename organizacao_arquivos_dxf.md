@@ -64,6 +64,18 @@ os codigos mais utilizados são:
 | 50 | Ângulo inicial (Float) |
 | 51 | Ângulo final (Float) |
 
+**ELLIPSE**
+
+| **Código** | **Função** |
+| ---------- | ---------- |
+| 100 | Marcador de subclasse (AcDbEllipse) |
+| 10, 20 e 30 | Coordenadas X, Y e Z do ponto central, respectivamente (float) |
+| 11, 21 e 31 | Coordenadas X, Y e Z do ponto final do maior ângulo, em relação ao centro (float) |
+| 40 | Raio menor ângulo do arco (float) |
+| 41 | Parâmetro inicial (0 para uma elipse completa) |
+| 42 | Parâmetro final (2pi para uma elipse completa) |
+
+
 
 O fim de uma entidade é marcado pelo início da próxima. Estes dados todos podem aparecer em ordem aleatória.
 
