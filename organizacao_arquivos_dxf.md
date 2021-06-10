@@ -14,7 +14,7 @@ A estrutura dos dados é bastante simples: Uma linha sempre contem um código de
 - **HEADER** : Informações gerais sobre o desenho;
 - **CLASSES** : Informações sobre a formação das classes BLOCKS, ENTITIES, e OBJECTS;
 - **TABLES** : Definições sobre itens nomeados, como por exemplo:
-  -Application ID (APPID) table;
+-- Application ID (APPID) table;
 -   
 - **BLOCKS**
 - **ENTITIES**
