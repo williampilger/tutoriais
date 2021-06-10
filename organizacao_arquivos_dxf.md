@@ -14,8 +14,15 @@ A estrutura dos dados é bastante simples: Uma linha sempre contem um código de
 - **HEADER** : Informações gerais sobre o desenho;
 - **CLASSES** : Informações sobre a formação das classes BLOCKS, ENTITIES, e OBJECTS;
 - **TABLES** : Definições sobre itens nomeados, como por exemplo:
-  - Application ID (APPID) table;
-  -   
+  - Application ID (APPID)
+  - Registro de blocos/grupos (BLOCK_RECORD)
+  - Estilos de cotas (DIMSTYLE)
+  - Layers (LAYER)
+  - Tipos de linha (LTYPE)
+  - Estilo de texto (STYLE)
+  - Sistema de coordenadas do usuário (UCS)
+  - Visualização (VIEW)
+  - Confirguação de Viewports (VPORT)
 - **BLOCKS**
 - **ENTITIES**
 - **OBJECTS**
