@@ -42,6 +42,7 @@ os codigos mais utilizados são:
 
 | **Código** | **Função** |
 | ---------- | ---------- |
+| 100 | Marcador de subclasse (AcDbEntity) |
 | 0 | Tipo de entidade (LINE, ARC, CIRCLE, etc.)|
 | 6 | Nome do tipo da linha (presente somente se não for *ByLayer*) |
 | 8 | Nome da Layer |
@@ -101,7 +102,7 @@ os codigos mais utilizados são:
 | 462 | Valor de matiz de cor usado pelo código de diálogo (padrão = 0, 0; o intervalo é de 0,0 a 1,0) |
 | 470 | String (padrão = LINEAR) |
 
-**LINE** - Linhas
+**LINE** - Linha
 
 | **Código** | **Função** |
 | ---------- | ---------- |
@@ -133,8 +134,12 @@ Neste exemplo vou criar uma entidade de linha, ou seja, tipo *LINE*, pertencente
 ```
 0
 LINE
+100
+AcDbEntity
 8
 Layer 1
+100
+AcDbLine
 10
 2.00
 20
@@ -150,5 +155,6 @@ Layer 1
 
 ## Outras referências
 - [AutoCAD 2012 DXF Reference.pdf](https://images.autodesk.com/adsk/files/autocad_2012_pdf_dxf-reference_enu.pdf)
+- [AutoCAD 2018 - Sobre o formato DXF](http://help.autodesk.com/view/OARX/2018/PTB/?guid=GUID-235B22E0-A567-4CF6-92D3-38A2306D73F3)
 - [Wikipedia - AutoCAD DXF](https://en.wikipedia.org/wiki/AutoCAD_DXF)
 - 
