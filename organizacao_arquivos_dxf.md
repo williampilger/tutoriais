@@ -38,6 +38,7 @@ Outra observação interessante, é criar lógicas para ignorar códicos de grup
 Esta é a seção mais importante do arquivo, pois apenas com ela já é possível desenhar a figura completamente.
 os codigos mais utilizados são:
 | **Código** | **Função** |
+| ---------- | ---------- |
 | 0 | Tipo de entidade |
 | 10, 20 e 30 | Coordenadas X, Y e Z do primeiro ponto, respectivamente |
 | 11, 21 e 22 | Coordenadas X, Y e Z do segundo ponto, respectivamente |
