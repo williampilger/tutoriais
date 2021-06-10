@@ -81,14 +81,26 @@ os codigos mais utilizados são:
 | ---------- | ---------- |
 | 100 | Marcador de subclasse (AcDbHatch) |
 | 2 | Nome do padrão de Hachurra |
-| 10, 20 e 30 | Coordenadas X, Y e Z do ponto de elevação, respectivamente (float) |
+| 10 e 30 | Coordenadas X e Y do ponto de início da hachurra, respectivamente (float) |
 | 70 | Flag de preenchimento sólido: 1 - Preenchimento sólido / 0 - Preencher com padrão / ou Versão do polígono para preenchimento MPolygon |
 | 63 | Para *MPolygon*, cor do preenchimento no padrão ACI |
 | 71 | Flag de associatividade: 1 - associável / 2 - não-associável). Para *MPolygon* equivale a flag de preenchimento sólido |
 | 91 | Número de caminhos de limite (loops aplicados sobre os parâmetros abaixo) |
 | 75 | Estilo de hachurra: 0 - Normal / 1 - Hachurra apenas area externa / 2 - Hachurra área completa |
 | 76 | Tipo de padrão de hachurra: 0 - Definido pelo usuário / 1 - Predefinido / 2 - Customizado |
-| 52 | 
+| 52 | Ângulo do padrão de hachurra |
+| 41 | Escala do padrão de hachurra |
+| 77 | Flag padrão duplo de preenchimento: 0 - Simples / 1 - Duplo |
+| 78 | Número de linhas do padrão de hachurra (Número de vezes que os padrões definidos abaixo serão repetidos)|
+| 47 | Tamanho do pixel usado para determinar a densidade de hachuras criadas com o método Flood de hachura |
+| 98 | Número de pontos de início de hachurra |
+| 450 | Flag de preenchimento gradiente: 0 - Solido simples / 1 - Preenchimento gradiente |
+| 453 | Número de cores: 0 - Solido simples / 1 - Preenchimento gradiente |
+| 460 | Ângulo de rotação para o gradiente, em radianos |
+| 461 | Grau de deslocamento do centro de gradiente. 0.0 significa que não será deslocado, enquanto que 1.0 significa que apenas o modo de deslocamento deve ser usado. |
+| 462 | Valor de matiz de cor usado pelo código de diálogo (padrão = 0, 0; o intervalo é de 0,0 a 1,0) |
+| 470 | String (padrão = LINEAR) |
+
 
 
 
