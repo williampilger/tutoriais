@@ -39,7 +39,8 @@ Esta é a seção mais importante do arquivo, pois apenas com ela já é possív
 os codigos mais utilizados são:
 | **Código** | **Função** |
 | ---------- | ---------- |
-| 0 | Tipo de entidade |
+| 0 | Tipo de entidade (LINE, ARC, CIRCLE, etc.)|
+| 6 | Nome do tipo da linha (presente somente se não for ByLayer |
 | 10, 20 e 30 | Coordenadas X, Y e Z do primeiro ponto, respectivamente (Valor Float) |
 | 11, 21 e 22 | Coordenadas X, Y e Z do segundo ponto, respectivamente (Valor Float) |
 | 60 | Visibilidade da entidade: 0 - Visível / 1 - Invisível|
