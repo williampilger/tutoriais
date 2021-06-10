@@ -41,10 +41,13 @@ os codigos mais utilizados são:
 | ---------- | ---------- |
 | 0 | Tipo de entidade (LINE, ARC, CIRCLE, etc.)|
 | 6 | Nome do tipo da linha (presente somente se não for ByLayer |
+| 8 | Nome da Layer |
 | 10, 20 e 30 | Coordenadas X, Y e Z do primeiro ponto, respectivamente (Valor Float) |
 | 11, 21 e 22 | Coordenadas X, Y e Z do segundo ponto, respectivamente (Valor Float) |
 | 60 | Visibilidade da entidade: 0 - Visível / 1 - Invisível|
 | 62 | Cor da linha: 0 indica ByBlock / 256 indica ByLayer / Negativo indica layer inativa |
+| 67 | Espaço da entidade: Ausente ou zero indica em *Model*, 1 indica *In paper* |
+
 
 
 
