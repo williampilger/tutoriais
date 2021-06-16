@@ -132,16 +132,7 @@ os codigos mais utilizados são:
 | 10, 20 e 30 | Coordenadas X, Y e Z do ponto de inserção do texto, respectivamente (float) |
 | 40 | Altura do texto nominal (Inicial) |
 | 41 | Altura do terângulo de referência |
-| 71 | Ponto de vínculo:
-1 = Superior esquerda
-2 = Superior central
-3 = Superior direita
-4 = Meio esquerda
-5 = Meio central
-6 = Meio direita
-7 = Inferior esquerda
-8 = Inferior central
-9 = Inferior direita |
+| 71 | Ponto de vínculo: 1 = Superior esquerda / 2 = Superior central / 3 = Superior direita / 4 = Meio esquerda / 5 = Meio central / 6 = Meio direita / 7 = Inferior esquerda / 8 = Inferior central / 9 = Inferior direita |
 
 
 O fim de uma entidade é marcado pelo início da próxima. Estes dados todos podem aparecer em ordem aleatória.
