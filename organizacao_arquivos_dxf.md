@@ -133,7 +133,10 @@ os codigos mais utilizados são:
 | 40 | Altura do texto nominal (Inicial) |
 | 41 | Altura do terângulo de referência |
 | 71 | Ponto de vínculo: 1 = Superior esquerda / 2 = Superior central / 3 = Superior direita / 4 = Meio esquerda / 5 = Meio central / 6 = Meio direita / 7 = Inferior esquerda / 8 = Inferior central / 9 = Inferior direita |
-
+| 72 | Direção do desenho: 1 = Da esquerda para a direita / 3 = Superior para Inferior / 5 = Por estilo (a direção do fluxo é herdada do estilo de texto associado)|
+| 1 | Texto (string) |
+| 50 | Ângulo de rotação, em radianos (float)|
+| 7 | Nome do estilo de texto (fonte) |
 
 O fim de uma entidade é marcado pelo início da próxima. Estes dados todos podem aparecer em ordem aleatória.
 
