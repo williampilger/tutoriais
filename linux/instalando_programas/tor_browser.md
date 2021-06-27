@@ -1,4 +1,4 @@
-# Instalar TOR Browser
+# Instalar TOR Browser [NÃO FUNCIONAL]
 
 > sudo add-apt-repository -y ppa:webupd8team/tor-browser
 
