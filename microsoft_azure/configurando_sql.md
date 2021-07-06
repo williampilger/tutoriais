@@ -23,3 +23,10 @@ ALTER ROLE db_datawriter ADD MEMBER [SeuWebApp];
 GO
 ```
 
+**ATENÇAO!!** Troque o banco de dados selecionado para o adequado. Por padrão o selecionado é `master`, e nada pode ser executado neste domínio.
+
+Clique em **Executar** e aguarde a mensagem de `Comandos concluídos com êxito`.
+
+# Referências
+
+Anotações retiradas do [Curso da Alura](https://cursos.alura.com.br/course/introducao-ao-azure-com-webapps-e-sql)
