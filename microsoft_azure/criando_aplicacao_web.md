@@ -6,6 +6,7 @@ Itens necessários:
 - Visual Studio;
 - Conta, servidor e banco de dados SQL do Azure;
 - Codigo fonte do site. Diponível [AQUI](https://github.com/williampilger/tutoriais/raw/master/microsoft_azure/CodigoFonte.rar).
+- .NET Framework 2.0 (Pode ser instalado usando o **Gerenciador de recusros do windows**.
 
 Na sequência também será criada uma máquina virtual para executrar tarefas na núvem.
 
