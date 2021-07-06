@@ -28,4 +28,4 @@ O projeto **já compilado** pode ser obtido [aqui](https://github.com/williampil
 ## Publicando aplicação
 
 - Abra o painel de controle do [Microsoft Azure](portal.azure.com), e crie um novo recurso **Web App**.
-- Para acessar painel de controle do site acesse **https:\\<nomedosite>.scm.azurewebsites.net** e no **wwwroot** coloque os arquivos compilados do site.
+- Para acessar painel de controle do site acesse **https:\\NOMEDOSEUSITE.scm.azurewebsites.net** e no **wwwroot** coloque os arquivos compilados do site.
