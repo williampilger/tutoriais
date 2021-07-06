@@ -23,3 +23,9 @@ Abra o projeto exemplo no visual studio. e Adicione seu banco SLQ ao projeto, fa
 - Navegue até: **Ferramentas** -> **Gerenciador de pacotes NuGet** -> **Console do gerenciador de pacotes** e digite o seguinte comando: `dotnet ef database update --project .\CasaDoCodigo.EF --startup-project .\CasaDoCodigoWeb` 
 - Compile e execute a solução. A Aplicação agora estará rodando **localmente**, e acessando o banco de dados na nuvem. Caso o banco de dados esteja em branco, ele será preenchido com os livros "padrões".
 
+O projeto **já compilado** pode ser obtido [aqui](https://github.com/williampilger/tutoriais/raw/master/microsoft_azure/PacoteDeploy.rar), também obtido da Alura.
+
+## Publicando aplicação
+
+- Abra o painel de controle do [Microsoft Azure](portal.azure.com), e crie um novo recurso **Web App**.
+- Para acessar painel de controle do site acesse **https:\\<nomedosite>.scm.azurewebsites.net** e no **wwwroot** coloque os arquivos compilados do site.
