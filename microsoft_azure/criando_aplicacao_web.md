@@ -19,5 +19,6 @@ Abra o projeto exemplo no visual studio. e Adicione seu banco SLQ ao projeto, fa
 - Procure pela **Connection String** e copie ela;
 - Abra o arquivo **appsettings.json** no projeto da aplicação exemplo, e substitua a **ConnectionString** pela sua;
 - **ATENÇAO!!** Substitua as credencias de administrador pelas do **Usuário que criamos para a aplicação**. Importante não usar as credencias de administrador na connection string dentro do app.
+- Navegue até: **Ferramentas** -> **Gerenciador de pacotes NuGet** -> **Console do gerenciador de pacotes** e digite o seguinte comando: `dotnet ef database update --project .\CasaDoCodigo.EF --startup-project .\CasaDoCodigoWeb` 
 - Compile e execute a solução. A Aplicação agora estará rodando **localmente**, e acessando o banco de dados na nuvem. Caso o banco de dados esteja em branco, ele será preenchido com os livros "padrões".
 
