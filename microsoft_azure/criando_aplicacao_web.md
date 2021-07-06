@@ -5,7 +5,7 @@ Neste passo a passo será publicado um exemplo de site, também de autoria da Al
 Itens necessários:
 - Visual Studio;
 - Conta, servidor e banco de dados SQL do Azure;
-- Codigo fonte do site. Diponível [AQUI](https://github.com/williampilger/tutoriais/raw/master/microsoft_azure/CodigoFonte.rar).
+- Codigo fonte do site. Diponível [AQUI](https://github.com/williampilger/tutoriais/raw/master/microsoft_azure/CodigoFonte.rar). **(que, por sinal, não funciona)**
 - .NET Framework 2.0 (Pode ser instalado usando o **Gerenciador de recusros do windows**.
 
 Na sequência também será criada uma máquina virtual para executrar tarefas na núvem.
