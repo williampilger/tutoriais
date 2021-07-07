@@ -1,4 +1,4 @@
-# MingW Compiller
+# MinGW Compiller
 MingW é um compilador minimalista para C/C++
 
 ## Instalando
