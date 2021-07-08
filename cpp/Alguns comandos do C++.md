@@ -1,3 +1,12 @@
+# Comandos C++
+
+## Opções de compilação
+
+Conteúdo completo [aqui](https://man7.org/linux/man-pages/man1/g++.1.html) ou [aqui](https://linux.die.net/man/1/g++).
+
+O **minGW**, ou GCC do linux possui vários parâmetros, estarão descritos alguns aqui:
+- **-l** - informa bibliotecas que serão vinculadas imediatamente no momento da compilação. Geralmente arquivos `liblibrary.a` ou `liblibrary.so`.
+
 Printf:
 	Usa-se para imprimir coisas na tela.
 	
