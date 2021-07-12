@@ -1,0 +1,8 @@
+﻿  WXWidgetsTeste.cpp
+C:\MDA_PORT\bibliotecas\wxwidgets\include\wx\wxcrt.h(487,12): error C3861: 'wxStrcoll': identificador não encontrado
+C:\MDA_PORT\bibliotecas\wxwidgets\include\wx\wxcrt.h(487,12): message : 'wxStrcoll': a função não foi declarada no contexto de definição de modelo e pode ser encontrada no contexto de instanciação somente via pesquisa dependente de argumento
+C:\MDA_PORT\bibliotecas\wxwidgets\include\wx\wxcrt.h(496): message : consulte a referência à instanciação 'int wxStrcoll_String<const wchar_t*>(const wxString &,const T &)' do modelo que está sendo compilada
+          with
+          [
+              T=const wchar_t *
+          ]
