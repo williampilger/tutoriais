@@ -39,6 +39,9 @@ Este tutorial segue os passos do *Pietro Martins De Oliveira*, no [Vídeo - Inte
 	- Cole o codigo exemplo de Hello World que você pode encontrar no final [página do proprio projeto](https://docs.wxwidgets.org/trunk/overview_helloworld.html) no seu arquivo `WXWidgetsTeste.cpp`
 	- Execute a aplicação.
 
+## Projeto exemplo
+
+O projeto configurado e funcional está disponível [neste repositório](/wxwidgets)
 
 ## Outra forma de instalar a biblioteca (Sem Sucesso):
 
