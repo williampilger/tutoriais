@@ -41,7 +41,7 @@ Este tutorial segue os passos do *Pietro Martins De Oliveira*, no [Vídeo - Inte
 
 ## Projeto exemplo
 
-O projeto configurado e funcional está disponível [neste repositório](/WXWidgetsTeste).
+O projeto configurado e funcional está disponível [neste repositório](./WXWidgetsTeste).
 
 ## Outra forma de instalar a biblioteca (Sem Sucesso):
 
