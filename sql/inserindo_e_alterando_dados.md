@@ -60,3 +60,11 @@ where nome = 'William';
 
 **ATENÇÂO!!** Lembrando que é uma **Péssima ideia** eliminar um registro com base no nome. Pois novamente, isso afeta todos registros com esse nome.
 Também é importante lembrar que **não pe nem um pouco aconselhavel modificar um banco de dados ativos**, sempre faça um backup.
+
+## Eliminar todos os dados de uma tabela
+
+Para limpar completamente uma tabela usamos:
+
+```sql
+truncate table sua_tabela
+```
