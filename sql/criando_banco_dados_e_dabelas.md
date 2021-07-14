@@ -23,6 +23,19 @@ Podemos observar também que o padrão de caracteres foi definido em `UTF-8`, e 
 
 O formato de dados `decimal` permite que criemos campos "float" com o número exato de caracteres. Onde o primeiro número é a quantidade total de dígitos disponíveis e o segundo é a quantidade que ficará depois da vírgula.
 
+Para impedir que mais de um registro aconteça com o mesmo nome de pessoa, ao invéz de usar o ID, podemos usaro o comando `unique`, que funciona da seguinte forma:
+
+```sql
+create table pessoas(
+    nome varchar(20) not null unique,
+    nascimento date,
+    sexo enum('M','F'),
+    peso decimal(5,2),
+    altura decimal(3,2),
+    nacionalidade varchar(15) default 'Brasil',
+)default character set utf8;
+```
+
 ## Inserir dados na tabela
 
 Exemplos de código:
@@ -86,7 +99,7 @@ Em todos os exemplos a palavra `column` pode ser abstraida.
 Para remover a mesma coluna, usamos:
 
 ```sql
-alter table pessoas
+alter table sua_tabela
 drop column nome_da_coluna;
 ```
 
@@ -95,7 +108,7 @@ drop column nome_da_coluna;
 Para modificar o tipo de dado de uma coluna, por exemplo:
 
 ```sql
-alter table pessoas
+alter table sua_tabela
 modify column nome_da_coluna novo_tipo_de_dado;
 ```
 
@@ -103,7 +116,7 @@ Nesse momento podem ocorrer conflitos com dados já existentes.
 Caso você tenha campos NULL, por exemplo, e no `tipo_de_dado` informar que o campo não pode ser nulo, não será possível aplicar a alteração. Nesse caso basta definir um valor default, assim os valores nulos serão preenchidos com um valor. Veja o exemplo:
 
 ```sql
-alter table pessoas
+alter table sua_tabela
 modify column profissao varchar(20) not null default '-';
 ```
 
@@ -115,10 +128,24 @@ Agora tdos os cadastros que não tiverem o dado preenchido recebem o valor `-`.
 Para alterar o nome usamos:
 
 ```sql
-alter table pessoas
+alter table sua_tabela
 change column nome_atual_da_coluna novo_nome_da_coluna tipo_de_dado;
 ```
 
+**Renomear uma Tabela**
 
+Renomeando a tabela usamos:
 
+```sql
+alter table antigo_nome
+rename to novo_nome;
+```
+**Adicionando uma primary key à uma tabela já existente**
+
+Caso no momento da criação não se tenha definido a Primary Key, é possível faze-lo assim:
+
+```sql
+alter table sua_tabela
+add primary ket(sua_coluna);
+```
 
