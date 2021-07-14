@@ -18,6 +18,7 @@ Curso do **Gustavo Guanabarra**:
 - [Curso MySQL #06 - Alterando a Estrutura da Tabela (ALTER TABLE e DROP TABLE)](https://www.youtube.com/watch?v=To9qUcEMuY0)
 - [Curso MySQL #07 - Manipulando Linhas (UPDATE, DELETE e TRUNCATE)](https://www.youtube.com/watch?v=wXViczeTr6Q)
 - [Curso MySQL #08 - Gerenciando Cópias de Segurança MySQL](https://www.youtube.com/watch?v=w6OYS_M7hTM)
+- [Curso MySQL #09 - PHPMyAdmin (Parte 1)](https://www.youtube.com/watch?v=OaPMvrA0cA4)
 - [Curso MySQL #10 - PHPMyAdmin (Parte 2)](https://www.youtube.com/watch?v=OaPMvrA0cA4)
 - 
 
