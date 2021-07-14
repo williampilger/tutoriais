@@ -54,12 +54,32 @@ Lembrando que para ver a atual estrutura da sua tablema você pode usar os dois 
 
 > desc nome_da_sua_tabela
 
-Para adicionar uma coluna (um campo) à sua estrutura de dados, use o exemplo abaixo:
+**Adicionar uma Coluna**
+
+Para adicionar uma coluna (um campo) ao final da sua estrutura de dados, use o exemplo abaixo:
 
 ```sql
 alter table pessoas
 add column profissao varchar(10);
 ```
+
 Neste caso, foi adicionada a coluna "profissao" à tabela "pessoas" que criamos no passo anterior.
+
+Para adicionar a coluna em uma posição específica, use o comando `after`. Para coloca-la após o nome, por exemplo, use:
+
+```sql
+alter table pessoas
+add column profissao varchar(10) after nome;
+```
+
+**Remover uma Coluna**
+
+Para remover a mesma coluna, usamos:
+
+```sql
+alter table pessoas
+add column profissao varchar(10);
+```
+
 
 
