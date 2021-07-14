@@ -22,3 +22,14 @@ create table pessoas(
 Podemos observar também que o padrão de caracteres foi definido em `UTF-8`, e que alguns campos estão marcados como obrigatórios com a constante `not null`.
 
 O formato de dados `decimal` permite que criemos campos "float" com o número exato de caracteres. Onde o primeiro número é a quantidade total de dígitos disponíveis e o segundo é a quantidade que ficará depois da vírgula.
+
+## Inserir dados na tabela
+
+Exemplo de código:
+
+```sql
+insert into pessoas
+(id, nome, nascimento, sexo, peso, altura, nacionalidade)
+values
+('1', 'William', '1997-12-12', 'M', '65.6', '1.92', 'Brasileiro');
+```
