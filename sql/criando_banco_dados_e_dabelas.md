@@ -72,14 +72,53 @@ alter table pessoas
 add column profissao varchar(10) after nome;
 ```
 
+Para coloca-la na primeira posição, usa-se o `first`, veja:
+
+```sql
+alter table pessoas
+add column profissao varchar(10) first;
+```
+
+Em todos os exemplos a palavra `column` pode ser abstraida.
+
 **Remover uma Coluna**
 
 Para remover a mesma coluna, usamos:
 
 ```sql
 alter table pessoas
-add column profissao varchar(10);
+drop column nome_da_coluna;
 ```
+
+**Modificar uma Coluna**
+
+Para modificar o tipo de dado de uma coluna, por exemplo:
+
+```sql
+alter table pessoas
+modify column nome_da_coluna novo_tipo_de_dado;
+```
+
+Nesse momento podem ocorrer conflitos com dados já existentes.
+Caso você tenha campos NULL, por exemplo, e no `tipo_de_dado` informar que o campo não pode ser nulo, não será possível aplicar a alteração. Nesse caso basta definir um valor default, assim os valores nulos serão preenchidos com um valor. Veja o exemplo:
+
+```sql
+alter table pessoas
+modify column profissao varchar(20) not null default '-';
+```
+
+Agora tdos os cadastros que não tiverem o dado preenchido recebem o valor `-`.
+
+
+**Alterar o Nome da Coluna** 
+
+Para alterar o nome usamos:
+
+```sql
+alter table pessoas
+change column nome_atual_da_coluna novo_nome_da_coluna tipo_de_dado;
+```
+
 
 
 
