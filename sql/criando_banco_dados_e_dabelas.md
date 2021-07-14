@@ -46,3 +46,20 @@ insert into pessoas values
 (DEFAULT, 'Mariano', '1997-1-12', 'M', '65.6', '1.92', DEFAULT);
 ```
 
+## Alterar a estrutura da tabela
+
+Lembrando que para ver a atual estrutura da sua tablema você pode usar os dois comandos abaixo:
+
+> describe nome_da_sua_tabela
+
+> desc nome_da_sua_tabela
+
+Para adicionar uma coluna (um campo) à sua estrutura de dados, use o exemplo abaixo:
+
+```sql
+alter table pessoas
+add column profissao varchar(10);
+```
+Neste caso, foi adicionada a coluna "profissao" à tabela "pessoas" que criamos no passo anterior.
+
+
