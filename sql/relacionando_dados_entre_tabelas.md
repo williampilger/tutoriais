@@ -84,11 +84,11 @@ Para visualizar os dados dos cursos realizados pelos alunos de uma forma mais cl
 ```sql
 use banco_de_dados;
 
-select A.nome C.nome from alunos as A
+select A.nome, C.nome from alunos as A
 join aluno_assiste_curso as AC
 on A.id = AC.idaluno
 join cursos as C
-on C.id - AC.idcurso
+on C.id = AC.idcurso
 order by A.nome;
 
 ```
