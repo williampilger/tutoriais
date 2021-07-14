@@ -1,6 +1,6 @@
 # Inserindo e alterando dados nas Tabelas
 
-Para ver sobre a criação e manipulação de bancos de dados e tabelas visite [este outro passo a passo](/criando_banco_dados_e_dabelas.md)
+Para ver sobre a criação e manipulação de bancos de dados e tabelas visite [este outro passo a passo](criando_banco_dados_e_dabelas.md)
 
 ## Inserir dados na tabela
 
@@ -23,4 +23,28 @@ values
 ```sql
 insert into pessoas values
 (DEFAULT, 'Mariano', '1997-1-12', 'M', '65.6', '1.92', DEFAULT);
+```
+
+## Modificando dados de linhas
+
+Este processo é bastante perigoso, pois pode afetar inúmeras linhas simultaneamente.
+(Hoje a maioria dos servidores possuem proteções para evitar alterações em grandes volumes de dados, mas cuidado)
+
+Como exemplo tomarei a tabela preenchida acima. Para alterar a data de nascimento e peso de **William** posso usar:
+
+```sql
+update pessoas
+set nascimento = '1997-11-15', peso = '71.5'
+where nome = 'William';
+```
+
+**MAS ATENÇÂO!** Isso feito em tabelas maiores, afetará TODOS os registros onde o nome for "William".
+
+Para limitar as alterações para que ocorram em apenas **um único registro** podemos usar o comando `limit`, veja:
+
+```sql
+update pessoas
+set nascimento = '1997-11-15', peso = '71.5'
+where nome = 'William'
+limit 1;
 ```
