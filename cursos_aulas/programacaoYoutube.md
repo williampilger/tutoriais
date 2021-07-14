@@ -15,4 +15,6 @@ Curso do **Gustavo Guanabarra**:
 - [Curso MySQL #03 - Criando o primeiro Banco de Dados](https://www.youtube.com/watch?v=m9YPlX0fcJk)
 - [Curso MySQL #04 - Melhorando a Estrutura do Banco de Dados](https://www.youtube.com/watch?v=cHLKtALWDos)
 - [Curso MySQL #05 - Inserindo Dados na Tabela (INSERT INTO)](https://www.youtube.com/watch?v=NCG9niOlm40)
+- [Curso MySQL #06 - Alterando a Estrutura da Tabela (ALTER TABLE e DROP TABLE)](https://www.youtube.com/watch?v=To9qUcEMuY0)
+- [Curso MySQL #07 - Manipulando Linhas (UPDATE, DELETE e TRUNCATE)](https://www.youtube.com/watch?v=wXViczeTr6Q)
 
