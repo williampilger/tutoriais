@@ -20,8 +20,8 @@ create table alunos(
     id int not null auto_increment,
     nascimento date,
     nome varchar(30),
-    primary key (id),
-) default charset = utf8;
+    primary key (id)
+)default character set = utf8;
 
 insert into alunos values
 (DEFAULT, '1997-12-12', 'William'),
@@ -38,8 +38,8 @@ create table cursos(
     id int not null auto_increment,
     datalancamento date,
     nome varchar(50),
-    primary key (id),
-) default charset = utf8;
+    primary key (id)
+)default character set = utf8;
 
 insert into cursos values
 (DEFAULT, '2020-12-12', 'Curso C++'),
@@ -59,13 +59,13 @@ create table aluno_assiste_curso(
     id int not null auto_increment,
     dataexecucao date,
     idaluno int,
-    idcurso,
+    idcurso int,
     primary key (id),
     foreign key (idaluno) references alunos(id),
-    foreign key (idcurso) references cursos(id),
-) default charset = utf8;
+    foreign key (idcurso) references cursos(id)
+)default character set = utf8;
 
-insert into aluno_assiste_curso
+insert into aluno_assiste_curso values
 (DEFAULT, '2021-07-14', '1', '2'),
 (DEFAULT, '2021-07-14', '2', '1'),
 (DEFAULT, '2021-07-14', '3', '3'),
@@ -88,7 +88,7 @@ select A.nome C.nome from alunos as A
 join aluno_assiste_curso as AC
 on A.id = AC.idaluno
 join cursos as C
-on C.in - AC.idcurso
+on C.id - AC.idcurso
 order by A.nome;
 
 ```
