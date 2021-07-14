@@ -17,4 +17,5 @@ Curso do **Gustavo Guanabarra**:
 - [Curso MySQL #05 - Inserindo Dados na Tabela (INSERT INTO)](https://www.youtube.com/watch?v=NCG9niOlm40)
 - [Curso MySQL #06 - Alterando a Estrutura da Tabela (ALTER TABLE e DROP TABLE)](https://www.youtube.com/watch?v=To9qUcEMuY0)
 - [Curso MySQL #07 - Manipulando Linhas (UPDATE, DELETE e TRUNCATE)](https://www.youtube.com/watch?v=wXViczeTr6Q)
+- [Curso MySQL #08 - Gerenciando Cópias de Segurança MySQL](https://www.youtube.com/watch?v=w6OYS_M7hTM)
 
