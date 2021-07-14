@@ -36,28 +36,10 @@ create table pessoas(
 )default character set utf8;
 ```
 
-## Inserir dados na tabela
+## Inserindo dados na tabela
 
-Exemplos de código:
+[Veja este outro arquivo](inserindo_e_alterando_dados.md).
 
-```sql
-insert into pessoas
-(id, nome, nascimento, sexo, peso, altura, nacionalidade)
-values
-('1', 'William', '1997-12-12', 'M', '65.6', '1.92', 'Brasileiro');
-```
-
-```sql
-insert into pessoas
-(nome, nascimento, sexo, peso, altura)
-values
-('Mariano', '1997-1-12', 'M', '65.6', '1.92');
-```
-
-```sql
-insert into pessoas values
-(DEFAULT, 'Mariano', '1997-1-12', 'M', '65.6', '1.92', DEFAULT);
-```
 
 ## Alterar a estrutura da tabela
 
