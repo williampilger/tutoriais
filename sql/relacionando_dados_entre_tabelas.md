@@ -58,7 +58,5 @@ create table aluno_assiste_curso(
     foreign key (idcurso) references cursos(id),
 ) default charset = utf8;
 
-insert into cursos values
-(DEFAULT, '2020-12-12', 'Curso C++'),
-(DEFAULT, '2021-08-17', 'Curso C#')
+
 ```
