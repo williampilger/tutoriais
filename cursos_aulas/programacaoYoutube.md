@@ -14,3 +14,5 @@ Em C++, o **Prof. Pietro** se destacou, com os melhores videos que encontrei no 
 Curso do **Gustavo Guanabarra**:
 - [Curso MySQL #03 - Criando o primeiro Banco de Dados](https://www.youtube.com/watch?v=m9YPlX0fcJk)
 - [Curso MySQL #04 - Melhorando a Estrutura do Banco de Dados](https://www.youtube.com/watch?v=cHLKtALWDos)
+- [Curso MySQL #05 - Inserindo Dados na Tabela (INSERT INTO)](https://www.youtube.com/watch?v=NCG9niOlm40)
+
