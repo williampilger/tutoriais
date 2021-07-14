@@ -45,7 +45,7 @@ insert into cursos values
 
 ## Criando tabela para relacionar os dados das tabelas acima
 
-```qsl
+```sql
 use banco_de_dados;
 
 create table aluno_assiste_curso(
