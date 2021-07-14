@@ -20,5 +20,6 @@ Curso do **Gustavo Guanabarra**:
 - [Curso MySQL #08 - Gerenciando Cópias de Segurança MySQL](https://www.youtube.com/watch?v=w6OYS_M7hTM)
 - [Curso MySQL #09 - PHPMyAdmin (Parte 1)](https://www.youtube.com/watch?v=OaPMvrA0cA4)
 - [Curso MySQL #10 - PHPMyAdmin (Parte 2)](https://www.youtube.com/watch?v=OaPMvrA0cA4)
-- 
+- [Curso MySQL #15 - Chaves Estrangeiras e JOIN](https://www.youtube.com/watch?v=paZNDJAPT4E)
+- [Curso MySQL #16 - INNER JOIN com várias tabelas](https://www.youtube.com/watch?v=jx2ne8iZMOA)
 
