@@ -1,6 +1,6 @@
 # Criar e configurar Bancos de dados e Tabelas em um servidor SQL
 
-Estes passos foram feitos seguindo o tutorial []().
+Estes passos foram feitos seguindo o tutorial [do calal do Youtube Curso em Vídeo](https://www.youtube.com/channel/UCrWvhVmt0Qac3HgsjQK62FQ).
 
 ## Criar Tabela
 
