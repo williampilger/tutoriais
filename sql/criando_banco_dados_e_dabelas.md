@@ -25,7 +25,7 @@ O formato de dados `decimal` permite que criemos campos "float" com o número ex
 
 ## Inserir dados na tabela
 
-Exemplo de código:
+Exemplos de código:
 
 ```sql
 insert into pessoas
@@ -33,3 +33,16 @@ insert into pessoas
 values
 ('1', 'William', '1997-12-12', 'M', '65.6', '1.92', 'Brasileiro');
 ```
+
+```sql
+insert into pessoas
+(nome, nascimento, sexo, peso, altura)
+values
+('Mariano', '1997-1-12', 'M', '65.6', '1.92');
+```
+
+```sql
+insert into pessoas values
+(DEFAULT, 'Mariano', '1997-1-12', 'M', '65.6', '1.92', DEFAULT);
+```
+
