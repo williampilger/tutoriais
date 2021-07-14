@@ -48,3 +48,15 @@ set nascimento = '1997-11-15', peso = '71.5'
 where nome = 'William'
 limit 1;
 ```
+
+## Eliminar um registro
+
+Usamos o comando `delete` para isso, veja:
+
+```sql
+delete from pessoas
+where nome = 'William';
+```
+
+**ATENÇÂO!!** Lembrando que é uma **Péssima ideia** eliminar um registro com base no nome. Pois novamente, isso afeta todos registros com esse nome.
+Também é importante lembrar que **não pe nem um pouco aconselhavel modificar um banco de dados ativos**, sempre faça um backup.
