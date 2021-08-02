@@ -1,6 +1,6 @@
 # Inserindo e alterando dados nas Tabelas
 
-Para ver sobre a criação e manipulação de bancos de dados e tabelas visite [este outro passo a passo](criando_banco_dados_e_dabelas.md)
+Para ver sobre a criação e manipulação de bancos de dados e tabelas visite [este outro passo a passo](criando_banco_dados_e_tabelas.md)
 
 ## Inserir dados na tabela
 
