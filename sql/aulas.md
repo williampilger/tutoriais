@@ -1,8 +1,7 @@
 # Conteúdos sobre SQL
 
-## Youtube
+## [Youtube - Curso do Gustavo Guanabarra]
 
-**Curso do Gustavo Guanabarra**:
 - [Curso MySQL #03 - Criando o primeiro Banco de Dados](https://www.youtube.com/watch?v=m9YPlX0fcJk)
 - [Curso MySQL #04 - Melhorando a Estrutura do Banco de Dados](https://www.youtube.com/watch?v=cHLKtALWDos)
 - [Curso MySQL #05 - Inserindo Dados na Tabela (INSERT INTO)](https://www.youtube.com/watch?v=NCG9niOlm40)
@@ -14,8 +13,7 @@
 - [Curso MySQL #15 - Chaves Estrangeiras e JOIN](https://www.youtube.com/watch?v=paZNDJAPT4E)
 - [Curso MySQL #16 - INNER JOIN com várias tabelas](https://www.youtube.com/watch?v=jx2ne8iZMOA)
 
-
-**Canal: CFBCursos**:
+## [Youtube - Canal CFBCursos]
 
 Playlist: [CFBCursos - Curso de SQL](https://www.youtube.com/playlist?list=PLx4x_zx8csUgQUjExcssR3utb3JIX6Kra).
 
