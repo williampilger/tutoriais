@@ -32,3 +32,7 @@ Pesquisas e filtros:
 - [Vamos aprender sobre Stored Procedures #P1 - Curso de SQL - Aula 37](https://www.youtube.com/watch?v=lHE5i7sbhhU&list=PLx4x_zx8csUgQUjExcssR3utb3JIX6Kra&index=37)
 - [Como usar CURSOR em Stored Procedures - Curso de SQL - Aula 40](https://www.youtube.com/watch?v=RbmTzbtiBkY&list=PLx4x_zx8csUgQUjExcssR3utb3JIX6Kra&index=40); (Iteração)
 - [SQL Injection - Curso de SQL - Aula 41](https://www.youtube.com/watch?v=joIYmpAyl0E&list=PLx4x_zx8csUgQUjExcssR3utb3JIX6Kra&index=41);
+
+## [Youtube] - Diversos
+
+-[Como criar Sistema de Login com PHP e MySQL](https://www.youtube.com/watch?v=GAGRrVVD3js); (Muito útil. Login Com Banco de dados)
