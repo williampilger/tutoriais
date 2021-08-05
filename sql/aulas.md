@@ -17,7 +17,14 @@
 
 Playlist: [CFBCursos - Curso de SQL](https://www.youtube.com/playlist?list=PLx4x_zx8csUgQUjExcssR3utb3JIX6Kra).
 
-Destaques:
+**Destaques**
+
+Geral:
+
 - [Criando e usando View em SQL - Curso de SQL - Aula 17](https://www.youtube.com/watch?v=ceas5MdwuoU&list=PLx4x_zx8csUgQUjExcssR3utb3JIX6Kra&index=17);
+ 
+Pesquisas e filtros:
+
 - [Operador LIKE - Curso de SQL - Aula 28](https://www.youtube.com/watch?v=CH-dpSLXSdc&list=PLx4x_zx8csUgQUjExcssR3utb3JIX6Kra&index=28); (Muito útil para pesquisa em strings)
 - [Operador IN - Curso de SQL - Aula 29](https://www.youtube.com/watch?v=EQn8UQgB1wQ&list=PLx4x_zx8csUgQUjExcssR3utb3JIX6Kra&index=29); (útil para pesquisas)
+- [Como usar o Operador BETWEEN - Curso de SQL - Aula 30](https://www.youtube.com/watch?v=3AtTeiW1RQg&list=PLx4x_zx8csUgQUjExcssR3utb3JIX6Kra&index=30)
