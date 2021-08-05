@@ -9,17 +9,7 @@ Em C++, o **Prof. Pietro** se destacou, com os melhores videos que encontrei no 
 - [FIRST GUI - Aula 2: Botões e eventos](https://www.youtube.com/watch?v=BmswL3UnBAA&t=404s)
 - [FIRST GUI - Aula 3: A lógica](https://www.youtube.com/watch?v=WJK8C3eHt4A)
 
+
 ## SQL Server
 
-Curso do **Gustavo Guanabarra**:
-- [Curso MySQL #03 - Criando o primeiro Banco de Dados](https://www.youtube.com/watch?v=m9YPlX0fcJk)
-- [Curso MySQL #04 - Melhorando a Estrutura do Banco de Dados](https://www.youtube.com/watch?v=cHLKtALWDos)
-- [Curso MySQL #05 - Inserindo Dados na Tabela (INSERT INTO)](https://www.youtube.com/watch?v=NCG9niOlm40)
-- [Curso MySQL #06 - Alterando a Estrutura da Tabela (ALTER TABLE e DROP TABLE)](https://www.youtube.com/watch?v=To9qUcEMuY0)
-- [Curso MySQL #07 - Manipulando Linhas (UPDATE, DELETE e TRUNCATE)](https://www.youtube.com/watch?v=wXViczeTr6Q)
-- [Curso MySQL #08 - Gerenciando Cópias de Segurança MySQL](https://www.youtube.com/watch?v=w6OYS_M7hTM)
-- [Curso MySQL #09 - PHPMyAdmin (Parte 1)](https://www.youtube.com/watch?v=OaPMvrA0cA4)
-- [Curso MySQL #10 - PHPMyAdmin (Parte 2)](https://www.youtube.com/watch?v=OaPMvrA0cA4)
-- [Curso MySQL #15 - Chaves Estrangeiras e JOIN](https://www.youtube.com/watch?v=paZNDJAPT4E)
-- [Curso MySQL #16 - INNER JOIN com várias tabelas](https://www.youtube.com/watch?v=jx2ne8iZMOA)
-
+[Veja a lista completa aqui](https://github.com/williampilger/tutoriais/blob/master/sql/aulas.md)
