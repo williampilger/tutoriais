@@ -16,4 +16,4 @@ Conclua a instalação pela interface gráfica.
 
 Ao Iniciar a aplicação, Vá para a guia `Manage Servers` e ative o MySQL server.
 
-Abra o navegador e acesse [localhost/phpmyadmin](thhps://localhost/phpmyadmin) para abrir o gerenciamento do servidor SQL.
+Abra o navegador e acesse [localhost/phpmyadmin](https://localhost/phpmyadmin) para abrir o gerenciamento do servidor SQL.
