@@ -17,3 +17,11 @@ Conclua a instalação pela interface gráfica.
 Ao Iniciar a aplicação, Vá para a guia `Manage Servers` e ative o MySQL server.
 
 Abra o navegador e acesse [localhost/phpmyadmin](http://localhost/phpmyadmin) para abrir o gerenciamento do servidor SQL.
+
+## Permitindo conexão externa ao phpMyAdmin
+
+Pelo terminal, edite o arquivo de configuração do XAMPP usando:
+
+> sudo gedit /opt/lampp/etc/extra/httpd-xampp.conf
+
+E procure pela chave `<Directory "
