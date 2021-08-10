@@ -1,0 +1,16 @@
+# Instalando e Configurando XAMPP Server, do zero, no Ubuntu
+
+Primeiramente, faça o download do software no [site oficial](https://www.apachefriends.org/pt_br/index.html).
+
+## Instalação
+
+Após a realização do download, abra as propriedades do app.run e permita que ele seja executado como programa.
+
+Abra um terminal e execute-o como administrador:
+
+> sudo ./NOME_DO_APP.run
+
+Conclua a instalação pela interface gráfica.
+
+## Configuração Inicial
+
