@@ -24,4 +24,16 @@ Pelo terminal, edite o arquivo de configuração do XAMPP usando:
 
 > sudo gedit /opt/lampp/etc/extra/httpd-xampp.conf
 
-E procure pela chave `<Directory "
+E procure pela chave abaixo:
+
+```
+<Directory "/opt/lampp/phpmyadmin">
+    AllowOverride AuthConfig Limit
+    Require all granted
+    ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var
+</Directory>
+```
+
+Como pode perceber, trocamos `Required local` por `Required all granted`. Salve as alterações, e reinicie o XAMPP usando:
+
+> sudo /opt/lampp/lampp reload
