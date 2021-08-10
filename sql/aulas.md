@@ -35,4 +35,5 @@ Pesquisas e filtros:
 
 ## [Youtube] - Diversos
 
--[Como criar Sistema de Login com PHP e MySQL](https://www.youtube.com/watch?v=GAGRrVVD3js); (Muito útil. Login Com Banco de dados)
+- [Como criar Sistema de Login com PHP e MySQL](https://www.youtube.com/watch?v=GAGRrVVD3js); (Muito útil. Login Com Banco de dados)
+- [Como listar registros do banco de dados com PHP e JavaScript](https://www.youtube.com/watch?v=KYQFfpfLjHM);
