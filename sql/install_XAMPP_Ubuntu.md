@@ -14,3 +14,6 @@ Conclua a instalação pela interface gráfica.
 
 ## Configuração Inicial
 
+Ao Iniciar a aplicação, Vá para a guia `Manage Servers` e ative o MySQL server.
+
+Abra o navegador e acesse [ocalhost/phpmyadmin](ocalhost/phpmyadmin) para abrir o gerenciamento do servidor SQL.
