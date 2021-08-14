@@ -66,23 +66,17 @@ Output:
              └─29438 /usr/sbin/apache2 -k start
 ```
 
-**Acessando seu servidor Apache:**
-
-Para obter o endereço do seu servidor, podes utilizar:
-
-> hostname -I
-
 Acesse-o atravéz do IP em um navegador.
-
 
 ## Gerenciando seu servidor
 
-**Apache**
+**Apache:**
 
-Para parar seu servidor Web, digite:
+| **Comando** | **Função** |
+| ----------- | ----------- |
+| `hostname -I` | Para obter o endereço do seu servidor |
+| `sudo systemctl stop apache2` | Parar servidor web |
 
-> sudo systemctl stop apache2
- 
 Para iniciar o servidor quando ele for parado, digite:
 
 > sudo systemctl start apache2
