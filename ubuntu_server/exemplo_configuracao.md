@@ -154,6 +154,20 @@ Reinicie o Apache para implementar as suas alterações:
 | `sudo systemctl enable apache2` | reativar o serviço de inicialização no boot |
 
 
+## Preparando Servidor FTP
+
+> sudo apt-get -y install vsftpd
+
+Altere as configurações:
+
+> gksu gedit /etc/vsftpd.conf
+
+Obs.: Para permitir escrite, descomente a linha `write_enable=YES`.
+
+Reinicie o serviço após altrerar as configurações:
+
+> sudo /etc/init.d/vsftpd restart
+
 ## Referências
 
 - [Como Instalar o Servidor Web Apache no Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04-pt);
