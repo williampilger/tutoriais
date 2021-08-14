@@ -70,9 +70,19 @@ Acesse-o atravéz do IP em um navegador.
 
 OBS: Os arquivos do seu site serão salvos em `/var/www/htlm`.
 
-## Gerenciando seu servidor
+**Configurando hosts Virtuais (Recomendado)**
 
-**Apache:**
+Crie e configure a pasta do seu site:
+
+> sudo mkdir /var/www/nome_do_seu_site
+
+> sudo chown -R $USER:$USER /var/www/your_domain
+
+> sudo chmod -R 755 /var/www/your_domain
+
+Cole seus arquivos do site na pasta criada.
+
+**Gerenciando seu servidor Apache**
 
 | **Comando** | **Função** |
 | ----------- | ----------- |
