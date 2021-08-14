@@ -173,4 +173,4 @@ Obs.: Por padrão, o diretório raiz do servidor será `/home/username`.
 ## Referências
 
 - [Como Instalar o Servidor Web Apache no Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04-pt);
-- 
+- [Como Instalar Linux, Apache, MySQL, PHP (Pilha LAMP) no Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04-pt)
