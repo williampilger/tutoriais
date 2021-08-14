@@ -168,6 +168,8 @@ Reinicie o serviço após altrerar as configurações:
 
 > sudo /etc/init.d/vsftpd restart
 
+Obs.: Por padrão, o diretório raiz do servidor será `/home/username`.
+
 ## Referências
 
 - [Como Instalar o Servidor Web Apache no Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04-pt);
