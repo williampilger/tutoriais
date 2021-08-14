@@ -43,6 +43,67 @@ Você pode verificar a mudança digitando:
 
 > sudo ufw status
 
+**Verificando a instalação:**
+
+No final do processo de instalação, o Ubuntu 20.04 inicia o Apache. O servidor Web já deve estar em funcionamento.
+
+Verifique com o sistema init systemd para garantir que o serviço esteja funcionando digitando:
+
+> sudo systemctl status apache2
+ 
+Output:
+```
+● apache2.service - The Apache HTTP Server
+     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2020-04-23 22:36:30 UTC; 20h ago
+       Docs: https://httpd.apache.org/docs/2.4/
+   Main PID: 29435 (apache2)
+      Tasks: 55 (limit: 1137)
+     Memory: 8.0M
+     CGroup: /system.slice/apache2.service
+             ├─29435 /usr/sbin/apache2 -k start
+             ├─29437 /usr/sbin/apache2 -k start
+             └─29438 /usr/sbin/apache2 -k start
+```
+
+**Acessando seu servidor Apache:**
+
+Para obter o endereço do seu servidor, podes utilizar:
+
+> hostname -I
+
+Acesse-o atravéz do IP em um navegador.
+
+
+## Gerenciando seu servidor
+
+**Apache**
+
+Para parar seu servidor Web, digite:
+
+> sudo systemctl stop apache2
+ 
+Para iniciar o servidor quando ele for parado, digite:
+
+> sudo systemctl start apache2
+ 
+Para parar e então iniciar o serviço novamente, digite:
+
+> sudo systemctl restart apache2
+ 
+Se você estiver simplesmente fazendo alterações de configuração, o Apache geralmente pode recarregar sem quedas na conexão. Para fazer isso, utilize este comando:
+
+> sudo systemctl reload apache2
+ 
+Por padrão, o Apache está configurado para iniciar automaticamente quando o servidor for iniciado. Se isso não é o que você quer, desative este comportamento digitando:
+
+> sudo systemctl disable apache2
+ 
+Para reativar o serviço de inicialização no boot, digite:
+
+> sudo systemctl enable apache2
+
+
 
 ## Referências
 
