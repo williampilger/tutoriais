@@ -160,7 +160,7 @@ Reinicie o Apache para implementar as suas alterações:
 
 Altere as configurações:
 
-> gksu gedit /etc/vsftpd.conf
+> sudo nano /etc/vsftpd.conf
 
 Obs.: Para permitir escrite, descomente a linha `write_enable=YES`.
 
