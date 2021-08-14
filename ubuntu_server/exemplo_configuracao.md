@@ -68,6 +68,8 @@ Output:
 
 Acesse-o atravéz do IP em um navegador.
 
+OBS: Os arquivos do seu site serão salvos em `/var/www/htlm`.
+
 ## Gerenciando seu servidor
 
 **Apache:**
