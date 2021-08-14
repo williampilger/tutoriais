@@ -76,27 +76,11 @@ Acesse-o atravéz do IP em um navegador.
 | ----------- | ----------- |
 | `hostname -I` | Para obter o endereço do seu servidor |
 | `sudo systemctl stop apache2` | Parar servidor web |
-
-Para iniciar o servidor quando ele for parado, digite:
-
-> sudo systemctl start apache2
- 
-Para parar e então iniciar o serviço novamente, digite:
-
-> sudo systemctl restart apache2
- 
-Se você estiver simplesmente fazendo alterações de configuração, o Apache geralmente pode recarregar sem quedas na conexão. Para fazer isso, utilize este comando:
-
-> sudo systemctl reload apache2
- 
-Por padrão, o Apache está configurado para iniciar automaticamente quando o servidor for iniciado. Se isso não é o que você quer, desative este comportamento digitando:
-
-> sudo systemctl disable apache2
- 
-Para reativar o serviço de inicialização no boot, digite:
-
-> sudo systemctl enable apache2
-
+| `sudo systemctl start apache2` | Iniciar o servidor quando ele for parado |
+| `sudo systemctl restart apache2` | Parar e então iniciar o serviço novamente |
+| `sudo systemctl reload apache2` | Recarregar configurações sem reiniciar serviço |
+| `sudo systemctl disable apache2` | Tira o apache do início automático |
+| `sudo systemctl enable apache2` | reativar o serviço de inicialização no boot |
 
 
 ## Referências
