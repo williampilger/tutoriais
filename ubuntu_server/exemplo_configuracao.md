@@ -80,7 +80,66 @@ Crie e configure a pasta do seu site:
 
 > sudo chmod -R 755 /var/www/your_domain
 
-Cole seus arquivos do site na pasta criada.
+Cole seus arquivos do site na pasta criada. Vamos criar uma página de amostra:
+
+> sudo nano /var/www/your_domain/index.html
+ 
+Dentro, adicione a seguinte amostra HTML:
+
+``` html
+<html>
+    <head>
+        <title>Welcome to Your_domain!</title>
+    </head>
+    <body>
+        <h1>Success!  The your_domain virtual host is working!</h1>
+    </body>
+</html>
+```
+
+Salve o arquivo.
+
+Para que o apache server entenda que este agora deve ser o site, configure usando:
+
+> sudo nano /etc/apache2/sites-available/your_domain.conf
+
+e cole o conteúdo abaixo:
+
+```
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName your_domain
+    ServerAlias www.your_domain
+    DocumentRoot /var/www/your_domain
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+
+Salve e feche o arquivo.
+
+Vamos habilitar o arquivo com a ferramenta a2ensite:
+
+> sudo a2ensite your_domain.conf
+ 
+Desabilite o site padrão definido em 000-default.conf:
+
+> sudo a2dissite 000-default.conf
+ 
+Em seguida, vamos testar à procura de erros de configuração:
+
+> sudo apache2ctl configtest
+ 
+Você deve receber a seguinte saída:
+
+```
+Output
+Syntax OK
+```
+
+Reinicie o Apache para implementar as suas alterações:
+
+> sudo systemctl restart apache2
 
 **Gerenciando seu servidor Apache**
 
