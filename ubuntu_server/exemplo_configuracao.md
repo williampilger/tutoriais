@@ -183,7 +183,21 @@ Para acessar o servidor SQL use:
 
 > sudo mysql
 
-As demais configurações como criar usuários e bancos de dados são conteúdos que não abordarei aqui.
+Iremos criar ainda um usuário e dar os privilégios totais a ele. Primeiro, acesse o sqlserver digitando:
+
+> sudo mysql
+
+Crie um novo usuário:
+
+> CREATE USER 'novo_usuário'@'localhost' IDENTIFIED BY 'senha';
+
+Dê todos os privilégios à ele:
+
+> GRANT ALL PRIVILEGES ON * . * TO 'novo_usuario'@'localhost';
+
+Atualize as permissões:
+
+> FLUSH PRIVILEGES;
 
 
 ## Instalando o interpretador PHP
@@ -194,4 +208,5 @@ As demais configurações como criar usuários e bancos de dados são conteúdos
 ## Referências
 
 - [Como Instalar o Servidor Web Apache no Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04-pt);
-- [Como Instalar Linux, Apache, MySQL, PHP (Pilha LAMP) no Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04-pt)
+- [Como Instalar Linux, Apache, MySQL, PHP (Pilha LAMP) no Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04-pt);
+- [Como Criar Usuário MySQL e Conceder Privilégios: Guia para Iniciantes](https://www.hostinger.com.br/tutoriais/como-criar-usuario-mysql-e-conceder-privilegios);
