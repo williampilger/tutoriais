@@ -188,7 +188,7 @@ As demais configurações como criar usuários e bancos de dados são conteúdos
 
 ## Instalando o interpretador PHP
 
-> sudo apt install php libapache2-mod-php php-mysql
+> sudo apt install -y php libapache2-mod-php php-mysql
 
 
 ## Referências
