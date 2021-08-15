@@ -170,6 +170,27 @@ Reinicie o serviço após altrerar as configurações:
 
 Obs.: Por padrão, o diretório raiz do servidor será `/home/username`.
 
+
+## Instalando mySQL
+
+> sudo apt -y install mysql-server
+
+Use o comando abaixo para configurar o MySQL:
+
+> sudo mysql_secure_installation
+
+Para acessar o servidor SQL use:
+
+> sudo mysql
+
+As demais configurações como criar usuários e bancos de dados são conteúdos que não abordarei aqui.
+
+
+## Instalando o interpretador PHP
+
+> sudo apt install php libapache2-mod-php php-mysql
+
+
 ## Referências
 
 - [Como Instalar o Servidor Web Apache no Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04-pt);
