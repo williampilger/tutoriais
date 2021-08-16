@@ -72,13 +72,19 @@ OBS: Os arquivos do seu site serão salvos em `/var/www/htlm`.
 
 **Configurando hosts Virtuais (Recomendado)**
 
-Crie e configure a pasta do seu site:
+Crie e configure a pasta do seu site e dê as permissões:
 
 > sudo mkdir /var/www/nome_do_seu_site
 
 > sudo chown -R $USER:$USER /var/www/your_domain
 
 > sudo chmod -R 755 /var/www/your_domain
+
+OBS: Caso no futuro tenha problemas de acesso à arquivos, use:
+
+> sudo chmod -R 777 /var/www/your_domain
+
+> sudo chown -R $USER:www-data /var/www/your_domain
 
 Cole seus arquivos do site na pasta criada. Vamos criar uma página de amostra:
 
