@@ -216,3 +216,4 @@ Atualize as permissões:
 - [Como Instalar o Servidor Web Apache no Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04-pt);
 - [Como Instalar Linux, Apache, MySQL, PHP (Pilha LAMP) no Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04-pt);
 - [Como Criar Usuário MySQL e Conceder Privilégios: Guia para Iniciantes](https://www.hostinger.com.br/tutoriais/como-criar-usuario-mysql-e-conceder-privilegios);
+- [Forbidden You don't have permission to access / on this server. Additionally, a 403 Forbidden error was encountered](https://www.digitalocean.com/community/questions/forbidden-you-don-t-have-permission-to-access-on-this-server-additionally-a-403-forbidden-error-was-encountered)
