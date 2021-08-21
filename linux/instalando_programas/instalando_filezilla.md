@@ -4,7 +4,7 @@ Obs.: Estou usando o `Ubuntu 20.04 LTS`, mas o procedimento é semelhante em qua
 
 ## Download do Instalador
 
-Faça o download (via navegador, ou terminal) do instalador que está disponível no (site oficial)[https://filezilla-project.org].
+Faça o download (via navegador, ou terminal) do instalador que está disponível no [site oficial](https://filezilla-project.org).
 
 
 ## Instalando
