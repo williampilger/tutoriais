@@ -1,4 +1,6 @@
-# Instalando o Sublime Text e Sublime Merge com APT
+# Instalando o Sublime Text e Sublime Merge
+
+# Usando APT
 
 ```
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
@@ -7,4 +9,11 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt-get update
 sudo apt-get install sublime-text
 sudo apt-get install sublime-merge
+```
+
+# Usando Snap
+
+```
+snap install sublime-text --classic
+snap install sublime-merge --classic
 ```
