@@ -4,7 +4,7 @@ Descreverei abaixo dois métodos, retirados do [forum da microsoft](https://answ
 
 ## Método 1
 
-1 - Abra o terminal como administrador, uma forma de fazer isso é pressionando `windows` + `X` e clicando em `Prompt de comando (admin)`.
+1 - Abra o terminal como administrador, uma forma de fazer isso é pressionando **windows** + **X** e clicando em **Prompt de comando (admin)**.
 
 2 - Digite `net stop wuauserv` para desativar, e `net start wuauserv` para reativar.
 
@@ -14,9 +14,9 @@ Este método pode não funcionar sempre.
 
 Este método é bem mais complexo, e exige um pouco mais de atenção.
 
-** Primeiro passo**
+**Primeiro passo**
 
-  1 - Baixe [este arquivo de registro.reg](aux/WindowsUpdateDisable.reg) (após abrir, clique em `RAW`e pressione `Ctrl`+ `S` para salvá-lo)
+  1 - Baixe [este arquivo de registro.reg](aux/WindowsUpdateDisable.reg) (após abrir, clique em **RAW** e pressione **Ctrl** + **S** para salvá-lo)
   
   2 - Execute o arquivo de registro, e clique em `Sim` para confirmar a alteração do registro.
 
