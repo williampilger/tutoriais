@@ -40,5 +40,5 @@ network:
 
 Você pode verificar as alterações usando:
 
-> sudo netplan apply
+> sudo netplan get -ip
 
