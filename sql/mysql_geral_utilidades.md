@@ -12,6 +12,14 @@ E Liste os usuários:
 
 ## Alterar senha de algum usuário MySQL
 
+**Para usuário ROOT**
+
+Altere a senha rodando a configuração do MySQL:
+
+> sudo mysql_secure_installation
+
+**Para os demais usuários**
+
 Para isso, acesse o terminal do mysql com algum usuário com privilégios de administrador:
 
 > sudo mysql
