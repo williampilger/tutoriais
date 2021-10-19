@@ -8,6 +8,6 @@ Se você já possui um, pule esta etapa. Vamos criar a seguir um par de chaves *
 
 Abra um terminal e digite:
 
-> ssh-keygen -t ed25519 -C **"'<comment'>"**
+> ssh-keygen -t ed25519 -C "'< comment >"
 
-Onde o `<comment>`é um comentário qualquer.
+Onde o `< comment >`é um comentário qualquer.
