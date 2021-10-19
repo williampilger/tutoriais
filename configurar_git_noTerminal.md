@@ -63,3 +63,11 @@ Obviamente para isso, você já instalou o git no seu computador. Se ainda não,
 
 9. Selecione **Adicionar chave**.
 
+# Sobre
+
+**Algumas referências**
+- [Start using Git on the command line](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html);
+- [Install Git](https://docs.gitlab.com/ee/topics/git/how_to_install_git/index.html);
+- [GitLab and SSH keys](https://docs.gitlab.com/ee/ssh/index.html);
+
+By: will.i.am | Balneário Camboriú - SC
