@@ -28,3 +28,42 @@ Enter passphrase (empty for no passphrase):
 ```
 
 Ao configrmar, sua chave estará criada e será exibida.
+
+## Adicionando sua chave SSH no GIT
+
+Obviamente para isso, você já instalou o git no seu computador. Se ainda não, providencie.
+
+1. Copie o conteúdo da sua chave para a área de colagem. você pode fazer isso via linha de comando:
+
+**Linux** (precisa xclip instalado)
+
+> xclip -sel clip < ~/.ssh/id_ed25519.pub
+
+**MAC OS**
+
+> tr -d '\n' < ~/.ssh/id_ed25519.pub | pbcopy
+
+**Windows** (no Git Bash)
+
+> cat ~/.ssh/id_ed25519.pub | clip
+
+2. Faça login no GitLab.
+
+3. Na barra superior, no canto superior direito, selecione seu avatar.
+
+4. Selecione **Preferências**.
+
+5. Na barra lateral esquerda, selecione **Chaves SSH**.
+
+6. Na caixa Chave , cole o conteúdo da sua chave pública. Se você copiou manualmente a chave, certifique-se de copiar a chave inteira, que começa com ssh-ed25519ou ssh-rsae pode terminar com um comentário.
+
+7. Na caixa Título , digite uma descrição, como Work Laptopou Home Workstation.
+
+8. Opcional. Na caixa Expira em , selecione uma data de expiração. ( Introduzido no GitLab 12.9.) Em:
+- GitLab 13.12 e anteriores, a data de expiração é apenas informativa. Isso não o impede de usar a chave. Os administradores podem visualizar as datas de expiração e usá-las como orientação ao excluir chaves .
+- GitLab 14.0 e posterior, a data de expiração é aplicada. Os administradores podem permitir o uso de chaves expiradas .
+- O GitLab verifica todas as chaves SSH às 02:00 UTC todos os dias. Ele envia por e-mail um aviso de expiração para todas as chaves SSH que expiram na data atual. ( Introduzido no GitLab 13.11.)
+- O GitLab verifica todas as chaves SSH à 01:00 UTC todos os dias. Ele envia por e-mail um aviso de expiração para todas as chaves SSH que estão programadas para expirar em sete dias a partir de agora. ( Introduzido no GitLab 13.11.)
+
+9. Selecione **Adicionar chave**.
+
