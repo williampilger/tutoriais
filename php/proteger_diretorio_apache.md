@@ -34,3 +34,25 @@ Como por exemplo:
 ```
 william:$apr1$d4now26p$0kfiEDCw.fCBDtLmbHyhR2
 ```
+
+# Extra: Exemplo de script para listar arquivos na pasta protegida
+
+```
+<?php
+
+$diretorioAtual = __DIR__;
+$arquivos 		= scandir($diretorioAtual);
+foreach($arquivos as $arquivo){
+	if($arquivo != "index.php" && $arquivo != "." && $arquivo != ".." && $arquivo != ".htaccess" && $arquivo != ".htpasswd"){
+		echo "<a href=$arquivo>$arquivo</a><br>";
+	}
+}
+
+?>
+```
+
+# Sobre
+
+by: **will.i.am**
+
+Agradecimanto: **IsDesign**
