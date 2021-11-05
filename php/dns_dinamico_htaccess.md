@@ -83,7 +83,7 @@ if( $fh = fopen($FileName, 'r') ){
                     else {
                         if ($host_result !== $host_ip)
                             $outputRows[] = '# host result: ' . $host_result;
-                        $outputRows[] = 'Allow from ' . $host_ip;
+                        $outputRows[] = 'allow from ' . $host_ip;
                     }
                     break;
                 case 'default':
@@ -128,10 +128,10 @@ Order Deny,Allow
 Deny from all
 
 # DYNDNS seudnsdinamico.ddns.net
-Allow from 192.168.1.1
+allow from 192.168.1.1
 
 # DYNDNS maisum.ddns.net - voce pode colocar notas
-Allow from 192.168.1.1
+allow from 192.168.1.1
 ```
 
 ## Configurando rotina automática
