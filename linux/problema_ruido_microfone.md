@@ -1,6 +1,8 @@
 # Solucionar problema de ruido no microfone
 
-Obtido de (diolinux)[https://diolinux.com.br/sistemas-operacionais/remover-ruido-do-microfone-no-linux.html].
+Obtido de [diolinux](https://diolinux.com.br/sistemas-operacionais/remover-ruido-do-microfone-no-linux.html).
+
+Veja também [este tutorial mais completo](https://diolinux.com.br/tutoriais/cancelamento-de-eco-e-ruido-no-linux.html).
 
 ## Procedimento
 
