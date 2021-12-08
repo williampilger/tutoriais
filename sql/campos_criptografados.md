@@ -2,6 +2,10 @@
 
 Funções nativas do MySQL
 
+## Dimencionando campos criptogravados
+
+Diferente dos demais campos, quando queremos armazenar dados criptografados precisamos armazena-los como dados binários, e para preencher estes campos usaremos, neste tutorial, (e em geral é assim que se trabalha com campos criptografados) a função `AES_ENCRYPT` que retorna **32 bytes** a cada **15 caracteres** de conteúdo. Logo, é importante que nossos campos sejam criados com tamanhos múltiplos de 32, podendo armazenar 15 caracteres em cada um desses blocos.
+ 
 ## Criando campos criptografados
 
 Os campos com conteúdo criptografados devem ser do tipo `VARBINARY`.
@@ -40,7 +44,6 @@ SELECT *,
        CAST(AES_DECRYPT(first_name, 'usa2010') AS CHAR(50)) first_name_decrypt 
 FROM   user
 ```
-
 
 
 
