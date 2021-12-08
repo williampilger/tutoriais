@@ -15,8 +15,8 @@ Exemplo de tabela:
 
 CREATE  TABLE `user` (
 `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT ,
-`first_name` VARBINARY(100) NULL ,
-`address` VARBINARY(200) NOT NULL ,
+`first_name` VARBINARY(128) NULL ,
+`address` VARBINARY(256) NOT NULL ,
 PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
