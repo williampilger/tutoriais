@@ -8,6 +8,8 @@ Instalei o servidor em uma máquina virtual, basicamente no 'next netx finish', 
 
 ## Preparação básica
 
+### Suporte à SSH
+
 Para acessar remotamente, indico que seja instalado o serviço SSH, e o pacote net-tools.
 
 > sudo apt-get install openssh-server
