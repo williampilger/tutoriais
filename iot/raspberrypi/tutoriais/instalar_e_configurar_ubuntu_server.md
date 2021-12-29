@@ -16,7 +16,7 @@ Para instalar o immager, use:
 **IMPORTANTE**: Lembre que o login padrão do ubuntu server é `ubuntu` e `ubuntu` como usuário e senha.
 Será solicitada a alteração imediata no primeiro login, então digite novamente a **senha atual** e então informe a nova.
 
-Sempre é bom atualizar os aplicativos:
+Sempre é bom atualizar os aplicativos (**Mas esteja preparado para esperar algumas HORAS, o processo é demorado**):
 
 > sudo apt-get update
 > sudo apt-get upgrade -y
