@@ -19,6 +19,7 @@ Será solicitada a alteração imediata no primeiro login, então digite novamen
 Sempre é bom atualizar os aplicativos (**Mas esteja preparado para esperar algumas HORAS, o processo é demorado**):
 
 > sudo apt-get update
+
 > sudo apt-get upgrade -y
 
 ## Concluindo configuração
