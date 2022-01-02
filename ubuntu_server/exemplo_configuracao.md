@@ -20,13 +20,14 @@ Para acessar remotamente, indico que seja instalado o serviço SSH, e o pacote n
 
 ## Preparando o Apache
 
-**Instalando o apache:**
+### Instalando o apache
 
 > sudo apt-get update
 
 > sudo apt-get install apache2
 
-**Configurando o Firewall:**
+### Configurando o Firewall
+
 Execute o comando abaixo para ver as opções:
 
 > sudo ufw app list
@@ -45,7 +46,7 @@ Você pode verificar a mudança digitando:
 
 > sudo ufw status
 
-**Verificando a instalação:**
+### Verificando a instalação
 
 No final do processo de instalação, o Ubuntu 20.04 inicia o Apache. O servidor Web já deve estar em funcionamento.
 
@@ -72,7 +73,7 @@ Acesse-o atravéz do IP em um navegador.
 
 OBS: Os arquivos do seu site serão salvos em `/var/www/htlm`.
 
-**Configurando hosts Virtuais (Recomendado)**
+### Configurando hosts Virtuais (Recomendado)
 
 Crie e configure a pasta do seu site e dê as permissões:
 
@@ -149,7 +150,7 @@ Reinicie o Apache para implementar as suas alterações:
 
 > sudo systemctl restart apache2
 
-**Gerenciando seu servidor Apache**
+### Gerenciando seu servidor Apache
 
 | **Comando** | **Função** |
 | ----------- | ----------- |
@@ -161,6 +162,60 @@ Reinicie o Apache para implementar as suas alterações:
 | `sudo systemctl disable apache2` | Tira o apache do início automático |
 | `sudo systemctl enable apache2` | reativar o serviço de inicialização no boot |
 
+### Configurando acesso HTTPS ao seu servidor
+
+Esta configuração é opcional, e possivelmente não gere um certificado "confiável" para seu site.
+
+#### Ativar suporte ao SSL
+
+> sudo a2enmod ssl
+
+> sudo systemctl restart apache2
+
+#### Emitir um certificado para seu site
+
+Abaixo, o comando para criar um **Certificado SSL Auto-assinado**
+
+> sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/server.SEU_DOMINIO.key -out /etc/ssl/certs/server.SEU_DOMINIO.crt
+
+Você precisará preencher os seguintes dados:
+
+```
+Country Name (2 letter code) [AU]:
+State or Province Name (full name) [Some-State]:
+Locality Name (eg, city) []:
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:
+Email Address []:
+```
+
+#### Configurando Site com SSL
+
+Crie uma cópia do arquivo de configuração do se site (já criado no passo anterior onde foi configurado o sie HTTP):
+
+> sudo cp -a /etc/apache2/sites-available/SEU_DOMINIO{.conf,-ssl.conf}
+
+Edite o novo arquivo:
+
+> sudo nano /etc/apache2/sites-available/SEU_DOMINIO-ssl.conf
+
+Trocando a porta: `<VirtualHost *:80>` por `<VirtualHost *:443>`.
+
+E acrescentando as seguintes três linhas:
+
+```
+SSLEngine on
+SSLCertificateKeyFile /etc/ssl/private/server.SEU_DOMINIO.key
+SSLCertificateFile /etc/ssl/certs/server.SEU_DOMINIO.crt
+```
+ Acrescente seu site às configurações do apache2:
+ 
+ > sudo a2ensite SEU_DOMINIO-ssl.conf
+
+Reinicie o serviço:
+
+> sudo systemctl restart apache2
 
 ## Preparando Servidor FTP
 
