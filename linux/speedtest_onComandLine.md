@@ -31,7 +31,7 @@ No exemplo acima, estou baixando a versão adequada para minha raspberrypi, roda
 
 ./speedtest
 
-## EXTRA - Meu script completo
+## EXTRA - Meu script completo (Para Ubuntu Server em processadores ARM)
 
 ```sh
 mkdir SpeedTest
@@ -41,6 +41,19 @@ tar -xzvf speedtest.tgz
 rm speedtest.tgz
 ./speedtest
 ```
+
+## EXTRA - Meu script completo (Para distros x64 processadores intel)
+
+```sh
+mkdir SpeedTest
+cd SpeedTest
+curl https://install.speedtest.net/app/cli/ookla-speedtest-1.1.1-linux-x86_64.tgz > speedtest.tgz
+tar -xzvf speedtest.tgz
+rm speedtest.tgz
+./speedtest
+```
+
+
 
 Ps.: Na primeira execução será necessário concordar com os termos de uso, digitando `yes` três vezes.
 
