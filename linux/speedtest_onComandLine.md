@@ -39,7 +39,7 @@ cd Downloads/SpeedTest
 curl https://install.speedtest.net/app/cli/ookla-speedtest-1.1.1-linux-armhf.tgz > speedtest.tgz
 tar -xzvf speedtest.tgz
 rm speedtest.tgz
-./speedteste
+./speedtest
 ```
 
 Ps.: Na primeira execução será necessário concordar com os termos de uso, digitando `yes` três vezes.
