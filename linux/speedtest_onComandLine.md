@@ -34,8 +34,8 @@ No exemplo acima, estou baixando a versão adequada para minha raspberrypi, roda
 ## EXTRA - Meu script completo
 
 ```sh
-mkdir Downloads/SpeedTest
-cd Downloads/SpeedTest
+mkdir SpeedTest
+cd SpeedTest
 curl https://install.speedtest.net/app/cli/ookla-speedtest-1.1.1-linux-armhf.tgz > speedtest.tgz
 tar -xzvf speedtest.tgz
 rm speedtest.tgz
