@@ -35,17 +35,17 @@ Obviamente para isso, você já instalou o git no seu computador. Se ainda não,
 
 1. Copie o conteúdo da sua chave para a área de colagem. você pode fazer isso via linha de comando:
 
-**Linux** (precisa xclip instalado)
+  **Linux** (precisa xclip instalado)
 
-> xclip -sel clip < ~/.ssh/id_ed25519.pub
+  > xclip -sel clip < ~/.ssh/id_ed25519.pub
 
-**MAC OS**
+  **MAC OS**
 
-> tr -d '\n' < ~/.ssh/id_ed25519.pub | pbcopy
+  > tr -d '\n' < ~/.ssh/id_ed25519.pub | pbcopy
 
-**Windows** (no Git Bash)
+  **Windows** (no Git Bash)
 
-> cat ~/.ssh/id_ed25519.pub | clip
+  > cat ~/.ssh/id_ed25519.pub | clip
 
 2. Faça login no GitLab.
 
