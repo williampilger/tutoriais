@@ -55,9 +55,9 @@ Obviamente para isso, você já instalou o git no seu computador. Se ainda não,
 
 5. Na barra lateral esquerda, selecione **Chaves SSH**.
 
-6. Na caixa Chave , cole o conteúdo da sua chave pública. Se você copiou manualmente a chave, certifique-se de copiar a chave inteira, que começa com ssh-ed25519ou ssh-rsae pode terminar com um comentário.
+6. Na caixa Chave , cole o conteúdo da sua chave pública. Se você copiou manualmente a chave, certifique-se de copiar a chave inteira, que começa com `ssh-ed25519` ou `ssh-rsae` pode terminar com um comentário.
 
-7. Na caixa Título , digite uma descrição, como Work Laptopou Home Workstation.
+7. Na caixa Título , digite uma descrição, como `Work Laptop`ou `Home Workstation`.
 
 8. Opcional. Na caixa Expira em , selecione uma data de expiração. ( Introduzido no GitLab 12.9.).
 
