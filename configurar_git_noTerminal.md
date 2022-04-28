@@ -1,6 +1,6 @@
 # Configurando o GIT via terminal
 
-Este passo a passo é semelhante para **Windows 10**, **MAC** e **Linus**.
+Este passo a passo é semelhante para **Windows 10**, **MAC** e **Linux**.
 
 ## Criando um par de chaves SSH
 
