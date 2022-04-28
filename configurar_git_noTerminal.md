@@ -29,13 +29,11 @@ Enter passphrase (empty for no passphrase):
 
 Ao configrmar, sua chave estará criada e será exibida.
 
-## Adicionando sua chave SSH no GIT
+## Copiando os dados da sua chave SSH
 
-Obviamente para isso, você já instalou o git no seu computador. Se ainda não, providencie.
+Você pode fazer isso manualmente, ou via linha de comando:
 
-1. Copie o conteúdo da sua chave para a área de colagem. você pode fazer isso via linha de comando:
-
-  **Linux** (precisa xclip instalado)
+  **Linux** (precisa xclip instalado, use `apt-get install xclip`, por exemplo.)
 
   > xclip -sel clip < ~/.ssh/id_ed25519.pub
 
@@ -47,21 +45,25 @@ Obviamente para isso, você já instalou o git no seu computador. Se ainda não,
 
   > cat ~/.ssh/id_ed25519.pub | clip
 
-2. Faça login no GitLab.
+## Adicionando sua chave SSH no GIT
 
-3. Na barra superior, no canto superior direito, selecione seu avatar.
+Obviamente para isso, você já instalou o git no seu computador. Se ainda não, providencie.
 
-4. Selecione **Preferências**.
+1. Faça login no GitLab.
 
-5. Na barra lateral esquerda, selecione **Chaves SSH**.
+2. Na barra superior, no canto superior direito, selecione seu avatar.
 
-6. Na caixa Chave , cole o conteúdo da sua chave pública. Se você copiou manualmente a chave, certifique-se de copiar a chave inteira, que começa com `ssh-ed25519` ou `ssh-rsae` pode terminar com um comentário.
+3. Selecione **Preferências**.
 
-7. Na caixa Título , digite uma descrição, como `Work Laptop`ou `Home Workstation`.
+4. Na barra lateral esquerda, selecione **Chaves SSH**.
 
-8. Opcional. Na caixa Expira em , selecione uma data de expiração. ( Introduzido no GitLab 12.9.).
+5. Na caixa Chave , cole o conteúdo da sua chave pública. Se você copiou manualmente a chave, certifique-se de copiar a chave inteira, que começa com `ssh-ed25519` ou `ssh-rsae` pode terminar com um comentário.
 
-9. Selecione **Adicionar chave**.
+6. Na caixa Título , digite uma descrição, como `Work Laptop`ou `Home Workstation`.
+
+7. Opcional. Na caixa Expira em , selecione uma data de expiração. ( Introduzido no GitLab 12.9.).
+
+8. Selecione **Adicionar chave**.
 
 # Sobre
 
