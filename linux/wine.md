@@ -45,6 +45,15 @@ Para abrir o explorer, o exemplo é:
 
 > WINEPREFIX=~/.wine_new_prefix wine explorer
 
+
+## Interfaces Simples
+
+Algumas interfaces e programinhas que facilitam o uso do wine:
+
+- [Bootles - FlatHub](https://flathub.org/apps/details/com.usebottles.bottles);
+- [WinBox - Snapcraft](https://snapcraft.io/winbox);
+
+
 ## Sobre
 
 By: will.i.am | Balneário Camboriú - SC
