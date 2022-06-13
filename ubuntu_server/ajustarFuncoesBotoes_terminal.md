@@ -11,7 +11,7 @@ Abra para edição o arquivo `/etc/systemd/logind.conf` usando:
 > sudo nano /etc/systemd/logind.conf
 
 ### 3
-Defina o campo `HandleLidSwitch` como `ignore`, e lembre de descomentar a linha.
+Defina o campo `HandleLidSwitch` como `ignore`, e **lembre de descomentar a linha** removendo o `#` da frente.
 
 ### 4
 Se a propriedade `LidSwitchIgnoreInhibited` estiver sendo usada, seu valor deve ser `no`
