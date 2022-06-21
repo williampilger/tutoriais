@@ -5,17 +5,12 @@ Eu, pessoalmente, estou usando um `PopOS! 22.04 LTS` para realizar o procediment
 ## 1 - Obtenha os dados da sua placa de rede
 
 Pode ser feito de duas formas, observando o retorno dos comandos:
- 
-```sh
-sudo apt-get install -y nettools
-ifconfig
-```
-**ou**
- 
-```sh
-sudo apt-get install -y ethtool
-ip a
-```
+
+> ifconfig
+
+ou
+
+> ip a
 
 Você precisará dos dados `nome da interface` e `MAC`.
 
@@ -27,7 +22,7 @@ Salve o script abaixo, substituindo a variávei `INTERFACE` pelo valor correto.
 ```sh
 INTERFACE="enp4s0"
 
-apt-get install -y wakeonlan
+apt-get install -y wakeonlan ethtool
 
 echo """
 #!/bin/sh
