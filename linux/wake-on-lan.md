@@ -34,7 +34,7 @@ ExecStart = /sbin/ethtool --change $INTERFACE wol g
 
 [Install]
 WantedBy=basic.target
-""" > /etc/systemd/system/wol_fix.service
+""" > /etc/systemd/system/wol.service
 
 systemctl daemon-reload
 systemctl enable wol.service
