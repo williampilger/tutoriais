@@ -25,9 +25,9 @@ Você precisará dos dados `nome da interface` e `MAC`.
 Salve o script abaixo, substituindo a variávei `INTERFACE` pelo valor correto.
 
 ```sh
-INTERFACE = "enp4s0"
+INTERFACE="enp4s0"
 
-apt get install -y wakeonlan
+apt-get install -y wakeonlan
 
 echo """
 #!/bin/sh
