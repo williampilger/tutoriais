@@ -22,28 +22,32 @@ Salve o script abaixo, substituindo a variávei `INTERFACE` pelo valor correto.
 ```sh
 INTERFACE="enp4s0"
 
-apt-get install -y wakeonlan ethtool
+apt-get install -y ethtool
 
-echo """
-#!/bin/sh
-/sbin/ethtool -s $INTERFACE wol g
-""" > /etc/network/if-up.d/wol_fix.sh
-sudo chmod +x /etc/network/if-up.d/wol_fix.sh
 echo """
 [Unit]
-Description=Fix
+Description=Habilitar Wake On Lan
 
 [Service]
-ExecStart=/etc/network/if-up.d/wol_fix.sh
 Type=oneshot
-RemainAfterExit=yes
+ExecStart = /sbin/ethtool --change $INTERFACE wol g
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=basic.target
 """ > /etc/systemd/system/wol_fix.service
+
 systemctl daemon-reload
-systemctl enable wol_fix.service
-#reboot
+systemctl enable wol.service
 ```
 
+Execute o script como root:
+
+> sudo chmod +x script.sh & sudo ./script.sh
+
 Reinicie o PC para que funcione.
+
+# Sobre
+
+Baseado [nesse tutorial completo](https://necromuralist.github.io/posts/enabling-wake-on-lan/).
+
+By: **will.i.am** | Bom Princípio - RS
