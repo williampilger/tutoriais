@@ -8,6 +8,6 @@ Baixe o ventoy do [site oficial](https://www.ventoy.net/), e extraia o conteúdo
 
 > sudo chmod +x *.sh
 
-> sudo ./Ventoy2Disk.sh -s -I sdc
+> sudo ./Ventoy2Disk.sh -I /dev/sdc
 
 Substituindo `sdc` pela sua unidade correta.
