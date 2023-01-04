@@ -48,6 +48,10 @@ Reinicie o PC para que funcione.
 
 # Sobre
 
-Baseado [nesse tutorial completo](https://necromuralist.github.io/posts/enabling-wake-on-lan/).
+Referências:
+
+- [PRINCIPAL - nesse tutorial completo](https://necromuralist.github.io/posts/enabling-wake-on-lan/);
+- [Ubuntu Ask](https://help.ubuntu.com/community/WakeOnLan);
+- [Wake-on-LAN - Arch Linux](https://wiki.archlinux.org/title/Wake-on-LAN);
 
 By: **will.i.am** | Bom Princípio - RS
