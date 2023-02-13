@@ -17,4 +17,8 @@ Exibe uma lista completa de opções que você tem de ver algo sobre o sistema.
 Este comando precisa ser instalado (Com `sudo apt install -y neofetch`);
 
 
+## Listar unidades de armazenamento
 
+> lsblk
+
+Comando lista todas as unidades de armazenamento reconhecidas pelos sitema.
