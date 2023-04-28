@@ -13,7 +13,7 @@ Depois da instalação e reinício do sistema, pode-se criar uma VM com:
 
 Onde `foo` é o novo nome da nova VM.
 
-Os arquivos são salvos no diretório do Hyper-V (`C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines`).
+Os arquivos são salvos no diretório do Multipass (`C:\ProgramData\Multipass\data\vault\instances`).
 
 
 
