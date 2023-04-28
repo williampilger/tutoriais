@@ -2,7 +2,18 @@
 
 ## Instalando o Multipass
 
+Faça o download do aplicativo no [site oficial](https://multipass.run/install), onde também poderá encontrar as instruções completas.
 
+
+## Criando a VM
+
+Depois da instalação e reinício do sistema, pode-se criar uma VM com:
+
+> multipass launch --name foo
+
+Onde `foo` é o novo nome da nova VM.
+
+Os arquivos são salvos no diretório do Hyper-V (`C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines`).
 
 
 
