@@ -335,6 +335,11 @@ systemctl restart apache2
 
 #CONFIGURANDO FTP
 apt -y install vsftpd
+ufw allow OpenSSH
+ufw allow 20/tcp
+ufw allow 21/tcp
+ufw allow 990/tcp
+ufw allow 40000:50000/tcp
 echo "write_enable=YES" >> /etc/vsftpd.conf
 echo "chroot_local_user=YES" >> /etc/vsftpd.conf
 /etc/init.d/vsftpd restart
