@@ -287,6 +287,7 @@ apt upgrade -y
 apt install -y openssh-server net-tools
 service ssh start
 
+#CONFIGURANDO APACHE
 apt install -y apache2
 ufw allow 'Apache'
 mkdir /var/www/${DomainName}
@@ -313,7 +314,7 @@ echo "
 </VirtualHost>
 " > /etc/apache2/sites-available/${DomainName}.conf
 a2ensite ${DomainName}.conf #habilitando nova configuração (HTTP)
-echo """
+echo "
 <VirtualHost *:443>
     ServerAdmin webmaster@localhost
     ServerName ${DomainName}
@@ -325,10 +326,19 @@ echo """
     SSLCertificateKeyFile /etc/ssl/private/server.${DomainName}.key
     SSLCertificateFile /etc/ssl/certs/server.${DomainName}.crt
 </VirtualHost>
-""" > /etc/apache2/sites-available/${DomainName}-ssl.conf
+" > /etc/apache2/sites-available/${DomainName}-ssl.conf
 a2ensite ${DomainName}-ssl.conf #habilitando nova configuração (HTTPS)
 a2dissite 000-default.conf #deshabilitando antiga
 a2enmod ssl #habilitar SSL (https connections)
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/server.${DomainName}.key -out /etc/ssl/certs/server.${DomainName}.crt #criar chave SSL
 systemctl restart apache2
+
+#CONFIGURANDO FTP
+apt -y install vsftpd
+echo "write_enable=YES" > /etc/vsftpd.conf
+/etc/init.d/vsftpd restart
+
+#CONFIGURANDO MYSQL
+apt -y install mysql-server
+mysql_secure_installation
 ```
