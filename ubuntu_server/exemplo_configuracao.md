@@ -279,12 +279,56 @@ Atualize as permissões:
 # Script Completo
 
 ```sh
-sudo apt update
-sudo apt upgrade -y
-sudo apt install -y openssh-server net-tools
-sudo apt install -y apache2
+sudo su
+DomainName='localserver'
 
-sudo ufw allow 'Apache'
+apt update
+apt upgrade -y
+apt install -y openssh-server net-tools
+service ssh start
 
-sudo service ssh start
+apt install -y apache2
+ufw allow 'Apache'
+mkdir /var/www/${DomainName}
+chown -R $USER:$USER /var/www/${DomainName}
+chmod -R 755 /var/www/${DomainName}
+echo "
+<html>
+    <head>
+        <title>Welcome to ${DomainName}!</title>
+    </head>
+    <body>
+        <h1>Success!  The ${DomainName} virtual host is working!</h1>
+    </body>
+</html>
+" > /var/www/${DomainName}/index.html
+echo "
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName ${DomainName}
+    ServerAlias www.${DomainName}
+    DocumentRoot /var/www/${DomainName}
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+" > /etc/apache2/sites-available/${DomainName}.conf
+a2ensite ${DomainName}.conf #habilitando nova configuração (HTTP)
+echo """
+<VirtualHost *:443>
+    ServerAdmin webmaster@localhost
+    ServerName ${DomainName}
+    ServerAlias www.${DomainName}
+    DocumentRoot /var/www/${DomainName}
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    SSLEngine on
+    SSLCertificateKeyFile /etc/ssl/private/server.${DomainName}.key
+    SSLCertificateFile /etc/ssl/certs/server.${DomainName}.crt
+</VirtualHost>
+""" > /etc/apache2/sites-available/${DomainName}-ssl.conf
+a2ensite ${DomainName}-ssl.conf #habilitando nova configuração (HTTPS)
+a2dissite 000-default.conf #deshabilitando antiga
+a2enmod ssl #habilitar SSL (https connections)
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/server.${DomainName}.key -out /etc/ssl/certs/server.${DomainName}.crt #criar chave SSL
+systemctl restart apache2
 ```
