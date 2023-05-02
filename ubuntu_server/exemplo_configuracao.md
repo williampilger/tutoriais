@@ -335,7 +335,8 @@ systemctl restart apache2
 
 #CONFIGURANDO FTP
 apt -y install vsftpd
-echo "write_enable=YES" > /etc/vsftpd.conf
+echo "write_enable=YES" >> /etc/vsftpd.conf
+echo "chroot_local_user=YES" >> /etc/vsftpd.conf
 /etc/init.d/vsftpd restart
 
 #CONFIGURANDO MYSQL
