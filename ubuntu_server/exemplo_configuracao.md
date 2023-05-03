@@ -281,6 +281,7 @@ Atualize as permissões:
 ```sh
 sudo su
 DomainName='localserver'
+local_user='ubuntu' #inform the name of the local user that will administrate the domain
 
 apt update
 apt upgrade -y
@@ -291,7 +292,7 @@ service ssh start
 apt install -y apache2
 ufw allow 'Apache'
 mkdir /var/www/${DomainName}
-chown -R $USER:$USER /var/www/${DomainName}
+chown -R $local_user:$local_user /var/www/${DomainName}
 chmod -R 755 /var/www/${DomainName}
 echo "
 <html>
