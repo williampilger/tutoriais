@@ -343,6 +343,7 @@ ufw allow 40000:50000/tcp
 cp /etc/vsftpd.conf /etc/vsftpd.conf.bkp
 echo "write_enable=YES" >> /etc/vsftpd.conf
 echo "chroot_local_user=YES" >> /etc/vsftpd.conf
+echo "allow_writeable_chroot=YES" >> /etc/vsftpd.conf
 /etc/init.d/vsftpd restart
 
 #CONFIGURANDO MYSQL
