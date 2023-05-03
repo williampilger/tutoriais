@@ -283,7 +283,7 @@ sudo su
 DomainName='localserver'
 local_user='ubuntu' #inform the name of the local user that will administrate the domain
 server_ip='192.168.0.15' #inform the static IP fot yout server
-subnetmask='192.168.0.250/24' #inform the static subnet mask
+server_gateway='192.168.0.1' #inform the static subnet mask
 
 apt update
 apt upgrade -y
@@ -297,8 +297,8 @@ network:
   ethernets:
     eth0:
       dhcp4: true
-      addresses: [${subnetmask}]
-      gateway4: ${server_ip}
+      addresses: [${server_ip}/24]
+      gateway4: ${server_gateway}
   version: 2
 " > /etc/netplan/00-installer-config.yaml
 netplan apply #aplica nova política de IP
