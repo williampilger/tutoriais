@@ -292,8 +292,8 @@ service ssh start
 apt install -y apache2
 ufw allow 'Apache'
 mkdir /var/www/${DomainName}
-chown -R $local_user:$local_user /var/www/${DomainName}
-chmod -R 755 /var/www/${DomainName}
+chown -R $local_user:www-data /var/www/${DomainName}
+chmod -R 777 /var/www/${DomainName}
 echo "
 <html>
     <head>
@@ -345,9 +345,14 @@ cp /etc/vsftpd.conf /etc/vsftpd.conf.bkp
 echo "write_enable=YES" >> /etc/vsftpd.conf
 echo "chroot_local_user=YES" >> /etc/vsftpd.conf
 echo "allow_writeable_chroot=YES" >> /etc/vsftpd.conf
+echo "secure_chroot_dir=/var/www/${DomainName}" >> /etc/vsftpd.conf
 /etc/init.d/vsftpd restart
+
+#CONFIGURANDO PHP
+apt install -y php libapache2-mod-php php-mysql
 
 #CONFIGURANDO MYSQL
 apt -y install mysql-server
 mysql_secure_installation
+
 ```
