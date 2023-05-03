@@ -364,7 +364,7 @@ echo "secure_chroot_dir=/var/www/${DomainName}" >> /etc/vsftpd.conf
 /etc/init.d/vsftpd restart
 
 #CONFIGURANDO PHP
-apt install -y php libapache2-mod-php php-mysql
+apt install -y php libapache2-mod-php php-mysql php-curl composer
 
 #CONFIGURANDO MYSQL
 apt -y install mysql-server
