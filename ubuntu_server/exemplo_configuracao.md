@@ -282,11 +282,26 @@ Atualize as permissões:
 sudo su
 DomainName='localserver'
 local_user='ubuntu' #inform the name of the local user that will administrate the domain
+server_ip='192.168.0.15' #inform the static IP fot yout server
+subnetmask='192.168.0.250/24' #inform the static subnet mask
 
 apt update
 apt upgrade -y
 apt install -y openssh-server net-tools
 service ssh start
+
+#CONFIGURAÇÕES DE REDE
+cp /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.bkp
+echo "
+network:
+  ethernets:
+    eth0:
+      dhcp4: true
+      addresses: [${subnetmask}]
+      gateway4: ${server_ip}
+  version: 2
+" > /etc/netplan/00-installer-config.yaml
+netplan apply #aplica nova política de IP
 
 #CONFIGURANDO APACHE
 apt install -y apache2
@@ -353,6 +368,5 @@ apt install -y php libapache2-mod-php php-mysql
 
 #CONFIGURANDO MYSQL
 apt -y install mysql-server
-mysql_secure_installation
 
 ```
