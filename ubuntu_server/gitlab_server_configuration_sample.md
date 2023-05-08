@@ -29,5 +29,17 @@ network:
 " > /etc/netplan/00-installer-config.yaml
 netplan apply #aplica nova política de IP
 
+exit #sai do sudo su
+
+#Gitlab
+server_ip='192.168.0.20'
+sudo apt-get install -y curl openssh-server ca-certificates tzdata perl
+sudo apt-get install -y postfix
+
+curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash
+sudo EXTERNAL_URL="https://${server_ip}" apt-get install gitlab-ee
+
+
+
 
 ```
