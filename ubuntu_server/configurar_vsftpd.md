@@ -32,3 +32,8 @@ Para garantir acesso total às pastas para seu respectivo usuário, podemos alte
 
 
 
+## Reiniciando o serviço
+
+> /etc/init.d/vsftpd restart
+
+
