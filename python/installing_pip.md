@@ -5,4 +5,4 @@
 
 ## Fonte
 
-- [https://stackoverflow.com/questions/32639074/why-am-i-getting-importerror-no-module-named-pip-right-after-installing-pip](Stackoverflow);
+- [Stackoverflow]([Stackoverflow](https://stackoverflow.com/questions/32639074/why-am-i-getting-importerror-no-module-named-pip-right-after-installing-pip)https://stackoverflow.com/questions/32639074/why-am-i-getting-importerror-no-module-named-pip-right-after-installing-pip);
