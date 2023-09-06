@@ -83,3 +83,11 @@ Usage: 7z <command> [<switches>...] <archive_name> [<file_names>...]
 Então, para comprimir uma pasta, por exemplo, e separá-la em volumes de 1GB, pode utilizar:
 > 7z a -v1g NomeDoArquivoComprimido.7z ArquivosParaComprimir
 
+
+# Comprimindo usando `zip`
+
+> zip -r arquivo.zip *
+
+Para garantir que o terminal não pare de comprimir os arquivos quando ocorrer uma falha, você pode usar:
+
+> zip -r arquivo.zip * 2> erros.txt
