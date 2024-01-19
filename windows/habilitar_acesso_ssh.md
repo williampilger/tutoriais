@@ -26,11 +26,11 @@ Para verificar se os serviços estão instalados:
 Para instalar:
 > Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 
-Configuração:
-```sh
-Start-Service sshd
-Set-Service -Name sshd -StartupType 'Automatic'
-```
+Iniciar o serviço agora:
+> Start-Service sshd
+
+Configurar o serviço para iniciar automaticamente com o computador:
+> Set-Service -Name sshd -StartupType 'Automatic'
 
 Verificando se o SSH está liberado no Firewall:
 > Get-NetFirewallRule -Name *ssh*
@@ -38,6 +38,13 @@ Verificando se o SSH está liberado no Firewall:
 Configurar o PowerShell como padrão para o SSH:
 > New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force
 
+**Comando completo**
+```sh
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+Set-Service -Name sshd -StartupType 'Automatic'
+New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force
+Start-Service sshd
+```
 
 ## About
 
