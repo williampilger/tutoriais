@@ -46,6 +46,18 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Wi
 Start-Service sshd
 ```
 
+
+## Habilitando transmissão de interface gráfica
+
+Para que seja possível executar aplicações gráficas usando SSH, é necessário instalar um servidor `X` no host.
+
+Baixe a versão "oficial" na [origem oficial, no sourceforce](https://sourceforge.net/projects/xming/).
+
+Para acessar a máquina usando o servidor X, use:
+> ssh -X user@hostname
+
+
+
 ## About
 
 By: **Will.i.am** | **github.com/williampilger**
