@@ -21,26 +21,28 @@ Acesse o [Google AppScript](https://script.google.com) e crie um novo projeto;
 
 Cole o seguinte código no projeto:
 
-*github.com/usaussie/appscript-chat-rss - 15/02/2024 15:10*
 ```js
-/*
-* CONFIGURE DEBUG, YOUR CHAT ROOM WEBHOOK URL, AND YOUR ARRAY OF FEEDS TO CHECK
-*/
-
-// When DEBUG is set to true, the topic is not actually posted to the room
 var DEBUG = false;
 
-// URL to a google sheet you have permissions to
-// Columns MUST be in this order: 
-// feed_name {STRING)}
-// feed_url (URL)
-// feed_type (RSS or ATOM)
-// feed_logo (URL)
-// webhook_url (URL)
-// status (STRING) - active | disabled
-var GOOGLE_SHEET_URL = "https://docs.google.com/spreadsheets/d/doc_id/edit#gid=0";
-var GOOGLE_SHEET_TAB_NAME = "feed_data";
 var RESET_LAST_LOOKUP_TIME = 'Sun Jan 16 00:00:00 GMT-05:00 2022';  // Format: Fri Dec 10 14:37:12 GMT-05:00 2021
+var feeds = [
+    {
+        name:"ABNT News",
+        url:"https://abnt.org.br/feed/atom/",
+        type:"ATOM",
+        themeLogo:"https://www.abntcatalogo.com.br/assets/imgs/theme/logo.png",
+        webhook:"https://chat.googleapis.com/v1/spaces/AAAAfINdsv/messages?key=AIzaSyDdI0hCZtE6eaedcevySjMm-WEfRq3CPzqKqqsHI&token=BnllJxpWgwrvwevqhJvO4BdTMld0AglPzEI",
+        active:true
+    },
+    {
+        name:"KingHost Status",
+        url:"https://status.kinghost.net.br/history.atom",
+        type:"ATOM",
+        themeLogo:"https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/27219/01A-kinghost-PRERENCIAL-roxo.png",
+        webhook:"https://chat.googleapis.com/v1/spaces/AAAAfINdsv/messages?key=AIzaSyDdI0hCZtE6eaedcevySjMm-WEfRq3CPzqKqqsHI&token=BnllJxpWgwrvwevqhJvO4BdTMld0AglPzEI",
+        active:true
+    }
+]
 
 /*
 * DO NOT CHANGE ANYTHING BELOW THIS LINE
@@ -58,17 +60,11 @@ function job_reset_last_lookup_time() {
 // loop through all the filtered rows (the active ones)
 function job_fetch_all_feeds() {
 
-  var all_sheet_rows = SpreadsheetApp.openByUrl(GOOGLE_SHEET_URL).getSheetByName(GOOGLE_SHEET_TAB_NAME).getDataRange().getValues();
-
-  var filteredRows = all_sheet_rows.filter(function(row){
-    if (row[5] === 'active') {
-      return row;
-    }
-  });
-
-  filteredRows.forEach(function(row, index) {
+  feeds.forEach(function(item, index) {
     
-      fetchNews_(row[0], row[1], row[2], row[3], row[4]);
+    if(item.active){
+        fetchNews_(item.name, item.url, item.type, item.themeLogo, item.webhook);
+    }
 
   });
 
@@ -268,10 +264,10 @@ function createCardJson_(feed_name, feed_url, feed_logo_url, card_title, card_su
     };
 }
 ```
-## Criar a Planilha
 
-Crie uma planilha google capaz de rodar scripts;
+## Configurar a rotina
 
+Faça com que o script seja executado a cada X tempo.
 
 
 
