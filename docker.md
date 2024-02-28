@@ -62,7 +62,7 @@ As redes padrão do Docker tem as seguintes funcionalidades:
 | NAME | Função |
 | --- | --- |
 | `bridge` (DEFAULT) | Coloca o container na mesma rede do host |
-| `host` | O Container rona NO HOST. Ou seja a porta do container é a mesma porta do Host, e ele responde pelo mesmo IP do host |
+| `host` | O Container roda NO HOST. Ou seja a porta do container é a mesma porta do Host, e ele responde pelo mesmo IP do host |
 | `none` | Container sem comunicação de rede |
 
 ## Dockerfile
