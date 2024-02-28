@@ -14,6 +14,7 @@ Esse arquivo resume o que se precisa saber para começar com Docker
 | `docker run -v` | Criar um container ... Montando uma pasta local no container | `docker run -v /home/user/sample:sample -it ubuntu` |
 | `docker run --mount` | Criar um container ... Montando uma pasta local no container | `docker run --mount type=bind,source=/home/user/sample,target=/sample -it ubuntu` |
 | `docker run --mount` | Criar um container ... Montando uma pasta local no container, usando volumes gerenciados pelo docker | `docker run --mount source=novo-volume,target=/sample -it ubuntu` |
+| `docker run --tmpfs` | Criar um container ... montando um diretório temporário (útil para criar um diretório de arquivos temporários que não estará na camada de read/write do container) | `docker run --tmpfs=/tempdir -it ubuntu` |
 | `docker container rm` | Remove um container específico | `docker container rm 11dd643585s45` |
 | `docker container rm $(docker container ls -aq)` | Remover todos os containers | `docker container rm $(docker container ls -aq)` |
 | `docker container ls` | Listar containers | `docker container ls` |
@@ -26,9 +27,22 @@ Esse arquivo resume o que se precisa saber para começar com Docker
 | `docker ps -a` | Lista containers, incluindo os parados | `docker ps -sa` |
 | `docker volume ls` | Lista os volumes gerenciados pelo docker | `docker volume ls` |
 | `docker volume create` | Criar um novo volume gerenciado | `docker volume create meu-volume-novo` |
+| `docker inspect` | Inspeciona um container (apresenta dados do container) | `docker inspect 3977e4012729` |
+| `docker network ls` | Lista as conexões de rede disponíveis | `docker network ls` |
 | `` |  | `` |
-| `` |  | `` |
-| `` |  | `` |
+
+
+
+## Redes no Docker
+
+Os containers rodando no docker podem se comunicar entre sí, estando conectados na mesma rede.
+E você pode listar as redes disponíveis usando:
+> docker network ls
+
+Assim como também pode conferir emq ual rede um containter está conectado com:
+> docker inspect 3977e4012729 #definindo o ID adequado...
+
+
 
 ## Dockerfile
 
