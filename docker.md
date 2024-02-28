@@ -49,7 +49,21 @@ E você pode listar as redes disponíveis usando:
 Assim como também pode conferir emq ual rede um containter está conectado com:
 > docker inspect 3977e4012729 #definindo o ID adequado...
 
+Se pode comunicar entre os containers usando hostnames, faça isso criando primeiro uma rede nova (bom para isolar os itens. Depois Execute o container na nova rede e definindo o hostname.
 
+> docker network create --driver bridge minha-rede-exemplo
+
+> docker run -d --name ubuntu-1 --network minha-rede-exemplo ubuntu
+
+Agora, se você criar mais containers na mesma rede poderá acessá-los entre sí pelo hostname.
+
+As redes padrão do Docker tem as seguintes funcionalidades:
+
+| NAME | Função |
+| --- | --- |
+| `bridge` (DEFAULT) | Coloca o container na mesma rede do host |
+| `host` | O Container rona NO HOST. Ou seja a porta do container é a mesma porta do Host, e ele responde pelo mesmo IP do host |
+| `none` | Container sem comunicação de rede |
 
 ## Dockerfile
 
