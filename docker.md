@@ -87,3 +87,30 @@ RUN npm install
 ENTRYPOINT npm start
 ```
 
+
+## Docker Compose
+
+O treco serve pra iniciar vários containers de forma coordenada, para que em apenas um comando todos os containers estejam rodando adequadamente.
+
+Para tal, você deve criar um arquivo com o nome e diretório adequados:
+
+*YMLS/docker-compose.yml*
+```yml
+version: "3.9"
+services:
+  mongodb:
+    image: mongo:4.4.6
+    container_name: meu-mongo
+    networks:
+      - compose-bridge
+  alurabooks:
+    image: aluradocker/alura-books:1.0
+    container_name: alurabooks
+    neetworks:
+      - compose-bridge
+    ports:
+      - 3000:3000
+networks:
+  compose-bridge:
+    driver: bridge
+```
