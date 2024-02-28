@@ -15,6 +15,8 @@ Esse arquivo resume o que se precisa saber para começar com Docker
 | `docker run --mount` | Criar um container ... Montando uma pasta local no container | `docker run --mount type=bind,source=/home/user/sample,target=/sample -it ubuntu` |
 | `docker run --mount` | Criar um container ... Montando uma pasta local no container, usando volumes gerenciados pelo docker | `docker run --mount source=novo-volume,target=/sample -it ubuntu` |
 | `docker run --tmpfs` | Criar um container ... montando um diretório temporário (útil para criar um diretório de arquivos temporários que não estará na camada de read/write do container) | `docker run --tmpfs=/tempdir -it ubuntu` |
+| `docker run --name NAME` | Criar um container ... Definindo um nome manual para o container | `docker run --name ubuntu-server-1 -it ubuntu` |
+| `docker run --network NAME` | Criar um container ... Definindo uma interface de rede | `docker run -it --name ubuntu-server-1 --network minha-rede-exemplo ubuntu` |
 | `docker container rm` | Remove um container específico | `docker container rm 11dd643585s45` |
 | `docker container rm $(docker container ls -aq)` | Remover todos os containers | `docker container rm $(docker container ls -aq)` |
 | `docker container ls` | Listar containers | `docker container ls` |
@@ -29,6 +31,11 @@ Esse arquivo resume o que se precisa saber para começar com Docker
 | `docker volume create` | Criar um novo volume gerenciado | `docker volume create meu-volume-novo` |
 | `docker inspect` | Inspeciona um container (apresenta dados do container) | `docker inspect 3977e4012729` |
 | `docker network ls` | Lista as conexões de rede disponíveis | `docker network ls` |
+| `docker network create` | Criar uma interface de rede breadge | `docker network create --help` para ver mais |
+| `docker network create --driver bridge` | Criar uma interface de rede bridge | `docker network create --driver bridge minha-rede-exemplo` |
+| `` |  | `` |
+| `` |  | `` |
+| `` |  | `` |
 | `` |  | `` |
 
 
