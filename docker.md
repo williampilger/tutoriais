@@ -56,6 +56,7 @@ Se pode comunicar entre os containers usando hostnames, faça isso criando prime
 > docker run -d --name ubuntu-1 --network minha-rede-exemplo ubuntu
 
 Agora, se você criar mais containers na mesma rede poderá acessá-los entre sí pelo hostname.
+**OBS:** O hostname NÃO funciona nas interfaces de rede padrão do docker. Você precisará criar uma personalizada para isso.
 
 As redes padrão do Docker tem as seguintes funcionalidades:
 
