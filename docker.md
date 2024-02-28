@@ -110,7 +110,19 @@ services:
       - compose-bridge
     ports:
       - 3000:3000
+    depends_on:
+      - mongodb
 networks:
   compose-bridge:
     driver: bridge
 ```
+
+Para executar a aplicação como um todo, você pode executar:
+> docker-compose up
+
+ou
+> docker-compose up -d
+para não manter o terminal travado.
+
+E para parar todo o conjunto:
+> docker-compose down
