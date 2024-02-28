@@ -122,6 +122,7 @@ Para executar a aplicação como um todo, você pode executar:
 
 ou
 > docker-compose up -d
+
 para não manter o terminal travado.
 
 E para parar todo o conjunto:
