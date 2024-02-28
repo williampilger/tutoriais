@@ -11,6 +11,10 @@ Esse arquivo resume o que se precisa saber para começar com Docker
 | `docker run -p` | Cria um container ... fazendo mapeamento de portas | `docker run -p 8080:3000 hello-world` |
 | `docker run -P` | Cria um container ... atribuindo as portas automaticamente (aleatórias) | `docker run -P hello-world` |
 | `docker run` | Criar um container com base em uma imagem | `docker run hello-world` |
+| `docker container rm` | Remove um container específico | `docker container rm 11dd643585s45` |
+| `docker container rm $(docker container ls -aq)` | Remover todos os containers | `docker container rm $(docker container ls -aq)` |
+| `docker container ls` | Listar containers | `docker container ls` |
+| `docker container ls -a` | Listar containers, incluindo parados | `docker container ls -a` |
 | `` |  | `` |
 
 ## Dockerfile
@@ -33,3 +37,4 @@ COPY . .
 RUN npm install
 ENTRYPOINT npm start
 ```
+
