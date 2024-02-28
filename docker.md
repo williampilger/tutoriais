@@ -15,6 +15,12 @@ Esse arquivo resume o que se precisa saber para começar com Docker
 | `docker container rm $(docker container ls -aq)` | Remover todos os containers | `docker container rm $(docker container ls -aq)` |
 | `docker container ls` | Listar containers | `docker container ls` |
 | `docker container ls -a` | Listar containers, incluindo parados | `docker container ls -a` |
+| `docker rmi` | Excluir uma imagem | `docker rmi 954565d84ddd8` |
+| `docker rmi --force` | Excluir uma imagem, mesmo que ela esteja sendo usada | `docker rmi --force 954565d84ddd8` |
+| `docker rmi $(docker image ls -aq)` | Excluir todas as imagens | `docker rmi $(docker image ls -aq)` |
+| `docker ps` | Lista os containers rodando | `docker ps` |
+| `docker ps -s` | Lista containers, incluindo o tamanho dele | `docker ps -s` |
+| `docker ps -a` | Lista containers, incluindo os parados | `docker ps -sa` |
 | `` |  | `` |
 
 ## Dockerfile
