@@ -106,7 +106,7 @@ services:
   alurabooks:
     image: aluradocker/alura-books:1.0
     container_name: alurabooks
-    neetworks:
+    networks:
       - compose-bridge
     ports:
       - 3000:3000
