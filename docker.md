@@ -9,8 +9,9 @@ Esse arquivo resume o que se precisa saber para começar com Docker
 | `docker run` | Criar um container com base em uma imagem | `docker run hello-world` |
 | `docker run -d` | Cria um container ... Detachd - Inicia SEM travar o terminal no containet | `docker run -d hello-world` |
 | `docker run -p` | Cria um container ... fazendo mapeamento de portas | `docker run -p 8080:3000 hello-world` |
+| `docker run -it` | Cria um container ... em modo interativo (terminal aberto) | `docker run -it ubuntu bash` |
 | `docker run -P` | Cria um container ... atribuindo as portas automaticamente (aleatórias) | `docker run -P hello-world` |
-| `docker run` | Criar um container com base em uma imagem | `docker run hello-world` |
+| `docker run -v` | Criar um container ... Montando uma pasta local no container | `docker run -v /home/user/sample:sample -it ubuntu` |
 | `docker container rm` | Remove um container específico | `docker container rm 11dd643585s45` |
 | `docker container rm $(docker container ls -aq)` | Remover todos os containers | `docker container rm $(docker container ls -aq)` |
 | `docker container ls` | Listar containers | `docker container ls` |
@@ -21,6 +22,10 @@ Esse arquivo resume o que se precisa saber para começar com Docker
 | `docker ps` | Lista os containers rodando | `docker ps` |
 | `docker ps -s` | Lista containers, incluindo o tamanho dele | `docker ps -s` |
 | `docker ps -a` | Lista containers, incluindo os parados | `docker ps -sa` |
+| `` |  | `` |
+| `` |  | `` |
+| `` |  | `` |
+| `` |  | `` |
 | `` |  | `` |
 
 ## Dockerfile
