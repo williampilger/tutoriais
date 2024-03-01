@@ -24,20 +24,20 @@ Instale primeiro o `psutil`:
 import psutil
 import time
 
-def monitor_cpu(interval=1):
+def monitor_system(interval=1):
+    print(f"{'Tempo':<10}{'CPU (%)':<10}{'Memória (%)':<12}{'Disco (%)':<10}")
+    print("-" * 42)
+
+    start_time = time.time()
     while True:
-        # Uso total da CPU
-        cpu_usage_total = psutil.cpu_percent(interval=interval)
-        print(f"Uso total da CPU: {cpu_usage_total}%")
+        current_time = time.time() - start_time
+        cpu_usage = psutil.cpu_percent(interval=interval)
+        memory_usage = psutil.virtual_memory().percent
+        disk_usage = psutil.disk_usage('/').percent
 
-        # Uso da CPU por núcleo
-        cpu_usage_per_core = psutil.cpu_percent(interval=None, percpu=True)
-        for i, usage in enumerate(cpu_usage_per_core):
-            print(f"Núcleo {i}: {usage}%")
-
-        print("-" * 20)
-        time.sleep(interval)
+        print(f"{current_time:<10.2f}{cpu_usage:<10}{memory_usage:<12}{disk_usage:<10}")
 
 if __name__ == "__main__":
-    monitor_cpu()
+    monitor_system()
+
 ```
