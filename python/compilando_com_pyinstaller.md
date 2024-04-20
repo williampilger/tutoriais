@@ -10,4 +10,4 @@ Compile seu script com:
 
 Para compilar em único arquivo EXE, use:
 
-pyinstaller --onefile nome_do_seu_script.py
+> pyinstaller --onefile nome_do_seu_script.py
