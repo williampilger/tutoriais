@@ -16,34 +16,17 @@ sudo dpkg -i chrome-remote-desktop_current_amd64.deb
 sudo apt-get -f install
 ```
 
-Crie o arquivo de configuração:
-
-> sudo nano /etc/chrome-remote-desktop-session
-
-e cole o seguinte conteúdo:
-
-```txt
-exec /usr/sbin/lightdm-session "gnome-session --session=gnome"
-```
-
-Criando grupo de usuários e adicionando o seu:
-
-```sh
-sudo groupadd chrome-remote-desktop
-sudo usermod -a -G chrome-remote-desktop $USER
-```
-
-Iniciando o Serviço:
-
-```sh
-sudo systemctl enable chrome-remote-desktop@$USER
-sudo systemctl start chrome-remote-desktop@$USER
-```
-
 
 
 ## Configurando / Ativando
 
-Acesse o [Google Remote Desktop](https://remotedesktop.google.com), e siga os passos.
-Provavelmente será necessário acessar de uma guia anônima para seguir os passos.
+- Acesse o [Google Remote Desktop](https://remotedesktop.google.com);
+- Na seção de configuração de acesso, aparecerá um link, onde você será orientado a abrir em outro PC. Abra-o em uma nova guia.
+- Clique em "Seguinte". Se por acaso clicar no download, só ignore kkkk;
+- Copie o código gerado, e cole no terminal;
+- Informe o PIN;
+- Confirme com a sua senha do PC;
+
+
+Possivelmente será necessário acessar de uma guia anônima para seguir os passos.
 Será necessário copiar um comando e cola-lo no terminal para autorizar o dispositivo.
