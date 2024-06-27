@@ -2,6 +2,8 @@
 
 Este passo a passo é semelhante para **Windows 10**, **MAC** e **Linux**.
 
+
+
 ## Criando um par de chaves SSH
 
 Se você já possui um, pule esta etapa. Vamos criar a seguir um par de chaves **ED25519**, que é a mais segura atualmente.
@@ -29,6 +31,8 @@ Enter passphrase (empty for no passphrase):
 
 Ao configrmar, sua chave estará criada e será exibida.
 
+
+
 ## Copiando os dados da sua chave SSH
 
 Você pode fazer isso manualmente, ou via linha de comando:
@@ -44,6 +48,8 @@ Você pode fazer isso manualmente, ou via linha de comando:
   **Windows** (no Git Bash)
 
   > cat ~/.ssh/id_ed25519.pub | clip
+
+
 
 ## Adicionando sua chave SSH no GIT
 
@@ -64,6 +70,8 @@ Obviamente para isso, você já instalou o git no seu computador. Se ainda não,
 7. Opcional. Na caixa Expira em , selecione uma data de expiração. ( Introduzido no GitLab 12.9.).
 
 8. Selecione **Adicionar chave**.
+
+
 
 # Sobre
 
