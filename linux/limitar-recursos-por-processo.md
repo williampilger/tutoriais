@@ -14,7 +14,7 @@ sudo prlimit --pid $PID --cpu=60 --rss=524288
 ```
 
 
-## Definir afinidade de Núcleos
+# Definir afinidade de Núcleos
 
 Iniciar um processo com afinidade de núcleo(s):
 ```sh
@@ -32,4 +32,21 @@ taskset -p 0b11 $PID
 
 Para verificar a afinidade de um processo:
 > taskset -cp $PID
+
+
+
+# Alterar a prioridade de um ou mais processos (alterar o `nice` do processo)
+
+O valor de `nice` nos processos em um sistema linux varia de `-19` (mais prioritário) a `20` (menor prioridade);
+
+Alterar o valor da prioridade de um processo:
+> $ sudo renice 10 -p <PID>
+
+Onde `10` é o novo valor de prioridade.
+Use `renice --help` para saber mais.
+
+### Alterar a prioridade de vários processos:
+
+Você pode usar a função `pgrep` para filtrar os processos por nome, e em seguida combiná-lo com `xatgs` para alterar a prioridade de vários processos. Veja um exemplo mudando a prioridade dos processos do google chrome:
+> pgrep chrome | xargs sudo renice 10 -p
 
