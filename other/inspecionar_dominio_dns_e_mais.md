@@ -3,6 +3,7 @@
 Estou usando comandos normalmente disponíveis para Linux.
 Você pode rodá-los usando WSL ou Docker no Windows (ou procurar comandos alternativos para o PowerShell).
 
+Comandos mais usados: `nslookup` e `dig`
 
 ## Consultar Name Servers
 > nslookup -type=ns domain.com
