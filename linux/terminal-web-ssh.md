@@ -21,4 +21,4 @@ SHELLINABOX_ARGS="--no-beep --disable-ssl -s /:SSH:localhost"
 Reinicie o serviço:
 ```sh
 sudo systemctl restart shellinabox
-```sh
+```
