@@ -75,7 +75,7 @@ Obviamente para isso, você já instalou o git no seu computador. Se ainda não,
 
 ## Configurar os commits
 
-````sh
+```sh
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
