@@ -2,7 +2,7 @@
 
 Versão do meu sistema: `24.04 LTS`;
 
-Obs: <span style="color:red;">Ativar o acesso remoto desta forma <strong>IMPOSSIBILITA O ACESSO FÍSICO À MÁQUINA</strong> depois de acessa-la remotamente. Depois de reiniciar, o acesso físico volta a funcionar. Isso ocorre por que o software não foi feito pra rodar com o weyland, mas eu uso assim.</span>
+> **Atenção:** Ativar o acesso remoto desta forma **IMPOSSIBILITA O ACESSO FÍSICO À MÁQUINA** depois de acessá-la remotamente. Depois de reiniciar, o acesso físico volta a funcionar. Isso ocorre porque o software não foi feito para rodar com o Wayland, mas eu uso assim.
 
 ## Pré-requisitos
 
