@@ -1,6 +1,7 @@
 # Instalando e configurando o Google Remote Desktop no Ubuntu
 
-
+Versão do meu sistema: `24.04 LTS`
+Obs: **Ativar o acesso remoto desta forma IMPOSSIBILITA O ACESSO FÍSICO À MÁQUINA depois de acessa-la remotamente. Depois de reiniciar, o acesso físico volta a funcionar. Isso ocorre por que o software não foi feito pra rodar com o weyland, mas eu uso assim.**
 
 ## Pré-requisitos
 
