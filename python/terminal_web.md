@@ -7,6 +7,7 @@ O script abaixo pode ser executado diretamente, ou colocado na lista de coisas p
 
 **PS:** É indispensável ter instalado já todo o `flask`.
 
+
 *web_terminal.pyw*
 ```py
 from flask import Flask, render_template_string, request, jsonify
@@ -14,7 +15,6 @@ import subprocess
 
 app = Flask(__name__)
 
-# Página HTML com JavaScript para enviar comandos
 html_template = """
 <!DOCTYPE html>
 <html lang="pt-BR">
