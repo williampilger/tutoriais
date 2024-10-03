@@ -26,6 +26,20 @@ chmod a+rx /usr/local/bin/yt-dlp
 yt-dlp -f bestvideo+bestaudio [URL_DO_VÍDEO]
 ```
 
+### União de Audio+Video
+
+Em alguns casos, em vídeos de alta qualidade de vídeo e/ou áudio, os dois serãoo baixados separadamente.
+Para unir, você pode usar a mesma áquina Docker e:
+
+```hs
+# Instalar a dependência
+apt install ffmpeg
+
+# Unindo o Vídeo + Audio
+ffmpeg -i video.mp4 -i audio.webm -c:v copy -c:a aac -strict experimental output.mp4
+```
+
+
 ## Ou, tente também
 
 Existe uma ferramenta instalável, no entanto, não está disponível em quase nenhuma região.
