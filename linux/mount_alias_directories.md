@@ -30,7 +30,7 @@ umount /pasta-curta
 
 ## ln -s
 
-Serve para criar um atalho de uma pasta
+Serve para criar um atalho de uma pasta (endereço ABSOLUTO. Você pode obtê-lo usando o comando `pwd` no terminal)
 
 ```sh
 ln -s /caminho/com/nome/muito/grande /pasta-curta
