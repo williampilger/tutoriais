@@ -18,3 +18,16 @@ New-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Nam
 ```
 
 **Reinicie o computador para aplicar as alterações**
+
+
+
+## Alternativa para Windows 10
+
+**Este processo FOI TESTADO e por enquanto NÃO FUNCIONOU no Windows 10**. Ainda precisa ser adaptado.
+
+*CMD -> Executado com priviégios de Administrador*
+```bat
+reg add "HKCU\Software\Policies\Microsoft\Windows\Explorer" /v DisableSearchBoxSuggestions /t REG_DWORD /d 1 /f
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search" /v BingSearchEnabled /t REG_DWORD /d 0 /f
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search" /v CortanaConsent /t REG_DWORD /d 0 /f
+```
