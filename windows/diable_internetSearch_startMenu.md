@@ -19,7 +19,7 @@ New-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Nam
 
 **Reinicie o computador para aplicar as alterações**
 
-
+--------------
 
 ## Alternativa para Windows 10
 
