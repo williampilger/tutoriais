@@ -115,3 +115,12 @@ E, por fim, para executar seu projeto, use:
 > npm start
 
 *obs: O comando para executar o projeto pode variar, e você pode ter melhores orientações sobre como prosseguir lendo o arquivo Readme.md disponível dentro da mesma pasta.*
+
+---------------------------------------
+
+## Salvando minhas alterações
+
+Para salvar suas alterações no github, acesse o Github Desktop e, de preferência, crie uma nova branch para suas alterações.
+Depois disso, escreva um comentário sobre suas alterações, e faça o commit.
+
+Não se esqueça de dar o Push para que as alterações sejam publicadas online.
