@@ -14,6 +14,9 @@ gcloud auth login
 
 # E selecionou o projeto:
 gcloud config set project [PROJECT_ID]
+
+# Faça login no default-aplication
+gcloud auth application-default login
 ```
 
 *Instale o CloudSQL Proxy via apt*
