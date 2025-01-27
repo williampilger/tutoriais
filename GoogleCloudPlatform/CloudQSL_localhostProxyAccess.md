@@ -1,6 +1,7 @@
 # Acessar "localmente" um banco de dados hospedado com CloudQSL no Google Cloud Platform (GCP)
 
 Neste exemplo, estou rodando um `Ubuntu 24.04 LTS`, com uma montanha de softwares instalados, logo é possível que vocẽ precise instalar mais bibliotecas e/ou ferramentas que eu.
+Leia mais sobre o tema na [documentação do google](https://cloud.google.com/sql/docs/mysql/sql-proxy?hl=pt-br).
 
 ## Ambiente
 
@@ -14,6 +15,13 @@ gcloud auth login
 # E selecionou o projeto:
 gcloud config set project [PROJECT_ID]
 ```
+
+**Instale o SQL Proxy**
+
+> curl -o /usr/local/bin/cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.14.3/cloud-sql-proxy.linux.amd64
+
+E o torne executável
+> chmod +x /usr/local/bin/cloud-sql-proxy
 
 -----------------
 
