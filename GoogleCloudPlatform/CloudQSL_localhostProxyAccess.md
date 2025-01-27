@@ -16,12 +16,11 @@ gcloud auth login
 gcloud config set project [PROJECT_ID]
 ```
 
-**Instale o SQL Proxy**
-
-> curl -o /usr/local/bin/cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.14.3/cloud-sql-proxy.linux.amd64
-
-E o torne executável
-> chmod +x /usr/local/bin/cloud-sql-proxy
+*Instale o SQL Proxy e o torne executável*
+```sh
+sudo curl -o /usr/local/bin/cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.14.3/cloud-sql-proxy.linux.amd64
+sudo chmod +x /usr/local/bin/cloud-sql-proxy
+```
 
 -----------------
 
