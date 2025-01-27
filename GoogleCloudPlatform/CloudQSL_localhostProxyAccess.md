@@ -23,8 +23,8 @@ gcloud config set project [PROJECT_ID]
 
 *Instale binário do SQL Proxy e o torne executável*
 ```sh
-sudo curl -o /usr/local/bin/cloud_sql_proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.14.3/cloud-sql-proxy.linux.amd64
-sudo chmod +x /usr/local/bin/cloud_sql_proxy
+sudo curl -o /usr/local/bin/cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.14.3/cloud-sql-proxy.linux.amd64
+sudo chmod +x /usr/local/bin/cloud-sql-proxy
 ```
 
 -----------------
@@ -43,7 +43,7 @@ No Google Cloud Console, encontre o **Instance Connection Name** do seu banco:
 Execute o Cloud SQL Auth Proxy para criar o proxy local. Substitua `[INSTANCE_CONNECTION_NAME]` pelo valor copiado:
 
 ```bash
-cloud_sql_proxy -instances=[INSTANCE_CONNECTION_NAME]=tcp:3306
+cloud-sql-proxy [INSTANCE_CONNECTION_NAME]=tcp:3306
 ```
 
 Isso criará um proxy local na porta 3306, conectando ao seu banco de dados no Google Cloud.
