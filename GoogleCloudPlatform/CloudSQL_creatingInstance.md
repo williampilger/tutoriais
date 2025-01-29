@@ -12,7 +12,8 @@
 Você pode criar os usuário **diretamente pelo painel, na guia Usuários**, ou **via SQL mesmo**.
 Pelo painel **NÃO É POSSÍVEL ATRIBUIR PRIVILÉGIOS POR BANCO DE DADOS**.
 
-Conecte-se ao banco pelo terminal no **CloudShell**, ou usando o SQLProxy, com as credenciais do `Root` (usuário configurado na criação da instância do CloudSQL). *NOTA: para usar o SQL via terminal no seu computador, será necessário ter o sql-client instalado, independente do seu sistema operacional.**
+Conecte-se ao banco pelo terminal no **CloudShell**, ou usando o SQLProxy, com as credenciais do `Root` (usuário configurado na criação da instância do CloudSQL).
+**NOTA: para usar o SQL via terminal no seu computador, será necessário ter o sql-client instalado, independente do seu sistema operacional.** Disponível na [página de downloads do MySQL](https://dev.mysql.com/downloads/mysql/).
 
 *Conectando usando o CLI (já autenticado)*
 > gcloud sql connect nome-da-instancia --user=nome-de-usuario
