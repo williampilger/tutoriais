@@ -1,11 +1,10 @@
 # Criando a Instância do CloudSQL -> Via console.cloud.google.com
 
-1 - Com o seu projeto selecionado, acesse o [menu do CloudSQL](https://console.cloud.google.com/sql/instances);
-2 - Clique em `+ Criar Instância`;
-3 - Configure toda a máquina de acordo com suas necessidades:
-    obs: Ativar o IP fixo não é mais reversível;
-4 - Aguarde a criação concluir;
-
+- 1. Com o seu projeto selecionado, acesse o [menu do CloudSQL](https://console.cloud.google.com/sql/instances);
+- 2. Clique em `+ Criar Instância`;
+- 3. Configure toda a máquina de acordo com suas necessidades:
+  - obs: Ativar o IP fixo não é mais reversível;
+- 4. Aguarde a criação concluir;
 
 
 ## Criando o Banco de dados e Usuário(s)
