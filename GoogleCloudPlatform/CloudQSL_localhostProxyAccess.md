@@ -46,3 +46,9 @@ cloud-sql-proxy [INSTANCE_CONNECTION_NAME]=tcp:3306
 
 Isso criará um proxy local na porta 3306, conectando ao seu banco de dados no Google Cloud.
 
+### 3. Testar a conexão
+
+Você deve conseguir acessar normalmente agora o banco com a sua aplicação.
+No entanto, pode testar a conexão diretamente (se tiver o cliente mysql instalado, obviamente):
+
+> mysql -u [USUÁRIO] -p -h 127.0.0.1 -P [PORTA] --database=[NOME-DO-BANCO]
