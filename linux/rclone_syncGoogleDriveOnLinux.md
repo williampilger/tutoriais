@@ -11,9 +11,8 @@ Depois de confiugrado o remote, você pode montar ele usando, por exemplo:
 > rclone mount $REMOTE_NAME: ~/path/to/existent/empty/folder --daemon
 
 
+---
 
-
-----------------------
 
 ## Google Drive - Observações
 
@@ -21,3 +20,15 @@ Durante o `rclone config`, marque `NÃO` para a configuração de drives compart
 Caso queira montar uma unidade compartilhada, então responda `sim`.
 
 Os drives compartilhados precisação ser montados um a um.
+
+
+---
+
+
+## Outros Comandos
+
+| Comando | Descrição |
+| --- | --- |
+| `rclone listremotes` | Listar remotes |
+| `rclone config` | Serve para manipular tudo, embora já tenha sudo citado acima, escrevendo aqui novamente para reforçar: você pode listar, adicionar e remover remotes. |
+| `rclone config delete $REMOTE_NAME` | Excluir um remote |
