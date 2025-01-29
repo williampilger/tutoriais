@@ -13,10 +13,10 @@ Conecte-se ao banco pelo terminal no **CloudShell**, ou usando o SQLProxy, com a
 Execute a criação do(s) banco(s) e/ou usuário(s) com base nos comando abaixo:
 
 ```sql
-CREATE DATABASE 'dev-workspace';
+CREATE DATABASE 'database-name';
 
-CREATE USER 'devuser'@'%' IDENTIFIED BY 'password';
-GRANT SELECT, INSERT, UPDATE, DELETE ON 'dev-workspace'.* TO 'novo_usuario'@'%';
+CREATE USER 'new_user'@'%' IDENTIFIED BY 'password';
+GRANT SELECT, INSERT, UPDATE, DELETE ON 'database-name'.* TO 'new_user'@'%';
 
 FLUSH PRIVILEGES;
 ```
