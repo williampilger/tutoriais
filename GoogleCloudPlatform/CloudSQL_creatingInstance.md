@@ -12,6 +12,9 @@
 Conecte-se ao banco pelo terminal no **CloudShell**, ou usando o SQLProxy, com as credenciais do `Root` (usuário configurado na criação da instância do CloudSQL).
 Execute a criação do(s) banco(s) e/ou usuário(s) com base nos comando abaixo:
 
+*Conectando usando o CLI (já autenticado)
+> gcloud sql connect nome-da-instancia --user=nome-de-usuario
+
 ```sql
 CREATE DATABASE 'database-name';
 
