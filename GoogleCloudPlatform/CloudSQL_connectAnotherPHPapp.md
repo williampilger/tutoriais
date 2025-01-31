@@ -44,7 +44,9 @@ try{
         3306,
         NULL,
 
-        // Configuração de Verificação de Certificado server-CA -->> Para Ativar a verificação, use MYSQLI_CLIENT_SSL no lugar (o que é OBRIGATÓRIO se você estiver usando o nome do host, e não um IP)
+        // Configuração de Verificação de Certificado server-CA
+        // Para Ativar a verificação, use MYSQLI_CLIENT_SSL no lugar
+        //  >> o que é OBRIGATÓRIO se você estiver usando o nome do host, e não um IP
         MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT //não tem impacto na segurança, pois está sendo acessado VIA IP FIXO
     );
 
