@@ -25,7 +25,6 @@ Na sua instância do CloudSQL, certifique-se de:
 <?php
 
 $conn = mysqli_init();
-$conn->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, true);
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 try{
