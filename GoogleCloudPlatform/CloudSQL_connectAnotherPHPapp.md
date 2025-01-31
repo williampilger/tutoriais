@@ -80,7 +80,7 @@ class DatabaseTcp
             // keep secrets safe.
             $username = 'user'; // e.g. 'your_db_user'
             $password = 'password'; // e.g. 'your_db_password'
-            $dbName = 'dev-workspace'; // e.g. 'your_db_name'
+            $dbName = 'database-name'; // e.g. 'your_db_name'
             $port = '3306';
             $host = '35.195.52.215'; // e.g. '127.0.0.1' ('172.17.0.1' for GAE Flex)
             
