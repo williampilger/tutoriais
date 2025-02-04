@@ -42,7 +42,6 @@ Para criar uma credencial para o **SQL Proxy** do **Google Cloud Platform (GCP)*
 
 Você pode criar uma usando o **gcloud CLI** diretamente no terminal. Aqui está o passo a passo:
 
-
 ### 1️⃣ **Autentique-se no Google Cloud e escolha o projeto**
 Se ainda não estiver autenticado no Google Cloud, execute:
 ```bash
@@ -83,3 +82,31 @@ gcloud iam service-accounts keys create ~/sql-proxy-key.json \
   --iam-account=sql-proxy@[SEU_PROJETO].iam.gserviceaccount.com
 ```
 Isso salvará a credencial em `~/sql-proxy-key.json`.
+
+
+### Exemplo Completo
+
+```sh
+gcloud init #se ainda não tiver feito login e selecionado o projeto
+
+PROJECT_ID="prod-sample"
+NEW_CREDENTIAL_NAME="sqlproxy-sample"
+NEW_CREDENTIAL_DESCRIPTION="Conta de serviço para conectar o app Sample ao SQL Proxy"
+NEW_CREDENTIAL_DISPLAY="Sample - SQL Proxy Service Account"
+NEW_CREDENTIAL_ROLE="roles/cloudsql.client"
+
+gcloud iam service-accounts create ${NEW_CREDENTIAL_NAME} \
+  --description="${NEW_CREDENTIAL_DESCRIPTION}" \
+  --display-name="${NEW_CREDENTIAL_DISPLAY}"
+
+gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+  --member="serviceAccount:${NEW_CREDENTIAL_NAME}@${PROJECT_ID}.iam.gserviceaccount.com" \
+  --role="${NEW_CREDENTIAL_ROLE}"
+
+# Gerar o JSON
+gcloud iam service-accounts keys create ./${NEW_CREDENTIAL_NAME}-key.json \
+  --iam-account=${NEW_CREDENTIAL_NAME}@${PROJECT_ID}.iam.gserviceaccount.com
+
+# Garantir que só tenha acesso de leitura. Isso é opcional
+chmod 600 ./${NEW_CREDENTIAL_NAME}-key.json
+```
