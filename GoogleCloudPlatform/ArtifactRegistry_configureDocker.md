@@ -100,3 +100,18 @@ REGION=southamerica-east1
 docker push ${REGION}-docker.pkg.dev/PROJECT_ID/REPOSITORY_NAME/image-name:tag
 ```
 
+### 🌟 Exemplo Completo
+
+Este exemplo é como EU faço meus scripts de automação dessas tarefas, o que não necessariamente seguem boas práticas!!
+
+```sh
+PROJECT_ID="prod-sampleproject"
+REGION="southamerica-east1"
+REPOSITORY="sample-repos"
+IMAGE_NAME="24001_sampleproject"
+
+FULL_REPO_NAME=${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}
+
+docker tag ${IMAGE_NAME} ${FULL_REPO_NAME}/${IMAGE_NAME}
+docker push ${FULL_REPO_NAME}/${IMAGE_NAME}
+```
