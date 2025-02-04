@@ -4,6 +4,7 @@ Aqui abordarei duas formas de criar a conta:
   - [Usando a Interface Gráfica do Cloud Plaftorm](#via-console);
   - [Usando o Google Cloud CLI](#via-cli);
 
+**PS:** *Aqui foi criada a credencial para o SQL Proxy, mas você pode atribuir as permissões que forem necessárias pra você.*
 
 
 ## Via Console
