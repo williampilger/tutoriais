@@ -84,7 +84,7 @@ gcloud iam service-accounts keys create ~/sql-proxy-key.json \
 Isso salvará a credencial em `~/sql-proxy-key.json`.
 
 
-### Exemplo Completo
+### 🌟 Exemplo Completo
 
 ```sh
 gcloud init #se ainda não tiver feito login e selecionado o projeto
