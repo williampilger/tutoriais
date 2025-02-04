@@ -102,7 +102,7 @@ docker push ${REGION}-docker.pkg.dev/PROJECT_ID/REPOSITORY_NAME/image-name:tag
 
 ### 🌟 Exemplo Completo
 
-Este exemplo é como EU faço meus scripts de automação dessas tarefas, o que não necessariamente seguem boas práticas!!
+*Este exemplo é como EU faço meus scripts de automação dessas tarefas, o que não necessariamente seguem boas práticas!!*
 
 ```sh
 PROJECT_ID="prod-sampleproject"
