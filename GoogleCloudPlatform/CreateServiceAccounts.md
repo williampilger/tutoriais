@@ -1,8 +1,8 @@
 # Criando uma conta de serviço no GCP
 
 Aqui abordarei duas formas de criar a conta:
-  - [Usando a Interface Gráfica do Cloud Plaftorm](##via-console);
-  - [Usando o Google Cloud CLI](##via-cli);
+  - [Usando a Interface Gráfica do Cloud Plaftorm](#via-console);
+  - [Usando o Google Cloud CLI](#via-cli);
 
 
 
