@@ -50,7 +50,9 @@ Você **pode** definir o JSON baixado como a credencial padrão para todas aplic
 export GOOGLE_APPLICATION_CREDENTIALS="/caminho/para/sua-chave.json"
 ```
 
-### 2. **Inicie o Proxy**
+---
+
+### 3. **Inicie o Proxy**
 Execute o Cloud SQL Auth Proxy para criar o proxy local. Substitua `[INSTANCE_CONNECTION_NAME]` pelo valor copiado:
 
 ```bash
