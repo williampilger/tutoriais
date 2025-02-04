@@ -14,9 +14,6 @@ gcloud auth login
 
 # E selecionou o projeto:
 gcloud config set project [PROJECT_ID]
-
-# Faça login no default-aplication
-gcloud auth application-default login
 ```
 
 *Instale binário do CloudSQL Proxy e o torne executável*
@@ -37,11 +34,31 @@ No Google Cloud Console, encontre o **Instance Connection Name** do seu banco:
 3. Copie o valor de **Connection Name** (algo como `my-project:region:instance-name`).
 
 
+### 2. Autenticando a Aplicação
+As aplicações, como o `cloud-sql-proxy` usam credenciais diferentes da CLI, então, você precisa fazer login.
+
+Em um ambiente de TESTES, é mais comum autenticar usando a própria conta do google:
+```sh
+gcloud auth application-default login
+```
+
+Em ambientes de Produção, **crie uma conta de serviço** com permissões para executar o SQLProxy,
+e baixe o JSON da credencial.
+
+Você **pode** definir o JSON baixado como a credencial padrão para todas aplicações:
+```sh
+export GOOGLE_APPLICATION_CREDENTIALS="/caminho/para/sua-chave.json"
+```
+
 ### 2. **Inicie o Proxy**
 Execute o Cloud SQL Auth Proxy para criar o proxy local. Substitua `[INSTANCE_CONNECTION_NAME]` pelo valor copiado:
 
 ```bash
-cloud-sql-proxy [INSTANCE_CONNECTION_NAME]=tcp:3306
+# Se você definiu a credencial global (ou fez login com a conta)
+cloud-sql-proxy --port=3306 [INSTANCE_CONNECTION_NAME]
+
+# Se preferir passar a credencial no comando de executar
+cloud-sql-proxy --credentials-file=/caminho/para/sua-chave.json --port=3306 [INSTANCE_CONNECTION_NAME]
 ```
 
 Isso criará um proxy local na porta 3306, conectando ao seu banco de dados no Google Cloud.
