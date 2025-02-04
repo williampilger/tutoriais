@@ -85,13 +85,18 @@ Crie as imagens Docker da mesma forma que cria outra normal, por exemplo:
 > docker build sample-local-image .
 
 Marque a imagem como container para o Artifact Registry (*a Tag é opcional*):
-> docker tag sample-local-image:tag LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY_NAME/image-name:tag
+```sh
+REGION=southamerica-east1
+docker tag sample-local-image:tag ${REGION}-docker.pkg.dev/PROJECT_ID/REPOSITORY_NAME/image-name:tag
+```
 
 ---
 
 ### 5. Enviando para o Repositório do Artifact Registry
 
 Fazer o push da imagem para o Artifact Registry:
-> docker push LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY_NAME/image-name:tag
-
+```sh
+REGION=southamerica-east1
+docker push ${REGION}-docker.pkg.dev/PROJECT_ID/REPOSITORY_NAME/image-name:tag
+```
 
