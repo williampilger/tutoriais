@@ -6,6 +6,7 @@ Aqui abordarei duas formas de criar a conta:
 
 **PS:** *Aqui foi criada a credencial para o SQL Proxy, mas você pode atribuir as permissões que forem necessárias pra você.*
 
+---
 
 ## Via Console
 
@@ -35,17 +36,12 @@ Para criar uma credencial para o **SQL Proxy** do **Google Cloud Platform (GCP)*
 4. Escolha o formato **JSON** e clique em **Criar**.
 5. O arquivo será baixado automaticamente para o seu computador.
 
-
-
-
-
-
+---
 
 ## Via CLI
 
 Você pode criar uma usando o **gcloud CLI** diretamente no terminal. Aqui está o passo a passo:
 
----
 
 ### 1️⃣ **Autentique-se no Google Cloud e escolha o projeto**
 Se ainda não estiver autenticado no Google Cloud, execute:
@@ -59,7 +55,6 @@ gcloud config set project [SEU_PROJETO]
 ```
 Isso abrirá um navegador para você autenticar sua conta.
 
----
 
 ### 2️⃣ **Crie uma Conta de Serviço**
 Execute o comando abaixo para criar uma **Service Account**:
@@ -70,7 +65,6 @@ gcloud iam service-accounts create sql-proxy \
 ```
 Isso criará uma conta chamada `sql-proxy`.
 
----
 
 ### 3️⃣ **Conceda Permissões**
 Agora, conceda a permissão de **Cloud SQL Client** à conta:
@@ -81,7 +75,6 @@ gcloud projects add-iam-policy-binding [SEU_PROJETO] \
 ```
 Substitua `[SEU_PROJETO]` pelo **ID do projeto**.
 
----
 
 ### 4️⃣ **Gerar a Chave JSON**
 Agora, gere e salve a chave JSON:
