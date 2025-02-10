@@ -32,5 +32,10 @@ PS: *A "instalação" prepara o próprio pendrive para o Tails!*
 
 Ao iniciar ele, quando conectar-se à internet, ele irá lhe avisar se é possível atualizar.
 
-Normalmente não é possível atualizar ele por ele mesmo, quando são grandes atualizações.
+Normalmente não é possível atualizar ele por ele mesmo quando são grandes atualizações.
 Nesses casos, você pode instalar o Tails em outro Pendrive, e atualizar um usando o outro.
+
+- Execute o tails atualizado
+- Abra o app "Clone Tails"
+- Selecione o dispositivo principal (que você quer atualizar)
+- Inicie a atualização 
