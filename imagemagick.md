@@ -9,7 +9,10 @@ Instale o ImageMagick no seu PC de acordo com o seu sistema operacional (no linu
 | --- | --- |
 | `magick input.png output.webp` | Converter a imagem de formato sem alterações de proporção e/ou qualidade (na medida do possível) |
 | `magick input.jpg -quality 80 output.jpg` | Alterar a qualidade da imagem |
-| `` |  |
+| `magick input.jpg -resize 150x output.jpg` | Reduzir a largura para 150px, mantendo a proporção |
+| `magick input.jpg -resize x150 output.jpg` | Reduzir a altura para 150px, mantendo a proporção |
+| `magick input.jpg -resize 150x150! output.jpg` | Reduzir para exatamente 150x150 pixels (sem manter a proporção, pode distorcer) |
+| `magick input.jpg -resize 150x150^ -gravity center -extent 150x150 output.jpg` | Reduzir para 150x150, cortando o excesso (mantendo proporção) |
 
 
 
