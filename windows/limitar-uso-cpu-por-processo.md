@@ -43,6 +43,6 @@ if ($NewCoreCount -lt 1 -or $NewCoreCount -gt $TotalCores) {
 $NewAffinity = [int]([math]::Pow(2, $NewCoreCount) - 1)
 $Process.ProcessorAffinity = $NewAffinity
 
-Write-Host "Afinidade do processo atualizada com sucesso para $NewCoreCount núcleo(s)!"
+Write-Host "Afinidade do processo atualizada com sucesso para $NewCoreCount nucleo(s)!"
 Start-Sleep -Seconds 5
 ```
