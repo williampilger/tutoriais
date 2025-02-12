@@ -14,7 +14,7 @@ Você pode setar ele em valor binário, como `0b1111` ou em decimal, sendo `0x7`
 
 ---
 
-## Utilidade: Script para automatizar isso
+## Utilidade: Script para auxiliar na configuração da afinidade de CPU no Windows
 
 ```ps1
 $TotalCores = (Get-CimInstance Win32_Processor).NumberOfLogicalProcessors # obtem o numero total de nucleos disponiveis no sistema
@@ -51,5 +51,5 @@ Start-Sleep -Seconds 5
 
 Entenda mais sobre isso na [pagina da Microsoft](https://learn.microsoft.com/pt-br/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.5).
 
-*Exemplo*
+*Exemplo - PowerShell*
  > Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
