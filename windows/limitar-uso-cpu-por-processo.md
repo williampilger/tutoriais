@@ -47,7 +47,7 @@ Write-Host "Afinidade do processo atualizada com sucesso para $NewCoreCount nucl
 Start-Sleep -Seconds 5
 ```
 
-#### Pode ser necessário liberar a excecução de scripts
+#### ⚠️ Pode ser necessário liberar a excecução de scripts
 
 Entenda mais sobre isso na [pagina da Microsoft](https://learn.microsoft.com/pt-br/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.5).
 
