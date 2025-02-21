@@ -1,15 +1,9 @@
 # Utilidades gerais -> MySQL no Ubuntu Server
 
-## Instalar o CLIENTE no Ubuntu e Conectar a um Banco
+## Instalar o SERVER no Ubuntu e Conectar a um Banco
 
-> sudo apt update && sudo apt install mysql-client -y
+> sudo apt update && sudo apt install mysql-server -y
 
-```sh
-DB_HOST=192.168.0.1
-DB_USER="seu-usuario"
-DB_NAME="database"
-mysql -u $DB_USER -p -h $DB_HOST $DB_NAME
-```
 
 ## Listar usuários
 
@@ -42,6 +36,21 @@ ou
 E defina a nova senha:
 
 > SET PASSWORD FOR 'user'@'localhost' = 'NovaSenha';
+
+
+
+## Instalar o CLIENTE no Ubuntu e Conectar a um Banco
+
+> sudo apt update && sudo apt install mysql-client -y
+
+```sh
+DB_HOST=192.168.0.1
+DB_USER="seu-usuario"
+DB_NAME="database"
+mysql -u $DB_USER -p -h $DB_HOST $DB_NAME
+```
+
+
 
 ## Sobre
 
