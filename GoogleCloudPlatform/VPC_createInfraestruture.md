@@ -35,7 +35,7 @@ gcloud compute routers nats create meu-nat \
 
 Agora, teoricamente, sua rede PRIVADA, tem acesso à internet. Talvez seja necessário ajustar as regras de Firewall para tal.
 
-**Acredito que este método não é muito indicado por questões de segurança!!**
+**⚠️ Acredito que este método não é muito indicado por questões de segurança!!**
 
 ---
 
