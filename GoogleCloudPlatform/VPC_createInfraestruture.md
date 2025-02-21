@@ -20,7 +20,7 @@ gcloud compute networks subnets create minha-subrede \
     --region=$REGION
 ```
 
-*Crie um Cloud Router e o Cloud NAT:*
+*Sequiser acesso à internet -> Crie um Cloud Router e o Cloud NAT:*
 ```sh
 # O Cloud Router é necessário para o NAT funcionar:
 gcloud compute routers create meu-router \
