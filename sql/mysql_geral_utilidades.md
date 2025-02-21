@@ -37,7 +37,7 @@ E defina a nova senha:
 
 > SET PASSWORD FOR 'user'@'localhost' = 'NovaSenha';
 
-
+---
 
 ## Instalar o CLIENTE no Ubuntu e Conectar a um Banco
 
@@ -50,7 +50,7 @@ DB_NAME="database"
 mysql -u $DB_USER -p -h $DB_HOST $DB_NAME
 ```
 
-
+---
 
 ## Sobre
 
