@@ -1,5 +1,9 @@
-#NÃO FUNCIONA
-#sudo su
+# Instalar Microsoft SQL CLIENT no Ubuntu
+
+**ESTE SCRIPT NÃO FUNCIONA** - Precisa ser revisto, embora tenha vindo da página da Microsoft.
+
+```sh
+#!/bin/bash
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/20.04/mssql-server-2019.list)"
 sudo apt-get update
@@ -18,3 +22,4 @@ source ~/.bashrc
 
 #sqlcmd -S localhost -U SA -P '<YourPassword>' #Use isso para Conectar ao seu servidor
 #Retirado de: https://docs.microsoft.com/pt-br/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15
+```
