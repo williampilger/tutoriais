@@ -41,7 +41,7 @@ E defina a nova senha:
 
 ## Instalar o CLIENTE no Ubuntu e Conectar a um Banco
 
-> sudo apt update && sudo apt install mysql-client -y
+> sudo apt update && sudo apt install default-mysql-client -y
 
 ```sh
 DB_HOST=192.168.0.1
