@@ -1,5 +1,16 @@
 # Utilidades gerais -> MySQL no Ubuntu Server
 
+## Instalar o CLIENTE no Ubuntu e Conectar a um Banco
+
+> sudo apt update && sudo apt install mysql-client -y
+
+```sh
+DB_HOST=192.168.0.1
+DB_USER="seu-usuario"
+DB_NAME="database"
+mysql -u $DB_USER -p -h $DB_HOST $DB_NAME
+```
+
 ## Listar usuários
 
 Para saber quais usuários estão cadastrados no seu servidor MySQL, logue como administrador:
