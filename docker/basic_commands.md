@@ -27,6 +27,7 @@
 | `docker network ls` | Lista as conexões de rede disponíveis | `docker network ls` |
 | `docker network create` | Criar uma interface de rede breadge | `docker network create --help` para ver mais |
 | `docker network create --driver bridge` | Criar uma interface de rede bridge | `docker network create --driver bridge minha-rede-exemplo` |
+| `docker logs -f <container_name>` | Exibir logs do container. o `-f` acompanha em tempo real os LOGs. | `docker logs -f mysql-dev` |
 
 ## Combinações úteis
 
