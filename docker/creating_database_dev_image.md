@@ -18,6 +18,12 @@ MYSQL_ROOT_PASSWORD="password"
 docker run --name meu-banco -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -p 3306:3306 -d mysql:latest
 ```
 
+Agora, acesse seu banco:
+
+> mysql -h 127.0.0.1 -u root -p
+
+
+
 ## Salvando o container e movendo para outra máquina
 
 Para mover esse container para outra máquina sem perder os dados, podemos fazer um commit e salvar como uma imagem temporária:
