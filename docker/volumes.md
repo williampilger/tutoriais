@@ -1,5 +1,11 @@
 # Trabalhando com Volumes
 
+Volumes são como unidades removíveis ou fixas.
+
+---
+
+## Criando e Usando um Volume
+
 Criar um volume:
   ```sh
   docker volume create your-volume
@@ -22,7 +28,18 @@ Usando o volume para um container:
       mysql:latest # EXEMPLO: use sua imagem aqui
   ```
 
-# Sobre
+---
+
+## Salvando / Copiando / Restaurando um Volume
+
+Bom, volumes nada mais são que pastas normais dentro do seu sistema de arquivos, você pode compactar ele e restaurar normalmente.
+
+*falta escrever*
+...
+
+---
+
+## Sobre
 
 By: **William Pilger** | github.com/williampilger
 
