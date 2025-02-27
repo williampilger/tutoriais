@@ -24,7 +24,7 @@ Agora, acesse seu banco:
 
 Por curiosidade, você pode importar um backup executando:
 
-> mysql -h 172.0.0.1 -u root -P password -i 'your_backup.sql'
+> mysql -h 127.0.0.1 -u root -p DATABASE_NAME < 'your_backup.sql'
 
 
 ## Salvando o container e movendo para outra máquina
