@@ -71,7 +71,7 @@ O `sftp` é um protocolo interativo que permite navegar, transferir e gerenciar 
 *Agradecimento ao Google Gemini Pro* por escrever **quase** todo este passo a passo.
 
 * [Documentação do `scp`](https://www.geeksforgeeks.org/scp-command-in-linux-with-examples/)
-* [ocumentação do `sftp`](https://docs.couchdrop.io/walkthroughs/using-sftp-clients/openssh-sftp)
+* [Documentação do `sftp`](https://docs.couchdrop.io/walkthroughs/using-sftp-clients/openssh-sftp)
 
 
 **By: William Pilger | github.com/williampilger**
