@@ -3,24 +3,29 @@
 Existem diversas formas de transferir arquivos via SSH (Secure Shell), um protocolo que permite a comunicação segura entre dois computadores. As formas mais comuns são:
 
 
-## 1. scp (Secure Copy)
+## 1. `scp` (Secure Copy)
 
-* **Descrição:** O `scp` é um comando baseado em SSH que permite copiar arquivos e diretórios entre um computador local e um remoto, ou entre dois computadores remotos.
-* **Sintaxe básica:**
-    * Copiar um arquivo local para um servidor remoto:
-        ```bash
-        scp arquivo_local usuario@servidor_remoto:/caminho/destino
-        ```
-    * Copiar um arquivo de um servidor remoto para o computador local:
-        ```bash
-        scp usuario@servidor_remoto:/caminho/arquivo_remoto arquivo_local
-        ```
-    * Copiar um diretório inteiro:
-        ```bash
-        scp -r diretorio_local usuario@servidor_remoto:/caminho/destino
-        ```
-* **Vantagens:** Simples e fácil de usar para transferências rápidas.
-* **Desvantagens:** Não possui interface gráfica e pode ser menos conveniente para transferências complexas.
+O `scp` é um comando baseado em SSH que permite copiar arquivos e diretórios entre um computador local e um remoto, ou entre dois computadores remotos.
+
+**Vantagens:** Simples e fácil de usar para transferências rápidas.
+
+**Desvantagens:** Não possui interface gráfica e pode ser menos conveniente para transferências complexas.
+
+**Sintaxe básica:**
+ * Copiar um arquivo local para um servidor remoto:
+     ```bash
+     scp arquivo_local usuario@servidor_remoto:/caminho/destino
+     ```
+ * Copiar um arquivo de um servidor remoto para o computador local:
+     ```bash
+     scp usuario@servidor_remoto:/caminho/arquivo_remoto arquivo_local
+     ```
+ * Copiar um diretório inteiro:
+     ```bash
+     scp -r diretorio_local usuario@servidor_remoto:/caminho/destino
+     ```
+
+
 
 **2. sftp (SSH File Transfer Protocol):**
 
