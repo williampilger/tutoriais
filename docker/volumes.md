@@ -34,8 +34,15 @@ Usando o volume para um container:
 
 Bom, volumes nada mais são que pastas normais dentro do seu sistema de arquivos, você pode compactar ele e restaurar normalmente.
 
-*falta escrever*
-...
+Criando um arquivo de backup:
+```sh
+VOLUME_NAME="my-volume"
+docker run --rm \
+      -v "$VOLUME_NAME":/backup-volume \
+      -v "$(pwd)":/backup \
+      busybox \ # Lembrando que você pode usar qualquer imagem que tenha o comando tar
+      tar -zcvf /backup/my-backup.tar.gz /backup-volume
+```
 
 ---
 
