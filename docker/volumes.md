@@ -25,6 +25,7 @@ docker run -d \
     --name meu-container \ # opcional
     -v meu_volume_db:/var/lib/mysql \ # EXEMPLO: Caminho `/var/lib/mysql` é o caminho de montagem quando for executar um banco MySQL com um volume
     -e MYSQL_ROOT_PASSWORD=sua_senha \ # EXEMPLO: Variável de ambiente
+    -p 3306:3306 \
     mysql:latest # EXEMPLO: use sua imagem aqui
 ```
 
@@ -41,7 +42,7 @@ docker run --rm \
       -v "$VOLUME_NAME":/backup-volume \
       -v "$(pwd)":/backup \
       busybox \ # Lembrando que você pode usar qualquer imagem que tenha o comando tar
-      tar -zcvf /backup/my-backup.tar.gz /backup-volume
+      tar -zcvf /backup/my-backup.tar.gz -C /backup-volume .
 ```
 Restaurando o backup:
 ```sh
