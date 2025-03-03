@@ -13,6 +13,31 @@
 
 ---
 
+## Criação do backup
+
+Caso você esteja iniciando seu servidor agora, e queira criar uma instância vazia, execute também:
+```
+docker run --name mysql-dev -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d mysql:latest
+```
+
+**Executando o Backup** (depois de ter o banco de dados no estado em que se quer o backup)
+
+- Do **Volume**
+    - ```sh
+      docker run --rm \
+          -v "mysql-dev-volume":/backup-volume \
+          -v "$(pwd)":/backup \
+          busybox \
+          tar -zcvf /backup/db-backup.tar.gz -C /backup-volume .
+      ```
+- Do **Container**:
+    - ```sh
+      docker commit mysql-dev mysql-dev:backup
+      docker save -o DOCKER_IMAGE_mysql-dev.tar mysql-dev:backup
+      ```
+
+---
+
 ## Restaurar o Backup / Retomar a instância
 
 - Restaurando o **Volume**:
@@ -63,27 +88,10 @@ Será possível acessa-lo usando:
 
 ---
 
-## Criação do backup
+## Sobre
 
-Caso você esteja iniciando seu servidor agora, e queira criar uma instância vazia, execute também:
-```
-docker run --name mysql-dev -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d mysql:latest
-```
+By: William Pilger | github.com/williampilger
 
-**Executando o Backup** (depois de ter o banco de dados no estado em que se quer o backup)
-
-- Do **Volume**
-    - ```sh
-      docker run --rm \
-          -v "mysql-dev-volume":/backup-volume \
-          -v "$(pwd)":/backup \
-          busybox \
-          tar -zcvf /backup/db-backup.tar.gz -C /backup-volume .
-      ```
-- Do **Container**:
-    - ```sh
-      docker commit mysql-dev mysql-dev:backup
-      docker save -o DOCKER_IMAGE_mysql-dev.tar mysql-dev:backup
-      ```
+2025-03-03 09:50:23 | Mariluz - RS - Brasil
 
 
