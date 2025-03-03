@@ -18,15 +18,15 @@
 - Restaurando o **Volume**:
       - Criar o volume:
           - ```sh
-              docker volume create mysql-dev-volume
+            docker volume create mysql-dev-volume
             ```
       - Popular o volume:
           - ```sh
-              docker run --rm \
-                -v "mysql-dev-volume":/restore-volume \
-                -v "$(pwd)":/backup \
-                busybox \
-                tar -zxvf /backup/db-backup.tar.gz -C /restore-volume
+            docker run --rm \
+              -v "mysql-dev-volume":/restore-volume \
+              -v "$(pwd)":/backup \
+              busybox \
+              tar -zxvf /backup/db-backup.tar.gz -C /restore-volume
             ``` 
 - Restaurando a **Imagem** criada (opcional (nem tanto)):
     - ```sh
