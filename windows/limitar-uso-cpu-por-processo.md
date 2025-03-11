@@ -16,6 +16,7 @@ Você pode setar ele em valor binário, como `0b1111` ou em decimal, sendo `0x7`
 
 ## Utilidade: Script para auxiliar na configuração da afinidade de CPU no Windows
 
+*limitar-nucleos.ps1*: - *Este Script está também no [Repositório de Utilidades](https://github.com/williampilger/utilidades_gerais/blob/master/WindowsScripts/limitar-nucleos-por-processo.ps1)*
 ```ps1
 $TotalCores = (Get-CimInstance Win32_Processor).NumberOfLogicalProcessors # obtem o numero total de nucleos disponiveis no sistema
 
