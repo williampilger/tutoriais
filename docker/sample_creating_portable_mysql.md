@@ -24,11 +24,20 @@ docker run --name mysql-dev -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d mysq
 
 - Do **Volume**
     - ```sh
+      # Linux
       docker run --rm \
           -v "mysql-dev-volume":/backup-volume \
           -v "$(pwd)":/backup \
           busybox \
           tar -zcvf /backup/db-backup.tar.gz -C /backup-volume .
+      ```
+    - ```ps1
+      # Microsoft PowerShell
+      docker run --rm `
+        -v "mysql-dev-volume:/backup-volume" `
+        -v "${PWD}:/backup" `
+        busybox `
+        tar -zcvf /backup/db-backup.tar.gz -C /backup-volume .
       ```
 - Do **Container**:
     - ```sh
@@ -47,12 +56,23 @@ docker run --name mysql-dev -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d mysq
           ```
     - Popular o volume:
         - ```sh
+          # Linux
           docker run --rm \
             -v "mysql-dev-volume":/restore-volume \
             -v "$(pwd)":/backup \
             busybox \
             tar -zxvf /backup/db-backup.tar.gz -C /restore-volume
-          ``` 
+          ```
+        - ```ps1
+          # Microsoft PowerShell
+          docker run --rm `
+            -v "mysql-dev-volume:/restore-volume" `
+            -v "${PWD}:/backup" `
+            busybox `
+            tar -zxvf /backup/db-backup.tar.gz -C /restore-volume
+          ```
+
+          
 - Restaurando a **Imagem** criada (opcional (nem tanto)):
     - ```sh
       docker load -i DOCKER_IMAGE_mysql-dev.tar"
@@ -60,6 +80,7 @@ docker run --name mysql-dev -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d mysq
 - Executando o Container pela **primeira vez**:
     - Usando a **Imagem Salva/Criada**:
         - ```sh
+          # Linux
           docker run -d \
             --name mysql-dev \
             -v "mysql-dev-volume":/var/lib/mysql \
@@ -67,13 +88,33 @@ docker run --name mysql-dev -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d mysq
             -p 3306:3306 \
             mysql-dev:backup
           ```
+        - ```ps1
+          # Microsoft PowerShell
+          docker run -d `
+            --name mysql-dev `
+            -v "mysql-dev-volume:/var/lib/mysql" `
+            -e MYSQL_ROOT_PASSWORD=password `
+            -p 3306:3306 `
+            mysql-dev:backup
+          ```
+
     - **ou,** usando a **Imagem genérica**:
         - ```sh
+          # Linux
           docker run -d \
             --name mysql-dev \
             -v "mysql-dev-volume":/var/lib/mysql \
             -e MYSQL_ROOT_PASSWORD=password \
             -p 3306:3306 \
+            mysql:latest
+          ```
+        - ```ps1
+          # Microsoft PowerShell
+          docker run -d `
+            --name mysql-dev `
+            -v "mysql-dev-volume:/var/lib/mysql" `
+            -e MYSQL_ROOT_PASSWORD=password `
+            -p 3306:3306 `
             mysql:latest
           ```
 - Executando o container pela segunda vez:
