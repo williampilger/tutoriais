@@ -4,8 +4,11 @@ Este método foi usado por um simples motivo: Nem eu sendo o proprietário dos v
 
 **Este método funciona em ambientes linux**. Você pode usar docker para isso:
 
-*Windows*
+*Windows - CMD*
 > docker run -it --rm --network host -v "%userprofile%\Downloads":/Downloads ubuntu
+
+*Windows - PowerShell*
+> docker run -it --rm --network host -v "${USERPROFILE}/Downloads:/Downloads" ubuntu
 
 *Linux*
 > docker run -it --rm --network host -v "~/Downloads":/Downloads ubuntu
