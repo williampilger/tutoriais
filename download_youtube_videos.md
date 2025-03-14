@@ -35,6 +35,8 @@ yt-dlp -f bestvideo+bestaudio [URL_DO_VÍDEO]
 
 # Verificando a qualidades disponíveis para um vídeo
 yt-dlp -F [URL_DO_VÍDEO]
+# Usando a qualidade escolhida
+yt-dlp -f 614+233 [URL_DO_VÍDEO] #onde os números são a primeira coluna da tabela de qualidades
 ```
 
 ---
