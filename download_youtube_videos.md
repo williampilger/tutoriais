@@ -8,7 +8,7 @@ Este método foi usado por um simples motivo: Nem eu sendo o proprietário dos v
 > docker run -it --rm --network host -v "%userprofile%\Downloads":/Downloads ubuntu
 
 *Windows - PowerShell*
-> docker run -it --rm --network host -v "${USERPROFILE}/Downloads:/Downloads" ubuntu
+> docker run -it --rm --network host -v "$env:USERPROFILE/Downloads:/Downloads" ubuntu
 
 *Linux*
 > docker run -it --rm --network host -v "~/Downloads":/Downloads ubuntu
