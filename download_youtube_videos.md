@@ -48,7 +48,7 @@ Para unir, você pode usar a mesma áquina Docker e:
 
 ```hs
 # Instalar a dependência
-apt install ffmpeg
+apt install -y ffmpeg
 
 # Unindo o Vídeo + Audio
 ffmpeg -i video.mp4 -i audio.webm -c:v copy -c:a aac -strict experimental output.mp4
