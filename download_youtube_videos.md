@@ -13,21 +13,31 @@ Este método foi usado por um simples motivo: Nem eu sendo o proprietário dos v
 *Linux*
 > docker run -it --rm --network host -v "~/Downloads":/Downloads ubuntu
 
+---
 
-## Usando a ferramenta
+## Instalando e Usando a ferramenta
 
+**Instalação**:
 ```sh
 # Instalando dependências
 apt update
-apt install curl python3
+apt install -y curl python3
 
 # "Instalando" o script
 curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
 chmod a+rx /usr/local/bin/yt-dlp
-
-# Fazer o download
-yt-dlp -f bestvideo+bestaudio [URL_DO_VÍDEO]
 ```
+
+**Utilização**
+```sh
+# Fazer o download de um vídeo - Com qualidades máximas
+yt-dlp -f bestvideo+bestaudio [URL_DO_VÍDEO]
+
+# Verificando a qualidades disponíveis para um vídeo
+yt-dlp -F [URL_DO_VÍDEO]
+```
+
+---
 
 ### União de Audio+Video
 
