@@ -21,7 +21,7 @@ Este método foi usado por um simples motivo: Nem eu sendo o proprietário dos v
 ```sh
 # Instalando dependências
 apt update
-apt install -y curl python3
+apt install -y curl python3 ffmpeg
 
 # "Instalando" o script
 curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
@@ -47,7 +47,7 @@ Em alguns casos, em vídeos de alta qualidade de vídeo e/ou áudio, os dois ser
 Para unir, você pode usar a mesma áquina Docker e:
 
 ```hs
-# Instalar a dependência
+# Instalar a dependência (caso não o tenha feito anteriormente... Mas deve ter feito
 apt install -y ffmpeg
 
 # Unindo o Vídeo + Audio
