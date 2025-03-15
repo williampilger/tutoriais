@@ -1,5 +1,15 @@
 # WireGuard em Docker com total isolamento
 
+```
+⚠️ IMPORTANTE!
+
+É, obviamente, mais fácil configurar o Wireguard via interface gráfica,
+especialmente se você quiser fazer testes rápidos!
+
+Antes de configurar tudo manualmente, experimente a instalação e teste gráfico.
+Acesse https://www.wireguard.com/install/
+```
+
 Criar uma VPN particular com WireGuard, rodando em Docker e totalmente isolado.
 
 PS1: *Wireguard pode ser instalado em qualquer Ubuntu-based Linux com `sudo apt install wireguard`, não precisa ser em Docker.*
