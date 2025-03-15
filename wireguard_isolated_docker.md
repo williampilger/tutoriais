@@ -13,7 +13,9 @@ Acesse https://www.wireguard.com/install/
 ```
 ⚠️ IMPORTANTE!
 
-Este tutorial usa uma imagem Docker NÃO OFICIAL, mantida pela Linuxserver.io !!
+>> Este tutorial usa uma imagem Docker NÃO OFICIAL, mantida pela Linuxserver.io !!
+
+>> Este procedimento não foi amplamente testado por mim, ainda, e NÃO VERIFIQUEI A SEGURANÇA DESDE PROCEDIMENTO!
 ```
 
 Criar uma VPN particular com WireGuard, rodando em Docker e totalmente isolado.
