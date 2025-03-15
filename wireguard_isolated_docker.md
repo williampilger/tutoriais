@@ -7,7 +7,7 @@
 especialmente se você quiser fazer testes rápidos!
 
 Antes de configurar tudo manualmente, experimente a instalação e teste gráfico.
-Acesse https://www.wireguard.com/install/
+Acesse A página oficial de download.
 ```
 
 ```
@@ -17,6 +17,12 @@ Acesse https://www.wireguard.com/install/
 
 >> Este procedimento não foi amplamente testado por mim ainda, e NÃO VERIFIQUEI A SEGURANÇA E ORIGEM DESTA IMAGEM‼️
 ```
+
+Links Útei
+- Página Oficial [wireguard.com](https://www.wireguard.com/install/);
+- Youtube Tutorial [Configuração GRÁFICA no WIndows](https://www.youtube.com/watch?v=AR5IWUpZbsk&t=343s);
+
+---
 
 Criar uma VPN particular com WireGuard, rodando em Docker e totalmente isolado.
 
