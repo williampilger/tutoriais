@@ -10,7 +10,7 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
 
 ## Criando o Servidor
 
-1 - **Criar o diretório para persistir os dados**
+1. **Criar o diretório para persistir os dados**
   - ```sh
     # Linux Bash
     mkdir -p ~/wireguard/config
