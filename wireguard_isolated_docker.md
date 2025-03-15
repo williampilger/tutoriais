@@ -18,6 +18,7 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
     # Microsoft PowerShell
     mkdir C:\wireguard\config
     ```
+
 **Criando o Container
   - ````sh
     # Linux Bash
@@ -55,11 +56,24 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
       --restart unless-stopped `
       lscr.io/linuxserver/wireguard
     ```
+
 **Obter as configurações do Cliente**
   - ```sh
     docker exec wireguard cat /config/peer1/peer1.conf
     ```
+
 **Configurações do Roteador/Rede**
   - Garanta que do seu IP público a porta `51820/UDP` está aberta e apontando para o IP do seu servidor.
+
 **Configurando o acesso em seus dispositivos externos**
   - Istale o WireGuard e use as cofigurações obtidas no passo anterior. 
+
+
+
+## Sobre
+
+Tancks for *ChatGPT 4o* for the most information on this tutorial.
+
+By: **Will.i.am**
+
+2025.03.15 | Bom Princípio - RS - Brasil
