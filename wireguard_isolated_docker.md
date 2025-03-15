@@ -20,7 +20,7 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
     mkdir C:\wireguard\config
     ```
 
-**Criando o Container
+### Criando o Container
   - ````sh
     # Linux Bash
     PUBLIC_SERVER_IP=65.48.63.89
@@ -58,15 +58,15 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
       lscr.io/linuxserver/wireguard
     ```
 
-**Obter as configurações do Cliente**
+### Obter as configurações do Cliente
   - ```sh
     docker exec wireguard cat /config/peer1/peer1.conf
     ```
 
-**Configurações do Roteador/Rede**
+### Configurações do Roteador/Rede
   - Garanta que do seu IP público a porta `51820/UDP` está aberta e apontando para o IP do seu servidor.
 
-**Configurando o acesso em seus dispositivos externos**
+### Configurando o acesso em seus dispositivos externos
   - Istale o WireGuard e use as cofigurações obtidas no passo anterior. 
 
 
