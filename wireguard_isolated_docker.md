@@ -6,6 +6,7 @@ PS1: *Wireguard pode ser instalado em qualquer Ubuntu-based Linux com `sudo apt 
 
 PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possível rodar ele, via docker, compartilhando o acesso aos módulos `lib/modules` do kernel hospedeiro, tornando assim o container mais leve. Mas neste caso a aplicação não é independende do hospedeiro, e não funciona em Windows.*
 
+---
 
 ## Criando o Servidor
 
@@ -69,6 +70,7 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
   - Istale o WireGuard e use as cofigurações obtidas no passo anterior. 
 
 
+---
 
 ## Sobre
 
