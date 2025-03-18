@@ -76,7 +76,7 @@ Portanto, seu PC já precisa ter o acesso à porta de interesse aberta e direcio
         sudo nano /etc/sysctl.conf
         ```
    2. Procure (ou adicione) a linha referente ao `net.ipv4.ip_forward` e certifique-se de que ela esteja assim:
-      - ```
+      - ```bash
         net.ipv4.ip_forward=1
         ```
    3. Salve o arquivo e rode o comando para aplicar as alterações:
@@ -153,7 +153,7 @@ Portanto, seu PC já precisa ter o acesso à porta de interesse aberta e direcio
       - ```bash
         sudo nano /etc/wireguard/wg0.conf
         ```
-      - ```
+      - ```conf
         [Interface]
         # Endereço IP interno do lado do cliente (o mesmo AllowedIPs que colocamos lá no servidor)
         Address = 10.8.0.2/24
