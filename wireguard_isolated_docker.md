@@ -100,9 +100,10 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
         sudo apt install -y wireguard
         ```
   - Configurando:
-    - ** Windows**: Importe ou crie-os graficamente
+    - **Windows**: Importe ou crie-os graficamente
     - **Linux**:
       - ```sh
+        # COnsiderando que você deu o nome de `MG_Client` pro seu cliente
         # Copie o arquivo de configuração para a pasta do Wireguard
         sudo cp MG_Client.conf /etc/wireguard/MG_Client.conf
         # Dê as permissões
@@ -116,6 +117,9 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
         # Para finalizar
         sudo wg-quick down MG_Client
         ``` 
+
+Precisa configurar do zero?
+Volte mais tarde, ainda não escrevi isso.
 
 ---
 
