@@ -90,9 +90,32 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
 ### Configurações do Roteador/Rede
   - Garanta que do seu IP público a porta `51820/UDP` está aberta e apontando para o IP do seu servidor.
 
-### Configurando o acesso em seus dispositivos externos
-  - Istale o WireGuard e use as cofigurações obtidas no passo anterior. 
+---
 
+## Configurando o acesso em seus dispositivos externos
+  - Istale o WireGuard
+    - **Windows**: Baixe o instalador e execute-o;
+    - **Linux**
+      - ```sh
+        sudo apt install -y wireguard
+        ```
+  - Configurando:
+    - ** Windows**: Importe ou crie-os graficamente
+    - **Linux**:
+      - ```sh
+        # Copie o arquivo de configuração para a pasta do Wireguard
+        sudo cp MG_Client.conf /etc/wireguard/MG_Client.conf
+        # Dê as permissões
+        sudo chmod 600 /etc/wireguard/MG_Client.conf
+        # Ative a conexão
+        sudo wg-quick up MG_Client
+
+        # Para verificar se está OK
+        wg
+
+        # Para finalizar
+        sudo wg-quick down MG_Client
+        ``` 
 
 ---
 
