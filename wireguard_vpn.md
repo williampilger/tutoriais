@@ -103,8 +103,8 @@ Portanto, seu PC já precisa ter o acesso à porta de interesse aberta e direcio
 3. Configuração no servidor
    1. Criar arquivo de configuração `/etc/wireguard/wg0.conf`
       - ```bash
-         sudo nano /etc/wireguard/wg0.conf
-         ```
+        sudo nano /etc/wireguard/wg0.conf
+        ```
       - ```conf
         [Interface]
         # Copie o conteúdo da chave privada
