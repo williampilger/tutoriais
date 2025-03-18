@@ -118,8 +118,7 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
         sudo wg-quick down MG_Client
         ``` 
 
-Precisa configurar do zero?
-Volte mais tarde, ainda não escrevi isso.
+Precisa configurar do zero? [O lugar é esse](./wireguard_vpn.md)
 
 ---
 
