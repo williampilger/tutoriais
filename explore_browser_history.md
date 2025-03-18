@@ -51,5 +51,16 @@ Explore as telas, navegue pelos dados. É possível filtrar.
 
 O Histórico fica na tabela `urls`.
 
+
 #### Extra: Copiando o arquivo de histórico via SSH
 
+Você pode copiar o arquivo de histórico de outro PC via SSH (se tiver as credenciais para tal).
+
+*Exemplo: Alvo Windows, Google Chrome*
+> scp usuario@servidor_remoto:"C:\Users\<NomeDoUsuario>\AppData\Local\Google\Chrome\User Data\Default\History" History
+
+---
+
+# Sobre
+
+By: Will.i.am | Bom Princípio - RS - Brasil
