@@ -1,7 +1,7 @@
 # Exemplo de configuração: Criando uma VPN com o Pritunl
 
 ```
-ℹ️ Estou usando o Ubuntu Server, rodando no Microsoft Hyper-V, em um Windows 10 Pro.
+⚠️ Estou usando o Ubuntu Server, rodando no Microsoft Hyper-V, em um Windows 10 Pro.
 ```
 
 ## 1️⃣ Criação da VM e Instação do sistema
@@ -39,7 +39,7 @@ systemctl status mongodb
 
 ---
 
-## **2️⃣ Instalar o Pritunl**
+## 2️⃣ Instalar o Pritunl
 Adicione o repositório oficial:
 
 ```bash
@@ -72,7 +72,7 @@ systemctl status pritunl
 
 ---
 
-## **3️⃣ Acessar o Painel Web**
+## 3️⃣ Acessar o Painel Web
 Agora, acesse o Pritunl via navegador:
 ```
 http://IP_DA_VM
@@ -82,7 +82,7 @@ Se estiver rodando diretamente na VM do Hyper-V, substitua `IP_DA_VM` por `local
 
 ---
 
-## **4️⃣ Configuração Inicial**
+## 4️⃣ Configuração Inicial
 1. **Obter a chave de setup do Pritunl**  
    Rode o comando abaixo na VM:
    ```bash
@@ -108,7 +108,7 @@ Se estiver rodando diretamente na VM do Hyper-V, substitua `IP_DA_VM` por `local
 
 ---
 
-## **5️⃣ Abrir portas no Firewall**
+## 5️⃣ Abrir portas no Firewall
 Para permitir conexões VPN, libere as portas no Ubuntu:
 
 ```bash
