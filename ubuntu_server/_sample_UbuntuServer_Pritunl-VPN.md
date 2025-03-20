@@ -125,9 +125,29 @@ Isso se, e somente se, não estiver usando Bridge.
 
 ⚠️ **Lembre-se de que você precisa abrir as portas públicas para acesso ao servidor VPN de fora!**
 
+
 ---
 
-## **📌 Conclusão**
-Agora seu servidor Pritunl está rodando no **Hyper-V com Ubuntu**! 🎉  
 
-Você pode conectar clientes **Windows, Linux, Mac e Android** com os arquivos gerados no painel. Se precisar de desempenho máximo, **considere rodar o WireGuard nativamente no Linux**. 🚀
+## 📌 Conclusão
+
+Agora seu servidor Pritunl está rodando no **Hyper-V com Ubuntu**!
+
+- Lembre-se de colcoar a máquina para iniciar automaticamente junto com o windows.
+
+- Lembre-se de fazer um backup da sua máquina configurada.
+
+Alguns testes interessantes / curiosidades:
+
+Acompanhar o fluxo de pacotes no servidor:
+> sudo tcpdump -i any udp port 16575 -nn
+
+
+---
+
+
+## Sobre
+
+By: **will.i.am** | github.com/williampilger
+
+2025/03/20 15:05 | Bom Princípio - RS - Brasil
