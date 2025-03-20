@@ -2,73 +2,88 @@
 
 ```
 ⚠️ Estou usando o Ubuntu Server, rodando no Microsoft Hyper-V, em um Windows 10 Pro.
+
+⚠️ É óbvio que você precisará de um endereço público, e as portas abertas!!
+   Então, tenha acesso ao modem e/ou roteador. Se seu provedor não lhe permite, vai precisar da ajuda deles.
 ```
 
-## 1️⃣ Criação da VM e Instação do sistema
+---
 
-Não vou detalhar esta etapa.
+## 1️⃣ Criação da VM, Configuração da rede, e Instalação do sistema
+
+Não vou detalhar muito esta etapa, partindo do princípio que você já sabe o que faz.
+
+### Criar um adaptador de rede Bridge
+
+Para que a VM fique conectada à mesma rede que o servidor, vamos criar um adaptador de rede Bridge.
+
+1. No seu servidor do Hyper-V, clique em `Gerenciador de Computador Virtual`;
+2. Em `Novo computador de rede virtual`, crie um novo computador virtual `Externo`;
+3. Dê um nome, como `Bridge Switch` (exemplo), à rede;
+4. Em **Tipo de Conexão** selecione `Rede Externa`;
+5. Selecione a placa de rede que deseja utilizar;
+6. Marque a opção `Permitir que o sistema operacional de gerenciamento compartilhe este adaptador de rede`;
+7. Salve, e **lembre de utilizar este adaptador de rede na sua VM**.
+
+```
+⚠️ No momento que você salvar estas alterações, é muito provável que a conexão do servidor caia por alguns instantes.
+Então, se seu servidor estiver sendo usado para mais tarefas, garanta que é seguro.
+⚠️ Se você estiver acessando o servidor por acesso remoto, é normal que você perca o acesso ao servidor por 10...15s.
+```
+
+### Criando a VM
 
 Baixei a ISO do `Ubuntu Server 24.04.2 LTS`, e instalei a versão pequena do sistema.
 Marquei a instalação do OpenSSH.
 
-O Básico depois da primeira inicialização
+O Básico depois da primeira inicialização:
 
 ```bash
 sudo apt update
 sudo apt upgrade -y
+sudo apt install -y net-tools
 #sudo reboot
 ```
 
 Eu, acesso a máquina via SSH... Só pra caso de dúvidas.
 Isso permite copiar e colar no terminal, coisa que não é suportada pela janela do Hyper-V.
 
-
-
-## **Instalar o MongoDB**
-O **Pritunl** precisa do **MongoDB** para armazenar dados.
-
-```bash
-sudo apt install -y mongodb
-sudo systemctl enable --now mongodb
-```
-
-Verifique se está rodando:
-```bash
-systemctl status mongodb
-```
-
 ---
 
 ## 2️⃣ Instalar o Pritunl
-Adicione o repositório oficial:
 
-```bash
-echo "deb https://repo.pritunl.com/stable/apt jammy main" | sudo tee /etc/apt/sources.list.d/pritunl.list
-```
+Você pode [ver a documentação oficial para instalação aqui](https://docs.pritunl.com/docs/installation).
 
-Adicione a chave GPG:
+*Ubuntu 24.04*
+```sh
+# Origem: CÓPIA EXATA DO EXEMPLO DA DOCUMENTAÇÃO em 2025/03/20 12:14
+sudo tee /etc/apt/sources.list.d/mongodb-org.list << EOF
+deb [ signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse
+EOF
 
-```bash
-sudo apt install -y gnupg curl
-curl -fsSL https://repo.pritunl.com/stable/apt/gpg.key | sudo tee /etc/apt/trusted.gpg.d/pritunl.asc
-```
+sudo tee /etc/apt/sources.list.d/openvpn.list << EOF
+deb [ signed-by=/usr/share/keyrings/openvpn-repo.gpg ] https://build.openvpn.net/debian/openvpn/stable noble main
+EOF
 
-Atualize os pacotes e instale o Pritunl:
+sudo tee /etc/apt/sources.list.d/pritunl.list << EOF
+deb [ signed-by=/usr/share/keyrings/pritunl.gpg ] https://repo.pritunl.com/stable/apt noble main
+EOF
 
-```bash
+sudo apt --assume-yes install gnupg
+
+curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg --dearmor --yes
+curl -fsSL https://swupdate.openvpn.net/repos/repo-public.gpg | sudo gpg -o /usr/share/keyrings/openvpn-repo.gpg --dearmor --yes
+curl -fsSL https://raw.githubusercontent.com/pritunl/pgp/master/pritunl_repo_pub.asc | sudo gpg -o /usr/share/keyrings/pritunl.gpg --dearmor --yes
 sudo apt update
-sudo apt install -y pritunl
+sudo apt --assume-yes install pritunl openvpn mongodb-org wireguard wireguard-tools
+
+sudo ufw disable
+
+sudo systemctl start pritunl mongod
+sudo systemctl enable pritunl mongod
 ```
 
-Inicie o serviço:
-```bash
-sudo systemctl enable --now pritunl
-```
-
-Verifique se está rodando:
-```bash
-systemctl status pritunl
-```
+Pronto, ele já está acessível.
 
 ---
 
@@ -78,33 +93,19 @@ Agora, acesse o Pritunl via navegador:
 http://IP_DA_VM
 ```
 
+```
+⚠️ Aceite acessar a página mesmo não sendo segura, afinal, o servidor é seu...
+```
+
 Se estiver rodando diretamente na VM do Hyper-V, substitua `IP_DA_VM` por `localhost` no navegador.
 
 ---
 
 ## 4️⃣ Configuração Inicial
-1. **Obter a chave de setup do Pritunl**  
-   Rode o comando abaixo na VM:
-   ```bash
-   sudo pritunl setup-key
-   ```
-   Copie a chave gerada.
 
-2. **Login inicial**  
-   - Usuário: `pritunl`
-   - Senha: Rode o comando abaixo na VM para obter a senha:
-     ```bash
-     sudo pritunl default-password
-     ```
+Siga as instruções no painel WEB.
 
-3. **Criar uma Organização e Usuário**  
-   No painel, crie:
-   - **Uma organização**
-   - **Um usuário VPN**
-   - **Um servidor VPN** com OpenVPN ou WireGuard.
-
-4. **Gerar Configuração**  
-   Baixe o arquivo de configuração no painel para conectar clientes.
+Toda vez que ele pedir dados que você não sabe de onde vêm, ele vai dar um comando para você rodar no servidor para obter a informação.
 
 ---
 
@@ -112,13 +113,17 @@ Se estiver rodando diretamente na VM do Hyper-V, substitua `IP_DA_VM` por `local
 Para permitir conexões VPN, libere as portas no Ubuntu:
 
 ```bash
-sudo ufw allow 1194/udp  # OpenVPN (se estiver usando)
-sudo ufw allow 51820/udp # WireGuard
-sudo ufw allow 443/tcp   # Painel Web SSL (se ativado)
+sudo ufw allow 16575/udp   # OpenVPN (OU OUTRA PORTA!! Tem que ver a certa no seu servidor)
+sudo ufw allow 51820/udp   # WireGuard
+sudo ufw allow 443/tcp     # Painel Web SSL (se ativado)
+sudo ufw allow 22/tcp      # Acesso SSH
 sudo ufw enable
 ```
 
 No **Hyper-V**, se necessário, abra as mesmas portas no **firewall do Windows**.
+Isso se, e somente se, não estiver usando Bridge.
+
+⚠️ **Lembre-se de que você precisa abrir as portas públicas para acesso ao servidor VPN de fora!**
 
 ---
 
