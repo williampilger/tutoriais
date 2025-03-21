@@ -45,3 +45,13 @@ docker container rm $(docker container ls -aq)
 ```sh
 docker stop $(docker ps -q)
 ```
+
+*Criar container "reutilizável" pra rodar Linux no Windows melhor que o WSL 😅*
+```ps1
+# Primeira rodada
+cd %userprofile% #navegue até o ponto onde dezeja montar no ubuntu
+docker run -v ".:/media/windows" --network host --name meu-ubuntu -it ubuntu
+
+# Proximas Rodadas
+docker start meu-ubuntu
+```
