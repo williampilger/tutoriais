@@ -125,6 +125,31 @@ Isso se, e somente se, não estiver usando Bridge.
 
 ⚠️ **Lembre-se de que você precisa abrir as portas públicas para acesso ao servidor VPN de fora!**
 
+---
+
+## 6️⃣ Extra
+
+#### Permitir MagickMackages (Wake-On-Lan) via VPN
+
+Para permitir que os clientes acordem os PCs dentro do escritório, siga os passos:
+
+1. Permitir IP Forwarding
+   -  `sudo nano /etc/sysctl.conf`
+   -  Adicione ou descomente `net.ipv4.ip_forward=1`
+   -  Se precisar tornar isto válido agora (antes de reiniciar o servidor) rode:
+      - ```bash
+        echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
+        sudo sysctl -w net.ipv4.ip_forward=1
+        ``` 
+2. Permitir Broadcast
+   - ```bash
+     sudo iptables -A INPUT -p udp -d 255.255.255.255 --dport 9 -j ACCEPT
+     sudo iptables -A FORWARD -p udp -d 255.255.255.255 --dport 9 -j ACCEPT
+     ```
+3. Liberar Firewall (não sei se é realmente necessário, já que o pritunl usa iptables pra regrar isso)
+   - ```bash
+     sudo ufw allow 9/udp
+     ```
 
 ---
 
