@@ -8,7 +8,7 @@ Instale o ImageMagick no seu PC de acordo com o seu sistema operacional (no linu
 | Comando | Aplicação |
 | --- | --- |
 | `convert input.png output.webp` | Converter a imagem de formato sem alterações de proporção e/ou qualidade (na medida do possível) |
-| `magick mogrify -format jpg *.heic` | Converter todas as correspondências |
+| `convert mogrify -format jpg *.heic` | Converter todas as correspondências |
 | `convert input.jpg -quality 80 output.jpg` | Alterar a qualidade da imagem |
 | `convert input.jpg -resize 150x output.jpg` | Reduzir a largura para 150px, mantendo a proporção |
 | `convert input.jpg -resize x150 output.jpg` | Reduzir a altura para 150px, mantendo a proporção |
