@@ -14,7 +14,7 @@ Instale o ImageMagick no seu PC de acordo com o seu sistema operacional (no linu
 | `convert input.jpg -resize 150x150! output.jpg` | Reduzir para exatamente 150x150 pixels (sem manter a proporção, pode distorcer) |
 | `convert input.jpg -resize 150x150^ -gravity center -extent 150x150 output.jpg` | Reduzir para 150x150, cortando o excesso (mantendo proporção) |
 
-**ATENÇÃO:** Em algumas versões (e no windows) o comando é `magick` ao invez de `convert`.
+**ATENÇÃO:** Em algumas versões (e no windows) o comando é `magick` ao invés de `convert`.
 
 
 
