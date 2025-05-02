@@ -1,4 +1,4 @@
-## 📌 **Síncronos vs Assíncronos**
+## 📌 **Funções Iterativas do Javascript**
 
 Diferenças entre os laços de repetição:
 
