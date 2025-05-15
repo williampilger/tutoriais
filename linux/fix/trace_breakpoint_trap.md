@@ -9,8 +9,11 @@ LaunchProcess: failed to execvp:
 Trace/breakpoint trap (imagem do núcleo gravada)
 ```
 
+---
 
-## Solução | <small style="font-size:8px;">`✅ Testado`</small>
+## Solução
+
+<small style="font-size:8px;">`✅ Testado`</small>
 
 ```
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
