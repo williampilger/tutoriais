@@ -10,7 +10,7 @@ Trace/breakpoint trap (imagem do núcleo gravada)
 ```
 
 
-## Solução | `✅ Testado`
+## Solução | <small>`✅ Testado`</small>
 
 ```
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
