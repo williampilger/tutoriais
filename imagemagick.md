@@ -1,4 +1,4 @@
-# Usando o Image Magick no terminal (miltiplataforma)
+# Usando o Image Magick no terminal (multiplataforma)
 
 Instale o ImageMagick no seu PC de acordo com o seu sistema operacional (no linux `sudo apt install imagemagick`), que pode ser baixado no [site oficial](https://imagemagick.org) gratuitamente.
 
