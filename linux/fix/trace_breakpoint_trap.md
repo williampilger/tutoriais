@@ -34,6 +34,10 @@ e, adicione a linha abaixo:
 kernel.apparmor_restrict_unprivileged_userns = 0
 ```
 
+Para aplicar imediatamente (opcional, a menos que tenha preça e não tenha rodado a solução temporária)
+
+> sudo sysctl --system
+
 --- 
 
 
