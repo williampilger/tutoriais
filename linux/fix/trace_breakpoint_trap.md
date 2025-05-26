@@ -11,6 +11,8 @@ Trace/breakpoint trap (imagem do núcleo gravada)
 
 ---
 
+
+
 ## Solução - Temporária (até o reinício)
 
 <small style="font-size:8px;">`✅ Testado`</small>
@@ -19,7 +21,7 @@ Trace/breakpoint trap (imagem do núcleo gravada)
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 ```
 
-*Isos desativa a restrição de criação de namespaces do Linux. Pode representar riscos, mas em computadores pessoais, usados por alguém com certa experiência, é relativamente seguro. Não indicado para servidores e/ou máquinas com acesso SSH habilitado, por exemplo.*
+*Isso desativa a restrição de criação de namespaces do Linux. Pode representar riscos, mas em computadores pessoais, usados por alguém com certa experiência, é relativamente seguro. Não indicado para servidores e/ou máquinas com acesso SSH habilitado, por exemplo.*
 
 
 ## Solução Definitiva (aplicar ao sistema)
@@ -37,6 +39,8 @@ kernel.apparmor_restrict_unprivileged_userns = 0
 Para aplicar imediatamente (opcional, a menos que tenha preça e não tenha rodado a solução temporária)
 
 > sudo sysctl --system
+
+
 
 --- 
 
