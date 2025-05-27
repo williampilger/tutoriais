@@ -19,3 +19,14 @@ DEVICE="/dev/mapper/sda1"
 MOUNT_DIR="/media/user/data"
 sudo mount $DEVICE $MOUNT_DIR
 ```
+
+
+---
+
+# Sobre
+
+Curiosidades
+- [Problema ao montar unidade criptografada](https://unix.stackexchange.com/questions/552915/mount-fail-unknown-filesystem-type-crypto-luks);
+
+
+By: williampilger | 25.05.26
