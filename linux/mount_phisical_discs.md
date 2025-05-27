@@ -12,7 +12,7 @@ Pode ser necessário instalar algo (quase nunca):
 > sudo apt update && sudo apt install cryptsetup
 
 
-## Montar uma unidade (normal ou criptografada)
+## 💽 Montar uma unidade (normal ou criptografada)
 
 ```sh
 DEVICE="/dev/mapper/sda1"
