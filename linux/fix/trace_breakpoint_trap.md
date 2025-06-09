@@ -24,7 +24,10 @@ sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 *Isso desativa a restrição de criação de namespaces do Linux. Pode representar riscos, mas em computadores pessoais, usados por alguém com certa experiência, é relativamente seguro. Não indicado para servidores e/ou máquinas com acesso SSH habilitado, por exemplo.*
 
 
+
 ## Solução Definitiva (aplicar ao sistema)
+
+<small style="font-size:8px;">`✅ Testado (Mas atenção às Advertências ☢️)`</small>
 
 Edite o arquivo de configuração:
 
