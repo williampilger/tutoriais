@@ -23,8 +23,8 @@ rclone mount $REMOTE_NAME: ~/path/to/existent/empty/folder \
   --dir-cache-time 12h \
   --poll-interval 15s \
   --daemon
-# Pré carregando a árvore de diretório
-
+# Pré carregando a árvore de diretório (opcional)
+rclone tree $REMOTE_NAME:path --max-depth=5
 ```
 
 #### Parâmetros explicados:
@@ -36,9 +36,6 @@ rclone mount $REMOTE_NAME: ~/path/to/existent/empty/folder \
 * `--poll-interval`: verifica alterações remotamente (melhora sincronia).
 * `--allow-other`: permite acesso por outros usuários (use com cuidado e com `fusermount` instalado).
 
-#### E, para pré carregar a árvore:
-
-> rclone tree $REMOTE_NAME:path --max-depth=5
 
 ---
 
