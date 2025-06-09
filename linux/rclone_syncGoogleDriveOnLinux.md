@@ -10,6 +10,14 @@ Depois de confiugrado o remote, você pode montar ele usando, por exemplo:
 
 > rclone mount $REMOTE_NAME: ~/path/to/existent/empty/folder --daemon
 
+Ou, caso queira maios agilidade para listagem dos diretórios:
+
+```sh
+# Montando a pasta ativando cache
+rclone mount $REMOTE_NAME: ~/path/to/existent/empty/folder --daemon --vfs-cache-mode full
+# Dando uma pré-carga em todos os diretórios
+rclone lsf -R $REMOTE_NAME: ~/path/to/existent/empty/folder > /dev/null
+```
 
 ---
 
