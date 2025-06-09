@@ -10,14 +10,35 @@ Depois de confiugrado o remote, você pode montar ele usando, por exemplo:
 
 > rclone mount $REMOTE_NAME: ~/path/to/existent/empty/folder --daemon
 
-Ou, caso queira maios agilidade para listagem dos diretórios:
+---
 
-```sh
+### Ou, caso queira maios agilidade para listagem dos diretórios:
+
+```bash
 # Montando a pasta ativando cache
-rclone mount $REMOTE_NAME: ~/path/to/existent/empty/folder --daemon --vfs-cache-mode full
-# Dando uma pré-carga em todos os diretórios
-rclone lsf -R $REMOTE_NAME: ~/path/to/existent/empty/folder > /dev/null
+rclone mount $REMOTE_NAME: ~/path/to/existent/empty/folder \
+  --vfs-cache-mode full \
+  --vfs-cache-max-size 10G \
+  --vfs-cache-max-age 1h \
+  --dir-cache-time 12h \
+  --poll-interval 15s \
+  --daemon
+# Pré carregando a árvore de diretório
+
 ```
+
+#### Parâmetros explicados:
+
+* `--vfs-cache-mode full`: ativa o cache completo (ideal para leitura e escrita).
+* `--vfs-cache-max-size`: tamanho máximo do cache no disco.
+* `--vfs-cache-max-age`: tempo máximo que os arquivos ficam no cache.
+* `--dir-cache-time`: quanto tempo manter a árvore de diretórios em cache.
+* `--poll-interval`: verifica alterações remotamente (melhora sincronia).
+* `--allow-other`: permite acesso por outros usuários (use com cuidado e com `fusermount` instalado).
+
+#### E, para pré carregar a árvore:
+
+> rclone tree $REMOTE_NAME:path --max-depth=5
 
 ---
 
