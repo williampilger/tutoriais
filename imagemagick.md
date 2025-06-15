@@ -18,8 +18,10 @@ Instale o ImageMagick no seu PC de acordo com o seu sistema operacional (no linu
 
 **ATENÇÃO:** Em algumas versões (e no windows) o comando é `magick` ao invés de `convert`.
 
+------
 
-## Script para conversão de imagens para uma `Fujifilm Finepix S2980`
+
+### Script para conversão de imagens para uma `Fujifilm Finepix S2980`
 
 ```sh
 #!/bin/bash
@@ -90,7 +92,8 @@ echo "🎉 Tudo pronto! Insira o cartão na FinePix e aproveite!"
 
 ```
 
-## About
+
+# About
 
 By: **will.i.am** | github.com/wiliampilger
 2024.12.11 14:14
