@@ -10,6 +10,7 @@ flatpak install flathub com.obsproject.Studio
 flatpak install org.kde.Platform//5.15-21.08
 flatpak override com.obsproject.Studio --enable-features=Camera
 flatpak override com.obsproject.Studio --filesystem=/dev/video0
+sudo modprobe v4l2loopback devices=1 video_nr=10 card_label="OBS Cam" exclusive_caps=1
 ```
 
 ## Sobre
