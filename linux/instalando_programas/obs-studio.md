@@ -7,10 +7,10 @@ Realizei vários testes e, no meu caso, para uso de streamings de entrada variad
 flatpak install flathub com.obsproject.Studio
 
 # Suporte para vamera virtual
-flatpak install org.kde.Platform//5.15-21.08
-flatpak override com.obsproject.Studio --enable-features=Camera
-flatpak override com.obsproject.Studio --filesystem=/dev/video0
-sudo modprobe v4l2loopback devices=1 video_nr=10 card_label="OBS Cam" exclusive_caps=1
+sudo apt install linux-headers-$(uname -r) v4l2loopback-dkms
+#flatpak install org.kde.Platform//5.15-21.08
+sudo modprobe v4l2loopback devices=1 video_nr=10 card_label="OBS-Camera" exclusive_caps=1
+sudo flatpak override com.obsproject.Studio --device=all --filesystem=/dev/video0 --filesystem=/dev/video10
 ```
 
 ## Sobre
