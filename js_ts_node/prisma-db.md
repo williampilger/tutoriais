@@ -1,5 +1,7 @@
 # Anotações sobre o Prisma
 
+Nada melhor que ler [a documentação oficial](https://www.prisma.io/docs/).
+
 O Prisma serve para trabalhar com bancos de dados diversos em Node.js (ou Typescript).
 
 Como o prisma, você pode trocar de base de dados de forma relativamente simples.
