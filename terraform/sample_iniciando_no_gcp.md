@@ -31,6 +31,8 @@ Antes de começar a escrever código, você precisa preparar seu ambiente local 
 
       * **Crie um bucket no GCS:** Este bucket armazenará seu arquivo de estado de forma segura e centralizada.
         ```bash
+        # Lembre-se: os nomes do buckes devem ser EXCLUSIVOS (não pode existir outro igual, de nenhum outro usuário do GCP).
+        # nomes como `sample.dominio.com` deverão ter o domínio `sample.com` verificado 
         gcloud storage buckets create gs://SEU_BUCKET_DE_ESTADO_SUPER_SEGURO --project=SEU_PROJETO_ID --location=sua-regiao --uniform-bucket-level-access
         ```
       * **Ative o versionamento no bucket (altamente recomendado):** Isso protege contra exclusões acidentais do arquivo de estado.
