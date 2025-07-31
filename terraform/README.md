@@ -6,7 +6,7 @@ Este 'estado' deve ser armazenado em segurança, ele é necessário para poder c
 
 Umas referências:
 - [Laboratório de Redes com Terraform feito no GCP](https://github.com/williampilger/academic/tree/master/Google%20CloudSkillBoost%20-%20Redes%20GCP/Redes%20com%20Terraform): Este laboratório explica legal os conceitos do Terraform;
-- [Site oficial](https://developer.hashicorp.com/terraform);
+- [Site oficial do Terraform](https://developer.hashicorp.com/terraform);
 
 
 
