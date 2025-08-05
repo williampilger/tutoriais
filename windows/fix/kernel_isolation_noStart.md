@@ -10,10 +10,12 @@
 Encontrei [este tópico no fórum da microsoft](https://learn.microsoft.com/pt-br/answers/questions/3170612/o-meu-computador-n-o-inicia-ap-s-ativar-a-op-o-de?forum=windows-all&referrer=answers) que cita algo parecido.
 É possível alterar a configuração pelo terminal.
 
-*Um dos comandos para voltar as configurações de isolamento de núcleo para o padrão é:*
-> bcdedit /set hypervisorlaunchtype auto
 
-Importante também, lembrar de ativar a opção `VT-x` ou `AMD-V` na BIOS.
+### ❌ Coisas que NÂO deram certo, no meu caso
+
+1. *Um dos comandos para voltar as configurações de isolamento de núcleo para o padrão é:*
+    > bcdedit /set hypervisorlaunchtype auto
+2. Ativar/Desativar a opção `VT-x` ou `AMD-V` na BIOS.
 
 
 
