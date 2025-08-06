@@ -12,7 +12,7 @@ Se, nesse caso, você ativar algo que impessa a inicialização, você ainda pod
 
 -----
 
-### **Objetivo: Descobrir o nome do serviço sem sair do Modo de Segurança**
+### **Objetivo 1: Descobrir o nome do serviço sem sair do Modo de Segurança (que pode ser pulado, se você souber exatamente o nome dele)**
 
 Existem duas maneiras principais e muito confiáveis de fazer isso.
 
@@ -41,7 +41,7 @@ O Editor do Registro contém a lista de TODOS os serviços instalados no seu sis
 
 -----
 
-### **Próximo Passo: Habilitar o Serviço no Modo de Segurança**
+### **Objetivo 2: Habilitar o Serviço no Modo de Segurança**
 
 Agora que você **tem** o nome do serviço, vamos usar o `regedit` (que você talvez já tenha aberto) para autorizá-lo a rodar.
 
@@ -78,3 +78,4 @@ Agora que você **tem** o nome do serviço, vamos usar o `regedit` (que você ta
 
 
 Sinto muito pela falha na comunicação inicial. Espero que este guia, ajustado para a sua situação real, resolva o problema e permita que você salve seus dados importantes.
+
