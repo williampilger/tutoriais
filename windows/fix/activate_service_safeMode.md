@@ -1,10 +1,14 @@
-Peço desculpas pela frustração e pelo mal-entendido. Você está absolutamente certo. Minha instrução anterior foi falha porque presumi que você tinha acesso ao modo normal do Windows.
+# Ativando um Serviço no Modo de Segurança do Windows
 
-Agora entendo a situação real: **seu computador só inicia em Modo de Segurança**, e você precisa executar um programa para salvar algo importante antes de formatar.
+Isso pode ser útil em casos específicos onde o Windows não inicia mais, mas você precisa realizar alguma coisa antes de formatar um computador (como por exemplo, retornar alguma licença de um software).
 
-Vamos esquecer a instrução anterior. Todo o procedimento pode ser feito diretamente do Modo de Segurança. O desafio é o mesmo (ativar o serviço do programa), mas a forma de encontrar o nome do serviço será diferente.
+```
+⚠️ Cuidado com esta funcionalidade!
+Se você ativar alguma coisa que não permita a inicialização do sistema, você pode perder definitivamente o acesso à máquina.
 
-Aqui está o plano de ação, começando do zero, para ser feito **inteiramente dentro do Modo de Segurança**.
+No exemplo abaixo, eu indico usar o modo de segurança com rede.
+Se, nesse caso, você ativar algo que impessa a inicialização, você ainda pode usar um dos outros modos de segurança e remover o serviço.
+```
 
 -----
 
@@ -12,7 +16,7 @@ Aqui está o plano de ação, começando do zero, para ser feito **inteiramente 
 
 Existem duas maneiras principais e muito confiáveis de fazer isso.
 
-#### **Método 1: Usando o Editor do Registro (Mais Confiável)**
+#### **Método 1: Usando o Editor do Registro (Mais Visual e fácil)**
 
 O Editor do Registro contém a lista de TODOS os serviços instalados no seu sistema, mesmo os que não rodam no Modo de Segurança.
 
@@ -26,7 +30,7 @@ O Editor do Registro contém a lista de TODOS os serviços instalados no seu sis
 5.  Role a lista e procure por uma pasta que tenha o nome do seu software ou do fabricante. Por exemplo, para o CodeMeter, a pasta se chama `CodeMeter.exe`. Para outro software, pode ser o nome da empresa ou do produto.
 6.  **O nome exato dessa pasta é o "Nome do Serviço" que precisamos.** Anote-o.
 
-#### **Método 2: Usando o PowerShell (Alternativa Poderosa)**
+#### **Método 2: Usando o PowerShell (Alternativa, menos intuitivo)**
 
 1.  Clique com o botão direito no menu Iniciar e selecione **Windows PowerShell (Admin)**. Se essa opção não aparecer, procure por "PowerShell", clique com o botão direito e selecione "Executar como administrador".
 2.  Na tela azul do PowerShell, digite o seguinte comando e pressione Enter:
@@ -71,5 +75,6 @@ Agora que você **tem** o nome do serviço, vamos usar o `regedit` (que você ta
     sc start CodeMeter.exe
     ```
 3.  Pressione Enter. Se o comando for bem-sucedido, tente abrir seu programa mais uma vez.
+
 
 Sinto muito pela falha na comunicação inicial. Espero que este guia, ajustado para a sua situação real, resolva o problema e permita que você salve seus dados importantes.
