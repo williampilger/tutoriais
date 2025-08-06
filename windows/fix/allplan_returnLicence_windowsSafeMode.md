@@ -15,9 +15,9 @@ No entanto, o *Allmenu* precisa do *Codemeter* para funcionar, serviço que não
 
 1. Inicialize o Windows no modo de segurança (qualquer dos modos);
 2. Abra o Editor do Registro:
-    3.1. Pressione `Windows` + `R`;
-    3.2. Digite `regedit`;
-    3.3. Pressione `Enter`, ou clique em `Executar`;
+    a. Pressione `Windows` + `R`;
+    b. Digite `regedit`;
+    c. Pressione `Enter`, ou clique em `Executar`;
 3. Navegue até `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SafeBoot\Network\`;
 4. Clique com o botão direito na pasta `Network` e selecione **Novo** > **Chave**;
 5. Renomeie esta nova pasta como `CodeMeter.exe`;
