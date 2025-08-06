@@ -65,7 +65,7 @@ Crie um diretório para o seu projeto Terraform e adicione os seguintes arquivos
 ```terraform
 terraform {
   backend "gcs" {
-    bucket  = "SEU_BUCKET_DE_ESTADO_SUPER_SEGURO"
+    bucket  = "SEU_BUCKET_DE_ESTADO_SUPER_SEGURO" # ID do bucket, SEM o `gs://`
     prefix  = "terraform/state" # Um "diretório" dentro do bucket
   }
 }
