@@ -4,7 +4,7 @@
 ⚠️ Para este procedimento, você ainda precisa ter acesso ao modo de segurança do Windows
 ```
 
-[Como acessar o modo de segurança do Windows?](../howTo_accessSafeMode.md);
+[Como acessar o modo de segurança do Windows?](../howTo_accessSafeMode.md)
 
 Inicializando pelo modo de segurança **com Rede**, é possível retornar a licença.
 No entanto, o *Allmenu* precisa do *Codemeter* para funcionar, serviço que não está disponível (por padrão) no modo de segurança.
@@ -31,7 +31,7 @@ Agora, com o `CodeMeter` habilitado no `modo de segurança com rede`, basta rein
 
 ---
 
-# About
+# Sobre
 
 By: **William Pilger**
 
