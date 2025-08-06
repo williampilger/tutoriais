@@ -7,10 +7,9 @@
 Inicializando pelo modo de segurança **com Rede**, é possível retornar a licença.
 No entanto, o *Allmenu* precisa do *Codemeter* para funcionar, serviço que não está disponível (por padrão) no modo de segurança.
 
+---
 
-
-
-## Ativando o `Codemeter.exe` no modo de segurança
+## PASSO 1: Ativando o `Codemeter.exe` no modo de segurança
 
 1. Inicialize o Windows no modo de segurança (qualquer dos modos);
 2. Abra o Editor do Registro:
@@ -24,7 +23,7 @@ No entanto, o *Allmenu* precisa do *Codemeter* para funcionar, serviço que não
 7. Na pequena janela que aparece, digite a palavra `Service` e clique em **OK**;
 
 
-## Reiniciar e retornar a licença
+## PASSO 2: Reiniciar e retornar a licença
 
 Agora, com o `CodeMeter` habilitado no `modo de segurança com rede`, basta reiniciar a máquina (obviamente neste modo), abrir o `Allmenu` e retornar a licença normalmente.
 
