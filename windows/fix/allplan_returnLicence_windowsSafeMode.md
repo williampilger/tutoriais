@@ -27,7 +27,7 @@ No entanto, o *Allmenu* precisa do *Codemeter* para funcionar, serviço que não
 
 Agora, com o `CodeMeter` habilitado no `modo de segurança com rede`, basta reiniciar a máquina (obviamente neste modo), abrir o `Allmenu` e retornar a licença normalmente.
 
-
+---
 
 # About
 
