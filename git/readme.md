@@ -19,7 +19,6 @@
 | `git fetch origin` | Sincronizar, todas as branches, com o repositório remoto | |
 | `git branch <branch-name>` | Criar branch `<branch-name>` | |
 | `git checkout <branch-name>` | Migrar para branch `<branch-name>` | |
-| `git merge <branch-name>` | Cria um commit de merge, que traz da branch `<branch-name>` as alterações para a branch atual | |
 | `git checkout -b <branch-name>` | Criar e Migrar para branch `<branch-name>` | |
 | `git branch -D <branch-name>` | Deletar uma branch `<branch-name>` | |
 | `git branch -r` | Listar todas as branches remotas | |
