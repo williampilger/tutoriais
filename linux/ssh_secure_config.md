@@ -17,7 +17,7 @@ Use uma porta (externa) diferente da padrão. A porta `22` é bem visada para es
 
 
 
-### 2. Configure um limite de tentativas com àil2ban`
+### 2. Configure um limite de tentativas com `fail2ban`
 
 Instale:
 
