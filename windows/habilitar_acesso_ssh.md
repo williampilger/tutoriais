@@ -4,18 +4,6 @@ Caso você queira deixar sua máquina `Windows` acessível via `SSH`, siga os pa
 
 ---
 
-## Método 2 - Via Interface Gráfica
-
-Vá para `Configurações`->`Sistema`->`Recursos Opcionais`->`Adicionar Recurso`
-
-Procure por `OpenSSH Server` (ou `Servidor OpenSSH` em Português) e instale-o.
-
-Abra o `Gerenciado de Serviços` (No executar, digite `services` e pressione enter)
-
-Procure pelo `OpenSSH SSH Server`, e modifique a configuração de inicialização para **Automático** (e inicie o serviço manualmente se quiser usa-lo logo)
-
----
-
 ## Método 1 - Via Interface Texto (Power Shell)
 
 Abra o `PowerShell` **com privilégios de administrador**, e:
@@ -55,6 +43,20 @@ Ou, para o Powershell 7 (se instalado)
 ```ps1
 powershell -Command "New-ItemProperty -Path 'HKLM:\SOFTWARE\OpenSSH' -Name DefaultShell -Value 'C:\Program Files\PowerShell\7\pwsh.exe' -PropertyType String -Force"
 ```
+
+---
+
+## Método 2 - Via Interface Gráfica
+
+Vá para `Configurações`->`Sistema`->`Recursos Opcionais`->`Adicionar Recurso`
+
+Procure por `OpenSSH Server` (ou `Servidor OpenSSH` em Português) e instale-o.
+
+Abra o `Gerenciado de Serviços` (No executar, digite `services` e pressione enter)
+
+Procure pelo `OpenSSH SSH Server`, e modifique a configuração de inicialização para **Automático** (e inicie o serviço manualmente se quiser usa-lo logo)
+
+---
 
 ## Habilitando transmissão de interface gráfica
 
