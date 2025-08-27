@@ -117,6 +117,9 @@ sudo ufw allow 16575/udp   # OpenVPN (OU OUTRA PORTA!! Tem que ver a certa no se
 sudo ufw allow 51820/udp   # WireGuard
 sudo ufw allow 443/tcp     # Painel Web SSL (se ativado)
 sudo ufw allow 22/tcp      # Acesso SSH
+sudo ufw allow 3389/tcp      # RDP
+sudo ufw allow 5901/tcp      # VNC
+sudo ufw allow 5902/tcp      # VNC
 sudo ufw enable
 ```
 
