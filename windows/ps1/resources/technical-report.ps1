@@ -1,6 +1,8 @@
 # Script de coleta completa de informações do sistema
 # Para Download direto (pelo powershell):
-#    
+#    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/williampilger/tutoriais/refs/heads/master/windows/ps1/resources/technical-report.ps1" -OutFile "technical-report.ps1" -UseBasicParsing
+# Para executar diretamente (pelo powershell):
+#    Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/williampilger/tutoriais/refs/heads/master/windows/ps1/resources/technical-report.ps1" -UseBasicParsing).Content
 
 Write-Host "Coletando informações do sistema..." -ForegroundColor Green
 
