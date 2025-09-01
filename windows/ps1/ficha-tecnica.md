@@ -5,84 +5,54 @@ Dica: prefira `Get-CimInstance` em vez de `Get-WmiObject` por ser mais moderno.
 
 ## Tabela rápida de comandos
 
-| Item                           | Comando PowerShell                                                     |                                                                                                                                                                                                                                                                                                                     |                                                                                  |
-| ------------------------------ | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| Fabricante, modelo do PC       | `Get-CimInstance Win32\_ComputerSystem`                                | `Select-Object Manufacturer, Model, SystemType, TotalPhysicalMemory`                                                                                                                                                                                                                                                |                                                                                  |
-| Identificação do produto       | `Get-CimInstance Win32_ComputerSystemProduct`                         | `Select-Object Vendor, Name, Version, UUID, IdentifyingNumber`                                                                                                                                                                                                                                                      |                                                                                  |
-| Placa-mãe                      | `Get-CimInstance Win32_BaseBoard`                                     | `Select-Object Manufacturer, Product, Version, SerialNumber`                                                                                                                                                                                                                                                        |                                                                                  |
-| BIOS/UEFI                      | `Get-CimInstance Win32_BIOS`                                          | `Select-Object SMBIOSBIOSVersion, Manufacturer, Version, ReleaseDate`                                                                                                                                                                                                                                               |                                                                                  |
-| CPU                            | `Get-CimInstance Win32_Processor`                                     | `Select-Object Name, Manufacturer, NumberOfCores, NumberOfLogicalProcessors, MaxClockSpeed, SocketDesignation`                                                                                                                                                                                                      |                                                                                  |
-| GPU (modelo)                   | `Get-CimInstance Win32_VideoController`                               | `Select-Object Name, AdapterCompatibility, AdapterRAM, DriverVersion, DriverDate`                                                                                                                                                                                                                                   |                                                                                  |
-| Driver de vídeo assinado       | `Get-CimInstance Win32_PnPSignedDriver -Filter "ClassName='Display'"` | `Select-Object DeviceName, DriverVersion, DriverDate, Manufacturer`                                                                                                                                                                                                                                                 |                                                                                  |
-| Memória RAM — módulos          | `Get-CimInstance Win32_PhysicalMemory`                                | `Select-Object BankLabel, Capacity, Manufacturer, PartNumber, Speed, ConfiguredClockSpeed, SerialNumber`                                                                                                                                                                                                            |                                                                                  |
-| Slots de memória               | `Get-CimInstance Win32_PhysicalMemoryArray`                           | `Select-Object MemoryDevices, MaxCapacity, MaxCapacityEx`                                                                                                                                                                                                                                                           |                                                                                  |
-| Armazenamento — discos físicos | `Get-PhysicalDisk`                                                     | `Select-Object FriendlyName, MediaType, BusType, Size, SerialNumber, FirmwareVersion, HealthStatus`                                                                                                                                                                                                                 |                                                                                  |
-| Armazenamento — discos lógicos | `Get-CimInstance Win32_DiskDrive`                                     | `Select-Object Model, InterfaceType, Size, SerialNumber, FirmwareRevision`                                                                                                                                                                                                                                          |                                                                                  |
-| Partições e volumes            | `Get-Disk; Get-Partition; Get-Volume`                                  |                                                                                                                                                                                                                                                                                                                     |                                                                                  |
-| Controladoras                  | `Get-CimInstance Win32_SCSIController, Win32_IDEController`          | `Select-Object Name, Manufacturer, PNPDeviceID`                                                                                                                                                                                                                                                                     |                                                                                  |
-| Placas de rede ativas          | `Get-NetAdapter`                                                       | `Where-Object {$_.Status -eq 'Up'}`                                                                                                                                                                                                                                                                                  | `Select-Object Name, InterfaceDescription, LinkSpeed, MacAddress, DriverVersion` |
-| Driver de rede assinado        | `Get-CimInstance Win32_PnPSignedDriver -Filter "ClassName='Net'"`     | `Select-Object DeviceName, DriverVersion, DriverDate, Manufacturer`                                                                                                                                                                                                                                                 |                                                                                  |
-| Áudio                          | `Get-CimInstance Win32_SoundDevice`                                   | `Select-Object Name, Manufacturer, Status`                                                                                                                                                                                                                                                                          |                                                                                  |
-| Monitor                        | `Get-CimInstance WmiMonitorID -Namespace root\wmi`                     | `ForEach-Object { [PSCustomObject]@{ Manufacturer=([System.Text.Encoding]::ASCII.GetString($_.ManufacturerName)) -replace '\0'; Product=([System.Text.Encoding]::ASCII.GetString($_.UserFriendlyName)) -replace '\0'; Serial=([System.Text.Encoding]::ASCII.GetString($_.SerialNumberID)) -replace '\0' } }` |                                                                                  |
-| Sistema Operacional            | `Get-CimInstance Win32_OperatingSystem`                               | `Select-Object Caption, Version, BuildNumber, OSArchitecture, InstallDate, LastBootUpTime`                                                                                                                                                                                                                          |                                                                                  |
-| Hotfixes/patches               | `Get-CimInstance Win32_QuickFixEngineering`                           | `Select-Object HotFixID, Description, InstalledOn`                                                                                                                                                                                                                                                                  |                                                                                  |
-| BitLocker                      | `Get-BitLockerVolume`                                                  | `Select-Object MountPoint, VolumeType, ProtectionStatus, EncryptionMethod`                                                                                                                                                                                                                                          |                                                                                  |
-| TPM                            | `Get-Tpm`                                                              |                                                                                                                                                                                                                                                                                                                     |                                                                                  |
-| Bateria (se laptop)            | `Get-CimInstance Win32_Battery`                                       | `Select-Object Name, BatteryStatus, EstimatedChargeRemaining`                                                                                                                                                                                                                                                       |                                                                                  |
-| Sensores térmicos*            | `Get-CimInstance MSAcpi_ThermalZoneTemperature -Namespace root\wmi`   | `Select-Object InstanceName, CurrentTemperature` *Observação: retorno costuma ser limitado e em décimos de Kelvin.                                                                                                                                                                                                  |                                                                                  |
-| Periféricos USB                | `Get-PnpDevice -Class USB`                                             | `Select-Object FriendlyName, InstanceId, Status`                                                                                                                                                                                                                                                                    |                                                                                  |
-| Dispositivos com erro          | `Get-PnpDevice`                                                        | `Where-Object Status -ne 'OK'`                                                                                                                                                                                                                                                                                        | `Select-Object Class, FriendlyName, Status, InstanceId`                          |
-| Serviços                       | `Get-Service`                                                          | `Sort-Object Status, DisplayName`                                                                                                                                                                                                                                                                                     | `Select-Object Status, Name, DisplayName`                                        |
-| Programas instalados           | `Get-Package`                                                          | `Select-Object Name, Version, ProviderName, Source`                                                                                                                                                                                                                                                                 |                                                                                  |
+| Item                           | Comando PowerShell                                                                                    |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| Fabricante, modelo do PC       | `Get-CimInstance Win32_ComputerSystem \| Select-Object Manufacturer, Model, SystemType, TotalPhysicalMemory` |
+| Identificação do produto       | `Get-CimInstance Win32_ComputerSystemProduct \| Select-Object Vendor, Name, Version, UUID, IdentifyingNumber` |
+| Placa-mãe                      | `Get-CimInstance Win32_BaseBoard \| Select-Object Manufacturer, Product, Version, SerialNumber`      |
+| BIOS/UEFI                      | `Get-CimInstance Win32_BIOS \| Select-Object SMBIOSBIOSVersion, Manufacturer, Version, ReleaseDate` |
+| CPU                            | `Get-CimInstance Win32_Processor \| Select-Object Name, Manufacturer, NumberOfCores, NumberOfLogicalProcessors, MaxClockSpeed, SocketDesignation` |
+| GPU (modelo)                   | `Get-CimInstance Win32_VideoController \| Select-Object Name, AdapterCompatibility, AdapterRAM, DriverVersion, DriverDate` |
+| Driver de vídeo assinado       | `Get-CimInstance Win32_PnPSignedDriver -Filter "ClassName='Display'" \| Select-Object DeviceName, DriverVersion, DriverDate, Manufacturer` |
+| Memória RAM — módulos          | `Get-CimInstance Win32_PhysicalMemory \| Select-Object BankLabel, Capacity, Manufacturer, PartNumber, Speed, ConfiguredClockSpeed, SerialNumber` |
+| Slots de memória               | `Get-CimInstance Win32_PhysicalMemoryArray \| Select-Object MemoryDevices, MaxCapacity, MaxCapacityEx` |
+| Armazenamento — discos físicos | `Get-PhysicalDisk \| Select-Object FriendlyName, MediaType, BusType, Size, SerialNumber, FirmwareVersion, HealthStatus` |
+| Armazenamento — discos lógicos | `Get-CimInstance Win32_DiskDrive \| Select-Object Model, InterfaceType, Size, SerialNumber, FirmwareRevision` |
+| Partições e volumes            | `Get-Disk; Get-Partition; Get-Volume`                                                                |
+| Controladoras                  | `Get-CimInstance Win32_SCSIController, Win32_IDEController \| Select-Object Name, Manufacturer, PNPDeviceID` |
+| Placas de rede ativas          | `Get-NetAdapter \| Where-Object {$_.Status -eq 'Up'} \| Select-Object Name, InterfaceDescription, LinkSpeed, MacAddress, DriverVersion` |
+| Driver de rede assinado        | `Get-CimInstance Win32_PnPSignedDriver -Filter "ClassName='Net'" \| Select-Object DeviceName, DriverVersion, DriverDate, Manufacturer` |
+| Áudio                          | `Get-CimInstance Win32_SoundDevice \| Select-Object Name, Manufacturer, Status`                      |
+| Monitor                        | `Get-CimInstance WmiMonitorID -Namespace root\wmi \| ForEach-Object { [PSCustomObject]@{ Manufacturer=([System.Text.Encoding]::ASCII.GetString($_.ManufacturerName)).Trim([char]0); Product=([System.Text.Encoding]::ASCII.GetString($_.UserFriendlyName)).Trim([char]0); Serial=([System.Text.Encoding]::ASCII.GetString($_.SerialNumberID)).Trim([char]0) } }` |
+| Sistema Operacional            | `Get-CimInstance Win32_OperatingSystem \| Select-Object Caption, Version, BuildNumber, OSArchitecture, InstallDate, LastBootUpTime` |
+| Hotfixes/patches               | `Get-CimInstance Win32_QuickFixEngineering \| Select-Object HotFixID, Description, InstalledOn`      |
+| BitLocker                      | `Get-BitLockerVolume \| Select-Object MountPoint, VolumeType, ProtectionStatus, EncryptionMethod`    |
+| TPM                            | `Get-Tpm`                                                                                            |
+| Bateria (se laptop)            | `Get-CimInstance Win32_Battery \| Select-Object Name, BatteryStatus, EstimatedChargeRemaining`       |
+| Sensores térmicos*             | `Get-CimInstance MSAcpi_ThermalZoneTemperature -Namespace root\wmi \| Select-Object InstanceName, CurrentTemperature` |
+| Periféricos USB                | `Get-PnpDevice -Class USB \| Select-Object FriendlyName, InstanceId, Status`                        |
+| Dispositivos com erro          | `Get-PnpDevice \| Where-Object Status -ne 'OK' \| Select-Object Class, FriendlyName, Status, InstanceId` |
+| Serviços                       | `Get-Service \| Sort-Object Status, DisplayName \| Select-Object Status, Name, DisplayName`         |
+| Programas instalados           | `Get-Package \| Select-Object Name, Version, ProviderName, Source`                                   |
+
+
+---
+
 
 ## Coleta completa em um único objeto
 
-Cole tudo em um único objeto e exporte em JSON.
+### Versão para arquivo .ps1 (recomendada)
+
+Baixe o [script para criar um relatório JSON](./resources/technical-report.ps1) e execute com o *PowerShell* para criar um arquivo de relatório contendo os dados do PC.
+
+### Versão simplificada para colar no console
+
+Se preferir colar diretamente no PowerShell (menos recomendado):
 
 ```powershell
-$report = [PSCustomObject]@{
-  ComputerSystem = Get-CimInstance Win32_ComputerSystem | Select-Object Manufacturer, Model, SystemType, TotalPhysicalMemory
-  ComputerProduct = Get-CimInstance Win32_ComputerSystemProduct | Select-Object Vendor, Name, Version, UUID, IdentifyingNumber
-  BaseBoard = Get-CimInstance Win32_BaseBoard | Select-Object Manufacturer, Product, Version, SerialNumber
-  BIOS = Get-CimInstance Win32_BIOS | Select-Object SMBIOSBIOSVersion, Manufacturer, Version, ReleaseDate
-  CPU = Get-CimInstance Win32_Processor | Select-Object Name, Manufacturer, NumberOfCores, NumberOfLogicalProcessors, MaxClockSpeed, SocketDesignation
-  GPU = Get-CimInstance Win32_VideoController | Select-Object Name, AdapterCompatibility, AdapterRAM, DriverVersion, DriverDate
-  DisplayDriver = Get-CimInstance Win32_PnPSignedDriver -Filter "ClassName='Display'" | Select-Object DeviceName, DriverVersion, DriverDate, Manufacturer
-  RAMModules = Get-CimInstance Win32_PhysicalMemory | Select-Object BankLabel, Capacity, Manufacturer, PartNumber, Speed, ConfiguredClockSpeed, SerialNumber
-  RAMArray = Get-CimInstance Win32_PhysicalMemoryArray | Select-Object MemoryDevices, MaxCapacity, MaxCapacityEx
-  PhysicalDisks = Get-PhysicalDisk | Select-Object FriendlyName, MediaType, BusType, Size, SerialNumber, FirmwareVersion, HealthStatus
-  DiskDrives = Get-CimInstance Win32_DiskDrive | Select-Object Model, InterfaceType, Size, SerialNumber, FirmwareRevision
-  Partitions = Get-Partition | Select-Object DiskNumber, PartitionNumber, DriveLetter, Size, Type
-  Volumes = Get-Volume | Select-Object DriveLetter, FileSystem, Size, SizeRemaining, HealthStatus
-  Controllers = @{
-    SCSI = Get-CimInstance Win32_SCSIController | Select-Object Name, Manufacturer, PNPDeviceID
-    IDE  = Get-CimInstance Win32_IDEController | Select-Object Name, Manufacturer, PNPDeviceID
-  }
-  NetAdapters = Get-NetAdapter | Select-Object Name, InterfaceDescription, Status, LinkSpeed, MacAddress, DriverVersion
-  NetDrivers = Get-CimInstance Win32_PnPSignedDriver -Filter "ClassName='Net'" | Select-Object DeviceName, DriverVersion, DriverDate, Manufacturer
-  Sound = Get-CimInstance Win32_SoundDevice | Select-Object Name, Manufacturer, Status
-  Monitors = Get-CimInstance WmiMonitorID -Namespace root\wmi | ForEach-Object {
-    [PSCustomObject]@{
-      Manufacturer = ([System.Text.Encoding]::ASCII.GetString($_.ManufacturerName)).Trim([char]0)
-      Product      = ([System.Text.Encoding]::ASCII.GetString($_.UserFriendlyName)).Trim([char]0)
-      Serial       = ([System.Text.Encoding]::ASCII.GetString($_.SerialNumberID)).Trim([char]0)
-    }
-  }
-  OS = Get-CimInstance Win32_OperatingSystem | Select-Object Caption, Version, BuildNumber, OSArchitecture, InstallDate, LastBootUpTime
-  Hotfixes = Get-CimInstance Win32_QuickFixEngineering | Select-Object HotFixID, Description, InstalledOn
-  BitLocker = try { Get-BitLockerVolume | Select-Object MountPoint, VolumeType, ProtectionStatus, EncryptionMethod } catch { $null }
-  TPM = try { Get-Tpm } catch { $null }
-  Battery = Get-CimInstance Win32_Battery | Select-Object Name, BatteryStatus, EstimatedChargeRemaining
-  USB = Get-PnpDevice -Class USB | Select-Object FriendlyName, InstanceId, Status
-  DeviceIssues = Get-PnpDevice | Where-Object Status -ne 'OK' | Select-Object Class, FriendlyName, Status, InstanceId
-  Services = Get-Service | Sort-Object Status, DisplayName | Select-Object Status, Name, DisplayName
-  InstalledPackages = Get-Package | Select-Object Name, Version, ProviderName, Source
-}
-
-$path = "$env:PUBLIC\PC_Report_$(Get-Date -Format 'yyyyMMdd_HHmmss').json"
-$report | ConvertTo-Json -Depth 6 | Out-File -FilePath $path -Encoding utf8
-Write-Host "Relatório salvo em: $path"
+$r = @{}; $r.PC = Get-CimInstance Win32_ComputerSystem | Select Manufacturer,Model,TotalPhysicalMemory; $r.CPU = Get-CimInstance Win32_Processor | Select Name,NumberOfCores; $r.RAM = Get-CimInstance Win32_PhysicalMemory | Select Capacity,Speed; $r.GPU = Get-CimInstance Win32_VideoController | Select Name,AdapterRAM,DriverVersion; $r.Disk = Get-PhysicalDisk | Select FriendlyName,Size,HealthStatus; $r.OS = Get-CimInstance Win32_OperatingSystem | Select Caption,Version; $r | ConvertTo-Json -Depth 3
 ```
+
 
 ## Exportações úteis
 
@@ -112,10 +82,50 @@ Get-PhysicalDisk | Select FriendlyName, HealthStatus, OperationalStatus
 Get-BitLockerVolume | Select MountPoint, ProtectionStatus, LockStatus
 ```
 
-## Observações
+## Observações e soluções para problemas comuns
 
-1. Alguns campos podem vir vazios dependendo do fabricante e drivers.
-2. Em servidores, módulos como Storage Spaces Direct adicionam mais cmdlets.
-3. Para sensores detalhados e SMART avançado, ferramentas de terceiros costumam ser necessárias.
+### Problemas ao colar scripts longos no PowerShell
 
-Se quiser, monto uma versão que já exporta tudo em CSV e JSON para uma pasta padrão e assina a execução com política de scripts.
+1. **Buffer do console**: Scripts muito longos podem causar erros de cursor/buffer
+2. **Parsing de linha**: O PowerShell pode interpretar incorretamente quebras de linha
+3. **Timeout de entrada**: Comandos muito extensos podem exceder limites
+
+### Soluções recomendadas
+
+1. **Use arquivos .ps1**: Sempre prefira salvar como arquivo e executar
+2. **Execute por partes**: Divida scripts grandes em seções menores
+3. **ISE ou VS Code**: Use editores que suportam melhor scripts PowerShell
+
+### Comandos rápidos para teste
+
+```powershell
+# Teste rápido de funcionamento
+Get-CimInstance Win32_ComputerSystem | Select Manufacturer, Model
+Get-CimInstance Win32_Processor | Select Name, NumberOfCores
+Get-PhysicalDisk | Select FriendlyName, Size, HealthStatus
+```
+
+### Alternativa: Script modular
+
+Para máxima compatibilidade, use este approach:
+
+```powershell
+# Execute cada seção separadamente
+$report = @{}
+
+# Seção 1: Básico
+$report.Sistema = Get-CimInstance Win32_ComputerSystem | Select Manufacturer, Model, TotalPhysicalMemory
+$report.CPU = Get-CimInstance Win32_Processor | Select Name, NumberOfCores, MaxClockSpeed
+
+# Seção 2: Armazenamento  
+$report.Discos = Get-PhysicalDisk | Select FriendlyName, MediaType, Size, HealthStatus
+$report.Volumes = Get-Volume | Select DriveLetter, FileSystem, Size, SizeRemaining
+
+# Seção 3: Rede
+$report.Rede = Get-NetAdapter | Where Status -eq 'Up' | Select Name, LinkSpeed, MacAddress
+
+# Exportar
+$path = "$env:PUBLIC\PC_Report_$(Get-Date -f 'yyyyMMdd_HHmmss').json"
+$report | ConvertTo-Json -Depth 4 | Out-File $path -Encoding utf8
+Write-Host "Salvo em: $path"
+```
