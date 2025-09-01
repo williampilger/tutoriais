@@ -25,7 +25,7 @@ $report.CPU = Get-CimInstance Win32_Processor |
     Select-Object Name, Manufacturer, NumberOfCores, NumberOfLogicalProcessors, MaxClockSpeed, SocketDesignation
 $report.GPU = Get-CimInstance Win32_VideoController | 
     Select-Object Name, AdapterCompatibility, AdapterRAM, DriverVersion, DriverDate
-$report.DisplayDriver = Get-CimInstance Win32_PnPSignedDriver -Filter "ClassName='Display'" | 
+$report.DisplayDriver = Get-CimInstance Win32_PnPSignedDriver -Filter "DeviceClass='Display'" | 
     Select-Object DeviceName, DriverVersion, DriverDate, Manufacturer
 
 # Memória
@@ -57,7 +57,7 @@ $report.Controllers = @{
 Write-Host "- Rede e áudio..." -ForegroundColor Yellow
 $report.NetAdapters = Get-NetAdapter | 
     Select-Object Name, InterfaceDescription, Status, LinkSpeed, MacAddress, DriverVersion
-$report.NetDrivers = Get-CimInstance Win32_PnPSignedDriver -Filter "ClassName='Net'" | 
+$report.NetDrivers = Get-CimInstance Win32_PnPSignedDriver -Filter "DeviceClass='Net'" | 
     Select-Object DeviceName, DriverVersion, DriverDate, Manufacturer
 $report.Sound = Get-CimInstance Win32_SoundDevice | 
     Select-Object Name, Manufacturer, Status
