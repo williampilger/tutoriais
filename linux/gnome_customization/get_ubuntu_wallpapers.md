@@ -2,6 +2,8 @@
 
 Eles ficam salvos em:
 
-`/usr/share/backgrounds`
+```
+/usr/share/backgrounds
+```
 
 
