@@ -25,6 +25,15 @@ E, para aressar ao servidor, use:
 mysql -h 127.0.0.1 -u root -p
 ```
 
+Criando o básico do(s) banco(s) e usuário(s):
+```sql
+CREATE DATABASE `sample-database`;
+
+CREATE USER 'user'@'%' IDENTIFIED BY 'password';
+GRANT SELECT, INSERT, UPDATE, DELETE ON `sample-database`.* TO 'user'@'%';
+--GRANT ALL PRIVILEGES ON `sample-database`.* TO 'user'@'%';
+```
+
 ---
 
 ## Criação do backup
