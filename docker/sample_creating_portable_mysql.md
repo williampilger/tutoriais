@@ -13,12 +13,21 @@
 
 ---
 
-## Criação do backup
+## Criação do servidor (antes do primeiro backup)
 
 Caso você esteja iniciando seu servidor agora, e queira criar uma instância vazia, execute também:
 ```
 docker run --name mysql-dev -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d mysql:latest
 ```
+
+E, para aressar ao servidor, use:
+```bash
+mysql -h 127.0.0.1 -u root -p
+```
+
+---
+
+## Criação do backup
 
 **Executando o Backup** (depois de ter o banco de dados no estado em que se quer o backup)
 
