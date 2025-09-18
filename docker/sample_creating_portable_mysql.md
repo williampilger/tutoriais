@@ -32,6 +32,7 @@ CREATE DATABASE `sample-database`;
 CREATE USER 'user'@'%' IDENTIFIED BY 'password';
 GRANT SELECT, INSERT, UPDATE, DELETE ON `sample-database`.* TO 'user'@'%';
 --GRANT ALL PRIVILEGES ON `sample-database`.* TO 'user'@'%';
+FLUSH PRIVILEGES;
 ```
 
 ---
