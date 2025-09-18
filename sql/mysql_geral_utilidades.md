@@ -4,6 +4,21 @@
 
 > sudo apt update && sudo apt install mysql-server -y
 
+Comandos para controle:
+```bash
+# Forçar o início do Servidor
+sudo systemctl start mysql
+
+# Verificar se está rodando
+systemctl status mysql
+
+# Desativar a inicialização automática (ou ativar, com `enable`)
+sudo systemctl disable mysql
+
+# Parar o Servidor
+sudo systemctl stop mysql
+```
+
 
 ## Listar usuários
 
