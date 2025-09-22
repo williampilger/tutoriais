@@ -24,3 +24,8 @@ sudo modprobe -r kvm_intel
 # Para processadores AMD
 sudo modprobe -r kvm_amd
 ```
+
+Se, porventura, for necessário desfazer:
+```bash
+sudo modprobe kvm_intel
+```
