@@ -16,3 +16,7 @@ A aplicação pode ser instalada por lá, ou usando o winget:
 winget install gsass1.NTop
 ```
 
+depois, execute com:
+```ps1
+ntop
+```
