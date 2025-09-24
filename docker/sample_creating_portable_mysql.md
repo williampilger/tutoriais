@@ -145,7 +145,41 @@ Será possível acessa-lo usando:
 
 > mysql -h 127.0.0.1 -u root -P password
 
+---
 
+## Extra: Ativar e acompanhar LOGs do Mysql em tempo real
+
+Existe, obviamente, outras formas de fazer isso. Mas, nesse caso, estou fazendo isso **depois do container já rodando, sem parar nada da execução**.
+
+- Ativando o registro de LOGs e vendo onde está salvo:
+  - Acesse o MySQL:
+    - ```bash
+      docker exec -it mysql-dev mysql -u root -p
+      ```
+    - Troque sua senha e nome do banco, obviamente, e digite sua senha.
+  - Ative o LOG:
+    - ```SQL
+      SET GLOBAL general_log = 'ON';
+      ```
+  - Veja onde o arquivo será salvo:
+    - ```SQL
+      SHOW VARIABLES LIKE 'general_log_file';
+      ```
+    - Você deve ver algo como:
+      - ```txt
+        mysql> SHOW VARIABLES LIKE 'general_log_file';
+        +------------------+---------------------------------+
+        | Variable_name    | Value                           |
+        +------------------+---------------------------------+
+        | general_log_file | /var/lib/mysql/0471780b8d6e.log |
+        +------------------+---------------------------------+
+        1 row in set (0.116 sec)
+        ```
+    - Saia do MySQL com `exit;`
+- Exibir e acompanhar os LOGs
+  - ```bash
+    docker exec -it mysql-dev tail -f /var/lib/mysql/0471780b8d6e.log
+    ```
 ---
 
 ## Sobre
