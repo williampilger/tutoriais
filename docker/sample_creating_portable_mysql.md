@@ -140,6 +140,16 @@ FLUSH PRIVILEGES;
     - ```sh
       docher start mysql-dev
       ```
+- Caso você queira que o container inicie automaticamente junto com a máquina/docker:
+    - ```sh
+      docker update --restart=unless-stopped mysql-dev
+      ```
+    - Lembrando que:
+        - `unless-stopped`: Sempre que não for parado manualmente
+        - `on-failure`: Quando o container falhar
+        - `always`: Sempre
+        - `no`: Padrao - Nunca
+    - Você pode adicionar essa flag no início também!
 
 Será possível acessa-lo usando:
 
