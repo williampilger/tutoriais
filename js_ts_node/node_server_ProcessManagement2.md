@@ -49,6 +49,16 @@ Lembre-se também que, depois de ter adicionado/removido os aplicativos que voc�
 pm2 save
 ```
 
+---
+
+### Outros Comandos - Observidade
+
+*Ver status dos serviços rodando*
+```bash
+pm2 status
+```
+
+---
 
 # Sobre
 
