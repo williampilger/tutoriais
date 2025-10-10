@@ -58,6 +58,11 @@ pm2 save
 pm2 status
 ```
 
+*Acompanhar LOGs em tempo real*
+```bash
+pm2 logs nome-de-servico
+```
+
 ---
 
 # Sobre
