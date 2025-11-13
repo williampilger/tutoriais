@@ -1,5 +1,7 @@
 # Tutorial: Como Trocar o HD ou SSD por outro Igual ou Maior com Migração de Dados
 
+> **💡 Importante:** Tutorial criado para Authenty, e formatado com ajuda do Github Copilot.
+
 Este tutorial vai te ensinar como substituir o SSD/HD do seu PC por outro, mantendo todos os seus dados, programas e sistema operacional intactos.
 
 Temos três opções para realizar a migração
