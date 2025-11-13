@@ -2,6 +2,14 @@
 
 Este tutorial vai te ensinar como substituir o SSD/HD do seu PC por outro, mantendo todos os seus dados, programas e sistema operacional intactos.
 
+Temos três opções para realizar a migração
+- [Em outro PC - Windows](##)
+- [Em outro PC - Com adaptador USB](##)
+- [Clonezilla - Mais indicado](##)
+
+------
+
+
 ## 📋 O que você vai precisar
 
 ### Hardware
