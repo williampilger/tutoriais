@@ -126,7 +126,7 @@ Temos três opções para realizar a migração
 ### Preparação Necessária
 > **💡 Importante:** Provavelmente o departamento de TI já possui um pendrive com Ventoy/Clonezilla. Consulte antes de criar um novo!
 
-Se precisar criar o pendrive bootável, siga o [tutorial de instalação do Ventoy](../software/Instalando%20o%20Ventoy%20em%20um%20Pendrive%20novo.md) e baixe a ISO do [Clonezilla](https://clonezilla.org/clonezilla-live.php) (mas que também deve estar disponível no repositório de softwares da empresa!).
+Se precisar criar o pendrive bootável, siga o [tutorial de instalação do Ventoy](linux/install_Ventoy_USB.md) e baixe a ISO do [Clonezilla](https://clonezilla.org/clonezilla-live.php) (mas que também deve estar disponível no repositório de softwares da empresa!).
 
 ### Passo 1: Conectar Ambos os SSDs
 1. **Conecte o SSD novo** no PC:
