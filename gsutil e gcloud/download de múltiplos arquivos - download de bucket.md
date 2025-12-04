@@ -35,6 +35,6 @@ Basta colar o código fornecido no terminal.
 ### No Windows
 O processo é levemente mais difícil.
 
-Você precisará alterar o marcado de quebra de linha, pois o windows usa ``` e não `\` para isso.
+Você precisará alterar o marcado de quebra de linha, pois o windows usa `` ` `` e não `\` para isso.
 
 E, na hora de executar o PowerShell, será necessário executá-lo como Administrador. Se não, terás problema de acesso ao `gsutil`.
