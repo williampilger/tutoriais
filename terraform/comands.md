@@ -2,9 +2,10 @@
 
 Aqui, estou listando uns comandos que **EU** acho diferenciados e importantes **PRA MIM**!
 
+---
 
 
-#### `terraform untaint <resource_address>`
+### `terraform untaint <resource_address>`
 
 Comando exemplo:
 > terraform untaint 'module.cloudrun_service.google_cloud_run_v2_service.services["app-budgeting-23002"]'
@@ -14,7 +15,7 @@ Isso pode ser útil para não precisar destruir e re-criar um item.
 
 
 
-#### `terraform force-unlock <lock-id>`
+### `terraform force-unlock <lock-id>`
 
 O uso do comando pode ser perigoso.
 
