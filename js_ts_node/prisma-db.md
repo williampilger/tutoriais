@@ -111,3 +111,41 @@ Para modificar algo que já está rodando SEMPRE siga:
 
 Serve para você iniciar a modelagem no Prisma de um banco de dados que já existe fora dele.
 ```
+
+
+
+### Comparação "Manual" do banco com o esquema
+
+Você pode gerar um script com a diferença do esquema pro banco (script para executar e sincronizar manualmente):
+
+```bash
+# Gere o SQL de diferença
+npx prisma migrate diff \
+  --from-url "mysql://user:password@host:3306/database2" \
+  --to-schema-datamodel prisma/schema.prisma \
+  --script > sync.sql
+
+# Revise o arquivo sync.sql e depois aplique manualmente no banco
+```
+
+
+### Criação de migration e aplicação falsa
+
+Pode ser necessário criar uma migration sem aplicá-la:
+```bash
+npx prisma migrate dev --create-only
+```
+
+Se isso não funcionar, pois às vezes mesmo no `dev` ele exige a destruição do banco...
+```bash
+# Para  criar uma migration de init (não existe outra de base)
+npx prisma migrate diff \
+  --from-empty \
+  --to-schema-datamodel prisma/schema.prisma \
+  --script > prisma/migrations/0_init/migration.sql
+# Marcar como aplicada
+npx prisma migrate resolve --applied 0_init
+```
+
+**Lembre-se**: Estes métodos passam sobre as boas práticas. Não deve ser usado em um cenário razoável.
+Preocupe-se se estiver usando isso em produção!
