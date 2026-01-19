@@ -143,7 +143,11 @@ npx prisma migrate diff \
   --from-empty \
   --to-schema-datamodel prisma/schema.prisma \
   --script > prisma/migrations/0_init/migration.sql
-# Marcar como aplicada
+```
+
+E, para marcar ela como aplicada, sem de fato aplicar:
+```bash
+# Só faça isso se souber que o banco conectado realmente está igual ao esquema!
 npx prisma migrate resolve --applied 0_init
 ```
 
