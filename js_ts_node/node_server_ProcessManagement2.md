@@ -63,7 +63,10 @@ pm2 status
 pm2 logs nome-de-servico
 ```
 
+Os arquivos de LOG ficam salvos (por padrão) em `~/.pm2/logs`, lá você pode ver o arquivo completo, com todo o histórico dos serviços.
+
 ---
+
 
 # Sobre
 
