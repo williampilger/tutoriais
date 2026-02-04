@@ -48,6 +48,8 @@ ou
 
 > mysql -u root -p
 
+> mysql -u root -p -h 127.0.0.1 -P 3306
+
 E defina a nova senha:
 
 > SET PASSWORD FOR 'user'@'localhost' = 'NovaSenha';
