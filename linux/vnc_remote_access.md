@@ -15,8 +15,12 @@ Defina uma senha:
 x11vnc -storepasswd
 ```
 
-Se quiser TESTAR:
+Se quiser TESTAR, ou colocar para rodar MANUALMENTE sempre que necessário:
 > x11vnc -display :0 -auth guess -forever -shared -rfbauth ~/.vnc/passwd
+
+---
+
+## Ativando o Serviço - *Auto load on Boot*
 
 Crie o arquivo de configuração:
 
@@ -24,7 +28,7 @@ Crie o arquivo de configuração:
 sudo nano /etc/systemd/system/x11vnc.service
 ```
 
-E cole:
+E cole (substituindo `$USER` pelo seu usuário real):
 ```config
 [Unit]
 Description=x11vnc (share desktop)
