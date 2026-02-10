@@ -2,8 +2,26 @@
 
 Comparativo rápido da dferença entre os três "modelos" de criação/hospedagem de sites simples.
 
-*Abra este documento em um visualização Markdown melhor que o do Github se quiser ter uma experiência mais "colorida".*
+| Critério                      | Editor online (tipo Wix etc)                              | WordPress (ou similar) em servidor próprio ou locado    | Site manual (HTML/CSS/JS/framework) em servidor próprio ou locado |
+| ----------------------------- | --------------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------- |
+| Velocidade para colocar no ar | 🟢 **Muito alta** (horas, poucos dias)                    | 🟡 **Média** (dias, às vezes semanas)                   | 🟠 **Baixa a Média** (dias a semanas, depende do escopo)          |
+| Facilidade para leigos        | 🟢 **Muito alta**                                         | 🟡 **Média** (exige noção de CMS e plugins)             | 🔴 **Baixa** (exige dev)                                          |
+| Custo inicial                 | 🟢 **Baixo a médio**                                      | 🟡 **Médio**                                            | 🟠 **Médio a alto**                                               |
+| Custo mensal                  | 🟠 **Assinatura da plataforma** (pode subir com recursos) | 🟡 **Hospedagem + manutenção** (variável)               | 🟡 **Hospedagem + manutenção** (variável)                         |
+| Liberdade de design           | 🟡 **Média** (limitado ao editor/tema)                    | 🟢 **Alta** (temas, page builders, custom)              | 🟢 **Muito alta** (você faz tudo)                                 |
+| Flexibilidade técnica         | 🟡 **Média**                                              | 🟢 **Alta** (plugins, código, APIs)                     | 🟢 **Muito alta** (controle total)                                |
+| Controle e propriedade        | 🔴 **Menor** (plataforma dita regras e limites)           | 🟢 **Alto**                                             | 🟢 **Máximo**                                                     |
+| Risco de lock-in              | 🔴 **Alto** (migração pode ser chata)                     | 🟡 **Médio** (mais portável)                            | 🟢 **Baixo** (se bem estruturado)                                 |
+| Desempenho (potencial)        | 🟡 **Médio** (depende da plataforma)                      | 🟠 **Médio a alto** (depende de tema, cache, plugins)   | 🟢 **Alto** (otimização sob medida)                               |
+| SEO (potencial)               | 🟡 **Médio a bom** (recursos prontos, mas com limites)    | 🟢 **Bom a muito bom** (bem configurado)                | 🟢 **Muito bom** (se feito com boas práticas)                     |
+| Segurança                     | 🟢 **Plataforma cuida da infra**, você cuida de acessos   | 🟠 **Você cuida** de atualizações, backups, hardening   | 🔴 **Você cuida de tudo** (mais responsabilidade)                 |
+| Manutenção                    | 🟢 **Baixa** (a plataforma resolve quase tudo)            | 🟠 **Média a alta** (atualizações, conflitos de plugins)| 🟡 **Média** (depende do stack e disciplina de deploy)            |
+| Escalabilidade                | 🟡 **Média** (limites e planos)                           | 🟢 **Alta** (melhora com infra)                         | 🟢 **Muito alta** (arquitetura sob medida)                        |
+| Integrações e automações      | 🟡 **Boas**, mas dentro do "ecossistema"                  | 🟢 **Muito boas** (plugins + integrações)               | 🟢 **Máximas** (qualquer integração via código)                   |
+| Melhor para                   | Landing pages, sites simples, rapidez                     | Sites institucionais robustos, blog, marketing contínuo | Produto digital, site altamente custom, performance e controle    |
 
+
+<!--
 | Critério                      | Editor online (tipo Wix etc)                       | WordPress (ou similar) em servidor próprio ou locado    | Site manual (HTML/CSS/JS/framework) em servidor próprio ou locado |
 | ----------------------------- | -------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------- |
 | Velocidade para colocar no ar | <span style="font-weight:bold;color:green;">Muito alta</span> (horas, poucos dias)                | <span style="font-weight:bold;color:yellow;">Média</span> (dias, às vezes semanas)                      | <span style="font-weight:bold;color:orange;">Baixa a Média</span> (dias a semanas, depende do escopo)             |
@@ -21,4 +39,4 @@ Comparativo rápido da dferença entre os três "modelos" de criação/hospedage
 | Escalabilidade                | <span style="font-weight:bold;color:yellow;">Média</span> (limites e planos)                           | <span style="font-weight:bold;color:green;">Alta</span> (melhora com infra)                                | <span style="font-weight:bold;color:green;">Muito alta</span> (arquitetura sob medida)                           |
 | Integrações e automações      | <span style="font-weight:bold;color:yellow;">Boas</span>, mas dentro do "ecossistema"                  | <span style="font-weight:bold;color:green;">Muito boas</span> (plugins + integrações)                      | <span style="font-weight:bold;color:green;">Máximas</span> (qualquer integração via código)                      |
 | Melhor para                   | Landing pages, sites simples, rapidez              | Sites institucionais robustos, blog, marketing contínuo | Produto digital, site altamente custom, performance e controle    |
-
+-->
