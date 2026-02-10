@@ -2,6 +2,8 @@
 
 Comparativo rápido da dferença entre os três "modelos" de criação/hospedagem de sites simples.
 
+*Abra este documento em um visualização Markdown melhor que o do Github se quiser ter uma experiência mais "colorida".*
+
 | Critério                      | Editor online (tipo Wix etc)                       | WordPress (ou similar) em servidor próprio ou locado    | Site manual (HTML/CSS/JS/framework) em servidor próprio ou locado |
 | ----------------------------- | -------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------- |
 | Velocidade para colocar no ar | <span style="font-weight:bold;color:green;">Muito alta</span> (horas, poucos dias)                | <span style="font-weight:bold;color:yellow;">Média</span> (dias, às vezes semanas)                      | <span style="font-weight:bold;color:orange;">Baixa a Média</span> (dias a semanas, depende do escopo)             |
