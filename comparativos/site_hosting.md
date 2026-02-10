@@ -1,6 +1,6 @@
 # Hospedagem de Sites Simples
 
-
+Comparativo rápido da dferença entre os três "modelos" de criação/hospedagem de sites simples.
 
 | Critério                      | Editor online (tipo Wix etc)                       | WordPress (ou similar) em servidor próprio ou locado    | Site manual (HTML/CSS/JS/framework) em servidor próprio ou locado |
 | ----------------------------- | -------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------- |
