@@ -68,15 +68,7 @@ Adiciona o parâmetro `-u critical`. Na maioria das distros, isso faz a notifica
 
 O Zenity cria uma caixa de diálogo real no centro da tela que interrompe o fluxo de trabalho até que você clique em "OK".
 
-```cron
-0 7-18 * * 1-5 XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus WAYLAND_DISPLAY=wayland-0 /usr/bin/zenity --warning --title="Aviso" --text="Seu aviso aqui" --no-wrap >/dev/null 2>&1
-```
-
-Obs.: O `>/dev/null 2>&1` serve pra evitar que algum erro vá para o sistema de log do sistema, então é opcional, e possivelmente até te atrapalhe!
-O `--warning` pode ser sibstituido por `--info` caso queira o ícone de informação no lugar.
-
-**OU**, caso prefira uma opção 'multidistro' ou dinamica, pode usar o zenity com um script mais elaborado. 
-Salve o script em um diretório como `/home/seu_usuario/scripts` e dê acesso de execução (com `chmod +x`):
+Salve o script abaixo em um diretório como o `/home/seu_usuario/scripts/`:
 
 *./scripts/aviso.sh*
 ```bash
@@ -101,7 +93,10 @@ if [ -S "${XDG_RUNTIME_DIR}/bus" ]; then
 fi
 ```
 
-E agora, para execução:
+Autorize a execução do script:
+> chmod +x ./scripts/aviso.sh
+
+E agora, para execução, adicione à crontab (com `crontab -e`) a seguinte instrução:
 
 ```cron
 0 7-18 * * 1-5 /home/seu_usuario/scripts/aviso.sh
