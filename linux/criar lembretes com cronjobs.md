@@ -69,7 +69,7 @@ Adiciona o parâmetro `-u critical`. Na maioria das distros, isso faz a notifica
 O Zenity cria uma caixa de diálogo real no centro da tela que interrompe o fluxo de trabalho até que você clique em "OK".
 
 ```cron
-0 7-18 * * 1-5 DISPLAY=:0 Zenity --info --title="Pausa Obrigatória" --text="Beba água e descanse os olhos." --width=300
+0 7-18 * * 1-5 DISPLAY=:0 zenity --info --title="Pausa Obrigatória" --text="Beba água e descanse os olhos." --width=300
 
 ```
 
