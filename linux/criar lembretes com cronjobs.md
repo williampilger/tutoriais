@@ -73,7 +73,7 @@ O Zenity cria uma caixa de diálogo real no centro da tela que interrompe o flux
 ```
 
 Obs.: O `>/dev/null 2>&1` serve pra evitar que algum erro vá para o sistema de log do sistema, então é opcional, e possivelmente até te atrapalhe!
-
+O `--warning` pode ser sibstituido por `--info` caso queira o ícone de informação no lugar.
 
 **OU**, caso prefira uma opção 'multidistro' ou dinamica, pode usar o zenity com um script mais elaborado. 
 Salve o script em um diretório como `/home/seu_usuario/scripts` e dê acesso de execução (com `chmod +x`):
