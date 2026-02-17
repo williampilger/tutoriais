@@ -73,6 +73,38 @@ O Zenity cria uma caixa de diálogo real no centro da tela que interrompe o flux
 
 ```
 
+**OU**, caso prefira uma opção 'multidistro', pode usar o zenity com um script mais elaborado. 
+Salve o script em um diretório como `/home/seu_usuario/scripts` e dê acesso de execução (com `chmod +x`):
+
+*./scripts/aviso.sh*
+```bash
+#!/usr/bin/env bash
+set -e
+
+UID_NUM="$(id -u)"
+export XDG_RUNTIME_DIR="/run/user/${UID_NUM}"
+export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
+
+# Wayland (GNOME no Ubuntu costuma ser wayland-0)
+if ls "${XDG_RUNTIME_DIR}"/wayland-* >/dev/null 2>&1; then
+  export WAYLAND_DISPLAY="$(basename "$(ls -1 "${XDG_RUNTIME_DIR}"/wayland-* | head -n 1)")"
+else
+  # fallback Xorg / XWayland
+  export DISPLAY=":0"
+fi
+
+# Só tenta se o bus existir
+if [ -S "${XDG_RUNTIME_DIR}/bus" ]; then
+  /usr/bin/zenity --warning --title="Aviso" --text="Seu aviso aqui" --no-wrap
+fi
+```
+
+E agora, para execução:
+
+```cron
+0 7-18 * * 1-5 /home/seu_usuario/scripts/aviso.sh
+```
+
 ---
 
 ## 4. Comparativo de Métodos
