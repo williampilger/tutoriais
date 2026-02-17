@@ -2,6 +2,17 @@
 
 Este guia cobre a configuração de lembretes que rodam em dias úteis, de hora em hora (07h às 18h), utilizando três níveis de interatividade.
 
+```
+⚠️ Importante
+
+O serviço de CRONS roda automaticamente em quase todas as distribuições Linux.
+Mas, caso não funcione, verifique a funcionalidade no seu sistema:
+systemctl status cron
+
+E para ativar:
+sudo systemctl enable --now cron
+```
+
 ## 1. Como abrir o Crontab
 
 O Cron é o agendador de tarefas padrão do Linux. Para editar suas tarefas, use o comando:
