@@ -69,11 +69,10 @@ Adiciona o parâmetro `-u critical`. Na maioria das distros, isso faz a notifica
 O Zenity cria uma caixa de diálogo real no centro da tela que interrompe o fluxo de trabalho até que você clique em "OK".
 
 ```cron
-0 7-18 * * 1-5 DISPLAY=:0 zenity --info --title="Pausa Obrigatória" --text="Beba água e descanse os olhos." --width=300
+*/30 * * * * XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus WAYLAND_DISPLAY=wayland-0 /usr/bin/zenity --warning --title="Aviso" --text="Seu aviso aqui" --no-wrap >/dev/null 2>&1
+``` 
 
-```
-
-**OU**, caso prefira uma opção 'multidistro', pode usar o zenity com um script mais elaborado. 
+**OU**, caso prefira uma opção 'multidistro' ou dinamica, pode usar o zenity com um script mais elaborado. 
 Salve o script em um diretório como `/home/seu_usuario/scripts` e dê acesso de execução (com `chmod +x`):
 
 *./scripts/aviso.sh*
