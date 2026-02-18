@@ -16,6 +16,11 @@ Acesse A página oficial de download.
 >> Este tutorial usa uma imagem Docker NÃO OFICIAL, mantida pela Linuxserver.io !!
 
 >> Este procedimento não foi amplamente testado por mim ainda, e NÃO VERIFIQUEI A SEGURANÇA E ORIGEM DESTA IMAGEM‼️
+
+⚠️⚠️⚠️⚠️⚠️ Muito importante
+
+NÂO use isso aqui em produção antes de configurar SUAS PROPRIAS CHAVES!
+Elas são as mesmas pra todo mundo que usa essa imagem!
 ```
 
 Links Útei
@@ -60,7 +65,7 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
       -e PEERDNS=auto \
       -e ALLOWEDIPS=0.0.0.0/0 \ #Personalize os IPs permitidos aqui (⚠️ e remova este comentário!!! não funcionam comentários assim!)
       -v ~/wireguard/config:/config \
-      -p $PUBLIC_SERVER_PORT:$PUBLIC_SERVER_PORT/udp \
+      -p $PUBLIC_SERVER_PORT:51820/udp \
       --restart unless-stopped \
       lscr.io/linuxserver/wireguard
     ```
@@ -80,7 +85,7 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
       -e PEERDNS=auto `
       -e ALLOWEDIPS="0.0.0.0/0" `  # Personalize os IPs permitidos aqui
       -v "$HOME\wireguard\config:/config" `
-      -p $PUBLIC_SERVER_PORT:$PUBLIC_SERVER_PORT/udp `
+      -p $PUBLIC_SERVER_PORT:51820/udp `
       --restart unless-stopped `
       lscr.io/linuxserver/wireguard
     ```
@@ -132,6 +137,16 @@ sudo ufw allow 51820/udp
         ``` 
 
 Precisa configurar do zero? [O lugar é esse](./wireguard_vpn.md)
+
+---
+
+## Comandos úteis para o servidor
+
+Conferir os pares:
+
+```bash
+docker exec -it wireguard wg show
+```
 
 ---
 
