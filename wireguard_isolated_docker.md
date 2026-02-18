@@ -92,6 +92,16 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
 ### Configurações do Roteador/Rede
   - Garanta que do seu IP público a porta `51820/UDP` está aberta e apontando para o IP do seu servidor.
 
+### Firewall
+
+Obviamente, seu Firewall deve permitir o acesso a esta porta.
+
+Se você estiver usando linux, e o `ufw`, libere com:
+
+```bash
+sudo ufw allow 51820/udp
+```
+
 ---
 
 ## Configurando o acesso em seus dispositivos externos
