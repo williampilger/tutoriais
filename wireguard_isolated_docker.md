@@ -55,15 +55,16 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
       -e PUID=1000 \
       -e PGID=1000 \
       -e SERVERURL=$PUBLIC_SERVER_IP \
-      -e SERVERPORT=51820 \
+      -e SERVERPORT=$PUBLIC_SERVER_PORT \
       -e PEERS=1 \
       -e PEERDNS=auto \
       -e ALLOWEDIPS=0.0.0.0/0 \ #Personalize os IPs permitidos aqui (⚠️ e remova este comentário!!! não funcionam comentários assim!)
       -v ~/wireguard/config:/config \
-      -p $PUBLIC_SERVER_PORT:51820/udp \
+      -p $PUBLIC_SERVER_PORT:$PUBLIC_SERVER_PORT/udp \
       --restart unless-stopped \
       lscr.io/linuxserver/wireguard
     ```
+    
   - ```ps1
     # Microsoft PowerShell
     $PUBLIC_SERVER_IP="65.48.63.89"
@@ -74,12 +75,12 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
       -e PUID=1000 `
       -e PGID=1000 `
       -e SERVERURL=$PUBLIC_SERVER_IP `
-      -e SERVERPORT=51820 `
+      -e SERVERPORT=$PUBLIC_SERVER_PORT `
       -e PEERS=1 `
       -e PEERDNS=auto `
       -e ALLOWEDIPS="0.0.0.0/0" `  # Personalize os IPs permitidos aqui
       -v "$HOME\wireguard\config:/config" `
-      -p $PUBLIC_SERVER_PORT:51820/udp `
+      -p $PUBLIC_SERVER_PORT:$PUBLIC_SERVER_PORT/udp `
       --restart unless-stopped `
       lscr.io/linuxserver/wireguard
     ```
