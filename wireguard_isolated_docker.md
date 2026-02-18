@@ -45,7 +45,7 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
     ```
 
 ### Criando o Container
-  - ````sh
+  - ````bash
     # Linux Bash
     PUBLIC_SERVER_IP=65.48.63.89
     PUBLIC_SERVER_PORT=51820
@@ -58,7 +58,7 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
       -e SERVERPORT=51820 \
       -e PEERS=1 \
       -e PEERDNS=auto \
-      -e ALLOWEDIPS=0.0.0.0/0 \ #Personalize os IPs permitidos aqui
+      -e ALLOWEDIPS=0.0.0.0/0 \ #Personalize os IPs permitidos aqui (⚠️ e remova este comentário!!! não funcionam comentários assim!)
       -v ~/wireguard/config:/config \
       -p $PUBLIC_SERVER_PORT:51820/udp \
       --restart unless-stopped \
