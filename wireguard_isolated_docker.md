@@ -48,6 +48,7 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
   - ````sh
     # Linux Bash
     PUBLIC_SERVER_IP=65.48.63.89
+    PUBLIC_SERVER_PORT=51820
     docker run -d \
       --name wireguard \
       --cap-add=NET_ADMIN \
@@ -59,13 +60,14 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
       -e PEERDNS=auto \
       -e ALLOWEDIPS=0.0.0.0/0 \ #Personalize os IPs permitidos aqui
       -v ~/wireguard/config:/config \
-      -p 51820:51820/udp \
+      -p $PUBLIC_SERVER_PORT:51820/udp \
       --restart unless-stopped \
       lscr.io/linuxserver/wireguard
     ```
   - ```ps1
     # Microsoft PowerShell
     $PUBLIC_SERVER_IP="65.48.63.89"
+    $PUBLIC_SERVER_PORT="51820"
     docker run -d `
       --name wireguard `
       --cap-add=NET_ADMIN `
@@ -77,7 +79,7 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
       -e PEERDNS=auto `
       -e ALLOWEDIPS="0.0.0.0/0" `  # Personalize os IPs permitidos aqui
       -v "$HOME\wireguard\config:/config" `
-      -p 51820:51820/udp `
+      -p $PUBLIC_SERVER_PORT:51820/udp `
       --restart unless-stopped `
       lscr.io/linuxserver/wireguard
     ```
