@@ -187,15 +187,15 @@ sudo ufw delete allow 80/tcp
 sudo ufw logging on
 ```
 
-Níveis:
+Níveis (`by ChatGPT, pode conter erros...`):
 
-| Nível (`ufw logging ...`) | UFW AUDIT           | UFW AUDIT INVALID   | UFW ALLOW           | UFW BLOCK           | UFW LIMIT BLOCK                |
+| Nível                     | UFW AUDIT           | UFW AUDIT INVALID   | UFW ALLOW           | UFW BLOCK           | UFW LIMIT BLOCK                |
 | ------------------------- | ------------------- | ------------------- | ------------------- | ------------------- | ------------------------------ |
 | `off`                     | NÃO                 | NÃO                 | NÃO                 | NÃO                 | NÃO                            |
 | `low`                     | NÃO                 | NÃO                 | SIM, com rate limit | SIM, com rate limit | SIM, com rate limit            |
 | `medium`                  | SIM, com rate limit | SIM, com rate limit | SIM, com rate limit | SIM, com rate limit | SIM, com rate limit            |
 | `high`                    | TUDO                | TUDO                | TUDO                | TUDO                | SIM, com rate limit            |
-| `full`                    | TUDO                | TUDO                | TUDO                | TUDO                | SIM, com rate limit            |
+| `full`                    | TUDO                | TUDO                | TUDO                | TUDO                | TUDO                           |
 
 ```bash
 sudo ufw logging off
