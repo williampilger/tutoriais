@@ -189,15 +189,19 @@ sudo ufw logging on
 
 Níveis:
 
+| Nível (`ufw logging ...`) | UFW AUDIT           | UFW AUDIT INVALID   | UFW ALLOW           | UFW BLOCK           | UFW LIMIT BLOCK                |
+| ------------------------- | ------------------- | ------------------- | ------------------- | ------------------- | ------------------------------ |
+| `off`                     | NÃO                 | NÃO                 | NÃO                 | NÃO                 | NÃO                            |
+| `low`                     | NÃO                 | NÃO                 | SIM, com rate limit | SIM, com rate limit | SIM, com rate limit            |
+| `medium`                  | SIM, com rate limit | SIM, com rate limit | SIM, com rate limit | SIM, com rate limit | SIM, com rate limit            |
+| `high`                    | TUDO                | TUDO                | TUDO                | TUDO                | SIM, com rate limit            |
+| `full`                    | TUDO                | TUDO                | TUDO                | TUDO                | SIM, com rate limit            |
+
 ```bash
-# Loga bloqueios (com rate limmit)
-sudo ufw logging low
-# Loga bloqueios (sem rate limmit) + coisas não condizentes com as políticas de permissão (com rate limmit)
-sudo ufw logging medium
-# Loga bloqueios (sem rate limmit) + coisas não condizentes com as políticas de permissão (sem rate limmit) + Tudo o que passou (com rate limit)
+sudo ufw logging off
+sudo ufw logging low #Default
+...
 sudo ufw logging high
-# simplesmente loga tudo (isso aqui ligado por umas horas pode lotar o disco se for um servidor com muito acesso!!)
-sudo ufw logging full
 ```
 
 ### Ver eventos no syslog/journal
