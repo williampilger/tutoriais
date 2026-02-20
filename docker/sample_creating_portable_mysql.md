@@ -17,7 +17,14 @@
 
 Caso você esteja iniciando seu servidor agora, e queira criar uma instância vazia, execute também:
 ```
-docker run --name mysql-dev -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d mysql:latest
+docker volume create mysql-dev-volume
+
+docker run -d \
+  --name mysql-dev \
+  -e MYSQL_ROOT_PASSWORD=password \
+  -p 3306:3306 \
+  -v mysql-dev-volume:/var/lib/mysql \
+  mysql:8.0
 ```
 
 E, para aressar ao servidor, use:
