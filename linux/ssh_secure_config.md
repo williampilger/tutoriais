@@ -66,6 +66,8 @@ sudo fail2ban-client status sshd
 ```
 
 
+---
+
 
 # 2️⃣ Configurações do SSH
 
@@ -113,6 +115,16 @@ sudo systemctl reload ssh
 
 
 ---
+
+
+# 3️⃣ Configurações do Firewall
+
+
+
+
+
+---
+
 
 
 # 2️⃣ Faça auditorias de tentativas de login SSH com certa frequência
