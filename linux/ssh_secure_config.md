@@ -257,9 +257,11 @@ ssh -o IdentitiesOnly=yes -i ./id_ed25519 usuario@IP_DO_SERVIDOR
 ssh -o IdentityAgent=none -o IdentitiesOnly=yes -i ./id_ed25519 usuario@IP_DO_SERVIDOR
 ```
 
-> Obviamente, se você usa uma porta diferente, precisará do `-p 12345` no comando...
+> Lembre-se, que se você usa uma porta diferente, precisará do `-p 12345` no comando.
 
 
+Não use a chave em máquinas não confiáveis! Diferente de uma chave física de autenticação, o "segredo" da chave é legível pelo sistema, e pode ser copiado.
+E se o sistema for malipulado, poderá registrar seu PIN da chave, e a partir daí, conseguir acesso ao seu servidor.
 
 
 
