@@ -23,7 +23,10 @@ Use DNS do roteador, Pi-hole ou AdGuard:
 - Se puder, use wildcard: *.authentylocal.com.br -> 192.168.1.50
 
 
-### Só no seu próprio PC (Ubuntu. Pra windows pesquise como faz...)
+### Só no seu próprio PC
+
+#### Linux
+
 Edite o hosts:
 ```bash
 sudo nano /etc/hosts
@@ -40,6 +43,31 @@ Adicione:
 Valide:
 ```bash
 getent hosts app1.authentylocal.com.br
+```
+
+#### Windows
+
+Abra o **Bloco de Notas** como **Administrador** e abra o arquivo `C:\Windows\System32\drivers\etc\hosts`.
+
+```text
+127.0.0.1  authentylocal.com.br
+127.0.0.1  app1.authentylocal.com.br
+127.0.0.1  api.authentylocal.com.br
+127.0.0.1  admin.authentylocal.com.br
+```
+
+Valide:
+```bat
+nslookup app1.authentylocal.com.br
+# OU
+ping app1.authentylocal.com.br
+```
+
+Se estiver usando cache e não atualizar, limpe o DNS e teste de novo:
+
+```bat
+ipconfig /flushdns
+nslookup app1.authentylocal.com.br
 ```
 
 
