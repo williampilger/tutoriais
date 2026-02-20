@@ -49,6 +49,14 @@ FLUSH PRIVILEGES;
           -v "$(pwd)":/backup \
           busybox \
           tar -zcvf /backup/db-backup.tar.gz -C /backup-volume .
+
+      # OU, se o comando acima não encontrar o volume (resultado for um backup vazio), use o comando abaixo (MAS INVESTIGUE POR QUE, pois não deve falhar)
+      
+      docker run --rm \
+          --volumes-from mysql-dev \
+          -v "$(pwd)/":/backup \
+          busybox \
+          tar -zcvf /backup/db-backup.tar.gz -C /var/lib/mysql .
       ```
     - ```ps1
       # Microsoft PowerShell
