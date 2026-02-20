@@ -148,7 +148,32 @@ sudo ufw allow 22/tcp
 
 
 
-# 2️⃣ Faça auditorias de tentativas de login SSH com certa frequência
+# 4️⃣ Acesso SSH com Chave-Pública
+
+Lembre-se de combinar esta etapa com o passo 2️⃣. **Não tem nenhuma serventia usar a chave-pública se você continuar permitindo login com senha!**
+
+**Outra observação interessante: Usar uma chave Física é bem mais seguro que um pendrive com uma chave pública**, se era isso que você pretendia fazer.
+Considere adquirir uma *YubiKey* ou similar (que suporte ao FIDO2).
+
+Se a ideia é portar sua chave pública em um pendrive, **definitivamente você DEVE substituí-la com frequência**. Coloque lembretes para fazer isso.
+
+
+
+
+
+---
+
+
+
+
+# 5️⃣ Faça auditorias com certa frequência
+
+Crie rotinas **automatizadas** para auditar os LOGs do SSH e/ou do Firewall.
+
+Se achar que não vale a pena, ou estiver já usando restrições mais severas, crie lembretes semanais/mensais para dar uma "olhada rápida" nos LOGs de eventos do sistema e saber o que está acontecendo.
+
+
+## LOG 1 - Tentativas de login SSH
 
 O SSH registra tudo no **journalctl** ou no `/var/log/auth.log`.
 
@@ -177,4 +202,15 @@ sudo grep "Failed password" /var/log/auth.log | awk '{print $(NF-3)}' | sort | u
 ```
 
 Isso mostra quantas tentativas cada IP fez.
+
+
+
+##  LOG 2 - Firewall `ufw`
+
+Veja uma explicação completa [neste outro tutorial](./firewall_ufw.md).
+
+Veja os logs do UFW com:
+```bash
+sudo grep -i ufw /var/log/syslog
+```
 
