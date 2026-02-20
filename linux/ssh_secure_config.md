@@ -2,6 +2,8 @@
 
 Se, por ventura, você resolver deixar um PC disponível para acesso externo via SSH, é bom tomar alguns cuidados.
 
+Estes 
+
 ```
 ⚠️ Saiba que EXISTE RISCO! Mesmo que você tome cuidado.
 ```
@@ -61,6 +63,18 @@ Ver status:
 
 ```bash
 sudo fail2ban-client status sshd
+```
+
+
+
+# 2️⃣ Configurações do SSH
+
+Você pode modificar as configurações do SSH da sua máquina para serem o mais restritas possível.
+Veja como funciona:
+
+Edite o arquivo de configurações:
+```bash
+
 ```
 
 
