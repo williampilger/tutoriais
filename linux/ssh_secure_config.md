@@ -72,12 +72,43 @@ sudo fail2ban-client status sshd
 Você pode modificar as configurações do SSH da sua máquina para serem o mais restritas possível.
 Veja como funciona:
 
-Edite o arquivo de configurações:
+Edite o arquivo de configurações (no meu caso, `Ubuntu 24.04 LTS`):
 ```bash
-
+sudo nano /etc/ssh/sshd_config
 ```
 
+E, se você estiver editando ainda o arquivo original, verá orientações sobre o uso nele, em forma de ocmentários.
 
+*Lembrando que pode ser interessante fazer uma cópia do seu arquivo original.*
+
+*Exemplo 1*
+```conf
+# Multiplas portas pro SSH (caso queira uma para acesso interno e outro externo, por exemplo)
+Port 22
+Port 2222
+
+# Aqui, configurações GLOBAIS (valem sempre, sem condicional, a menos que sejam sobrescritas)
+PubkeyAuthentication yes
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+
+# Configurações específicas para a porta 22 e IP especifico (sobrescrevem as globais)
+Match LocalPort 22 Address 192.168.0.0/24
+    PasswordAuthentication yes
+    KbdInteractiveAuthentication yes
+
+# Configurações específicas para os IPs específicos (sobrescrevem as globais)
+#  > útil, por exemplo, se quiser aliviar as regras para a rede local, sem diferenciar portas
+Match Address 192.168.0.0/24,10.0.0.0/8,172.16.0.0/12
+    PasswordAuthentication yes
+    KbdInteractiveAuthentication yes
+```
+
+Teste e recarregue:
+```bash
+sudo sshd -t
+sudo systemctl reload ssh
+```
 
 
 
