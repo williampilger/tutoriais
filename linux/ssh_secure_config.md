@@ -119,8 +119,29 @@ sudo systemctl reload ssh
 
 # 3️⃣ Configurações do Firewall
 
+Do mesmo modo que o item 2, a melhor prática aqui é: **quanto mais fechado, melhor**!
+Permita apenas o que for necessário.
 
+Se você seguir a melhor prática, seu computador nem estará esposto diretamente à rede (portas fechadas no modem), mas, de todo modo, ainda assim o firewall fechado é uma boa prática.
 
+*Ativar o Firewall, e permitir o acesso SSH:*
+```bash
+# Liberar para acesso local
+sudo ufw allow from 192.168.0.0/24 to any port 22 proto tcp
+
+# E/OU liberar acesso a algum IP público específico da internet (melhor pratica que abrir)
+sudo ufw allow from 123.123.123.123 to any port 22 proto tcp
+
+# Ativar o Firewall, se ainda não estiver ativo
+sudo ufw enable
+```
+
+Ou, se você optar por permitir o acesso externo mesmo, de qualquer lugar do mundo:
+
+```bash
+# ⚠️ Perigoso
+sudo ufw allow 22/tcp
+```
 
 
 ---
