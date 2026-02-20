@@ -90,6 +90,7 @@ Port 22
 Port 2222
 
 # Aqui, configurações GLOBAIS (valem sempre, sem condicional, a menos que sejam sobrescritas)
+PermitRootLogin no
 PubkeyAuthentication yes
 PasswordAuthentication no
 KbdInteractiveAuthentication no
@@ -156,6 +157,107 @@ Lembre-se de combinar esta etapa com o passo 2️⃣. **Não tem nenhuma servent
 Considere adquirir uma *YubiKey* ou similar (que suporte ao FIDO2).
 
 Se a ideia é portar sua chave pública em um pendrive, **definitivamente você DEVE substituí-la com frequência**. Coloque lembretes para fazer isso.
+
+### 1) No **computador que vai conectar** (cliente): gerar a chave
+
+Recomendado: **ed25519**.
+
+```bash
+ssh-keygen -t ed25519 -a 64 -C "seu_nome@seu_pc"
+
+# ou, para gerar um arquivo de nome conhecido:
+ssh-keygen -t ed25519 -a 64 -f ./chave_nomeada -C "seu_nome@seu_pc"
+```
+
+* Quando perguntar o caminho, pode aceitar o padrão: `~/.ssh/id_ed25519`
+* Digite uma **passphrase** razoável (não precisa ser algo impossível, mas não subestime. Você tem o tempo entre o momento que sua chave foi roubada de você até o momento da descoberta da senha para desativá-la no servidor).
+* O parâmetro `-a 64` define a quantidade de rodadas do OpenSSL para criptografar a senha. Quanto maior, mais demora para quebrar sua senha.
+* O parâmetro `-f ./chave_nomeada` define o nome de saída do seu arquivo. Por padrão (se você não informar) os arquivos são salvos como `~/.ssh/id_ed25519` e `~/.ssh/id_ed25519.pub`
+* O parâmetro `-C "seu_nome@seu_pc"` é apenas um identificador/comentário. Identifique com clareza, para que saiba de onde é esta chave.
+
+Verifica se criou:
+
+```bash
+ls -l ~/.ssh/id_ed25519*
+
+# ou, se tiver usado -f, veja o caminho q vc informou
+```
+
+### 2) Copiar a **chave pública** para o Ubuntu (autorizar a nova chave no servidor)
+
+Jeito mais fácil (via SSH, se você já tiver acesso):
+
+```bash
+ssh-copy-id -i ~/.ssh/id_ed25519.pub usuario@IP_DO_SERVIDOR
+
+# Ou, se usar uma porta diferente:
+ssh-copy-id -i ~/.ssh/id_ed25519.pub -p 2222 usuario@IP_DO_SERVIDOR
+```
+
+Teste login:
+
+```bash
+ssh usuario@IP_DO_SERVIDOR
+```
+
+### 3) Se não tiver `ssh-copy-id`, ou não tiver acesso SSH ao servidor, ou tiver acesso físico ao servidor, faça manual
+
+No cliente, mostre a chave pública:
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+No servidor (Ubuntu), como o usuário que vai logar:
+
+```bash
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+nano ~/.ssh/authorized_keys
+```
+
+Cole **uma linha inteira** da chave pública dentro do `authorized_keys`, salve e saia.
+
+**Para maior segurança:** Defina um período de validade, especialmente se tiver com a intenção de colocar esta chave privada em um pendrive, adicionando uma validade no início da linha (no `~/.ssh/authorized_keys`):
+
+```txt
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... pedro@notebook_valida-pra-sempre
+
+expiry-time="20261231235959Z" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... pedro@notebook_valida-até-20261231
+```
+
+> Importante: antes de desativar senha, mantenha **uma sessão SSH aberta** (uma aba logada) pra não se trancar caso algo dê errado.
+
+
+### 4) Testar login forçando método (no cliente):
+
+Se você salvou o arquivo de credencial no diretório padrão do Client:
+
+```bash
+# Padrão - normalmente funciona
+ssh usuario@IP_DO_SERVIDOR
+
+# Se por ventura ele tentar usar outras formas de autenticar primeiro, pode forçar com:
+ssh -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes usuario@IP_DO_SERVIDOR
+```
+
+Se você tem o arquivo da chave Privada no diretório atual (colocou em um pendrive, por exemplo):
+
+```bash
+ssh -i ./id_ed25519 usuario@IP_DO_SERVIDOR
+# O comando acima, com o -i adiciona a chave atual às disponíveis pra essa conexão.
+# Calma, não copia ela pra máquina, só deixa "disponível".
+# Mas, isso não GARANTE que essa seja a chave que seja usada, se houverem mais disponíveis.
+
+#Ou, para forçar que outras chaves não tentem ser usadas
+ssh -o IdentitiesOnly=yes -i ./id_ed25519 usuario@IP_DO_SERVIDOR
+
+#Ou, se quiser ser ainda mais rigoroso, e remover o agente de identidade da jogada, pode usar:
+ssh -o IdentityAgent=none -o IdentitiesOnly=yes -i ./id_ed25519 usuario@IP_DO_SERVIDOR
+```
+
+> Obviamente, se você usa uma porta diferente, precisará do `-p 12345` no comando...
 
 
 
