@@ -3,7 +3,7 @@
 ```
 ⚠️ IMPORTANTE!
 
-É, obviamente, mais fácil configurar o Wireguard via interface gráfica,
+É, obviamente, mais fácil configurar o Wireguard via interface gráfica (no windows),
 especialmente se você quiser fazer testes rápidos!
 
 Antes de configurar tudo manualmente, experimente a instalação e teste gráfico.
@@ -16,24 +16,22 @@ Acesse A página oficial de download.
 >> Este tutorial usa uma imagem Docker NÃO OFICIAL, mantida pela Linuxserver.io !!
 
 >> Este procedimento não foi amplamente testado por mim ainda, e NÃO VERIFIQUEI A SEGURANÇA E ORIGEM DESTA IMAGEM‼️
-
-⚠️⚠️⚠️⚠️⚠️ Muito importante
-
-NÂO use isso aqui em produção antes de configurar SUAS PROPRIAS CHAVES!
-Elas são as mesmas pra todo mundo que usa essa imagem!
 ```
 
-Links Útei
+Links Úteis
 - Página Oficial [wireguard.com](https://www.wireguard.com/install/);
 - Youtube Tutorial [Configuração GRÁFICA no WIndows](https://www.youtube.com/watch?v=AR5IWUpZbsk&t=343s);
 
 ---
 
-Criar uma VPN particular com WireGuard, rodando em Docker e totalmente isolado.
+Criar uma VPN particular com WireGuard, rodando em Docker, isolado*. 
 
 PS1: *Wireguard pode ser instalado em qualquer Ubuntu-based Linux com `sudo apt install wireguard`, não precisa ser em Docker.*
 
 PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possível rodar ele, via docker, compartilhando o acesso aos módulos `lib/modules` do kernel hospedeiro, tornando assim o container mais leve. Mas neste caso a aplicação não é independende do hospedeiro, e não funciona em Windows.*
+
+**⚠️ Suas configurações são salvas em `~/wireguard/config`**, se você estiver usando uma distro Linux.
+
 
 ---
 
