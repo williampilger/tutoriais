@@ -82,7 +82,7 @@ E, se você estiver editando ainda o arquivo original, verá orientações sobre
 *Lembrando que pode ser interessante fazer uma cópia do seu arquivo original.*
 
 *Exemplo 1*
-```config
+```ini
 # Multiplas portas pro SSH (caso queira uma para acesso interno e outro externo, por exemplo)
 Port 22
 Port 2222
