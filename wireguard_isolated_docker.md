@@ -38,7 +38,6 @@ PS2: *O termo **Totalmente Isolado** usado no título é por conta de ser possí
 ## Criando o Servidor
 
 Substitua o `PEERS=1` pela quantidade de pares que você precisa.
-Você também pode nomear os pares usando `PEERS=celular,computador,teste123,etc`.
 
 ### Criar o diretório para persistir os dados
   - ```sh
