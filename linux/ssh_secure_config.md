@@ -265,6 +265,10 @@ E se o sistema for malipulado, poderá registrar seu PIN da chave, e a partir da
 
 ### 5) Problemas comuns
 
+Para identificar os motivos, use a flag `-v` (verbose) no mometno da conexão:
+> ssh -v -i ./id_ed25519 usuario@IP_DO_SERVIDOR
+
+#### a) Arquivo de credenciais com privilégios "muito abertos"
 
 **Importante:** um arquivo de chave privada, precisa ter permissão `600` dentro de uma pasta com permissão `700`, o que **não é possível dentro de pendrives FAT32 nem NTFS montados tradicionalmente, por exemplo**.
 Esteja com o arquivo em uma partição padrão do Linux (quando estiver acessando por um linux).
@@ -280,12 +284,17 @@ Tem q dar `600` (ou pelo menos não ser `644`/`666`).
 **Alternativa 2**: Criar uma cópia "segura"
 ```bash
 # Copia para a RAM, ajusta a permissão (este diretório é temporário na RAM em qualquer distro linux)
-cp ./authenty /dev/shm/key_tmp && chmod 600 /dev/shm/key_tmp
+cp ./sua_chave /dev/shm/key_tmp && chmod 600 /dev/shm/key_tmp
 
 # Usa a chave salva na RAM
 ssh -i /dev/shm/key_tmp usuario@IP_DO_SERVIDOR
 ```
 
+#### b) Cliente ignorando a chave e tentando com senha
+
+Sempre que a chave falhar, é bem provável que caia no fallback e peça a senha. Neste caso, veja o verbose e tente identificar o motivo.
+
+**Tenha CERTEZA de que sua chave pública está MESMO autorizada.** Escrever os termos, como `expiry-time` de modo errado, ou informar uma validade incorreta fazem a chave ser ignorada!
 
 
 
