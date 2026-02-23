@@ -263,6 +263,30 @@ ssh -o IdentityAgent=none -o IdentitiesOnly=yes -i ./id_ed25519 usuario@IP_DO_SE
 Não use a chave em máquinas não confiáveis! Diferente de uma chave física de autenticação, o "segredo" da chave é legível pelo sistema, e pode ser copiado.
 E se o sistema for malipulado, poderá registrar seu PIN da chave, e a partir daí, conseguir acesso ao seu servidor.
 
+### 5) Problemas comuns
+
+
+**Importante:** um arquivo de chave privada, precisa ter permissão `600` dentro de uma pasta com permissão `700`, o que **não é possível dentro de pendrives FAT32 nem NTFS montados tradicionalmente, por exemplo**.
+Esteja com o arquivo em uma partição padrão do Linux (quando estiver acessando por um linux).
+
+Veja as permissções que seu arquivo tem:
+```bash
+stat -c '%a %n' /media/user/pendrive/sua_chave
+```
+Tem q dar `600` (ou pelo menos não ser `644`/`666`).
+
+**Alternativa 1**: Re-montar a unidade com técnicas para ajustar as pemissões, ou copiar o arquivo para outro sistema de arquivos (pode não ser seguro).
+
+**Alternativa 2**: Criar uma cópia "segura"
+```bash
+# Copia para a RAM, ajusta a permissão (este diretório é temporário na RAM em qualquer distro linux)
+cp ./authenty /dev/shm/key_tmp && chmod 600 /dev/shm/key_tmp
+
+# Usa a chave salva na RAM
+ssh -i /dev/shm/key_tmp usuario@IP_DO_SERVIDOR
+```
+
+
 
 
 ---
