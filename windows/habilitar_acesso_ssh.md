@@ -8,23 +8,39 @@ Caso você queira deixar sua máquina `Windows` acessível via `SSH`, siga os pa
 
 Abra o `PowerShell` **com privilégios de administrador**, e:
 
-Para verificar se os serviços estão instalados:
-> Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
+Dos serviços estão instalados:
+```ps1
+# Verificar se está instalado
+Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
 
-Para instalar:
-> Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+# Instalar
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 
-Iniciar o serviço agora:
-> Start-Service sshd
+# Iniciar ele agora
+Start-Service sshd
 
-Configurar o serviço para iniciar automaticamente com o computador:
-> Set-Service -Name sshd -StartupType 'Automatic'
+# Configurar o serviço para iniciar automaticamente com o computador:
+Set-Service -Name sshd -StartupType 'Automatic'
+```
 
-Verificando se o SSH está liberado no Firewall:
-> Get-NetFirewallRule -Name *ssh*
+Do Firewall
+```ps1
+# Verificando se o SSH está liberado no Firewall:
+Get-NetFirewallRule -Name *ssh*
+
+# Liberar para toda a rede — libera entrada TCP 22 para o OpenSSH Server
+New-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -DisplayName "OpenSSH Server (TCP 22)" `
+  -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+
+# Liberar para rede interna apenas - Mais Seguro
+New-NetFirewallRule -Name "OpenSSH-Server-In-TCP-LocalSubnet" -DisplayName "OpenSSH Server (TCP 22) - LocalSubnet" `
+  -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22 -RemoteAddress LocalSubnet
+```
 
 Configurar o PowerShell como padrão para o SSH:
-> New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force
+```ps1
+New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force
+```
 
 **Comando completo**
 ```ps1
@@ -32,6 +48,9 @@ Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 Set-Service -Name sshd -StartupType 'Automatic'
 New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force
 Start-Service sshd
+
+New-NetFirewallRule -Name "OpenSSH-Server-In-TCP-LocalSubnet" -DisplayName "OpenSSH Server (TCP 22) - LocalSubnet" `
+  -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22 -RemoteAddress LocalSubnet
 ```
 
 Caso você precise trocar o padrão do CMD para o PowerShell, já pelo SSH, você pode usar:
@@ -44,7 +63,9 @@ Ou, para o Powershell 7 (se instalado)
 powershell -Command "New-ItemProperty -Path 'HKLM:\SOFTWARE\OpenSSH' -Name DefaultShell -Value 'C:\Program Files\PowerShell\7\pwsh.exe' -PropertyType String -Force"
 ```
 
+
 ---
+
 
 ## Método 2 - Via Interface Gráfica
 
