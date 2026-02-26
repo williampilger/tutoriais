@@ -5,7 +5,7 @@ E eu vou trazer aqui duas formas de fazer isso.
 
 ---
 
-## 1) A forma fácil e preguiçosa (e que funciona no windows também)
+## Opção 1) A forma fácil e preguiçosa (e que funciona no windows também)
 
 
 No Chrome, instale a extenção `Picture-in-picture` da [loja oficial](https://chromewebstore.google.com/detail/hkgfoiooedgoejojocmhlaklaeopbecg?utm_source=item-share-cb).
@@ -24,7 +24,7 @@ E, por fim, quando já estiver vendo sua webcam na janela, clique sobre a exten�
 ---
 
 
-## 2) Usando o `mpv` para colocar a câmera na tela
+## Opção 2) Usando o `mpv` para colocar a câmera na tela (Apenas Linux)
 
 Instale:
 ```bash
@@ -46,7 +46,7 @@ ls /dev/video*
 ---
 
 
-## 3) Usando o VLC (Funciona no Windows tbm, mas APARECE A BORDA no Linux)
+## Opção 3) Usando o VLC (Funciona no Windows tbm, mas APARECE A BORDA no Linux)
 
 Abra o `VLC Media Player` e navegue até **Mídia** > **Abrir Dispositivos de Captura** e selecione sua camera.
 
