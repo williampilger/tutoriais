@@ -1,11 +1,11 @@
-# Como colocar a WebCam sobre o Desktop no Linux
+# Como colocar a WebCam sobre o Desktop
 
 Pode ser útil para vários cenários colocar a webcam sobre sua tela (e você mesmo ver ela).
 E eu vou trazer aqui duas formas de fazer isso.
 
 ---
 
-## Opção 1) A forma fácil e preguiçosa (e que funciona no windows também)
+## Opção 1) A forma fácil e preguiçosa (e que funciona no Windows e no Linux)
 
 
 No Chrome, instale a extenção `Picture-in-picture` da [loja oficial](https://chromewebstore.google.com/detail/hkgfoiooedgoejojocmhlaklaeopbecg?utm_source=item-share-cb).
@@ -46,7 +46,7 @@ ls /dev/video*
 ---
 
 
-## Opção 3) Usando o VLC (Funciona no Windows tbm, mas APARECE A BORDA no Linux)
+## Opção 3) Usando o VLC (Funciona bem no Windows, mas APARECE A BORDA no Linux)
 
 Abra o `VLC Media Player` e navegue até **Mídia** > **Abrir Dispositivos de Captura** e selecione sua camera.
 
