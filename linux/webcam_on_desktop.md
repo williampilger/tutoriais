@@ -3,7 +3,7 @@
 Pode ser útil para vários cenários colocar a webcam sobre sua tela (e você mesmo ver ela).
 E eu vou trazer aqui duas formas de fazer isso.
 
-
+---
 
 ## 1) A forma fácil e preguiçosa (e que funciona no windows também)
 
@@ -20,6 +20,8 @@ Conceda acesso à sua Webcam;
 
 E, por fim, quando já estiver vendo sua webcam na janela, clique sobre a extenção `Picture-in-picture` e voalá!
 
+
+---
 
 
 ## 2) Usando o `mpv` para colocar a câmera na tela
@@ -39,6 +41,9 @@ Caso precise listar as câmeras:
 ```bash
 ls /dev/video*
 ```
+
+
+---
 
 
 ## 3) Usando o VLC (Funciona no Windows tbm, mas APARECE A BORDA no Linux)
