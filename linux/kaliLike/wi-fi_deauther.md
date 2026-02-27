@@ -18,7 +18,7 @@ sudo apt update
 sudo apt install -y aircrack-ng iw net-tools
 ```
 
-*Colocar/tirar a placa em modo Monitor*
+*Modo 1) Colocar/tirar a placa em modo Monitor*
 ```bash
 # Descobrir o nome da sua interface
 iw dev
@@ -32,9 +32,25 @@ sudo airmon-ng stop wlan0mon  # Substitua pelo nome da sua interface
 sudo systemctl start NetworkManager
 ```
 
-*Para mais informações sobre sua placa de rede, podes usar tembém:*
+*Modo 2) Colocar/tirar a placa em modo Monitor*
 ```bash
+# Ver dados da sua interface
 sudo lshw -C network
+
+# Ativar modo monitor
+sudo ip link set wlp2s0 down
+sudo iw dev wlp2s0 set type monitor
+sudo ip link set wlp2s0 up
+
+# Desativar modo monitor
+sudo ip link set wlp2s0 down
+sudo iw dev wlp2s0 set type managed
+sudo ip link set wlp2s0 up
+
+# Reiniciar serviço de rede
+sudo systemctl start NetworkManager
+# ou
+sudo systemctl restart NetworkManager
 ```
 
 ## Localizar o Alvo
