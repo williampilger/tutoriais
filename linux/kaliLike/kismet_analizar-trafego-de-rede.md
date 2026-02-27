@@ -1,6 +1,6 @@
 # Kismet - Software para analizar todo o tráfego de rede ao seu redor
 
-Para instalar, siga a [documentação oficial);
+Para instalar, siga a [documentação oficial](https://www.kismetwireless.net/packages/);
 
 *Ou, no caso do Ubuntu 25.04 (outro Ubuntu, é outra versão!!)*
 ```bash
