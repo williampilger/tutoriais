@@ -32,6 +32,10 @@ sudo airmon-ng stop wlan0mon  # Substitua pelo nome da sua interface
 sudo systemctl start NetworkManager
 ```
 
+*Para mais informações sobre sua placa de rede, podes usar tembém:*
+```bash
+sudo lshw -C network
+```
 
 ## Localizar o Alvo
 
