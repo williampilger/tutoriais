@@ -49,6 +49,8 @@ psql -h 127.0.0.1 -U postgres -d portal_transparencia
 ```
 > Será solicitada a senha configurada em `POSTGRES_PASSWORD`.
 
+> o pacote `postgresql-client-common` precisa estar instalado no seu Linux (se for seu caso)
+
 Ou, de dentro do container:
 ```bash
 docker exec -it pg-dev psql -U postgres -d portal_transparencia
