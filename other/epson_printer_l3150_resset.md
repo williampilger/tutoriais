@@ -7,7 +7,7 @@ Tem 2 “hard reset” mais comuns na **Epson L3150** (o que as pessoas normalme
 ## 1) Hard reset de Wi-Fi (volta as configs de rede para padrão)
 
 1. Desliga a impressora.
-2. Pressiona e segura o botão **Network Status** (o do Wi-Fi).
+2. Pressiona e segura o botão **Network Status** (o do `i`).
 3. Sem soltar, aperta o botão **Power**.
 4. Segura até as luzes **Wi-Fi** e **Wi-Fi Direct** começarem a piscar alternando.
 5. Solta os dois botões.
