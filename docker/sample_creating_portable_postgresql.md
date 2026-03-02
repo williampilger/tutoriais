@@ -17,6 +17,8 @@
 
 Caso você esteja iniciando seu servidor agora, e queira criar uma instância vazia, execute:
 
+> ⚠️ Diferente do MySQL, o PostgreSQL **exige POSTGRES_DB**, se não ele cria um banco de dados com o mesmo nome de User.  
+
 ```sh
 docker volume create pg-dev-volume
 
