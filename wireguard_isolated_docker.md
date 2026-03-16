@@ -112,6 +112,13 @@ Se você estiver usando linux, e o `ufw`, libere com:
 sudo ufw allow 51820/udp
 ```
 
+Ps.: Para que seu PC aceite a(s) conexões da VPN (para o acesso remoto funcionar, por exemplo), pode ser necessário liberar o Firewall em todas as máquinas.
+Eu, particularmente, uso:
+```
+sudo ufw allow 192.168.0.0/16
+sudo ufw allow 172.17.0.0/16
+```
+
 ---
 
 ## Configurando o acesso em seus dispositivos externos
