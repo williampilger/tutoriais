@@ -54,6 +54,7 @@ Substitua o `PEERS=1` pela quantidade de pares que você precisa.
     # Linux Bash
     PUBLIC_SERVER_IP=65.48.63.89
     PUBLIC_SERVER_PORT=51820
+    INTERNAL_SUBNET=192.168.2.0
     docker run -d \
       --name wireguard \
       --cap-add=NET_ADMIN \
@@ -61,6 +62,7 @@ Substitua o `PEERS=1` pela quantidade de pares que você precisa.
       -e PGID=1000 \
       -e SERVERURL=$PUBLIC_SERVER_IP \
       -e SERVERPORT=$PUBLIC_SERVER_PORT \
+      -e INTERNAL_SUBNET=$INTERNAL_SUBNET \
       -e PEERS=1 \
       -e PEERDNS=auto \
       -e ALLOWEDIPS=0.0.0.0/0 \ #Personalize os IPs permitidos aqui (⚠️ e remova este comentário!!! não funcionam comentários assim!)
@@ -74,6 +76,7 @@ Substitua o `PEERS=1` pela quantidade de pares que você precisa.
     # Microsoft PowerShell
     $PUBLIC_SERVER_IP="65.48.63.89"
     $PUBLIC_SERVER_PORT="51820"
+    $INTERNAL_SUBNET="192.168.2.0"
     docker run -d `
       --name wireguard `
       --cap-add=NET_ADMIN `
@@ -81,6 +84,7 @@ Substitua o `PEERS=1` pela quantidade de pares que você precisa.
       -e PGID=1000 `
       -e SERVERURL=$PUBLIC_SERVER_IP `
       -e SERVERPORT=$PUBLIC_SERVER_PORT `
+      -e INTERNAL_SUBNET=$INTERNAL_SUBNET `
       -e PEERS=1 `
       -e PEERDNS=auto `
       -e ALLOWEDIPS="0.0.0.0/0" `  # Personalize os IPs permitidos aqui
