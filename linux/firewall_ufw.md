@@ -330,3 +330,28 @@ ip a
 
 - Se você usa Docker: o Docker pode mexer em regras de rede por conta própria. Em alguns cenários, você precisa integrar UFW com Docker para que as regras do UFW valham para containers publicados.
 - Para serviços expostos à internet, prefira permitir por **porta + protocolo** (ex.: `22/tcp`) e, quando possível, restringir por IP.
+
+
+# Soluções de Problemas com o Wireguard
+
+Seguem aqui alguns possíveis problemas com a sa conexão.
+
+
+### 1) O CLIENTE conecta, o tráfego de internet passa pela VPN, mas o acesso remoto local não funciona
+
+Isso **geralmente** indica que você tem a mesma faixa de IPs na sua rede local (de onde você acessa a VPN) que a faixa de IPs que você está tentando acessar. Por exemplo: seu dispositivo físico, na sua rede de casa, tem uma faixa de IPs como `192.168.1.x` e o dispositivo que você quer acessar no escritório também. Nesse caso, você precisa definir manualmente uma rota específica para aquele um IP pela sua interface de rede da VPN (supondo, no exemplo abaixo, que `tun0` seja sua interface da VPN e que `192.168.1.6` seja o IP da máquina de destino da conexão).
+
+```bash
+# Lunux
+sudo ip route replace 192.168.1.6/32 dev tun0
+```
+
+*Para conferir se funcionou, ou se ainda está ativa*
+```bash
+ip route | grep 192.168.1.6
+```
+
+*Para remover a regra*
+```bash
+sudo ip route del 192.168.1.6/32
+```
