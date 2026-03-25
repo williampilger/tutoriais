@@ -154,9 +154,13 @@ Precisa configurar do zero? [O lugar é esse](./wireguard_vpn.md)
 ## Comandos úteis para o servidor
 
 Conferir os pares:
-
 ```bash
 docker exec -it wireguard wg show
+```
+
+Conferir os pares em tempo real:
+```bash
+watch -n 2 'docker exec wireguard wg show'
 ```
 
 Adicionar/Alterar clientes:
