@@ -173,6 +173,7 @@ docker rm wireguard
 # Agora, re-crie o container com mais pares (conforme as orientações da etapa de criação)
 ```
 
+Caso queira ter e analisar logs de atividade dos pares, veja [este tutorial complementar](./wireguard_isolated_docker_logExt.md).
 
 ---
 
