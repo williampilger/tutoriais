@@ -31,6 +31,8 @@ sudo apt-get -f install
 - Informe o PIN;
 - Confirme com a sua senha do PC;
 
+Possivelmente será necessário acessar de uma guia anônima para seguir os passos.
+Será necessário copiar um comando e cola-lo no terminal para autorizar o dispositivo.
 
 ---
 
@@ -41,5 +43,4 @@ sudo apt-get -f install
 > **a)** Reiniciar o PC;
 > **b)** Encerrar a ou as seções manualmente [veja como](./loginctl.md). Você pode encerrar apenas a seção do GRD, ou todas as seções do usuário;
 
-Possivelmente será necessário acessar de uma guia anônima para seguir os passos.
-Será necessário copiar um comando e cola-lo no terminal para autorizar o dispositivo.
+
