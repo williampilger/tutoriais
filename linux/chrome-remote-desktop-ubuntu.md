@@ -1,7 +1,9 @@
 # Instalando e configurando o Google Remote Desktop no Ubuntu
 
 > Testado nos sistemas
+> 
 >    `Ubuntu 24.04 LTS` - **Fev. 2025**
+> 
 >    `Ubuntu 25.04` - **Mar. 2026**
 > 
 > **Atenção:** Ativar o acesso remoto desta forma **IMPOSSIBILITA O ACESSO FÍSICO À MÁQUINA** depois de acessá-la remotamente. Depois de reiniciar, o acesso físico volta a funcionar. Isso ocorre porque o software não foi feito para rodar com o Wayland, mas eu uso assim.
@@ -39,8 +41,11 @@ Será necessário copiar um comando e cola-lo no terminal para autorizar o dispo
 # Solução de Problemas
 
 > **Problema:** Não consigo fazer login na máquina física após ter aberto uma seção remota com o GRD.
+> 
 > Opções:
+> 
 > **a)** Reiniciar o PC;
+> 
 > **b)** Encerrar a ou as seções manualmente [veja como](./loginctl.md). Você pode encerrar apenas a seção do GRD, ou todas as seções do usuário;
 
 
