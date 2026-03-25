@@ -40,7 +40,7 @@ Será necessário copiar um comando e cola-lo no terminal para autorizar o dispo
 
 # Solução de Problemas
 
-> **Problema:** Não consigo fazer login na máquina física após ter aberto uma seção remota com o GRD.
+> **Problema:** Não consigo fazer login na máquina física ou pelo RDP após ter aberto uma seção remota com o GRD.
 > 
 > Opções:
 > 
