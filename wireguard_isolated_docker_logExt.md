@@ -15,6 +15,12 @@ Esta ferramenta é fornecida em duas etapas:
 Para capturar os logs de conexões à VPN, considere que o nome do container do Wireguard seja `wireguard`,
 e então crie um script `.sh` com o seguinte conteúdo, que será executado periodicamente por uma cron:
 
+crie os diretórios:
+```bash
+sudo mkdir -p ~/wireguard/scripts
+sudo mkdir -p ~/wireguard/logs
+```
+
 *~/wireguard/scripts/capture_logs.sh*
 ```sh
 #!/bin/bash
@@ -24,10 +30,20 @@ docker exec wireguard wg show all dump | while IFS=$'\t' read -r iface pubkey ps
 done
 ```
 
-Agora, edite sua crontab para executar este script a cada 1 minuto, por exemplo:
+Autorize o script para execução:
 
 ```sh
-* * * * * /home/usuario/wireguard/scripts/capture_logs.sh
+sudo chmod +x ~/wireguard/scripts/capture_logs.sh
+```
+
+Agora, edite sua crontab para executar este script a cada 1 minuto, por exemplo:
+
+```bash
+crontab -e
+```
+
+```txt
+* * * * * ~/wireguard/scripts/capture_logs.sh
 ```
 
 ## 2) Análise dos logs para gerar um relatório
@@ -345,7 +361,7 @@ if __name__ == "__main__":
 Para usar o script de análise, execute o seguinte comando, apontando para o arquivo `peers.log` gerado pelo script de captura:
 
 ```sh
-python3 analyze_logs.py --log /home/usuario/wireguard/logs/peers.log --map /home/usuario/wireguard/logs/pubkey_name_map.csv
+python3 ~/wireguard/scripts/analyze_logs.py --log ~/wireguard/logs/peers.log --map /home/usuario/wireguard/logs/pubkey_name_map.csv
 ```
 O arquivo `pubkey_name_map.csv` é opcional e deve conter linhas no formato `pubkey,nome` para mapear as chaves públicas dos peers para nomes mais amigáveis no gráfico.
 
@@ -360,11 +376,11 @@ pubkey3,Peer C
 Se quiser gerar uma imagem PNG do gráfico em vez de exibi-lo na tela, adicione a opção `--output`:
 
 ```sh
-python3 analyze_logs.py --log /home/usuario/wireguard/logs/peers.log --output ./saida.png
+python3 ~/wireguard/scripts/analyze_logs.py --log /wireguard/logs/peers.log --output ./saida.png
 ```
 
 Se quiser modificar parâmetros de tempo limite, use as flags `--active-window` e `--min-duration`:
 
 ```sh
-python3 analyze_logs.py --log /home/usuario/wireguard/logs/peers.log --active-window 300 --min-duration 60
+python3 ~/wireguard/scripts/analyze_logs.py --log /wireguard/logs/peers.log --active-window 300 --min-duration 60
 ```
