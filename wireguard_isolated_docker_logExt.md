@@ -53,7 +53,7 @@ Com os logs capturados, você pode criar um script para analisar os dados e gera
 *~/wireguard/scripts/analyze_logs.py*
 ```py
 #!/usr/bin/env python3
-# 2026-03-25 - William Pilger < GERADO POR IA
+# 2026-03-25 - William Pilger - Gerado por IA
 
 import argparse
 import csv
@@ -233,13 +233,34 @@ def shorten_pubkey(pubkey: str) -> str:
     return f"{pubkey[:6]}...{pubkey[-6:]}"
 
 
+def get_log_time_bounds(snapshots: List[Snapshot]) -> Tuple[Optional[datetime], Optional[datetime]]:
+    if not snapshots:
+        return None, None
+
+    times = [s.collected_at for s in snapshots]
+    return min(times), max(times)
+
+
+def datetime_span_to_num(start: datetime, end: datetime) -> Tuple[float, float]:
+    start_num = mdates.date2num(start)
+    duration_num = mdates.date2num(end) - start_num
+
+    if duration_num == 0:
+        duration_num = 1 / (24 * 60)  # 1 minuto
+
+    return start_num, duration_num
+
+
 def plot_activity(
     intervals_by_peer: Dict[str, List[Tuple[datetime, datetime]]],
     name_map: Dict[str, str],
     output_path: Optional[str],
+    log_start: Optional[datetime],
+    log_end: Optional[datetime],
 ):
-    peers = [p for p, intervals in intervals_by_peer.items() if intervals]
+    peers = list(intervals_by_peer.keys())
     peers.sort(key=lambda p: name_map.get(p, p))
+    has_any_activity = any(intervals_by_peer.get(p) for p in peers)
 
     if not peers:
         fig, ax = plt.subplots(figsize=(12, 4))
@@ -272,24 +293,43 @@ def plot_activity(
         label = name_map.get(pubkey, shorten_pubkey(pubkey))
         labels.append(label)
 
-        bars = []
-        for start, end in intervals_by_peer[pubkey]:
-            start_num = mdates.date2num(start)
-            duration_num = mdates.date2num(end) - start_num
+        intervals = sorted(intervals_by_peer[pubkey], key=lambda item: item[0])
 
-            # evita barra invisível se houver só 1 ponto
-            if duration_num == 0:
-                duration_num = 1 / (24 * 60)  # 1 minuto
+        empty_bars = []
+        if log_start is not None and log_end is not None and log_end >= log_start:
+            if intervals:
+                first_start = intervals[0][0]
+                last_end = intervals[-1][1]
+                if first_start > log_start:
+                    empty_bars.append(datetime_span_to_num(log_start, first_start))
+                if last_end < log_end:
+                    empty_bars.append(datetime_span_to_num(last_end, log_end))
+            else:
+                empty_bars.append(datetime_span_to_num(log_start, log_end))
 
-            bars.append((start_num, duration_num))
+        if empty_bars:
+            ax.broken_barh(
+                empty_bars,
+                (y - 0.35, 0.7),
+                facecolors="lightgray",
+                alpha=0.6,
+            )
 
-        ax.broken_barh(bars, (y - 0.35, 0.7))
+        active_bars = []
+        for start, end in intervals:
+            active_bars.append(datetime_span_to_num(start, end))
+
+        if active_bars:
+            ax.broken_barh(active_bars, (y - 0.35, 0.7), facecolors="tab:blue")
 
     ax.set_yticks(y_positions)
     ax.set_yticklabels(labels)
     ax.set_xlabel("Horário")
     ax.set_ylabel("Peer")
     ax.set_title("Atividade dos peers WireGuard")
+
+    if log_start is not None and log_end is not None and log_end >= log_start:
+        ax.set_xlim(log_start, log_end)
 
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%d/%m %H:%M"))
     fig.autofmt_xdate()
@@ -302,7 +342,7 @@ def plot_activity(
     else:
         plt.show()
         print("Gráfico exibido na tela.")
-    return True
+    return has_any_activity
 
 
 def print_activity_hint(snapshots: List[Snapshot]) -> None:
@@ -347,7 +387,8 @@ def main():
         active_window=args.active_window,
         min_duration=args.min_duration,
     )
-    has_data = plot_activity(intervals, name_map, args.output)
+    log_start, log_end = get_log_time_bounds(snapshots)
+    has_data = plot_activity(intervals, name_map, args.output, log_start, log_end)
     if not has_data:
         print_activity_hint(snapshots)
 
