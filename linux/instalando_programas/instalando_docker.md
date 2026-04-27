@@ -30,7 +30,7 @@ newgrp docker #aplica as alterações imediatamente
 
 ## Método 2: Instalação do `docker-ce` - Release oficial
 
-Passo a passo extraído da [documentação oficial](https://docs.docker.com/engine/install/ubuntu/).
+Passo a passo extraído da [documentação oficial](https://docs.docker.com/engine/install/ubuntu/) em Abril de 2026.
 
 Eu estou usando o `Ubuntu Server 24.04 LTS` neste exemplo.
 
