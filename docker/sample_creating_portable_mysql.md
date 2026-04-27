@@ -11,6 +11,8 @@
 
 **PS.:** *Eu usei nomes de exemplo, e não os identifiquei, pois este tutorial **não** é para um iniciante no docker.*
 
+**PS.2:** Obviamente, precisa ter [instalado o Docker](https://github.com/williampilger/tutoriais/blob/master/linux/instalando_programas/instalando_docker.md).
+
 ---
 
 ## Criação do servidor (antes do primeiro backup)
