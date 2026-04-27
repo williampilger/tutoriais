@@ -18,6 +18,10 @@ sudo apt install docker.io -y
 
 # Docker docker-compose
 sudo apt install docker-compose
+
+# Autorização do usuário do docker (pra não ter que rodar tudo com sudo)
+sudo usermod -aG docker $USER
+newgrp docker #aplica as alterações imediatamente
 ```
 
 ---
@@ -53,5 +57,9 @@ sudo apt update
 **Instalando**
 ```bash
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Autorização do usuário do docker (pra não ter que rodar tudo com sudo)
+sudo usermod -aG docker $USER
+newgrp docker #aplica as alterações imediatamente
 ```
 
