@@ -6,6 +6,8 @@ A instalação do `docker.io` (Método 1, versão da Canonical) é muito mais si
 e atualizações e correções levam consideravelmente mais tempo para chegarem a este pacote.
 É recomendado o uso do **Método 2** se você quer garantia de atualizações da própria desenvolvedora.
 
+**Para servidores, opte sempre pelo método 2**, pois funcionaidades avançadas e modernas podem não estar disponíveis na versão simplificada da Canonical. 
+
 ---
 
 ## Método 1: Instalação do `docker.io` - Release da Canonical
