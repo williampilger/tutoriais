@@ -175,9 +175,9 @@ rm -rf prisma/migrations
 # Criar uma migration "vazia" sem aplicar (já que você já tem dados no banco)
 mkdir -p prisma/migrations/0001_baseline
 npx prisma migrate diff \
---from-empty \
---to-schema-datamodel prisma/schema.prisma \
---script > prisma/migrations/0001_baseline/migration.sql
+    --from-empty \
+    --to-schema-datamodel prisma/schema.prisma \
+    --script > prisma/migrations/0001_baseline/migration.sql
 ```
 
 ```sql
