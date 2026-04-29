@@ -165,6 +165,7 @@ Tem como ter vários problemas na migração de bancos e/ou no momento de aplica
 (especialmente em fases iniciais do projeto, ou quando o banco de testes/desenvolviemnto anda muito próximo do de produção).
 
 > ▶️ **Reset de Migrations sem perder dados**: Se você precisa apagar as migrations, criar um "init" novo, e permitir apagar o registro dessa aplicação no seu banco de dados, você pode seguir os passos abaixo.
+> 
 > **Atenção**: Tenha certeza de que o banco **REALMENTE ESTÁ SINCRONIZADO**, o que você provavelmente fez com `npx prisma db push` (o que não é indicado, mas eu sei que você faz).
 
 ```bash
