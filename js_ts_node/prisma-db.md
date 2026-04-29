@@ -154,6 +154,7 @@ npx prisma migrate resolve --applied 0_init
 **Lembre-se**: Estes métodos passam sobre as boas práticas. Não deve ser usado em um cenário razoável.
 Preocupe-se se estiver usando isso em produção!
 
+---
 
 
 
@@ -163,9 +164,7 @@ Preocupe-se se estiver usando isso em produção!
 Tem como ter vários problemas na migração de bancos e/ou no momento de aplicar algo em produção
 (especialmente em fases iniciais do projeto, ou quando o banco de testes/desenvolviemnto anda muito próximo do de produção).
 
----
-
-> **Reset de Migrations sem perder dados**: Se você precisa apagar as migrations, criar um "init" novo, e permitir apagar o registro dessa aplicação no seu banco de dados, você precisa:
+> ▶️ **Reset de Migrations sem perder dados**: Se você precisa apagar as migrations, criar um "init" novo, e permitir apagar o registro dessa aplicação no seu banco de dados, você precisa:
 
 ```bash
 # Apagar as migrations (você pode fazer isso manualmente)
