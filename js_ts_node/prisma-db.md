@@ -153,3 +153,36 @@ npx prisma migrate resolve --applied 0_init
 
 **Lembre-se**: Estes métodos passam sobre as boas práticas. Não deve ser usado em um cenário razoável.
 Preocupe-se se estiver usando isso em produção!
+
+
+
+
+
+### Solução de outros conflitos
+
+Tem como ter vários problemas na migração de bancos e/ou no momento de aplicar algo em produção
+(especialmente em fases iniciais do projeto, ou quando o banco de testes/desenvolviemnto anda muito próximo do de produção).
+
+---
+
+> **Reset de Migrations sem perder dados**: Se você precisa apagar as migrations, criar um "init" novo, e permitir apagar o registro dessa aplicação no seu banco de dados, você precisa:
+
+```bash
+# Apagar as migrations (você pode fazer isso manualmente)
+rm -rf prisma/migrations
+
+# Criar uma migration "vazia" sem aplicar (já que você já tem dados no banco)
+mkdir -p prisma/migrations/0001_baseline
+npx prisma migrate diff \
+  --from-empty \
+  --to-schema-datamodel prisma/schema.prisma \
+  --script > prisma/migrations/0001_baseline/migration.sql
+
+# Marcar a migration como aplicada
+npx prisma migrate resolve --applied 0001_baseline
+```
+
+```sql
+# Acesse o seu banco, e remova o histórico de migrations aplicadas:
+DELETE FROM `_prisma_migrations`;
+```
