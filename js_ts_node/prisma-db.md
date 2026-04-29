@@ -164,24 +164,33 @@ Preocupe-se se estiver usando isso em produção!
 Tem como ter vários problemas na migração de bancos e/ou no momento de aplicar algo em produção
 (especialmente em fases iniciais do projeto, ou quando o banco de testes/desenvolviemnto anda muito próximo do de produção).
 
-> ▶️ **Reset de Migrations sem perder dados**: Se você precisa apagar as migrations, criar um "init" novo, e permitir apagar o registro dessa aplicação no seu banco de dados, você precisa:
+> ▶️ **Reset de Migrations sem perder dados**: Se você precisa apagar as migrations, criar um "init" novo, e permitir apagar o registro dessa aplicação no seu banco de dados, você pode seguir os passos abaixo.
+> **Atenção**: Tenha certeza de que o banco **REALMENTE ESTÁ SINCRONIZADO**, o que você provavelmente fez com `npx prisma db push` (o que não é indicado, mas eu sei que você faz).
 
-- ```bash
-  # Apagar as migrations (você pode fazer isso manualmente)
-  rm -rf prisma/migrations
+```bash
+# Apagar as migrations (você pode fazer isso manualmente)
+rm -rf prisma/migrations
 
-  # Criar uma migration "vazia" sem aplicar (já que você já tem dados no banco)
-  mkdir -p prisma/migrations/0001_baseline
-  npx prisma migrate diff \
-    --from-empty \
-    --to-schema-datamodel prisma/schema.prisma \
-    --script > prisma/migrations/0001_baseline/migration.sql
+# Criar uma migration "vazia" sem aplicar (já que você já tem dados no banco)
+mkdir -p prisma/migrations/0001_baseline
+npx prisma migrate diff \
+--from-empty \
+--to-schema-datamodel prisma/schema.prisma \
+--script > prisma/migrations/0001_baseline/migration.sql
+```
 
-  # Marcar a migration como aplicada
-  npx prisma migrate resolve --applied 0001_baseline
-  ```
+```sql
+# Acesse o seu banco, e remova o histórico de migrations aplicadas:
+DELETE FROM `_prisma_migrations`;
+```
 
-- ```sql
-  # Acesse o seu banco, e remova o histórico de migrations aplicadas:
-  DELETE FROM `_prisma_migrations`;
-  ```
+```bash
+# Marcar a migration como aplicada
+npx prisma migrate resolve --applied 0001_baseline
+
+# Agora, pode criar a nova migration aplicando isso no banco
+npx prisma migrate dev
+# e/ou
+npx prisma migrate deploy
+# Ou seja, segue a vida como se dali pra frente isso estivesse aplicado já
+```
