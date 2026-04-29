@@ -166,7 +166,7 @@ Tem como ter vários problemas na migração de bancos e/ou no momento de aplica
 
 > ▶️ **Reset de Migrations sem perder dados**: Se você precisa apagar as migrations, criar um "init" novo, e permitir apagar o registro dessa aplicação no seu banco de dados, você precisa:
 
-    ```bash
+    - ```bash
     # Apagar as migrations (você pode fazer isso manualmente)
     rm -rf prisma/migrations
     
