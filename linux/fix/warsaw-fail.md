@@ -15,3 +15,10 @@ Add o texto abaixo:
 [Service]
 Environment="GLIBC_TUNABLES=glibc.rtld.execstack=2"
 ```
+
+E depois roda:
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart warsaw
+systemctl show warsaw -p Environment
+```
