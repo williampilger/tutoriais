@@ -1,4 +1,4 @@
-# Instalar Ventoy em um pendrive
+# Instalar Ventoy em um pendrive - Usando LINUX
 
 Liste as unidades conectadas, e localise o nome da sua com:
 
@@ -21,3 +21,15 @@ Substituindo `sdc` pela sua unidade correta.
 | Problema | Solução |
 | --- | --- |
 | Mesmo usando `sudo` não ter privilégios suficientes | Desconecte a unidade e contecte-a novamente. Não ejetar ela depois de conectar (parece anti-intuitivo, mas é isso) |
+
+
+---
+
+
+# Instalar Ventoy em um pendrive - Usando WINDOWS
+
+Baixe o ventoy do [site oficial](https://www.ventoy.net/), e extraia o conteúdo do arquivo compactado.
+
+Navegue em seguida até o diretório dos scripts e execute o `Ventoy2Disk.exe` como administrador.
+
+Selecione a unidade correta, e clique em `Install`. Confirme a instalação, e aguarde o processo terminar.
