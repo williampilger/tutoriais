@@ -29,7 +29,7 @@ sudo mv ~/Downloads/astah_uml /opt/astah_uml
 Em seguida, dê permissão de execução ao script principal:
 
 ```bash
-sudo chmod +x /opt/astah_uml/astah-uml
+sudo chmod +x /opt/astah_uml/astah-uml.jar
 ```
 
 > **Observação:** o nome exato da pasta e do executável pode variar conforme a versão baixada. Ajuste os comandos se necessário. Para confirmar o nome do executável, rode `ls /opt/astah_uml/` após mover a pasta.
@@ -56,8 +56,8 @@ Version=1.0
 Type=Application
 Name=Astah UML
 Comment=Ferramenta de modelagem UML
-Exec=/opt/astah_uml/astah-uml
-Icon=/opt/astah_uml/icon/astah_uml.png
+Exec=java -jar /opt/astah_uml/astah-uml.jar
+Icon=/opt/astah_uml/astah.ico
 Terminal=false
 Categories=Development;IDE;
 StartupNotify=true
@@ -84,8 +84,8 @@ Version=1.0
 Type=Application
 Name=Astah UML
 Comment=Ferramenta de modelagem UML
-Exec=/opt/astah_uml/astah-uml
-Icon=/opt/astah_uml/icon/astah_uml.png
+Exec=java .jar /opt/astah_uml/astah-uml.jar
+Icon=/opt/astah_uml/astah.ico
 Terminal=false
 Categories=Development;IDE;
 StartupNotify=true
@@ -114,6 +114,6 @@ Após isso, o Astah UML deverá aparecer no menu de aplicativos do seu sistema.
 | Situação | Solução |
 |---|---|
 | Ícone não aparece | Verifique se o caminho do ícone está correto com `ls /opt/astah_uml/icon/` |
-| App não abre pelo menu | Teste direto no terminal: `/opt/astah_uml/astah-uml` e veja o erro |
+| App não abre pelo menu | Teste direto no terminal: `java -jar /opt/astah_uml/astah-uml.jar` e veja o erro |
 | Executável não encontrado | Confirme o nome exato com `ls /opt/astah_uml/` e ajuste o campo `Exec=` |
 | Java não encontrado | Instale com `sudo apt install default-jre` (Debian/Ubuntu) |
