@@ -1,5 +1,8 @@
 # Instalação de app Java (.jar) no Linux e criação de atalho no menu de apps
 
+Um software `.jar` não efetivamente "instalado" no sistema.
+O que faremos aqui é: 1) Copiar o software para uma pasta padrão do sistema; 2) Criar um atalho no menu;
+
 Neste tutorial usei como exemplo o `Astah UML`, na versão JAVA.
 Meu sistema no momento é o `Xubuntu 24.04 LTS`.
 
