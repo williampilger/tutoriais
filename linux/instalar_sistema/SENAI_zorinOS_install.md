@@ -13,7 +13,7 @@ Primeiramente, precisamos do LiveCD do Sistema Operacional que queremos instalar
 - 1. Acesse o site oficial do ZorinOS: [ZorinOS Download](https://zorin.com/os/download/);
 - 2. Localize a verão Core (neste momento, a versão `Zorin OS 18.1 Core`);
 - 3. Clique em **Download**;
-- 4. Na próxima tela clique em `skip do Download` (ou preencha seu email, mas **isso é opcional**);
+- 4. Na próxima tela clique em `skip to Download` (ou preencha seu email, mas **isso é opcional**);
 - 5. Aguarde o término do download da ISO (que possui `3,6 GB`).
 
 
