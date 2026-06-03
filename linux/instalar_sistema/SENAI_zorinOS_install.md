@@ -6,7 +6,7 @@ O processo é relativamente simples, incluindo o download da ISO, instalação p
 
 
 
-## Download da ISO do sistema
+## 1️⃣ Download da ISO do sistema
 
 Primeiramente, precisamos do LiveCD do Sistema Operacional que queremos instalar.
 
@@ -17,7 +17,7 @@ Primeiramente, precisamos do LiveCD do Sistema Operacional que queremos instalar
 - 5. Aguarde o término do download da ISO (que possui `3,6 GB`).
 
 
-## Gravando a imagem do sistema em um pendrive
+## 2️⃣ Gravando a imagem do sistema em um pendrive
 
 Você pode fazer isso, basicamente, de duas formas:
 
@@ -37,7 +37,7 @@ Tendo ele em mãos, basta copiar a ISO do ZorinOS para o pendrive, e ele já est
 
 
 
-## Instalação do sistema
+## 3️⃣ Instalação do sistema
 
 1. Insira a mídia de instalação (pendrive) no computador onde deseja instalar o ZorinOS;
 2. Inicie o computador dando boot pelo pendrive
@@ -62,7 +62,7 @@ Tendo ele em mãos, basta copiar a ISO do ZorinOS para o pendrive, e ele já est
     1.  Ele vai pedir pra remover a mídia e dar um Enter. Faça.
 
 
-## Configuração pós-instalação
+## 4️⃣ Configuração pós-instalação
 
 Agora, com o sistema instalado e ligado, acesse o usuário `Administrador` que você criou.
 
