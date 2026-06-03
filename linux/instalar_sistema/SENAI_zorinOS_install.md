@@ -74,8 +74,11 @@ Caso o `Atualizador de Programas` abra oferecendo uma atualização neste meio t
 2. Acesse o repositório com o script [github.com/williampilger/williampilger] e procure pelo post-install do Senai;
    1. A URL Exata dele é [essa](https://github.com/williampilger/williampilger/blob/main/PostInstallScripts_LinuxShell/ACI_SENAI_BasicWorkstation_ZorinOS.sh);
 3. No topo do script, você verá um comando para rodar o script diretamente, sem baixar:
-   1. O comando exato é `bash -c "$(curl -fsSL https://raw.githubusercontent.com/williampilger/williampilger/main/PostInstallScripts_LinuxShell/ACI_SENAI_BasicWorkstation_ZorinOS.sh)"`
-   2. Copie esse comando
+   1. O comando exato é:
+        ```bash
+        bash -c "$(curl -fsSL https://raw.githubusercontent.com/williampilger/williampilger/main/PostInstallScripts_LinuxShell/ACI_SENAI_BasicWorkstation_ZorinOS.sh)"
+        ```
+   3. Copie esse comando
 4. No Zorin, abra o terminal (pressionando `Ctrl + Alt + T`), ou clicando no menu e pesquise pelo terminal;
 5. Cole o comando (Com `Ctrl`+`Shift`+`V` ou clicando com o direito e em `Colar`) e dê Enter para executar o script;
 6. Dê um enter para confirmar a execução do script, digite a senha do administrador para confirmar;
