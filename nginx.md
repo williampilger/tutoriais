@@ -294,8 +294,55 @@ sudo tail -n 200 /var/log/nginx/error.log
 ```
 
 
+## 9) Includes e configurações mais avançadas
 
-## 9) Dicas práticas
+Para não precisar repetir inúmeras linhas de código em todos os servidores (como a parte dentro de `/location`, que é igual (ou quase) em todos), você pode criar um arquivo com isso e importar:
+
+> sudo nano /etc/nginx/includes/proxy_params.conf
+
+```conf
+proxy_http_version 1.1;
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection "upgrade";
+proxy_set_header Host $host;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header X-Forwarded-Proto $scheme;
+proxy_cache_bypass $http_upgrade;
+```
+
+E, então, no arquivo principal, use:
+
+```conf
+server {
+  listen 80;
+  server_name app1.authentylocal.com.br;
+  location / {
+    proxy_pass http://127.0.0.1:26001;
+    include includes/proxy_params.conf;
+  }
+}
+```
+
+Caso não tenha entendido o comando no geral, uma explicação por linha de configuração
+
+| Linha | O que faz | Por quê |
+|-------|-----------|--------|
+| `listen 80;` | Nginx escuta na porta 80 (HTTP) | Porta padrão do navegador |
+| `server_name authentylocal.com.br;` | Responde para esse domínio | Filtro do Nginx |
+| `location / {` | Aplica regras para tudo começando com `/` | Catch-all para qualquer URL |
+| `proxy_pass http://127.0.0.1:26001;` | Encaminha requisições para localhost:26001 | Sua aplicação roda lá |
+| **`proxy_http_version 1.1;`** | **Força usar HTTP/1.1** | **WebSocket precisa de HTTP/1.1, não funciona com HTTP/1.0** |
+| **`proxy_set_header Upgrade $http_upgrade;`** | **Repassa o header `Upgrade`** | **Por padrão Nginx descarta. WebSocket precisa dele para fazer upgrade da conexão** |
+| **`proxy_set_header Connection "upgrade";`** | **Define conexão como persistente** | **HTTP padrão é keep-alive, mas WebSocket precisa de uma conexão contínua/upgrade** |
+| `proxy_set_header Host $host;` | Repassa o Host original | A app sabe qual domínio o cliente acessou |
+| `proxy_set_header X-Real-IP $remote_addr;` | IP real do cliente | Logs da app mostram de quem veio a requisição |
+| `proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;` | IP real do cliente (standard) | Compatibilidade com apps que usam esse header |
+| `proxy_set_header X-Forwarded-Proto $scheme;` | Repassa o protocolo (http/https) | A app sabe se foi acessada por HTTP ou HTTPS |
+| **`proxy_cache_bypass $http_upgrade;`** | **Ignora cache quando há WebSocket upgrade** | **WebSocket precisa de conexão fresca, não cached** |
+
+
+## 10) Dicas práticas
 
 - Padronize portas: 3001, 3002, 3003 para apps Node.
 - Mantenha um arquivo por ambiente: authentylocal, staging, etc.
