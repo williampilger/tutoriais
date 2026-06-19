@@ -2,6 +2,9 @@
 
 ## Ubuntu
 
+```bash
+sudo apt install default-jre
+```
 
 ## Fedora
 
