@@ -20,9 +20,21 @@ Dar boot diretamente pelo pendrive, com uma assinatura válida no Secure boot é
           ├─nvme0n1p2   ext4    /boot
           └─nvme0n1p3   crypto_LUKS    ← essa é a que você quer
           ```
-4. Edita o `/etc/crypttab` e adiciona `tpm2-device=auto` nas opções do volume
-5. Reinicia e testa se funcionou
-6. **OPCIONAL**: Se quiser remover sua senha LUKS:
+4. Edita o `/etc/crypttab` e adiciona `tpm2-device=auto` nas opções do volume:
+    - Vai ter algo como:
+        - ```
+          dm_crypt-0  UUID=xxxx-xxxx  none  luks
+          ```
+    - Insira a opção, ficando assim:
+        - ```
+          dm_crypt-0  UUID=xxxx-xxxx  none  luks,tpm2-device=auto
+          ```
+5. Regenere o initramfs
+    - ```bash
+      sudo update-initramfs -u
+      ```
+6. Reinicia e testa se funcionou
+7. **OPCIONAL**: Se quiser remover sua senha LUKS:
     - ```bash
       sudo systemd-cryptenroll --wipe-slot=password /dev/sdX
       ```
