@@ -33,11 +33,11 @@ Dar boot diretamente pelo pendrive, com uma assinatura válida no Secure boot é
         - ```
           dm_crypt-0  UUID=xxxx-xxxx  none  luks,tpm2-device=auto
           ```
-6. Regenere o initramfs
+6. Regenere o initramfs (⚠️só inicie se for TERMINAR!!!)
     - ```bash
       sudo update-initramfs -u
       ```
-    - **ATENÇÃO**: SE VOCÊ VIR AVISOS DE QUALQUER TIPO DE ERRO AQUI, PESQUISE O QUE É E RESOLVA, POIS QUE ESSE COMANDO RODADO COM ERROS DESTROI A INICIALIZAÇÃO DA SUA MÁQUINA!!!
+    - ⚠️ **ATENÇÃO**: SE VOCÊ VIR AVISOS DE QUALQUER TIPO DE ERRO AQUI, PESQUISE O QUE É E RESOLVA, POIS QUE ESSE COMANDO RODADO COM ERROS DESTROI A INICIALIZAÇÃO DA SUA MÁQUINA!!! Se você rodou o comando, e deu algum erro, você PRECISA CORRIGIR O PROBLEMA ANTES DE REINICIAR!!!
 7. Reinicia e testa se funcionou
 8. **OPCIONAL**: Se quiser remover sua senha LUKS:
     - ```bash
