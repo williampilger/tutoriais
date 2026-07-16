@@ -4,7 +4,7 @@ Dar boot diretamente pelo pendrive, com uma assinatura válida no Secure boot é
 
 1. Dar boot com o TPM ativo, mas o Secure Boot DESATIVADO;
 2. Instalar o Ubuntu com criptografia LUKS com senha, padrão;
-3. Depois de instalado, ativar o SecureBoot, e adicionar a uma chave ao TPM para não precisar digitar a senha toda vez:
+3. Depois de instalado, ativar o SecureBoot (MicrosoftSigned Enable), e adicionar a uma chave ao TPM para não precisar digitar a senha toda vez:
   - ```bash
     sudo systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=7 /dev/sdX
     ```
