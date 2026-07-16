@@ -33,7 +33,7 @@ Dar boot diretamente pelo pendrive, com uma assinatura válida no Secure boot é
     - ```bash
       sudo update-initramfs -u
       ```
-    - *PS.: Você verá uns warns, mas não são nada de mais*
+    - **ATENÇÃO**: SE VOCÊ VIR AVISOS DE QUALQUER TIPO DE ERRO AQUI, PESQUISE O QUE É E RESOLVA, POIS QUE ESSE COMANDO RODADO COM ERROS DESTROI A INICIALIZAÇÃO DA SUA MÁQUINA!!!
 6. Reinicia e testa se funcionou
 7. **OPCIONAL**: Se quiser remover sua senha LUKS:
     - ```bash
