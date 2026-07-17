@@ -1,4 +1,4 @@
-# Baixar vídeos do Youtube em alta definição
+# Baixar vídeos do YouTube em alta definição
 
 Este método foi usado por um simples motivo: Nem eu sendo o proprietário dos vídeos, consigo salvá-los em alta definição.
 
@@ -43,8 +43,8 @@ yt-dlp -f 614+233 [URL_DO_VÍDEO] #onde os números são a primeira coluna da ta
 
 ### União de Audio+Video
 
-Em alguns casos, em vídeos de alta qualidade de vídeo e/ou áudio, os dois serãoo baixados separadamente.
-Para unir, você pode usar a mesma áquina Docker e:
+Em alguns casos, em vídeos de alta qualidade de vídeo e/ou áudio, os dois serão baixados separadamente.
+Para unir, você pode usar a mesma máquina Docker e:
 
 ```hs
 # Instalar a dependência (caso não o tenha feito anteriormente... Mas deve ter feito

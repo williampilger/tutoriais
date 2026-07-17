@@ -40,6 +40,9 @@ Estando no diretório adequado, coloque a aplicação para rodar:
 ```bash
 APP_NAME="sample-name"
 pm2 start npm --name $APP_NAME -- start
+
+# Ou, se precisar definir uma porta em específico pro APP:
+PORT=26001 pm2 start npm --name $APP_NAME -- start
 ```
 
 Não preciso dizer que você não precisa usar a variável, se não quiser...
