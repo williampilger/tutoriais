@@ -12,6 +12,8 @@ sudo apt update
 sudo apt upgrade -y
 ```
 
+> ⚠️ Se você tiver com o *SecureBoot* ativo, deve ser necessário reiniciar e assinar os módulos de kernel.
+
 Se mesmo assim não funcionar, tente:
 
 ```bash
