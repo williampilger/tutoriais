@@ -15,8 +15,8 @@ sudo apt upgrade -y
 Se mesmo assim não funcionar, tente:
 
 ```bash
-# instalar os headers (No ubuntu --->> ATENÇÃO, que no Fedora, por exemplo, o comando é bem difetrente, envolve o rpm e é o kernel-headers)
-sudo apt install linux-headers-$(uname -r) build-essential
+# instalar/reinstalar os headers (No ubuntu --->> ATENÇÃO, que no Fedora, por exemplo, o comando é bem difetrente, envolve o rpm e é o kernel-headers)
+sudo apt install --reinstall linux-headers-$(uname -r) build-essential
 
 # Rodar a compilação manualmente
 sudo vmware-modconfig --console --install-all
