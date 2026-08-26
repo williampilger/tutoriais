@@ -26,4 +26,6 @@ Para executar o programa, busque o `Mainline` na sua lista de apps.
 > você ainda precisa escolher qual o kernel (dos instalados) que
 > você pretende usar no boot.
 
-Pra selecionar a versão, pressione `shift` no teclado durante o boot para o GRUB ser exibido.
+Pra selecionar a versão, durante o boot, para o GRUB ser exibido faça:
+- Segure `shift`, ou;
+- Pressione `Esc` repetidamente (se for UEFI) e selecione o modo avançado)
