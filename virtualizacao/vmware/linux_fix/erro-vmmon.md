@@ -71,5 +71,28 @@ sudo reboot
 * Selecione **Reboot**.
 
 
+## Se você já carregou as chaves para o SecureBoot, e "só" precisa reassinar os módulos:
+
+```bash
+# (re)instalar os Headers do sistema
+sudo apt install --reinstall linux-headers-$(uname -r)
+
+# Compilar os módulos do VMWARE
+sudo vmware-modconfig --console --install-all
+
+# Assinar os módulos com a chave que você já tem no SecureBoot (ou seja, você já fez a etapa 2 pelo menos uma vez)
+for m in vmmon vmnet; do
+  sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
+    /var/lib/shim-signed/mok/MOK.priv \
+    /var/lib/shim-signed/mok/MOK.der \
+    /lib/modules/$(uname -r)/misc/$m.ko
+done
+
+# Testando
+sudo dmesg -C
+sudo modprobe vmmon && sudo modprobe vmnet
+lsmod | grep -E 'vmmon|vmnet'
+sudo dmesg
+```
 
 Assim que o sistema reiniciar, o módulo `vmmon` estará assinado e o VMware abrirá normalmente.
