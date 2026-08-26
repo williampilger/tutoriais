@@ -13,3 +13,9 @@ sudo apt install mainline
 ```
 
 Para executar o programa, busque o `Mainline` na sua lista de apps.
+
+> Agora **depois de instalar a versão que você pretende rodar**,
+> você ainda precisa escolher qual o kernel (dos instalados) que
+> você pretende usar no boot. Pra isso:
+>
+> Pressione `shift` no teclado durante o boot para o GRUB ser exibido.
