@@ -8,7 +8,7 @@ Leia mais sobre o tema na [documentação do google](https://cloud.google.com/sq
 **Primeiramente**: [Instale o Google Cloud CLI](./install_cli.md), autentique sua conta, e garanta que tenha as permissões necessárias.
 
 *Instale binário do CloudSQL Proxy e o torne executável*
-```sh
+```bash
 sudo curl -o /usr/local/bin/cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.14.3/cloud-sql-proxy.linux.amd64
 sudo chmod +x /usr/local/bin/cloud-sql-proxy
 ```
@@ -30,7 +30,7 @@ No Google Cloud Console, encontre o **Instance Connection Name** do seu banco:
 As aplicações, como o `cloud-sql-proxy` usam credenciais diferentes da CLI, então, você precisa fazer login.
 
 Em um ambiente de TESTES, é mais comum autenticar usando a própria conta do google:
-```sh
+```bash
 gcloud auth application-default login
 ```
 
@@ -38,7 +38,7 @@ Em ambientes de Produção, **crie uma conta de serviço** com permissões para 
 e baixe o JSON da credencial.
 
 Você **pode** definir o JSON baixado como a credencial padrão para todas aplicações:
-```sh
+```bash
 export GOOGLE_APPLICATION_CREDENTIALS="/caminho/para/sua-chave.json"
 ```
 
