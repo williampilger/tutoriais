@@ -7,20 +7,12 @@ Leia mais sobre o tema na [documentação do google](https://cloud.google.com/sq
 
 **Primeiramente**: [Instale o Google Cloud CLI](./install_cli.md), autentique sua conta, e garanta que tenha as permissões necessárias.
 
-SE VOCÊ AINDA NÂO FEZ LOGIN E/OU SELECIONOU O PROJETO:
-```sh
-#Se você ainda não fez login:
-gcloud auth login
-
-# E selecionou o projeto:
-gcloud config set project [PROJECT_ID]
-```
-
 *Instale binário do CloudSQL Proxy e o torne executável*
 ```sh
 sudo curl -o /usr/local/bin/cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.14.3/cloud-sql-proxy.linux.amd64
 sudo chmod +x /usr/local/bin/cloud-sql-proxy
 ```
+
 
 -----------------
 
@@ -56,11 +48,14 @@ export GOOGLE_APPLICATION_CREDENTIALS="/caminho/para/sua-chave.json"
 Execute o Cloud SQL Auth Proxy para criar o proxy local. Substitua `[INSTANCE_CONNECTION_NAME]` pelo valor copiado:
 
 ```bash
+# Se você não copiar isso pronto do painel... lembre-se que segue um padrão assim: (e sim, importa, o nome incompleto não funciona!!)
+INSTANCE_CONNECTION_NAME=$PROJECT:$REGION:$INSTANCE
+
 # Se você definiu a credencial global (ou fez login com a conta)
-cloud-sql-proxy --port=3306 [INSTANCE_CONNECTION_NAME]
+cloud-sql-proxy --port=3306 $INSTANCE_CONNECTION_NAME
 
 # Se preferir passar a credencial no comando de executar
-cloud-sql-proxy --credentials-file=/caminho/para/sua-chave.json --port=3306 [INSTANCE_CONNECTION_NAME]
+cloud-sql-proxy --credentials-file=/caminho/para/sua-chave.json --port=3306 $INSTANCE_CONNECTION_NAME
 ```
 
 Isso criará um proxy local na porta 3306, conectando ao seu banco de dados no Google Cloud.
