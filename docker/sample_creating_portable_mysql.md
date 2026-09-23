@@ -174,7 +174,7 @@ Será possível acessa-lo usando:
 
 ---
 
-## Extra: Ativar e acompanhar LOGs do Mysql em tempo real
+## Extra 1: Ativar e acompanhar LOGs do Mysql em tempo real
 
 Existe, obviamente, outras formas de fazer isso. Mas, nesse caso, estou fazendo isso **depois do container já rodando, sem parar nada da execução**.
 
@@ -207,6 +207,42 @@ Existe, obviamente, outras formas de fazer isso. Mas, nesse caso, estou fazendo 
   - ```bash
     docker exec -it mysql-dev tail -f /var/lib/mysql/0471780b8d6e.log
     ```
+---
+
+## Extra 2: Importando Dumps do Mysql para seu banco portatil
+
+Você precisa restaurar o dump do Cloud SQL dentro do container `mysql-dev`. O formato do export do Cloud SQL depende de como você exportou lá no GCP:
+
+**1. Crie o banco de destino** (o dump do Cloud SQL normalmente não cria o database, só popula. Mas se ele será criado no script, ignore essa parte.):
+
+```bash
+mysql -h 127.0.0.1 -u root -p -e "CREATE DATABASE \`nome-do-banco\`;"
+```
+
+**2. Importe o dump**
+
+Se for `.sql`:
+```bash
+mysql -h 127.0.0.1 -u root -p nome-do-banco < backup.sql
+```
+
+Se for `.sql.gz`:
+```bash
+gunzip -c backup.sql.gz | mysql -h 127.0.0.1 -u root -p nome-do-banco
+```
+
+### Pontos de atenção comuns com dump do Cloud SQL
+
+- **Versão do MySQL**: se o Cloud SQL usa 8.0 e seu container é 5.7 (ou vice-versa), pode dar erro de sintaxe. Use a mesma major version (`mysql:8.0` como no exemplo já resolve na maioria dos casos).
+- **`DEFINER`**: dumps do Cloud SQL às vezes incluem `DEFINER=`usuário-do-gcp`` em views/procedures/triggers, o que causa erro tipo `Access denied... needs SUPER privilege` ao importar como `root` local. Se der esse erro, rode antes:
+  ```bash
+  sed -i 's/DEFINER=`[^`]*`@`[^`]*`/DEFINER=`root`@`%`/g' backup.sql
+  ```
+- **Tempo**: para bancos grandes, prefira rodar o import de dentro do container ou via named pipe, para evitar overhead de rede desnecessário:
+  ```bash
+  docker exec -i mysql-dev mysql -u root -ppassword nome-do-banco < backup.sql
+  ```
+
 ---
 
 ## Sobre
