@@ -277,7 +277,7 @@ Pra conferir:
 sudo ufw status numbered
 
 #Excluir uma regra 4 (exemplo)
-sudo ufw status numbered
+sudo ufw delete 4
 ```
 
 
