@@ -106,6 +106,9 @@ Ps.: Se tiver Apache instalado, ele pode estar usando a porta 80. Veja o passo 6
 Crie um arquivo de site:
 ```bash
 sudo nano /etc/nginx/sites-available/authentylocal
+
+# OU, pra editar com a interface gráfica (NADA INDICADO!!)
+sudo -E gnome-text-editor /etc/nginx/sites-available/authentylocal
 ```
 
 Exemplo de configuração (HTTP 80):
