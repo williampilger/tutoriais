@@ -261,10 +261,24 @@ Depois configure o Apache para outra porta e religue.
 ## 7) Firewall (se for acessar pela rede)
 
 ```bash
+# Permitir só de onde é necessário
+IP_PERMITIDO=189.45.12.200
+sudo ufw allow from $IP_PERMITIDO to any port 80 proto tcp
+sudo ufw allow from $IP_PERMITIDO to any port 443 proto tcp
+
+# Ou, Permitir de qualquer lugar (PERIGOSO!)
 sudo ufw allow 80
 sudo ufw allow 443
 ```
 
+Pra conferir:
+```bash
+# Listar regras
+sudo ufw status numbered
+
+#Excluir uma regra 4 (exemplo)
+sudo ufw status numbered
+```
 
 
 
