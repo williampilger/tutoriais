@@ -223,7 +223,11 @@ mysql -h 127.0.0.1 -u root -p -e "CREATE DATABASE \`nome-do-banco\`;"
 
 Se for `.sql`:
 ```bash
+# Quando você sabe o banco e quer limitar a ele
 mysql -h 127.0.0.1 -u root -p nome-do-banco < backup.sql
+
+# Quando você não quer limitar, ou há vários bancos
+mysql -h 127.0.0.1 -u root -p < backup.sql
 ```
 
 Se for `.sql.gz`:
