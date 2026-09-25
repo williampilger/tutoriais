@@ -27,6 +27,10 @@ Muito utilizado em servidores ou distros mais conservadoras.
 
 *Para limpar o cache e reiniciar o serviço*
 ```bash
+# Ubuntu 25.04 LTS
+sudo systemctl restart systemd-resolved
+
+# Outros
 sudo systemctl restart nscd
 # ou
 sudo service nscd restart
