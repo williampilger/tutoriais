@@ -326,6 +326,21 @@ ip a
 
 ---
 
+## Extra - Tem como dar validade pra uma regra?
+
+Tem... E tem como fazer diretamente pelo UFW, mas é tão complexo que é muito mais simples agendar um comando pra remover, como:
+```bash
+# libera
+sudo ufw allow from 203.0.113.10 to any port 80 proto tcp comment 'temp até 01/10'
+
+# agenda a remoção (o job roda como root)
+echo "ufw delete allow from 203.0.113.10 to any port 80 proto tcp" | sudo at 23:59 2026-10-01
+```
+
+*Lembrando que, obviamente, o comando rpecisa estar identico e certo... se não você agendou um comando que vai falhar só na hora de rodar.*
+
+---
+
 ## Notas finais
 
 - Se você usa Docker: o Docker pode mexer em regras de rede por conta própria. Em alguns cenários, você precisa integrar UFW com Docker para que as regras do UFW valham para containers publicados.
