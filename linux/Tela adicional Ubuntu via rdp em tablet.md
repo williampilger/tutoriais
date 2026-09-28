@@ -19,6 +19,14 @@ O `Ubuntu 25.04 LTS` tem "dois" acessos remotos nativos:
 
 ## Configurando
 
+> Ative o acesso remoto no Ubuntu acessando:
+> 
+> **Configurações** > **Sistema** > *Compartilhamento de área de trabalho*
+>
+> Defina os usuário, senha, porta, e permita o `Controle remoto* se quiser poder interagir pelo tablet.
+
+
+*Aplicar configuração para extender*
 ```bash
 gsettings set org.gnome.desktop.remote-desktop.rdp screen-share-mode 'extend'
 ```
@@ -27,3 +35,12 @@ gsettings set org.gnome.desktop.remote-desktop.rdp screen-share-mode 'extend'
 ```bash
 gsettings set org.gnome.desktop.remote-desktop.rdp screen-share-mode 'mirror-primary'
 ```
+
+
+## Acessando
+
+Use qualquer Client RDP, embora eu indique:
+
+- Para Android, o [Windows RDP](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx);
+- Para iOS, o [Windows RDP](https://apps.apple.com/br/app/windows-app-mobile/id714464092)
+
