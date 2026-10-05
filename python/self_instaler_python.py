@@ -1,3 +1,7 @@
+# Como criar o executavel:
+# pip install tkinter
+# pyinstaller --onefile --windowed hello.py
+
 import os
 import sys
 import shutil
