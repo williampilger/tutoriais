@@ -33,6 +33,10 @@ E, para aressar ao servidor, use:
 ```bash
 mysql -h 127.0.0.1 -u root -p
 ```
+> **Extra:** Quer acessar ao banco usando o *PHPMyAdmin*?
+>  ```bash
+>  docker run --rm --link mysql-dev:mysql-dev -e PMA_HOST=mysql-dev -p 8080:80 phpmyadmin:latest
+>  ```
 
 Criando o básico do(s) banco(s) e usuário(s):
 ```sql
